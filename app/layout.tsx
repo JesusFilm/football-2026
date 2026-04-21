@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Archivo, Fraunces, Inter, JetBrains_Mono } from "next/font/google";
 
+import { RouteTransitionState } from "@/components/route-transition-state";
 import {
   DEFAULT_DESCRIPTION,
   DEFAULT_TITLE,
@@ -28,12 +29,14 @@ const fraunces = Fraunces({
   subsets: ["latin"],
   style: ["normal", "italic"],
   weight: ["400", "500", "600", "700"],
+  preload: false,
   variable: "--font-serif",
 });
 
 const jetbrainsMono = JetBrains_Mono({
   subsets: ["latin"],
   weight: ["400", "500"],
+  preload: false,
   variable: "--font-mono",
 });
 
@@ -101,6 +104,7 @@ export default function RootLayout({
       className={`${archivo.variable} ${inter.variable} ${fraunces.variable} ${jetbrainsMono.variable}`}
     >
       <body>
+        <RouteTransitionState />
         {children}
         <script
           type="application/ld+json"

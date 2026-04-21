@@ -137,6 +137,62 @@ body {
   animation: bob 2s ease-in-out infinite;
 }
 
+@keyframes hero-transition-reveal {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+html[data-route-transition="true"] .hero-transition-item {
+  animation: hero-transition-reveal 500ms var(--ease-editorial) both;
+}
+
+html[data-route-transition="true"] .hero-transition-item-0 {
+  animation-delay: 0ms;
+}
+
+html[data-route-transition="true"] .hero-transition-item-1 {
+  animation-delay: 80ms;
+}
+
+html[data-route-transition="true"] .hero-transition-item-2 {
+  animation-delay: 160ms;
+}
+
+html[data-route-transition="true"] .hero-transition-item-3 {
+  animation-delay: 240ms;
+}
+
+html[data-route-transition="true"] .hero-transition-item-4 {
+  animation-delay: 320ms;
+}
+
+html[data-route-transition="true"] .hero-transition-item-5 {
+  animation-delay: 400ms;
+}
+
+.reveal-in-view {
+  opacity: 0;
+  transform: translateY(10px);
+  transition:
+    opacity 500ms var(--ease-editorial),
+    transform 500ms var(--ease-editorial);
+}
+
+.reveal-in-view[data-visible="true"] {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal-on-load {
+  animation: hero-transition-reveal 500ms var(--ease-editorial) both;
+}
+
 @keyframes auto-advance-progress {
   from {
     transform: scaleX(0);
@@ -220,6 +276,17 @@ body {
   .animate-bob {
     animation: none;
   }
+  html[data-route-transition="true"] .hero-transition-item {
+    animation: none;
+  }
+  .reveal-in-view {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+  .reveal-on-load {
+    animation: none;
+  }
   [data-testid="auto-advance-progress"] {
     animation: none !important;
     transform: scaleX(1);
@@ -236,7 +303,10 @@ body {
 
 /* Print: always reveal. Prevents opacity:0 content from printing blank. */
 @media print {
-  .reveal {
+  .reveal,
+  .hero-transition-item,
+  .reveal-in-view,
+  .reveal-on-load {
     opacity: 1 !important;
     transform: none !important;
     animation: none !important;

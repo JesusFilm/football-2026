@@ -14,6 +14,7 @@ export function SiteHeader() {
           alt="Jesus Film Project"
           width={186}
           height={47}
+          fetchPriority="high"
           className="h-8 w-auto sm:h-9"
         />
       </Link>

@@ -6,7 +6,7 @@ export function SiteFooter() {
         href="https://www.jesusfilm.org/terms/"
         target="_blank"
         rel="noreferrer"
-        className="mx-1 text-fg-dim no-underline hover:text-fg"
+        className="mx-1 text-fg-dim underline underline-offset-2 hover:text-fg"
       >
         Terms of Use
       </a>{" "}
@@ -15,7 +15,7 @@ export function SiteFooter() {
         href="https://www.jesusfilm.org/privacy/"
         target="_blank"
         rel="noreferrer"
-        className="mx-1 text-fg-dim no-underline hover:text-fg"
+        className="mx-1 text-fg-dim underline underline-offset-2 hover:text-fg"
       >
         Your Privacy
       </a>

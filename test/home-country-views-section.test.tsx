@@ -4,8 +4,8 @@ import { afterEach, describe, expect, it, vi } from "vitest";
 import { HomeCountryViewsSection } from "@/components/home-country-views-section";
 import { REGIONS } from "@/lib/regions";
 
-vi.mock("next/dynamic", () => ({
-  default: () => () => <div data-testid="interactive-map" />,
+vi.mock("@/components/home-country-views-interactive", () => ({
+  HomeCountryViewsInteractive: () => <div data-testid="interactive-map" />,
 }));
 
 const countries = [
@@ -24,9 +24,10 @@ describe("HomeCountryViewsSection", () => {
     vi.unstubAllGlobals();
   });
 
-  it("loads the interactive map after the section enters the viewport", () => {
+  it("loads the interactive map after the section enters the viewport", async () => {
     class MockIntersectionObserver {
       observe = vi.fn();
+      unobserve = vi.fn();
       disconnect = vi.fn();
 
       constructor(
@@ -50,10 +51,10 @@ describe("HomeCountryViewsSection", () => {
     expect(screen.queryByTestId("interactive-map")).not.toBeInTheDocument();
     expect(screen.getAllByTestId("skeleton-country-row")).toHaveLength(10);
 
-    act(() => {
+    await act(async () => {
       intersect(true);
     });
 
-    expect(screen.getByTestId("interactive-map")).toBeInTheDocument();
+    expect(await screen.findByTestId("interactive-map")).toBeInTheDocument();
   });
 });

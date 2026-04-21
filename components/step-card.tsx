@@ -5,9 +5,18 @@ type Props = {
   title: string;
   body: string;
   icon?: LucideIcon;
+  titleLevel?: "h2" | "h3";
 };
 
-export function StepCard({ num, title, body, icon: Icon }: Props) {
+export function StepCard({
+  num,
+  title,
+  body,
+  icon: Icon,
+  titleLevel = "h2",
+}: Props) {
+  const Title = titleLevel;
+
   return (
     <div className="rounded-[var(--radius-lg)] border border-line bg-[rgb(20_16_12_/_0.55)] px-5 py-[18px] backdrop-blur-xl">
       <div className="mb-3 flex items-center justify-between gap-3">
@@ -20,7 +29,7 @@ export function StepCard({ num, title, body, icon: Icon }: Props) {
           </div>
         )}
       </div>
-      <h3 className="mb-1 text-[15px] font-semibold">{title}</h3>
+      <Title className="mb-1 text-[15px] font-semibold">{title}</Title>
       <p className="text-[13px] leading-[1.5] text-fg-dim">{body}</p>
     </div>
   );
