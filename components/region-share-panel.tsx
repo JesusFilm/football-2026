@@ -220,6 +220,7 @@ export function RegionSharePanel({ regionCode, journeys }: Props) {
             width={132}
             height={40}
             className="translate-y-px"
+            style={{ width: "auto", height: "auto" }}
           />
         </a>
       </div>
