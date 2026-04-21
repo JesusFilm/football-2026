@@ -1,7 +1,8 @@
-import { act, render, screen } from "@testing-library/react";
+import { act, screen } from "@testing-library/react";
 import { afterEach, describe, expect, it, vi } from "vitest";
 
 import { CountryViewsSection } from "@/components/country-views-section";
+import { renderWithIntl } from "@/test/intl-test-utils";
 
 vi.mock("next/dynamic", () => ({
   default:
@@ -57,7 +58,7 @@ describe("CountryViewsSection lazy loading", () => {
 
     vi.stubGlobal("IntersectionObserver", MockIntersectionObserver);
 
-    render(
+    renderWithIntl(
       <CountryViewsSection
         regionName="North America & Oceania"
         regionCode="NAmOceania"
@@ -87,7 +88,7 @@ describe("CountryViewsSection lazy loading", () => {
   });
 
   it("renders empty and unavailable states without loading the map", () => {
-    const { rerender } = render(
+    const { rerender } = renderWithIntl(
       <CountryViewsSection
         regionName="East Asia"
         regionCode="East Asia"

@@ -1,6 +1,7 @@
 "use client";
 
 import NextImage from "next/image";
+import { useTranslations } from "next-intl";
 import { useEffect, useRef, useState } from "react";
 
 import type { Journey } from "@/lib/journeys";
@@ -79,6 +80,7 @@ type Props = {
 };
 
 export function RegionSharePanel({ regionCode, journeys }: Props) {
+  const t = useTranslations("SharePanel");
   const [selected, setSelected] = useState<Journey | null>(() =>
     defaultJourney(journeys),
   );
@@ -179,8 +181,8 @@ export function RegionSharePanel({ regionCode, journeys }: Props) {
   const shareQr = async () => {
     if (!selected || !url) return;
 
-    const title = `${selected.language.english} World Cup 2026 video`;
-    const text = `Watch and share this World Cup 2026 story in ${selected.language.english}.`;
+    const title = t("shareTitle", { language: selected.language.english });
+    const text = t("shareText", { language: selected.language.english });
 
     if (navigator.share) {
       try {
@@ -211,6 +213,9 @@ export function RegionSharePanel({ regionCode, journeys }: Props) {
       <div className="order-2 md:order-1">
         <VideoPreview
           key={selected?.slug ?? "empty-preview"}
+          loadingLabel={t("loadingPreview")}
+          previewLabel={t("preview")}
+          previewTitle={(code) => t("previewTitle", { regionCode: code })}
           regionCode={regionCode}
           slug={selected?.slug}
         />
@@ -219,10 +224,10 @@ export function RegionSharePanel({ regionCode, journeys }: Props) {
           target="_blank"
           rel="noreferrer"
           className="mx-auto mt-3 flex w-fit items-center justify-center gap-2 opacity-60 no-underline transition-opacity hover:opacity-90"
-          aria-label="Made with NextSteps"
+          aria-label={t("madeWithAria")}
         >
           <span className="font-mono text-[9px] tracking-[0.14em] text-fg-mute uppercase">
-            Made with
+            {t("madeWith")}
           </span>
           <NextImage
             src="/nextsteps.png"
@@ -237,7 +242,7 @@ export function RegionSharePanel({ regionCode, journeys }: Props) {
 
       {/* Right: language picker + share + QR */}
       <div className="order-1 min-w-0 md:order-2">
-        <FieldLabel label="Choose a Language" />
+        <FieldLabel label={t("chooseLanguage")} />
         <div
           ref={rootRef}
           className="relative mb-6"
@@ -267,7 +272,7 @@ export function RegionSharePanel({ regionCode, journeys }: Props) {
                   )}
                 </>
               ) : (
-                <span className="text-fg-mute">Select a language</span>
+                <span className="text-fg-mute">{t("selectLanguage")}</span>
               )}
             </span>
             <span
@@ -291,7 +296,7 @@ export function RegionSharePanel({ regionCode, journeys }: Props) {
             <div className="absolute top-[calc(100%+6px)] right-0 left-0 z-40 max-h-[260px] overflow-y-auto rounded-[var(--radius-md)] border border-line-strong bg-[#141009] p-1.5 shadow-[0_12px_32px_rgba(0,0,0,0.5)]">
               {journeys.length === 0 ? (
                 <div className="px-3 py-2.5 text-sm text-fg-mute">
-                  No journeys yet for this region.
+                  {t("noJourneys")}
                 </div>
               ) : (
                 journeys.map((j) => (
@@ -303,7 +308,7 @@ export function RegionSharePanel({ regionCode, journeys }: Props) {
                       setSelected(j);
                       setOpen(false);
                     }}
-                    className="flex w-full cursor-pointer items-baseline justify-between gap-4 rounded-[4px] px-3 py-2.5 text-left text-sm leading-none transition-colors hover:bg-[rgb(230_57_70_/_0.1)]"
+                    className="flex w-full cursor-pointer items-baseline justify-between gap-4 rounded-[4px] px-3 py-2.5 text-start text-sm leading-none transition-colors hover:bg-[rgb(230_57_70_/_0.1)]"
                   >
                     <span className="leading-none">{j.language.english}</span>
                     {j.language.native && (
@@ -318,7 +323,7 @@ export function RegionSharePanel({ regionCode, journeys }: Props) {
           )}
         </div>
 
-        <FieldLabel label="Share Link" />
+        <FieldLabel label={t("shareLink")} />
         <div className="mb-6 flex gap-2">
           <div
             className={`flex flex-1 items-center overflow-hidden rounded-[var(--radius-md)] border px-[14px] py-3 font-mono text-[13px] text-ellipsis whitespace-nowrap select-all ${
@@ -327,13 +332,13 @@ export function RegionSharePanel({ regionCode, journeys }: Props) {
                 : "border-line-strong bg-ink-2 text-fg-mute"
             }`}
           >
-            {hasSelection ? url : "Select a language"}
+            <span dir="ltr">{hasSelection ? url : t("selectLanguage")}</span>
           </div>
           <button
             type="button"
             onClick={copy}
-            aria-label="Copy link"
-            title="Copy link"
+            aria-label={t("copyLink")}
+            title={t("copyLink")}
             className={`flex cursor-pointer items-center justify-center rounded-[var(--radius-md)] border px-[14px] text-white transition-colors ${
               copyStatus === "copied"
                 ? "border-green bg-green"
@@ -373,12 +378,17 @@ export function RegionSharePanel({ regionCode, journeys }: Props) {
           </button>
         </div>
 
-        <FieldLabel label="QR Code" />
+        <FieldLabel label={t("qrCode")} />
         <div className="flex items-start gap-3.5">
-          <QrBox value={hasSelection ? url : null} />
+          <QrBox
+            placeholder={t("qrPlaceholder")}
+            value={hasSelection ? url : null}
+          />
           <div className="flex flex-col gap-2">
             <IconBtn
-              title={qrAction === "downloaded" ? "Downloaded" : "Download PNG"}
+              title={
+                qrAction === "downloaded" ? t("downloaded") : t("downloadPng")
+              }
               disabled={!hasSelection}
               onClick={downloadQr}
               status={qrAction === "downloaded" ? "success" : "idle"}
@@ -388,12 +398,12 @@ export function RegionSharePanel({ regionCode, journeys }: Props) {
             <IconBtn
               title={
                 qrAction === "shared"
-                  ? "Shared"
+                  ? t("shared")
                   : qrAction === "copied"
-                    ? "Copied"
+                    ? t("copied")
                     : qrAction === "error"
-                      ? "Try again"
-                      : "Share"
+                      ? t("tryAgain")
+                      : t("share")
               }
               disabled={!hasSelection}
               onClick={shareQr}
@@ -433,11 +443,17 @@ function FieldLabel({ label, hint }: { label: string; hint?: string }) {
   );
 }
 
-function QrBox({ value }: { value: string | null }) {
+function QrBox({
+  placeholder,
+  value,
+}: {
+  placeholder: string;
+  value: string | null;
+}) {
   if (!value) {
     return (
       <div className="relative flex h-32 w-32 shrink-0 items-center justify-center rounded-[var(--radius-md)] border border-dashed border-line-strong bg-ink-2 font-mono text-[11px] tracking-[0.14em] text-fg-mute">
-        QR
+        {placeholder}
       </div>
     );
   }
@@ -539,9 +555,15 @@ function ShareIcon() {
 }
 
 function VideoPreview({
+  loadingLabel,
+  previewLabel,
+  previewTitle,
   regionCode,
   slug,
 }: {
+  loadingLabel: string;
+  previewLabel: string;
+  previewTitle: (regionCode: string) => string;
   regionCode: string;
   slug: string | undefined;
 }) {
@@ -587,7 +609,7 @@ function VideoPreview({
       {iframeSrc && !loaded && (
         <div className="absolute inset-0 z-20 flex flex-col items-center justify-center gap-3 p-6 text-center text-fg">
           <span className="font-mono text-[10px] tracking-[0.16em] text-fg-dim uppercase">
-            {isInView ? "Loading preview" : "Preview"}
+            {isInView ? loadingLabel : previewLabel}
           </span>
         </div>
       )}
@@ -595,7 +617,7 @@ function VideoPreview({
         <iframe
           key={iframeSrc}
           src={iframeSrc}
-          title={`${regionCode} preview`}
+          title={previewTitle(regionCode)}
           className="pointer-events-auto absolute inset-0 z-10 h-full w-full origin-top-left border-0 md:h-[125%] md:w-[125%] md:scale-[0.8]"
           loading="lazy"
           onLoad={() => setLoadedSrc(iframeSrc)}

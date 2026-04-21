@@ -1,3 +1,5 @@
+import { useTranslations } from "next-intl";
+
 import { HomeCountryViewsReveal } from "@/components/home-country-views-reveal";
 import { HomeCountryViewsInteractiveLoader } from "@/components/home-country-views-interactive-loader";
 import { CountryViewsSummary } from "@/components/country-views-summary";
@@ -10,13 +12,15 @@ type Props = {
 };
 
 export function HomeCountryViewsSection({ regions, countries }: Props) {
+  const t = useTranslations("CountryViews");
+
   return (
     <HomeCountryViewsReveal
       summary={
         <CountryViewsSummary
           countries={countries}
-          heading="Top countries by views"
-          listLabel="Global country views ranking"
+          heading={t("topCountriesHeading")}
+          listLabel={t("globalRankingLabel")}
           limit={10}
         />
       }

@@ -1,4 +1,5 @@
 import type { JsonbinRegionCode } from "@/lib/regions";
+import { resolveCountryCodeFromName } from "@/lib/country-display";
 
 const JSONBIN_COUNTRY_VIEWS_URL =
   "https://api.jsonbin.io/v3/b/69d452a936566621a8867f6b?meta=false";
@@ -19,6 +20,7 @@ type RawCountryViewsRow = {
 
 export type CountryView = {
   countryName: string;
+  sourceCountryName?: string;
   regionCode: string;
   countryCode?: string;
   journeyViews: number;
@@ -73,13 +75,16 @@ export function normalizeCountryViewsRows(rows: unknown): CountryView[] {
       if (!countryName || !regionCode) return null;
       if (NON_COUNTRY_NAMES.has(countryName)) return null;
 
-      const countryCode = normalizeCountryCode(raw["prod_geo[iso3_2]"]);
+      const countryCode =
+        normalizeCountryCode(raw["prod_geo[iso3_2]"]) ??
+        resolveCountryCodeFromName(countryName);
       if (!countryCode && !REAL_LIST_ONLY_COUNTRIES.has(countryName)) {
         return null;
       }
 
       return {
         countryName,
+        sourceCountryName: countryName,
         regionCode,
         countryCode,
         journeyViews: normalizeViews(raw["[JourneyViews]"]),

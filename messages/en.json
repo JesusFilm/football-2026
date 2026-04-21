@@ -1,0 +1,191 @@
+{
+  "Metadata": {
+    "siteName": "Jesus Film Project · World Cup 2026 Activate",
+    "defaultTitle": "World Cup 2026 · Activate Your Region",
+    "titleTemplate": "{title} · Activate · World Cup 2026",
+    "defaultDescription": "Jesus Film Project Activate — share World Cup 2026 videos in the language that matches your audience.",
+    "socialAlt": "World Cup 2026 Activate by Jesus Film Project",
+    "ogBrand": "Jesus Film Project",
+    "ogHeadline": "World Cup 2026 Outreach",
+    "ogTagline": "Every match, every nation, every soul.",
+    "homeSchemaName": "World Cup 2026 · Activate Your Region",
+    "breadcrumbAllRegions": "All regions",
+    "regionTitle": "Activate {regionName}",
+    "fallbackRegionTitle": "Region"
+  },
+  "Home": {
+    "eyebrow": "World Cup 2026 · Outreach",
+    "tagline": "Every match, every nation, every soul.",
+    "title": "Activate Your Region",
+    "description": "Jesus Film Project has created a simple way to share the Gospel with your friends and family during the World Cup.",
+    "regionHeading": "Select Your Region",
+    "regionSubheading": "Seven regions. Pick the one you're activating."
+  },
+  "Regions": {
+    "africa": {
+      "name": "Africa",
+      "blurb": "Across Africa's activation region. Hundreds of languages. One game.",
+      "seoDescription": "World Cup 2026 outreach tools for Africa: share videos in local languages and track country-level views.",
+      "flags": {
+        "ng": "Nigeria",
+        "za": "South Africa",
+        "ke": "Kenya",
+        "gh": "Ghana",
+        "et": "Ethiopia"
+      }
+    },
+    "east-asia": {
+      "name": "East Asia",
+      "blurb": "China, Japan, Korea, Mongolia — the heart of the Pacific rim.",
+      "seoDescription": "Activate East Asia for World Cup 2026 with regional Jesus Film Project videos, QR codes, share links, and view tracking.",
+      "flags": {
+        "cn": "China",
+        "jp": "Japan",
+        "kr": "Korea",
+        "mn": "Mongolia",
+        "tw": "Taiwan"
+      }
+    },
+    "europe": {
+      "name": "Europe",
+      "blurb": "The continent where the modern game was written.",
+      "seoDescription": "Activate Europe during World Cup 2026 with Jesus Film Project videos, QR codes, share links, and regional view data.",
+      "flags": {
+        "gb": "United Kingdom",
+        "fr": "France",
+        "de": "Germany",
+        "es": "Spain",
+        "it": "Italy"
+      }
+    },
+    "lac": {
+      "name": "Latin America & Caribbean",
+      "blurb": "From Tijuana to Tierra del Fuego — a continent unified by football.",
+      "seoDescription": "World Cup 2026 outreach tools for Latin America & Caribbean: share regional videos, QR codes, and local-language journeys.",
+      "flags": {
+        "br": "Brazil",
+        "ar": "Argentina",
+        "co": "Colombia",
+        "mx": "Mexico",
+        "cl": "Chile"
+      }
+    },
+    "namestan": {
+      "name": "North Africa, Middle East & Central Asia",
+      "blurb": "Morocco to Kazakhstan — across three continents.",
+      "seoDescription": "Activate North Africa, the Middle East & Central Asia with World Cup 2026 videos, QR codes, and local-language sharing tools.",
+      "flags": {
+        "ma": "Morocco",
+        "eg": "Egypt",
+        "sa": "Saudi Arabia",
+        "ir": "Iran",
+        "kz": "Kazakhstan"
+      }
+    },
+    "nao": {
+      "name": "North America & Oceania",
+      "blurb": "United States, Canada, Australia, New Zealand & the Pacific.",
+      "seoDescription": "World Cup 2026 outreach tools for North America & Oceania: share local-language videos, QR codes, and regional view data.",
+      "flags": {
+        "us": "United States",
+        "ca": "Canada",
+        "au": "Australia",
+        "nz": "New Zealand",
+        "fj": "Fiji"
+      }
+    },
+    "sesa": {
+      "name": "South & South East Asia",
+      "blurb": "From Mumbai to Manila — home to a quarter of the world's people.",
+      "seoDescription": "World Cup 2026 outreach tools for South & South East Asia: share local-language videos across a high-reach region.",
+      "flags": {
+        "in": "India",
+        "id": "Indonesia",
+        "ph": "Philippines",
+        "vn": "Vietnam",
+        "th": "Thailand"
+      }
+    }
+  },
+  "Region": {
+    "eyebrow": "World Cup 2026 · {regionCode}",
+    "tagline": "Every match, every nation, every soul.",
+    "title": "Activate {regionName}",
+    "description": "{regionBlurb} Jesus Film Project has created a simple way to share the Gospel with your friends and family during the World Cup.",
+    "countriesLabel": "{count, plural, one {country} other {countries}}",
+    "languagesLabel": "{count, plural, one {language} other {languages}}",
+    "allRegions": "All regions",
+    "otherRegionsHeading": "Explore Other Regions"
+  },
+  "Steps": {
+    "chooseNum": "01 / CHOOSE",
+    "chooseTitle": "Pick a language",
+    "chooseBody": "Find videos in your audience's local language — 30+ options.",
+    "shareNum": "02 / SHARE",
+    "shareTitle": "Send it",
+    "shareBody": "Share the QR code or link anywhere — SMS, social, print, in person.",
+    "trackNum": "03 / TRACK",
+    "trackTitle": "See the impact",
+    "trackBody": "Watch views and shares as the story spreads across your region."
+  },
+  "CountryViews": {
+    "homeEyebrow": "Global views",
+    "regionEyebrow": "World Cup 2026",
+    "heading": "Where The Story is Spreading",
+    "topCountriesHeading": "Top countries by views",
+    "globalRankingLabel": "Global country views ranking",
+    "regionHeading": "{regionName} country views",
+    "regionRankingLabel": "{regionName} country views ranking",
+    "topCountry": "Top country",
+    "totalViews": "Total views",
+    "countries": "Countries",
+    "rankingLabel": "Country ranking",
+    "allRegions": "All",
+    "viewsSuffix": "views",
+    "tooltip": "{countryName}: {views} views",
+    "viewsUnavailableLabel": "Views unavailable",
+    "viewsUnavailableBody": "Country view data could not be loaded right now.",
+    "noViewsLabel": "No country views yet",
+    "noViewsBody": "No country-level views are available for {regionName} yet."
+  },
+  "SharePanel": {
+    "heading": "Pick a language. Pass it on.",
+    "description": "Pick the language that matches your audience, then paste the link anywhere you already message people.",
+    "chooseLanguage": "Choose a Language",
+    "selectLanguage": "Select a language",
+    "noJourneys": "No journeys yet for this region.",
+    "shareLink": "Share Link",
+    "copyLink": "Copy link",
+    "qrCode": "QR Code",
+    "downloaded": "Downloaded",
+    "downloadPng": "Download PNG",
+    "shared": "Shared",
+    "copied": "Copied",
+    "tryAgain": "Try again",
+    "share": "Share",
+    "qrPlaceholder": "QR",
+    "madeWith": "Made with",
+    "madeWithAria": "Made with NextSteps",
+    "loadingPreview": "Loading preview",
+    "preview": "Preview",
+    "previewTitle": "{regionCode} preview",
+    "shareTitle": "{language} World Cup 2026 video",
+    "shareText": "Watch and share this World Cup 2026 story in {language}."
+  },
+  "Footer": {
+    "copyright": "© 2026 Jesus Film Project",
+    "rights": "All rights reserved",
+    "terms": "Terms of Use",
+    "privacy": "Your Privacy"
+  },
+  "Header": {
+    "homeAria": "Jesus Film Project — home",
+    "logoAlt": "Jesus Film Project"
+  },
+  "LanguagePicker": {
+    "label": "Language",
+    "ariaLabel": "Change language",
+    "currentLanguage": "Current language: {language}",
+    "menuLabel": "Choose a language"
+  }
+}

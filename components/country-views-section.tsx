@@ -2,6 +2,7 @@
 
 import dynamic from "next/dynamic";
 import { motion, useReducedMotion } from "motion/react";
+import { useTranslations } from "next-intl";
 import { useEffect, useRef, useState } from "react";
 
 import { CountryViewsSummary } from "@/components/country-views-summary";
@@ -35,6 +36,7 @@ export function CountryViewsSection({
   countries,
   unavailable = false,
 }: Props) {
+  const t = useTranslations("CountryViews");
   const ref = useRef<HTMLElement | null>(null);
   const [inView, setInView] = useState(false);
   const prefersReducedMotion = useReducedMotion();
@@ -82,13 +84,13 @@ export function CountryViewsSection({
         }}
       >
         <span className="inline-block font-mono text-[11px] font-semibold tracking-[0.18em] text-accent uppercase">
-          World Cup 2026
+          {t("regionEyebrow")}
         </span>
         <h2
           id="country-views-heading"
           className="mt-2 mb-0 font-display text-[32px] font-bold tracking-[-0.01em]"
         >
-          Where The Story is Spreading
+          {t("heading")}
         </h2>
       </motion.div>
 
@@ -105,20 +107,20 @@ export function CountryViewsSection({
       >
         {unavailable ? (
           <SectionState
-            label="Views unavailable"
-            body="Country view data could not be loaded right now."
+            label={t("viewsUnavailableLabel")}
+            body={t("viewsUnavailableBody")}
           />
         ) : regionCountries.length === 0 ? (
           <SectionState
-            label="No country views yet"
-            body={`No country-level views are available for ${regionName} yet.`}
+            label={t("noViewsLabel")}
+            body={t("noViewsBody", { regionName })}
           />
         ) : (
           <>
             <CountryViewsSummary
               countries={regionCountries}
-              heading={`${regionName} country views`}
-              listLabel={`${regionName} country views ranking`}
+              heading={t("regionHeading", { regionName })}
+              listLabel={t("regionRankingLabel", { regionName })}
             />
             {visible ? (
               <HomeCountryViewsInteractive

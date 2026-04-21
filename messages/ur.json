@@ -1,0 +1,191 @@
+{
+  "Metadata": {
+    "siteName": "Jesus Film Project · ورلڈ کپ 2026 ایکٹیویٹ",
+    "defaultTitle": "ورلڈ کپ 2026 · اپنا خطہ فعال کریں",
+    "titleTemplate": "{title} · ایکٹیویٹ · ورلڈ کپ 2026",
+    "defaultDescription": "Jesus Film Project Activate — ورلڈ کپ 2026 کی ویڈیوز اپنے سامعین کی زبان میں شیئر کریں۔",
+    "socialAlt": "Jesus Film Project کی طرف سے ورلڈ کپ 2026 ایکٹیویٹ",
+    "ogBrand": "Jesus Film Project",
+    "ogHeadline": "ورلڈ کپ 2026 آؤٹ ریچ",
+    "ogTagline": "ہر میچ، ہر قوم، ہر جان۔",
+    "homeSchemaName": "ورلڈ کپ 2026 · اپنا خطہ فعال کریں",
+    "breadcrumbAllRegions": "تمام خطے",
+    "regionTitle": "{regionName} فعال کریں",
+    "fallbackRegionTitle": "خطہ"
+  },
+  "Home": {
+    "eyebrow": "ورلڈ کپ 2026 · آؤٹ ریچ",
+    "tagline": "ہر میچ، ہر قوم، ہر جان۔",
+    "title": "اپنا خطہ فعال کریں",
+    "description": "Jesus Film Project نے ورلڈ کپ کے دوران دوستوں اور خاندان کے ساتھ انجیل شیئر کرنے کا ایک آسان طریقہ بنایا ہے۔",
+    "regionHeading": "اپنا خطہ منتخب کریں",
+    "regionSubheading": "سات خطے۔ وہ خطہ منتخب کریں جسے آپ فعال کر رہے ہیں۔"
+  },
+  "Regions": {
+    "africa": {
+      "name": "افریقہ",
+      "blurb": "افریقہ کے ایکٹیویشن خطے میں۔ سینکڑوں زبانیں۔ ایک کھیل۔",
+      "seoDescription": "افریقہ کے لیے ورلڈ کپ 2026 آؤٹ ریچ ٹولز: مقامی زبانوں میں ویڈیوز شیئر کریں اور ملکی سطح کے views ٹریک کریں۔",
+      "flags": {
+        "ng": "نائجیریا",
+        "za": "جنوبی افریقہ",
+        "ke": "کینیا",
+        "gh": "گھانا",
+        "et": "ایتھوپیا"
+      }
+    },
+    "east-asia": {
+      "name": "مشرقی ایشیا",
+      "blurb": "چین، جاپان، کوریا، منگولیا — بحرالکاہل کے کنارے کا دل۔",
+      "seoDescription": "علاقائی Jesus Film Project ویڈیوز، QR کوڈز، شیئر لنکس اور view tracking کے ساتھ ورلڈ کپ 2026 کے لیے مشرقی ایشیا کو فعال کریں۔",
+      "flags": {
+        "cn": "چین",
+        "jp": "جاپان",
+        "kr": "جنوبی کوریا",
+        "mn": "منگولیا",
+        "tw": "تائیوان"
+      }
+    },
+    "europe": {
+      "name": "یورپ",
+      "blurb": "وہ براعظم جہاں جدید کھیل لکھا گیا۔",
+      "seoDescription": "ورلڈ کپ 2026 کے دوران Jesus Film Project ویڈیوز، QR کوڈز، شیئر لنکس اور علاقائی view data کے ساتھ یورپ کو فعال کریں۔",
+      "flags": {
+        "gb": "سلطنت متحدہ",
+        "fr": "فرانس",
+        "de": "جرمنی",
+        "es": "ہسپانیہ",
+        "it": "اٹلی"
+      }
+    },
+    "lac": {
+      "name": "لاطینی امریکہ اور کیریبین",
+      "blurb": "تیخوانا سے ٹیئرا ڈیل فیوگو تک — فٹ بال سے متحد ایک براعظم۔",
+      "seoDescription": "لاطینی امریکہ اور کیریبین کے لیے ورلڈ کپ 2026 آؤٹ ریچ ٹولز: علاقائی ویڈیوز، QR کوڈز اور مقامی زبان کی journeys شیئر کریں۔",
+      "flags": {
+        "br": "برازیل",
+        "ar": "ارجنٹینا",
+        "co": "کولمبیا",
+        "mx": "میکسیکو",
+        "cl": "چلی"
+      }
+    },
+    "namestan": {
+      "name": "شمالی افریقہ، مشرق وسطیٰ اور وسطی ایشیا",
+      "blurb": "مراکش سے قازقستان تک — تین براعظموں میں۔",
+      "seoDescription": "ورلڈ کپ 2026 ویڈیوز، QR کوڈز اور مقامی زبان کے شیئرنگ ٹولز کے ساتھ شمالی افریقہ، مشرق وسطیٰ اور وسطی ایشیا کو فعال کریں۔",
+      "flags": {
+        "ma": "مراکش",
+        "eg": "مصر",
+        "sa": "سعودی عرب",
+        "ir": "ایران",
+        "kz": "قزاخستان"
+      }
+    },
+    "nao": {
+      "name": "شمالی امریکہ اور اوشیانیا",
+      "blurb": "امریکہ، کینیڈا، آسٹریلیا، نیوزی لینڈ اور بحرالکاہل۔",
+      "seoDescription": "شمالی امریکہ اور اوشیانیا کے لیے ورلڈ کپ 2026 آؤٹ ریچ ٹولز: مقامی زبان کی ویڈیوز، QR کوڈز اور علاقائی view data شیئر کریں۔",
+      "flags": {
+        "us": "ریاست ہائے متحدہ امریکہ",
+        "ca": "کینیڈا",
+        "au": "آسٹریلیا",
+        "nz": "نیوزی لینڈ",
+        "fj": "فجی"
+      }
+    },
+    "sesa": {
+      "name": "جنوبی اور جنوب مشرقی ایشیا",
+      "blurb": "ممبئی سے منیلا تک — دنیا کی ایک چوتھائی آبادی کا گھر۔",
+      "seoDescription": "جنوبی اور جنوب مشرقی ایشیا کے لیے ورلڈ کپ 2026 آؤٹ ریچ ٹولز: وسیع رسائی والے خطے میں مقامی زبان کی ویڈیوز شیئر کریں۔",
+      "flags": {
+        "in": "بھارت",
+        "id": "انڈونیشیا",
+        "ph": "فلپائن",
+        "vn": "ویتنام",
+        "th": "تھائی لینڈ"
+      }
+    }
+  },
+  "Region": {
+    "eyebrow": "ورلڈ کپ 2026 · {regionCode}",
+    "tagline": "ہر میچ، ہر قوم، ہر جان۔",
+    "title": "{regionName} فعال کریں",
+    "description": "{regionBlurb} Jesus Film Project نے ورلڈ کپ کے دوران دوستوں اور خاندان کے ساتھ انجیل شیئر کرنے کا ایک آسان طریقہ بنایا ہے۔",
+    "countriesLabel": "{count, plural, one {ملک} other {ممالک}}",
+    "languagesLabel": "{count, plural, one {زبان} other {زبانیں}}",
+    "allRegions": "تمام خطے",
+    "otherRegionsHeading": "دیگر خطے دیکھیں"
+  },
+  "Steps": {
+    "chooseNum": "01 / منتخب کریں",
+    "chooseTitle": "زبان منتخب کریں",
+    "chooseBody": "اپنے سامعین کی مقامی زبان میں ویڈیوز تلاش کریں — 30 سے زیادہ اختیارات۔",
+    "shareNum": "02 / شیئر کریں",
+    "shareTitle": "بھیجیں",
+    "shareBody": "QR کوڈ یا لنک کہیں بھی شیئر کریں — SMS، سوشل، پرنٹ یا آمنے سامنے۔",
+    "trackNum": "03 / دیکھیں",
+    "trackTitle": "اثر دیکھیں",
+    "trackBody": "جب کہانی آپ کے خطے میں پھیلتی ہے تو views اور shares دیکھیں۔"
+  },
+  "CountryViews": {
+    "homeEyebrow": "عالمی views",
+    "regionEyebrow": "ورلڈ کپ 2026",
+    "heading": "کہانی کہاں پھیل رہی ہے",
+    "topCountriesHeading": "views کے لحاظ سے سرفہرست ممالک",
+    "globalRankingLabel": "عالمی ملک views رینکنگ",
+    "regionHeading": "{regionName} ملک views",
+    "regionRankingLabel": "{regionName} ملک views رینکنگ",
+    "topCountry": "سرفہرست ملک",
+    "totalViews": "کل views",
+    "countries": "ممالک",
+    "rankingLabel": "ملک رینکنگ",
+    "allRegions": "سب",
+    "viewsSuffix": "views",
+    "tooltip": "{countryName}: {views} views",
+    "viewsUnavailableLabel": "views دستیاب نہیں",
+    "viewsUnavailableBody": "ملکی سطح کا view data ابھی لوڈ نہیں ہو سکا۔",
+    "noViewsLabel": "ابھی کوئی ملک views نہیں",
+    "noViewsBody": "{regionName} کے لیے ابھی ملکی سطح کے views دستیاب نہیں ہیں۔"
+  },
+  "SharePanel": {
+    "heading": "زبان منتخب کریں۔ آگے پہنچائیں۔",
+    "description": "وہ زبان منتخب کریں جو آپ کے سامعین سے ملتی ہو، پھر لنک وہاں پیسٹ کریں جہاں آپ پہلے سے لوگوں کو پیغام بھیجتے ہیں۔",
+    "chooseLanguage": "زبان منتخب کریں",
+    "selectLanguage": "زبان منتخب کریں",
+    "noJourneys": "اس خطے کے لیے ابھی کوئی journey نہیں ہے۔",
+    "shareLink": "شیئر لنک",
+    "copyLink": "لنک کاپی کریں",
+    "qrCode": "QR کوڈ",
+    "downloaded": "ڈاؤن لوڈ ہو گیا",
+    "downloadPng": "PNG ڈاؤن لوڈ کریں",
+    "shared": "شیئر ہو گیا",
+    "copied": "کاپی ہو گیا",
+    "tryAgain": "دوبارہ کوشش کریں",
+    "share": "شیئر کریں",
+    "qrPlaceholder": "QR",
+    "madeWith": "بنایا گیا",
+    "madeWithAria": "NextSteps سے بنایا گیا",
+    "loadingPreview": "پری ویو لوڈ ہو رہا ہے",
+    "preview": "پری ویو",
+    "previewTitle": "{regionCode} پری ویو",
+    "shareTitle": "{language} ورلڈ کپ 2026 ویڈیو",
+    "shareText": "{language} میں یہ ورلڈ کپ 2026 کہانی دیکھیں اور شیئر کریں۔"
+  },
+  "Footer": {
+    "copyright": "© 2026 Jesus Film Project",
+    "rights": "جملہ حقوق محفوظ ہیں",
+    "terms": "استعمال کی شرائط",
+    "privacy": "آپ کی رازداری"
+  },
+  "Header": {
+    "homeAria": "Jesus Film Project — ہوم",
+    "logoAlt": "Jesus Film Project"
+  },
+  "LanguagePicker": {
+    "label": "زبان",
+    "ariaLabel": "زبان تبدیل کریں",
+    "currentLanguage": "موجودہ زبان: {language}",
+    "menuLabel": "زبان منتخب کریں"
+  }
+}

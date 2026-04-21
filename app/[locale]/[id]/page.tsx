@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
 
 import { CountryViewsSection } from "@/components/country-views-section";
@@ -14,8 +15,14 @@ import {
   fetchCountryViews,
   filterCountryViewsByRegion,
 } from "@/lib/country-views";
+import { getLocaleOption, type Locale } from "@/i18n/routing";
 import { fetchJourneys } from "@/lib/journeys";
-import { getRegionById, REGIONS } from "@/lib/regions";
+import {
+  getLocalizedRegion,
+  getLocalizedRegions,
+} from "@/lib/localized-regions";
+import { REGIONS } from "@/lib/regions";
+import { getLocalePath, getLocalizedAlternates } from "@/lib/url-utils";
 import { sharedOpenGraph, sharedTwitter, SITE_URL } from "@/lib/site";
 
 export async function generateStaticParams() {
@@ -25,28 +32,35 @@ export async function generateStaticParams() {
 export async function generateMetadata({
   params,
 }: {
-  params: Promise<{ id: string }>;
+  params: Promise<{ locale: Locale; id: string }>;
 }): Promise<Metadata> {
-  const { id } = await params;
-  const region = getRegionById(id);
+  const { locale, id } = await params;
+  const region = await getLocalizedRegion(locale, id);
   if (!region) {
-    return { title: "Region" };
+    const t = await getTranslations({ locale, namespace: "Metadata" });
+    return { title: t("fallbackRegionTitle") };
   }
-  const title = `Activate ${region.name}`;
+  const t = await getTranslations({ locale, namespace: "Metadata" });
+  const option = getLocaleOption(locale);
+  const title = t("regionTitle", { regionName: region.name });
   const description = region.seoDescription;
-  const canonical = `/${region.id}`;
+  const canonical = getLocalePath(locale, `/${region.id}`);
   return {
     title,
     description,
-    alternates: { canonical },
+    alternates: {
+      canonical,
+      languages: getLocalizedAlternates(`/${region.id}`),
+    },
     openGraph: {
-      ...sharedOpenGraph,
+      ...sharedOpenGraph(locale, t("socialAlt"), t("siteName")),
+      locale: option.openGraphLocale,
       url: canonical,
       title,
       description,
     },
     twitter: {
-      ...sharedTwitter,
+      ...sharedTwitter(locale),
       title,
       description,
     },
@@ -54,12 +68,17 @@ export async function generateMetadata({
 }
 
 type Props = {
-  params: Promise<{ id: string }>;
+  params: Promise<{ locale: Locale; id: string }>;
 };
 
 export default async function RegionPage({ params }: Props) {
-  const { id } = await params;
-  const region = getRegionById(id);
+  const { locale, id } = await params;
+  setRequestLocale(locale);
+  const [region, regions, metadataT] = await Promise.all([
+    getLocalizedRegion(locale, id),
+    getLocalizedRegions(locale),
+    getTranslations({ locale, namespace: "Metadata" }),
+  ]);
   if (!region) notFound();
 
   const [journeysResult, countryViewsResult] = await Promise.allSettled([
@@ -92,32 +111,32 @@ export default async function RegionPage({ params }: Props) {
     "@graph": [
       {
         "@type": "WebPage",
-        "@id": `${SITE_URL}/${region.id}#webpage`,
-        url: `${SITE_URL}/${region.id}`,
-        name: `Activate ${region.name}`,
+        "@id": `${SITE_URL}${getLocalePath(locale, `/${region.id}`)}#webpage`,
+        url: `${SITE_URL}${getLocalePath(locale, `/${region.id}`)}`,
+        name: metadataT("regionTitle", { regionName: region.name }),
         description: region.seoDescription,
         isPartOf: {
           "@id": `${SITE_URL}/#website`,
         },
         breadcrumb: {
-          "@id": `${SITE_URL}/${region.id}#breadcrumb`,
+          "@id": `${SITE_URL}${getLocalePath(locale, `/${region.id}`)}#breadcrumb`,
         },
       },
       {
         "@type": "BreadcrumbList",
-        "@id": `${SITE_URL}/${region.id}#breadcrumb`,
+        "@id": `${SITE_URL}${getLocalePath(locale, `/${region.id}`)}#breadcrumb`,
         itemListElement: [
           {
             "@type": "ListItem",
             position: 1,
-            name: "All regions",
-            item: SITE_URL,
+            name: metadataT("breadcrumbAllRegions"),
+            item: `${SITE_URL}${getLocalePath(locale)}`,
           },
           {
             "@type": "ListItem",
             position: 2,
             name: region.name,
-            item: `${SITE_URL}/${region.id}`,
+            item: `${SITE_URL}${getLocalePath(locale, `/${region.id}`)}`,
           },
         ],
       },
@@ -168,7 +187,7 @@ export default async function RegionPage({ params }: Props) {
           unavailable={resolvedCountryViewsResult.status === "unavailable"}
         />
 
-        <OtherRegionsNav currentRegionId={region.id} regions={REGIONS} />
+        <OtherRegionsNav currentRegionId={region.id} regions={regions} />
       </main>
 
       <SiteFooter />

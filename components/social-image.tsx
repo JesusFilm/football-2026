@@ -7,7 +7,17 @@ export const size = {
 };
 export const contentType = "image/png";
 
-export default function Image() {
+type Props = {
+  brand?: string;
+  headline?: string;
+  tagline?: string;
+};
+
+export function OpenGraphImage({
+  brand = "Jesus Film Project",
+  headline = "World Cup 2026 Outreach",
+  tagline = "Every match, every nation, every soul.",
+}: Props) {
   return new ImageResponse(
     <div
       style={{
@@ -33,7 +43,7 @@ export default function Image() {
           textTransform: "uppercase",
         }}
       >
-        Jesus Film Project
+        {brand}
       </div>
       <div
         style={{
@@ -45,7 +55,7 @@ export default function Image() {
           textAlign: "center",
         }}
       >
-        World Cup 2026 Outreach
+        {headline}
       </div>
       <div
         style={{
@@ -57,7 +67,7 @@ export default function Image() {
           textAlign: "center",
         }}
       >
-        Every match, every nation, every soul.
+        {tagline}
       </div>
     </div>,
     size,

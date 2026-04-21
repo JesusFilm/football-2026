@@ -38,12 +38,14 @@ describe("normalizeCountryViewsRows", () => {
     expect(countries).toEqual([
       {
         countryName: "United States",
+        sourceCountryName: "United States",
         regionCode: "NAmOceania",
         countryCode: "US",
         journeyViews: 170768,
       },
       {
         countryName: "Canada",
+        sourceCountryName: "Canada",
         regionCode: "NAmOceania",
         countryCode: "CA",
         journeyViews: 10,
@@ -93,7 +95,9 @@ describe("normalizeCountryViewsRows", () => {
     expect(countries).toEqual([
       {
         countryName: "Kosovo",
+        sourceCountryName: "Kosovo",
         regionCode: "Europe",
+        countryCode: "XK",
         journeyViews: 0,
       },
     ]);
@@ -155,6 +159,7 @@ describe("fetchCountryViews", () => {
       countries: [
         {
           countryName: "Japan",
+          sourceCountryName: "Japan",
           regionCode: "East Asia",
           countryCode: "JP",
           journeyViews: 4639,

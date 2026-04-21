@@ -1,0 +1,191 @@
+{
+  "Metadata": {
+    "siteName": "Jesus Film Project · 2026 世界杯行动",
+    "defaultTitle": "2026 世界杯 · 启动你的区域",
+    "titleTemplate": "{title} · 行动 · 2026 世界杯",
+    "defaultDescription": "Jesus Film Project行动：用符合受众语言的 2026 世界杯视频进行分享。",
+    "socialAlt": "Jesus Film Project 2026 世界杯行动",
+    "ogBrand": "Jesus Film Project",
+    "ogHeadline": "2026 世界杯外展",
+    "ogTagline": "每一场比赛，每一个国家，每一个灵魂。",
+    "homeSchemaName": "2026 世界杯 · 启动你的区域",
+    "breadcrumbAllRegions": "所有区域",
+    "regionTitle": "启动{regionName}",
+    "fallbackRegionTitle": "区域"
+  },
+  "Home": {
+    "eyebrow": "2026 世界杯 · 外展",
+    "tagline": "每一场比赛，每一个国家，每一个灵魂。",
+    "title": "启动你的区域",
+    "description": "Jesus Film Project创建了一种简单方式，帮助你在世界杯期间与亲友分享福音。",
+    "regionHeading": "选择你的区域",
+    "regionSubheading": "七个区域。选择你正在启动的区域。"
+  },
+  "Regions": {
+    "africa": {
+      "name": "非洲",
+      "blurb": "遍及非洲行动区域。数百种语言。同一场比赛。",
+      "seoDescription": "面向非洲的 2026 世界杯外展工具：分享当地语言视频，并跟踪国家级观看数据。",
+      "flags": {
+        "ng": "尼日利亚",
+        "za": "南非",
+        "ke": "肯尼亚",
+        "gh": "加纳",
+        "et": "埃塞俄比亚"
+      }
+    },
+    "east-asia": {
+      "name": "东亚",
+      "blurb": "中国、日本、韩国、蒙古——太平洋沿岸的核心。",
+      "seoDescription": "用区域性的Jesus Film Project视频、二维码、分享链接和观看跟踪，为 2026 世界杯启动东亚。",
+      "flags": {
+        "cn": "中国",
+        "jp": "日本",
+        "kr": "韩国",
+        "mn": "蒙古",
+        "tw": "台湾"
+      }
+    },
+    "europe": {
+      "name": "欧洲",
+      "blurb": "现代足球书写成形的大陆。",
+      "seoDescription": "在 2026 世界杯期间，用Jesus Film Project视频、二维码、分享链接和区域观看数据启动欧洲。",
+      "flags": {
+        "gb": "英国",
+        "fr": "法国",
+        "de": "德国",
+        "es": "西班牙",
+        "it": "意大利"
+      }
+    },
+    "lac": {
+      "name": "拉丁美洲和加勒比",
+      "blurb": "从蒂华纳到火地岛——因足球而合一的大陆。",
+      "seoDescription": "面向拉丁美洲和加勒比的 2026 世界杯外展工具：分享区域视频、二维码和当地语言旅程。",
+      "flags": {
+        "br": "巴西",
+        "ar": "阿根廷",
+        "co": "哥伦比亚",
+        "mx": "墨西哥",
+        "cl": "智利"
+      }
+    },
+    "namestan": {
+      "name": "北非、中东和中亚",
+      "blurb": "从摩洛哥到哈萨克斯坦——跨越三大洲。",
+      "seoDescription": "用 2026 世界杯视频、二维码和当地语言分享工具启动北非、中东和中亚。",
+      "flags": {
+        "ma": "摩洛哥",
+        "eg": "埃及",
+        "sa": "沙特阿拉伯",
+        "ir": "伊朗",
+        "kz": "哈萨克斯坦"
+      }
+    },
+    "nao": {
+      "name": "北美洲和大洋洲",
+      "blurb": "美国、加拿大、澳大利亚、新西兰和太平洋地区。",
+      "seoDescription": "面向北美洲和大洋洲的 2026 世界杯外展工具：分享当地语言视频、二维码和区域观看数据。",
+      "flags": {
+        "us": "美国",
+        "ca": "加拿大",
+        "au": "澳大利亚",
+        "nz": "新西兰",
+        "fj": "斐济"
+      }
+    },
+    "sesa": {
+      "name": "南亚和东南亚",
+      "blurb": "从孟买到马尼拉——世界四分之一人口的家园。",
+      "seoDescription": "面向南亚和东南亚的 2026 世界杯外展工具：在高覆盖区域分享当地语言视频。",
+      "flags": {
+        "in": "印度",
+        "id": "印度尼西亚",
+        "ph": "菲律宾",
+        "vn": "越南",
+        "th": "泰国"
+      }
+    }
+  },
+  "Region": {
+    "eyebrow": "2026 世界杯 · {regionCode}",
+    "tagline": "每一场比赛，每一个国家，每一个灵魂。",
+    "title": "启动{regionName}",
+    "description": "{regionBlurb} Jesus Film Project创建了一种简单方式，帮助你在世界杯期间与亲友分享福音。",
+    "countriesLabel": "{count, plural, one {国家} other {国家}}",
+    "languagesLabel": "{count, plural, one {语言} other {语言}}",
+    "allRegions": "所有区域",
+    "otherRegionsHeading": "探索其他区域"
+  },
+  "Steps": {
+    "chooseNum": "01 / 选择",
+    "chooseTitle": "选择一种语言",
+    "chooseBody": "找到使用受众当地语言的视频，提供 30 多种选择。",
+    "shareNum": "02 / 分享",
+    "shareTitle": "发送出去",
+    "shareBody": "在任何地方分享二维码或链接：短信、社交媒体、印刷品或面对面。",
+    "trackNum": "03 / 跟进",
+    "trackTitle": "查看影响",
+    "trackBody": "随着故事在你的区域传播，查看观看和分享情况。"
+  },
+  "CountryViews": {
+    "homeEyebrow": "全球观看",
+    "regionEyebrow": "2026 世界杯",
+    "heading": "故事正在传播到哪里",
+    "topCountriesHeading": "按观看次数排名的热门国家",
+    "globalRankingLabel": "全球国家观看排名",
+    "regionHeading": "{regionName} 国家观看",
+    "regionRankingLabel": "{regionName} 国家观看排名",
+    "topCountry": "排名第一的国家",
+    "totalViews": "总观看次数",
+    "countries": "国家",
+    "rankingLabel": "国家排名",
+    "allRegions": "全部",
+    "viewsSuffix": "次观看",
+    "tooltip": "{countryName}：{views} 次观看",
+    "viewsUnavailableLabel": "观看数据不可用",
+    "viewsUnavailableBody": "目前无法加载国家观看数据。",
+    "noViewsLabel": "还没有国家观看数据",
+    "noViewsBody": "{regionName} 目前还没有国家级观看数据。"
+  },
+  "SharePanel": {
+    "heading": "选择一种语言。传递出去。",
+    "description": "选择符合受众的语言，然后把链接粘贴到你平常联系人的任何地方。",
+    "chooseLanguage": "选择语言",
+    "selectLanguage": "选择一种语言",
+    "noJourneys": "该区域还没有旅程。",
+    "shareLink": "分享链接",
+    "copyLink": "复制链接",
+    "qrCode": "二维码",
+    "downloaded": "已下载",
+    "downloadPng": "下载 PNG",
+    "shared": "已分享",
+    "copied": "已复制",
+    "tryAgain": "重试",
+    "share": "分享",
+    "qrPlaceholder": "二维码",
+    "madeWith": "制作工具",
+    "madeWithAria": "使用 NextSteps 制作",
+    "loadingPreview": "正在加载预览",
+    "preview": "预览",
+    "previewTitle": "{regionCode} 预览",
+    "shareTitle": "{language} 2026 世界杯视频",
+    "shareText": "观看并分享这个使用 {language} 的 2026 世界杯故事。"
+  },
+  "Footer": {
+    "copyright": "© 2026 Jesus Film Project",
+    "rights": "保留所有权利",
+    "terms": "使用条款",
+    "privacy": "你的隐私"
+  },
+  "Header": {
+    "homeAria": "Jesus Film Project — 首页",
+    "logoAlt": "Jesus Film Project"
+  },
+  "LanguagePicker": {
+    "label": "语言",
+    "ariaLabel": "更改语言",
+    "currentLanguage": "当前语言：{language}",
+    "menuLabel": "选择语言"
+  }
+}

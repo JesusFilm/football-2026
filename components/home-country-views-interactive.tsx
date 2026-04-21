@@ -3,13 +3,15 @@
 import { useEffect, useMemo, useState } from "react";
 import type { CSSProperties } from "react";
 import { useReducedMotion } from "motion/react";
+import { useLocale, useTranslations } from "next-intl";
 import WorldMap from "react-svg-worldmap";
 
 import type { CountryView } from "@/lib/country-views";
+import { getCountryDisplayName } from "@/lib/country-display";
 import { REGION_FOCUS } from "@/lib/map-focus";
 import {
   countryFill,
-  formatViews,
+  formatViewsForLocale,
   supportedCountryCodes,
   toMapData,
 } from "@/lib/map-utils";
@@ -40,6 +42,8 @@ export function HomeCountryViewsInteractive({
   initialSelection = "All",
   countryListLimit = COUNTRY_LIST_LIMIT,
 }: Props) {
+  const locale = useLocale();
+  const t = useTranslations("CountryViews");
   const prefersReducedMotion = useReducedMotion();
   const [selection, setSelection] = useState<Selection>(initialSelection);
   const [displaySelection, setDisplaySelection] =
@@ -97,12 +101,16 @@ export function HomeCountryViewsInteractive({
     (sum, country) => sum + country.journeyViews,
     0,
   );
-  const topCountry = displayCountries[0]?.countryName ?? "-";
+  const topCountry = displayCountries[0]
+    ? getCountryDisplayName(locale, displayCountries[0])
+    : "-";
   const displayedCountries =
     countryListLimit === null
       ? displayCountries
       : displayCountries.slice(0, countryListLimit);
-  const outgoingTopCountry = outgoingCountries[0]?.countryName;
+  const outgoingTopCountry = outgoingCountries[0]
+    ? getCountryDisplayName(locale, outgoingCountries[0])
+    : undefined;
   const outgoingTotalViews = outgoingCountries.reduce(
     (sum, country) => sum + country.journeyViews,
     0,
@@ -177,7 +185,7 @@ export function HomeCountryViewsInteractive({
           <Metric
             animationKey={`${visualSelection}-top-country`}
             animationOrder={0}
-            label="Top country"
+            label={t("topCountry")}
             outgoingKey={
               visualOutgoingSelection
                 ? `${visualOutgoingSelection}-top-country`
@@ -189,7 +197,7 @@ export function HomeCountryViewsInteractive({
           <Metric
             animationKey={`${visualSelection}-total-views`}
             animationOrder={1}
-            label="Total views"
+            label={t("totalViews")}
             outgoingKey={
               visualOutgoingSelection
                 ? `${visualOutgoingSelection}-total-views`
@@ -197,15 +205,15 @@ export function HomeCountryViewsInteractive({
             }
             outgoingValue={
               visualOutgoingSelection
-                ? formatViews(outgoingTotalViews)
+                ? formatViewsForLocale(outgoingTotalViews, locale)
                 : undefined
             }
-            value={formatViews(totalViews)}
+            value={formatViewsForLocale(totalViews, locale)}
           />
           <Metric
             animationKey={`${visualSelection}-countries`}
             animationOrder={2}
-            label="Countries"
+            label={t("countries")}
             outgoingKey={
               visualOutgoingSelection
                 ? `${visualOutgoingSelection}-countries`
@@ -213,10 +221,10 @@ export function HomeCountryViewsInteractive({
             }
             outgoingValue={
               visualOutgoingSelection
-                ? String(outgoingCountries.length)
+                ? formatViewsForLocale(outgoingCountries.length, locale)
                 : undefined
             }
-            value={String(displayCountries.length)}
+            value={formatViewsForLocale(displayCountries.length, locale)}
           />
         </div>
 
@@ -224,7 +232,7 @@ export function HomeCountryViewsInteractive({
           <RegionButton
             active={selection === "All"}
             autoAdvancing={activeAutoAdvance}
-            label="All"
+            label={t("allRegions")}
             onClick={() => selectRegion("All")}
           />
           {regions.map((region) => (
@@ -263,7 +271,7 @@ export function HomeCountryViewsInteractive({
                 frame={false}
                 richInteraction
                 size="responsive"
-                valueSuffix=" views"
+                valueSuffix={` ${t("viewsSuffix")}`}
                 styleFunction={({ countryCode, countryValue }) => {
                   const code = String(countryCode).toUpperCase();
                   const highlighted = highlightedCountryCode === code;
@@ -279,15 +287,32 @@ export function HomeCountryViewsInteractive({
                       "fill 160ms ease, stroke 160ms ease, stroke-width 160ms ease",
                   };
                 }}
-                tooltipTextFunction={({ countryName, countryValue }) =>
-                  `${countryName}: ${formatViews(Number(countryValue ?? 0))} views`
-                }
+                tooltipTextFunction={({
+                  countryCode,
+                  countryName,
+                  countryValue,
+                }) => {
+                  const matchedCountry = selectedCountries.find(
+                    (country) =>
+                      country.countryCode === String(countryCode).toUpperCase(),
+                  );
+
+                  return t("tooltip", {
+                    countryName: matchedCountry
+                      ? getCountryDisplayName(locale, matchedCountry)
+                      : countryName,
+                    views: formatViewsForLocale(
+                      Number(countryValue ?? 0),
+                      locale,
+                    ),
+                  });
+                }}
               />
             </div>
           </div>
         </div>
 
-        <ol className="m-0 list-none p-0" aria-label="Country ranking">
+        <ol className="m-0 list-none p-0" aria-label={t("rankingLabel")}>
           {Array.from({ length: visibleRowCount }, (_, index) => {
             const country = displayedCountries[index];
             const outgoingCountry = outgoingDisplayedCountries[index];
@@ -305,6 +330,7 @@ export function HomeCountryViewsInteractive({
                   <CountryRowContent
                     animation="exit"
                     country={outgoingCountry}
+                    locale={locale}
                     rank={index + 1}
                     style={{
                       animationDelay: `${Math.min(index, 9) * 70}ms`,
@@ -315,6 +341,7 @@ export function HomeCountryViewsInteractive({
                   <CountryRowContent
                     animation="enter"
                     country={country}
+                    locale={locale}
                     rank={index + 1}
                     style={{
                       animationDelay: `${Math.min(index, 9) * 70 + (visualOutgoingSelection ? 170 : 0)}ms`,
@@ -378,11 +405,13 @@ function Metric({
 function CountryRowContent({
   animation,
   country,
+  locale,
   rank,
   style,
 }: {
   animation: "enter" | "exit";
   country: CountryView;
+  locale: string;
   rank: number;
   style: CSSProperties;
 }) {
@@ -395,10 +424,10 @@ function CountryRowContent({
         {String(rank).padStart(2, "0")}
       </span>
       <span className="min-w-0 truncate text-sm font-semibold text-fg">
-        {country.countryName}
+        {getCountryDisplayName(locale, country)}
       </span>
       <strong className="font-mono text-[12px] text-fg">
-        {formatViews(country.journeyViews)}
+        {formatViewsForLocale(country.journeyViews, locale)}
       </strong>
     </div>
   );
@@ -430,7 +459,7 @@ function RegionButton({
           key={label}
           aria-hidden="true"
           data-testid="auto-advance-progress"
-          className="absolute inset-y-0 left-0 w-full origin-left bg-[rgb(255_255_255_/_0.18)]"
+          className="origin-inline-start absolute inset-y-0 start-0 w-full origin-left bg-[rgb(255_255_255_/_0.18)]"
           style={{
             animation: `auto-advance-progress ${ROTATION_INTERVAL_MS}ms linear forwards`,
           }}

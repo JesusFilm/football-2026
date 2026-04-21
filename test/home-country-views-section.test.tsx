@@ -1,8 +1,9 @@
-import { act, render, screen } from "@testing-library/react";
+import { act, screen } from "@testing-library/react";
 import { afterEach, describe, expect, it, vi } from "vitest";
 
 import { HomeCountryViewsSection } from "@/components/home-country-views-section";
 import { REGIONS } from "@/lib/regions";
+import { renderWithIntl } from "@/test/intl-test-utils";
 
 vi.mock("@/components/home-country-views-interactive", () => ({
   HomeCountryViewsInteractive: () => <div data-testid="interactive-map" />,
@@ -41,7 +42,9 @@ describe("HomeCountryViewsSection", () => {
 
     vi.stubGlobal("IntersectionObserver", MockIntersectionObserver);
 
-    render(<HomeCountryViewsSection regions={REGIONS} countries={countries} />);
+    renderWithIntl(
+      <HomeCountryViewsSection regions={REGIONS} countries={countries} />,
+    );
 
     expect(
       screen.getByRole("heading", { name: "Where The Story is Spreading" }),

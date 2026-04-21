@@ -45,3 +45,12 @@ pnpm test:run
 - Prefer small React components with direct props over premature abstractions.
 - Keep formatting owned by Prettier and code-quality rules owned by ESLint.
 - Do not edit generated folders such as `.next/`, `coverage/`, or `node_modules/`.
+
+## Internationalization
+
+- Treat i18n as the default for frontend work. Do not add new user-facing strings directly in React components, pages, metadata, generated social images, aria labels, button titles, empty/loading/error states, or client-side status messages.
+- Add or update translation keys in `messages/en.json`, then keep every configured locale file in `messages/*.json` structurally aligned with English. The `test/messages.test.ts` parity check should pass whenever message keys change.
+- Use `getTranslations` in server components/routes and `useTranslations` in client components. Use locale-aware navigation from `i18n/navigation.ts` for internal links so users stay in the active locale.
+- Keep stable identifiers out of translations: route IDs, JSONBin region codes, team IDs, slugs, country codes, QR targets, and external feed values remain data.
+- When showing country names, prefer country codes plus `lib/country-display.ts`/`Intl.DisplayNames` instead of hard-coded English country labels.
+- Check RTL impact for layout-facing changes. Arabic (`ar`) and Urdu (`ur`) set `dir="rtl"`, so prefer logical CSS/Tailwind utilities such as `start`/`end`, `ms`/`me`, `ps`/`pe`, and `text-start`/`text-end` when direction should mirror.

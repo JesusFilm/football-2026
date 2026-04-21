@@ -271,6 +271,21 @@ html[data-route-transition="true"] .hero-transition-item-5 {
   outline-offset: 2px;
 }
 
+.rtl-mirror {
+  transform-box: fill-box;
+  transform-origin: center;
+}
+
+[dir="rtl"] .rtl-mirror,
+:dir(rtl) .rtl-mirror {
+  transform: scaleX(-1);
+}
+
+[dir="rtl"] .origin-inline-start,
+:dir(rtl) .origin-inline-start {
+  transform-origin: right center;
+}
+
 /* Reduced-motion: the site's one-and-only motion kill switch. */
 @media (prefers-reduced-motion: reduce) {
   .animate-bob {

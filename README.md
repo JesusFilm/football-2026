@@ -12,7 +12,7 @@ The production site is configured for:
 
 ## What The App Does
 
-The app has one homepage and one canonical page per activation region:
+The app has one homepage and one canonical page per activation region in English:
 
 - `/`
 - `/africa`
@@ -26,6 +26,8 @@ The app has one homepage and one canonical page per activation region:
 The homepage introduces the activation flow and links to every region. Region pages show the regional activation copy, localized journey sharing panel, QR/share tooling, country-level journey view data, and links to the other regions.
 
 Aliases such as `/Europe`, `/EA`, or `/north-africa-middle-east-central-asia` are normalized through `proxy.ts` and redirected to canonical route IDs when they map to a known region.
+
+Non-English routes are locale-prefixed, for example `/es` and `/es/africa`. English remains canonical at the unprefixed routes rather than `/en`. Supported locales are configured in `i18n/routing.ts`: `en`, `zh-Hans`, `hi`, `es`, `fr`, `ar`, `pt-BR`, `bn`, `ru`, `ur`, `id`, and `de`.
 
 ## Repository Map
 
@@ -43,11 +45,14 @@ railway.json          Railway config-as-code for Railpack deployment
 
 Useful entry points:
 
-- `app/page.tsx` builds the homepage.
-- `app/[id]/page.tsx` builds the region pages.
-- `lib/regions.ts` defines canonical region IDs, display names, JSONBin region codes, and NextSteps team IDs.
+- `app/[locale]/page.tsx` builds localized homepages.
+- `app/[locale]/[id]/page.tsx` builds localized region pages.
+- `i18n/routing.ts` defines supported locales, locale labels, and text direction.
+- `messages/*.json` holds translation messages; every locale file must match the English key structure.
+- `lib/regions.ts` defines canonical region IDs, JSONBin region codes, and NextSteps team IDs.
 - `lib/journeys.ts` fetches journeys from the Jesus Film API by team ID.
 - `lib/country-views.ts` fetches and normalizes the public JSONBin country-view data.
+- `lib/country-display.ts` resolves JSONBin country names to country codes and formats localized country names.
 - `lib/site.ts` owns public URL, metadata defaults, and social image defaults.
 
 ## Prerequisites
@@ -239,8 +244,8 @@ The app uses Next metadata routes and generated images:
 - `app/sitemap.ts` emits the canonical sitemap.
 - `app/robots.ts` allows crawling and points to the sitemap.
 - `app/opengraph-image.tsx` and `app/twitter-image.tsx` generate social preview images.
-- `app/layout.tsx` defines shared metadata and Organization/WebSite JSON-LD.
-- `app/[id]/page.tsx` defines region-specific metadata and WebPage/Breadcrumb JSON-LD.
+- `app/[locale]/layout.tsx` defines locale-aware metadata, document `lang`/`dir`, and Organization/WebSite JSON-LD.
+- `app/[locale]/[id]/page.tsx` defines region-specific metadata and WebPage/Breadcrumb JSON-LD.
 
 Keep `SITE_URL` in `lib/site.ts` aligned with the production domain. Metadata, sitemap, robots, structured data, and social previews all depend on it.
 
@@ -255,7 +260,7 @@ Add a new region card interaction. Read AGENTS.md first, inspect the existing re
 ```
 
 ```text
-Investigate why country-view data is missing for a region. Start with lib/country-views.ts and app/[id]/page.tsx, explain the root cause, patch it, and run focused tests.
+Investigate why country-view data is missing for a region. Start with lib/country-views.ts and app/[locale]/[id]/page.tsx, explain the root cause, patch it, and run focused tests.
 ```
 
 ```text

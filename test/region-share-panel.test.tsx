@@ -1,14 +1,9 @@
-import {
-  act,
-  fireEvent,
-  render,
-  screen,
-  waitFor,
-} from "@testing-library/react";
+import { act, fireEvent, screen, waitFor } from "@testing-library/react";
 import { afterEach, describe, expect, it, vi } from "vitest";
 
 import { RegionSharePanel } from "@/components/region-share-panel";
 import type { Journey } from "@/lib/journeys";
+import { renderWithIntl } from "@/test/intl-test-utils";
 
 /* eslint-disable @next/next/no-img-element */
 vi.mock("next/image", () => ({
@@ -53,7 +48,7 @@ describe("RegionSharePanel", () => {
   it("copies the selected journey link only after clipboard succeeds", async () => {
     const writeText = stubClipboard();
 
-    render(<RegionSharePanel regionCode="NAO" journeys={journeys} />);
+    renderWithIntl(<RegionSharePanel regionCode="NAO" journeys={journeys} />);
 
     fireEvent.click(screen.getByRole("button", { name: "Copy link" }));
 
@@ -81,7 +76,7 @@ describe("RegionSharePanel", () => {
 
     vi.stubGlobal("IntersectionObserver", MockIntersectionObserver);
 
-    render(<RegionSharePanel regionCode="NAO" journeys={journeys} />);
+    renderWithIntl(<RegionSharePanel regionCode="NAO" journeys={journeys} />);
 
     expect(screen.queryByTitle("NAO preview")).not.toBeInTheDocument();
 
@@ -98,7 +93,7 @@ describe("RegionSharePanel", () => {
   it("marks copy as an error when clipboard fails", async () => {
     stubClipboard(vi.fn().mockRejectedValue(new Error("blocked")));
 
-    render(<RegionSharePanel regionCode="NAO" journeys={journeys} />);
+    renderWithIntl(<RegionSharePanel regionCode="NAO" journeys={journeys} />);
 
     fireEvent.click(screen.getByRole("button", { name: "Copy link" }));
 
@@ -117,7 +112,7 @@ describe("RegionSharePanel", () => {
       configurable: true,
     });
 
-    render(<RegionSharePanel regionCode="NAO" journeys={journeys} />);
+    renderWithIntl(<RegionSharePanel regionCode="NAO" journeys={journeys} />);
 
     fireEvent.click(screen.getByRole("button", { name: "Share" }));
 
@@ -167,7 +162,7 @@ describe("RegionSharePanel", () => {
       },
     );
 
-    render(<RegionSharePanel regionCode="NAO" journeys={journeys} />);
+    renderWithIntl(<RegionSharePanel regionCode="NAO" journeys={journeys} />);
 
     fireEvent.click(screen.getByRole("button", { name: "Download PNG" }));
 

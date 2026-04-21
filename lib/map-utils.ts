@@ -14,6 +14,10 @@ export function formatViews(value: number): string {
   return new Intl.NumberFormat("en-US").format(value);
 }
 
+export function formatViewsForLocale(value: number, locale: string): string {
+  return new Intl.NumberFormat(locale).format(value);
+}
+
 export function viewIntensity(value: number, maxValue: number): number {
   if (value <= 0 || maxValue <= 0) return 0;
   return Math.log1p(value) / Math.log1p(maxValue);

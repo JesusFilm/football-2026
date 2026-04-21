@@ -4,6 +4,10 @@ import { defineConfig } from "vitest/config";
 export default defineConfig({
   plugins: [react()],
   resolve: {
+    alias: {
+      "next/navigation": "next/navigation.js",
+      "next/server": "next/server.js",
+    },
     tsconfigPaths: true,
   },
   test: {

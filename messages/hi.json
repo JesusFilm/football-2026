@@ -1,0 +1,191 @@
+{
+  "Metadata": {
+    "siteName": "Jesus Film Project · विश्व कप 2026 एक्टिवेट",
+    "defaultTitle": "विश्व कप 2026 · अपना क्षेत्र सक्रिय करें",
+    "titleTemplate": "{title} · एक्टिवेट · विश्व कप 2026",
+    "defaultDescription": "Jesus Film Project एक्टिवेट — अपने दर्शकों की भाषा से मेल खाने वाले विश्व कप 2026 वीडियो साझा करें।",
+    "socialAlt": "Jesus Film Project द्वारा विश्व कप 2026 एक्टिवेट",
+    "ogBrand": "Jesus Film Project",
+    "ogHeadline": "विश्व कप 2026 आउटरीच",
+    "ogTagline": "हर मैच, हर देश, हर आत्मा।",
+    "homeSchemaName": "विश्व कप 2026 · अपना क्षेत्र सक्रिय करें",
+    "breadcrumbAllRegions": "सभी क्षेत्र",
+    "regionTitle": "{regionName} सक्रिय करें",
+    "fallbackRegionTitle": "क्षेत्र"
+  },
+  "Home": {
+    "eyebrow": "विश्व कप 2026 · आउटरीच",
+    "tagline": "हर मैच, हर देश, हर आत्मा।",
+    "title": "अपना क्षेत्र सक्रिय करें",
+    "description": "Jesus Film Project ने विश्व कप के दौरान अपने मित्रों और परिवार के साथ सुसमाचार साझा करने का एक सरल तरीका बनाया है।",
+    "regionHeading": "अपना क्षेत्र चुनें",
+    "regionSubheading": "सात क्षेत्र। वह चुनें जिसे आप सक्रिय कर रहे हैं।"
+  },
+  "Regions": {
+    "africa": {
+      "name": "अफ्रीका",
+      "blurb": "अफ्रीका के सक्रियण क्षेत्र में। सैकड़ों भाषाएँ। एक खेल।",
+      "seoDescription": "अफ्रीका के लिए विश्व कप 2026 आउटरीच टूल: स्थानीय भाषाओं में वीडियो साझा करें और देश-स्तरीय views ट्रैक करें।",
+      "flags": {
+        "ng": "नाइजीरिया",
+        "za": "दक्षिण अफ़्रीका",
+        "ke": "केन्या",
+        "gh": "घाना",
+        "et": "इथियोपिया"
+      }
+    },
+    "east-asia": {
+      "name": "पूर्वी एशिया",
+      "blurb": "चीन, जापान, कोरिया, मंगोलिया — प्रशांत किनारे का केंद्र।",
+      "seoDescription": "क्षेत्रीय Jesus Film Project वीडियो, QR कोड, शेयर लिंक और view tracking के साथ विश्व कप 2026 के लिए पूर्वी एशिया को सक्रिय करें।",
+      "flags": {
+        "cn": "चीन",
+        "jp": "जापान",
+        "kr": "दक्षिण कोरिया",
+        "mn": "मंगोलिया",
+        "tw": "ताइवान"
+      }
+    },
+    "europe": {
+      "name": "यूरोप",
+      "blurb": "वह महाद्वीप जहाँ आधुनिक खेल की कहानी लिखी गई।",
+      "seoDescription": "विश्व कप 2026 के दौरान Jesus Film Project वीडियो, QR कोड, शेयर लिंक और क्षेत्रीय view data के साथ यूरोप को सक्रिय करें।",
+      "flags": {
+        "gb": "यूनाइटेड किंगडम",
+        "fr": "फ़्रांस",
+        "de": "जर्मनी",
+        "es": "स्पेन",
+        "it": "इटली"
+      }
+    },
+    "lac": {
+      "name": "लैटिन अमेरिका और कैरिबियन",
+      "blurb": "तिजुआना से टिएरा डेल फुएगो तक — फुटबॉल से जुड़ा एक महाद्वीप।",
+      "seoDescription": "लैटिन अमेरिका और कैरिबियन के लिए विश्व कप 2026 आउटरीच टूल: क्षेत्रीय वीडियो, QR कोड और स्थानीय-भाषा journeys साझा करें।",
+      "flags": {
+        "br": "ब्राज़ील",
+        "ar": "अर्जेंटीना",
+        "co": "कोलंबिया",
+        "mx": "मैक्सिको",
+        "cl": "चिली"
+      }
+    },
+    "namestan": {
+      "name": "उत्तरी अफ्रीका, मध्य पूर्व और मध्य एशिया",
+      "blurb": "मोरक्को से कज़ाखस्तान तक — तीन महाद्वीपों में।",
+      "seoDescription": "विश्व कप 2026 वीडियो, QR कोड और स्थानीय-भाषा शेयरिंग टूल के साथ उत्तरी अफ्रीका, मध्य पूर्व और मध्य एशिया को सक्रिय करें।",
+      "flags": {
+        "ma": "मोरक्को",
+        "eg": "मिस्र",
+        "sa": "सऊदी अरब",
+        "ir": "ईरान",
+        "kz": "कज़ाखस्तान"
+      }
+    },
+    "nao": {
+      "name": "उत्तरी अमेरिका और ओशिआनिया",
+      "blurb": "संयुक्त राज्य, कनाडा, ऑस्ट्रेलिया, न्यूज़ीलैंड और प्रशांत क्षेत्र।",
+      "seoDescription": "उत्तरी अमेरिका और ओशिआनिया के लिए विश्व कप 2026 आउटरीच टूल: स्थानीय-भाषा वीडियो, QR कोड और क्षेत्रीय view data साझा करें।",
+      "flags": {
+        "us": "संयुक्त राज्य",
+        "ca": "कनाडा",
+        "au": "ऑस्ट्रेलिया",
+        "nz": "न्यूज़ीलैंड",
+        "fj": "फ़िजी"
+      }
+    },
+    "sesa": {
+      "name": "दक्षिण और दक्षिण-पूर्व एशिया",
+      "blurb": "मुंबई से मनीला तक — दुनिया की एक चौथाई आबादी का घर।",
+      "seoDescription": "दक्षिण और दक्षिण-पूर्व एशिया के लिए विश्व कप 2026 आउटरीच टूल: उच्च पहुँच वाले क्षेत्र में स्थानीय-भाषा वीडियो साझा करें।",
+      "flags": {
+        "in": "भारत",
+        "id": "इंडोनेशिया",
+        "ph": "फ़िलिपींस",
+        "vn": "वियतनाम",
+        "th": "थाईलैंड"
+      }
+    }
+  },
+  "Region": {
+    "eyebrow": "विश्व कप 2026 · {regionCode}",
+    "tagline": "हर मैच, हर देश, हर आत्मा।",
+    "title": "{regionName} सक्रिय करें",
+    "description": "{regionBlurb} Jesus Film Project ने विश्व कप के दौरान अपने मित्रों और परिवार के साथ सुसमाचार साझा करने का एक सरल तरीका बनाया है।",
+    "countriesLabel": "{count, plural, one {देश} other {देश}}",
+    "languagesLabel": "{count, plural, one {भाषा} other {भाषाएँ}}",
+    "allRegions": "सभी क्षेत्र",
+    "otherRegionsHeading": "अन्य क्षेत्रों को देखें"
+  },
+  "Steps": {
+    "chooseNum": "01 / चुनें",
+    "chooseTitle": "एक भाषा चुनें",
+    "chooseBody": "अपने दर्शकों की स्थानीय भाषा में वीडियो खोजें — 30 से अधिक विकल्प।",
+    "shareNum": "02 / साझा करें",
+    "shareTitle": "भेजें",
+    "shareBody": "QR कोड या लिंक कहीं भी साझा करें — SMS, सोशल, प्रिंट या आमने-सामने।",
+    "trackNum": "03 / देखें",
+    "trackTitle": "प्रभाव देखें",
+    "trackBody": "जब कहानी आपके क्षेत्र में फैलती है, तो views और shares देखें।"
+  },
+  "CountryViews": {
+    "homeEyebrow": "वैश्विक views",
+    "regionEyebrow": "विश्व कप 2026",
+    "heading": "कहानी कहाँ फैल रही है",
+    "topCountriesHeading": "views के आधार पर शीर्ष देश",
+    "globalRankingLabel": "वैश्विक देश views रैंकिंग",
+    "regionHeading": "{regionName} देश views",
+    "regionRankingLabel": "{regionName} देश views रैंकिंग",
+    "topCountry": "शीर्ष देश",
+    "totalViews": "कुल views",
+    "countries": "देश",
+    "rankingLabel": "देश रैंकिंग",
+    "allRegions": "सभी",
+    "viewsSuffix": "views",
+    "tooltip": "{countryName}: {views} views",
+    "viewsUnavailableLabel": "views उपलब्ध नहीं",
+    "viewsUnavailableBody": "देश-स्तरीय view डेटा अभी लोड नहीं हो सका।",
+    "noViewsLabel": "अभी कोई देश views नहीं",
+    "noViewsBody": "{regionName} के लिए अभी देश-स्तरीय views उपलब्ध नहीं हैं।"
+  },
+  "SharePanel": {
+    "heading": "एक भाषा चुनें। आगे बढ़ाएँ।",
+    "description": "अपने दर्शकों से मेल खाने वाली भाषा चुनें, फिर लिंक को वहाँ चिपकाएँ जहाँ आप पहले से लोगों को संदेश भेजते हैं।",
+    "chooseLanguage": "भाषा चुनें",
+    "selectLanguage": "एक भाषा चुनें",
+    "noJourneys": "इस क्षेत्र के लिए अभी कोई journey नहीं है।",
+    "shareLink": "शेयर लिंक",
+    "copyLink": "लिंक कॉपी करें",
+    "qrCode": "QR कोड",
+    "downloaded": "डाउनलोड हो गया",
+    "downloadPng": "PNG डाउनलोड करें",
+    "shared": "साझा हो गया",
+    "copied": "कॉपी हो गया",
+    "tryAgain": "फिर कोशिश करें",
+    "share": "साझा करें",
+    "qrPlaceholder": "QR",
+    "madeWith": "बनाया गया",
+    "madeWithAria": "NextSteps से बनाया गया",
+    "loadingPreview": "प्रीव्यू लोड हो रहा है",
+    "preview": "प्रीव्यू",
+    "previewTitle": "{regionCode} प्रीव्यू",
+    "shareTitle": "{language} विश्व कप 2026 वीडियो",
+    "shareText": "{language} में यह विश्व कप 2026 कहानी देखें और साझा करें।"
+  },
+  "Footer": {
+    "copyright": "© 2026 Jesus Film Project",
+    "rights": "सर्वाधिकार सुरक्षित",
+    "terms": "उपयोग की शर्तें",
+    "privacy": "आपकी गोपनीयता"
+  },
+  "Header": {
+    "homeAria": "Jesus Film Project — होम",
+    "logoAlt": "Jesus Film Project"
+  },
+  "LanguagePicker": {
+    "label": "भाषा",
+    "ariaLabel": "भाषा बदलें",
+    "currentLanguage": "वर्तमान भाषा: {language}",
+    "menuLabel": "भाषा चुनें"
+  }
+}

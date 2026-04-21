@@ -18,7 +18,7 @@ export function StepCard({
   const Title = titleLevel;
 
   return (
-    <article className="px-2 py-2 text-center md:text-left">
+    <article className="px-2 py-2 text-center md:text-start">
       <div className="mb-3 flex items-center justify-center gap-3 md:justify-start">
         <div className="font-mono text-[10px] tracking-[0.15em] text-accent uppercase">
           {num}

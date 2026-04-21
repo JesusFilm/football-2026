@@ -1,0 +1,191 @@
+{
+  "Metadata": {
+    "siteName": "Jesus Film Project · Aktivasi Piala Dunia 2026",
+    "defaultTitle": "Piala Dunia 2026 · Aktifkan Wilayah Anda",
+    "titleTemplate": "{title} · Aktivasi · Piala Dunia 2026",
+    "defaultDescription": "Jesus Film Project Activate: bagikan video Piala Dunia 2026 dalam bahasa yang sesuai dengan audiens Anda.",
+    "socialAlt": "Aktivasi Piala Dunia 2026 dari Jesus Film Project",
+    "ogBrand": "Jesus Film Project",
+    "ogHeadline": "Penjangkauan Piala Dunia 2026",
+    "ogTagline": "Setiap pertandingan, setiap bangsa, setiap jiwa.",
+    "homeSchemaName": "Piala Dunia 2026 · Aktifkan Wilayah Anda",
+    "breadcrumbAllRegions": "Semua wilayah",
+    "regionTitle": "Aktifkan {regionName}",
+    "fallbackRegionTitle": "Wilayah"
+  },
+  "Home": {
+    "eyebrow": "Piala Dunia 2026 · Penjangkauan",
+    "tagline": "Setiap pertandingan, setiap bangsa, setiap jiwa.",
+    "title": "Aktifkan Wilayah Anda",
+    "description": "Jesus Film Project membuat cara sederhana untuk membagikan Injil kepada teman dan keluarga selama Piala Dunia.",
+    "regionHeading": "Pilih Wilayah Anda",
+    "regionSubheading": "Tujuh wilayah. Pilih wilayah yang Anda aktifkan."
+  },
+  "Regions": {
+    "africa": {
+      "name": "Afrika",
+      "blurb": "Di seluruh wilayah aktivasi Afrika. Ratusan bahasa. Satu permainan.",
+      "seoDescription": "Alat penjangkauan Piala Dunia 2026 untuk Afrika: bagikan video dalam bahasa lokal dan pantau views tingkat negara.",
+      "flags": {
+        "ng": "Nigeria",
+        "za": "Afrika Selatan",
+        "ke": "Kenya",
+        "gh": "Ghana",
+        "et": "Etiopia"
+      }
+    },
+    "east-asia": {
+      "name": "Asia Timur",
+      "blurb": "Tiongkok, Jepang, Korea, Mongolia — jantung kawasan Pasifik.",
+      "seoDescription": "Aktifkan Asia Timur untuk Piala Dunia 2026 dengan video regional Jesus Film Project, kode QR, tautan berbagi, dan pelacakan views.",
+      "flags": {
+        "cn": "Tiongkok",
+        "jp": "Jepang",
+        "kr": "Korea Selatan",
+        "mn": "Mongolia",
+        "tw": "Taiwan"
+      }
+    },
+    "europe": {
+      "name": "Eropa",
+      "blurb": "Benua tempat permainan modern ditulis.",
+      "seoDescription": "Aktifkan Eropa selama Piala Dunia 2026 dengan video Jesus Film Project, kode QR, tautan berbagi, dan data views regional.",
+      "flags": {
+        "gb": "Inggris Raya",
+        "fr": "Prancis",
+        "de": "Jerman",
+        "es": "Spanyol",
+        "it": "Italia"
+      }
+    },
+    "lac": {
+      "name": "Amerika Latin dan Karibia",
+      "blurb": "Dari Tijuana hingga Tierra del Fuego — benua yang disatukan oleh sepak bola.",
+      "seoDescription": "Alat penjangkauan Piala Dunia 2026 untuk Amerika Latin dan Karibia: bagikan video regional, kode QR, dan journeys dalam bahasa lokal.",
+      "flags": {
+        "br": "Brasil",
+        "ar": "Argentina",
+        "co": "Kolombia",
+        "mx": "Meksiko",
+        "cl": "Cile"
+      }
+    },
+    "namestan": {
+      "name": "Afrika Utara, Timur Tengah, dan Asia Tengah",
+      "blurb": "Dari Maroko hingga Kazakhstan — melintasi tiga benua.",
+      "seoDescription": "Aktifkan Afrika Utara, Timur Tengah, dan Asia Tengah dengan video Piala Dunia 2026, kode QR, dan alat berbagi dalam bahasa lokal.",
+      "flags": {
+        "ma": "Maroko",
+        "eg": "Mesir",
+        "sa": "Arab Saudi",
+        "ir": "Iran",
+        "kz": "Kazakhstan"
+      }
+    },
+    "nao": {
+      "name": "Amerika Utara dan Oseania",
+      "blurb": "Amerika Serikat, Kanada, Australia, Selandia Baru, dan Pasifik.",
+      "seoDescription": "Alat penjangkauan Piala Dunia 2026 untuk Amerika Utara dan Oseania: bagikan video dalam bahasa lokal, kode QR, dan data views regional.",
+      "flags": {
+        "us": "Amerika Serikat",
+        "ca": "Kanada",
+        "au": "Australia",
+        "nz": "Selandia Baru",
+        "fj": "Fiji"
+      }
+    },
+    "sesa": {
+      "name": "Asia Selatan dan Asia Tenggara",
+      "blurb": "Dari Mumbai hingga Manila — rumah bagi seperempat penduduk dunia.",
+      "seoDescription": "Alat penjangkauan Piala Dunia 2026 untuk Asia Selatan dan Asia Tenggara: bagikan video dalam bahasa lokal di wilayah dengan jangkauan besar.",
+      "flags": {
+        "in": "India",
+        "id": "Indonesia",
+        "ph": "Filipina",
+        "vn": "Vietnam",
+        "th": "Thailand"
+      }
+    }
+  },
+  "Region": {
+    "eyebrow": "Piala Dunia 2026 · {regionCode}",
+    "tagline": "Setiap pertandingan, setiap bangsa, setiap jiwa.",
+    "title": "Aktifkan {regionName}",
+    "description": "{regionBlurb} Jesus Film Project membuat cara sederhana untuk membagikan Injil kepada teman dan keluarga selama Piala Dunia.",
+    "countriesLabel": "{count, plural, one {negara} other {negara}}",
+    "languagesLabel": "{count, plural, one {bahasa} other {bahasa}}",
+    "allRegions": "Semua wilayah",
+    "otherRegionsHeading": "Jelajahi Wilayah Lain"
+  },
+  "Steps": {
+    "chooseNum": "01 / PILIH",
+    "chooseTitle": "Pilih bahasa",
+    "chooseBody": "Temukan video dalam bahasa lokal audiens Anda — lebih dari 30 pilihan.",
+    "shareNum": "02 / BAGIKAN",
+    "shareTitle": "Kirimkan",
+    "shareBody": "Bagikan kode QR atau tautan di mana saja — SMS, sosial, cetak, atau langsung.",
+    "trackNum": "03 / PANTAU",
+    "trackTitle": "Lihat dampaknya",
+    "trackBody": "Pantau views dan shares saat cerita ini menyebar di wilayah Anda."
+  },
+  "CountryViews": {
+    "homeEyebrow": "Views global",
+    "regionEyebrow": "Piala Dunia 2026",
+    "heading": "Di mana cerita ini menyebar",
+    "topCountriesHeading": "Negara teratas berdasarkan views",
+    "globalRankingLabel": "Peringkat views negara secara global",
+    "regionHeading": "Views negara untuk {regionName}",
+    "regionRankingLabel": "Peringkat views negara untuk {regionName}",
+    "topCountry": "Negara teratas",
+    "totalViews": "Total views",
+    "countries": "Negara",
+    "rankingLabel": "Peringkat negara",
+    "allRegions": "Semua",
+    "viewsSuffix": "views",
+    "tooltip": "{countryName}: {views} views",
+    "viewsUnavailableLabel": "Views tidak tersedia",
+    "viewsUnavailableBody": "Data views per negara belum dapat dimuat saat ini.",
+    "noViewsLabel": "Belum ada views per negara",
+    "noViewsBody": "Belum ada views tingkat negara untuk {regionName}."
+  },
+  "SharePanel": {
+    "heading": "Pilih bahasa. Teruskan.",
+    "description": "Pilih bahasa yang sesuai dengan audiens Anda, lalu tempel tautan di tempat Anda biasa mengirim pesan.",
+    "chooseLanguage": "Pilih Bahasa",
+    "selectLanguage": "Pilih bahasa",
+    "noJourneys": "Belum ada journey untuk wilayah ini.",
+    "shareLink": "Tautan Berbagi",
+    "copyLink": "Salin tautan",
+    "qrCode": "Kode QR",
+    "downloaded": "Diunduh",
+    "downloadPng": "Unduh PNG",
+    "shared": "Dibagikan",
+    "copied": "Disalin",
+    "tryAgain": "Coba lagi",
+    "share": "Bagikan",
+    "qrPlaceholder": "QR",
+    "madeWith": "Dibuat dengan",
+    "madeWithAria": "Dibuat dengan NextSteps",
+    "loadingPreview": "Memuat pratinjau",
+    "preview": "Pratinjau",
+    "previewTitle": "Pratinjau {regionCode}",
+    "shareTitle": "Video Piala Dunia 2026 dalam {language}",
+    "shareText": "Tonton dan bagikan cerita Piala Dunia 2026 ini dalam {language}."
+  },
+  "Footer": {
+    "copyright": "© 2026 Jesus Film Project",
+    "rights": "Hak cipta dilindungi",
+    "terms": "Ketentuan Penggunaan",
+    "privacy": "Privasi Anda"
+  },
+  "Header": {
+    "homeAria": "Jesus Film Project — beranda",
+    "logoAlt": "Jesus Film Project"
+  },
+  "LanguagePicker": {
+    "label": "Bahasa",
+    "ariaLabel": "Ubah bahasa",
+    "currentLanguage": "Bahasa saat ini: {language}",
+    "menuLabel": "Pilih bahasa"
+  }
+}

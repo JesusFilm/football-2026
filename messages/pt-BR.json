@@ -1,0 +1,191 @@
+{
+  "Metadata": {
+    "siteName": "Jesus Film Project · Ativação Copa do Mundo 2026",
+    "defaultTitle": "Copa do Mundo 2026 · Ative sua região",
+    "titleTemplate": "{title} · Ativar · Copa do Mundo 2026",
+    "defaultDescription": "Jesus Film Project Activate: compartilhe vídeos da Copa do Mundo 2026 no idioma que combina com seu público.",
+    "socialAlt": "Ativação Copa do Mundo 2026 do Jesus Film Project",
+    "ogBrand": "Jesus Film Project",
+    "ogHeadline": "Alcance Copa do Mundo 2026",
+    "ogTagline": "Cada jogo, cada nação, cada alma.",
+    "homeSchemaName": "Copa do Mundo 2026 · Ative sua região",
+    "breadcrumbAllRegions": "Todas as regiões",
+    "regionTitle": "Ative {regionName}",
+    "fallbackRegionTitle": "Região"
+  },
+  "Home": {
+    "eyebrow": "Copa do Mundo 2026 · Alcance",
+    "tagline": "Cada jogo, cada nação, cada alma.",
+    "title": "Ative sua região",
+    "description": "O Jesus Film Project criou uma forma simples de compartilhar o Evangelho com seus amigos e familiares durante a Copa do Mundo.",
+    "regionHeading": "Selecione sua região",
+    "regionSubheading": "Sete regiões. Escolha a que você está ativando."
+  },
+  "Regions": {
+    "africa": {
+      "name": "África",
+      "blurb": "Em toda a região de ativação da África. Centenas de idiomas. Um só jogo.",
+      "seoDescription": "Ferramentas de alcance da Copa do Mundo 2026 para a África: compartilhe vídeos em idiomas locais e acompanhe visualizações por país.",
+      "flags": {
+        "ng": "Nigéria",
+        "za": "África do Sul",
+        "ke": "Quênia",
+        "gh": "Gana",
+        "et": "Etiópia"
+      }
+    },
+    "east-asia": {
+      "name": "Leste Asiático",
+      "blurb": "China, Japão, Coreia, Mongólia — o coração da orla do Pacífico.",
+      "seoDescription": "Ative o Leste Asiático para a Copa do Mundo 2026 com vídeos regionais do Jesus Film Project, QR codes, links de compartilhamento e acompanhamento de visualizações.",
+      "flags": {
+        "cn": "China",
+        "jp": "Japão",
+        "kr": "Coreia do Sul",
+        "mn": "Mongólia",
+        "tw": "Taiwan"
+      }
+    },
+    "europe": {
+      "name": "Europa",
+      "blurb": "O continente onde o jogo moderno foi escrito.",
+      "seoDescription": "Ative a Europa durante a Copa do Mundo 2026 com vídeos do Jesus Film Project, QR codes, links de compartilhamento e dados regionais de visualizações.",
+      "flags": {
+        "gb": "Reino Unido",
+        "fr": "França",
+        "de": "Alemanha",
+        "es": "Espanha",
+        "it": "Itália"
+      }
+    },
+    "lac": {
+      "name": "América Latina e Caribe",
+      "blurb": "De Tijuana à Terra do Fogo — um continente unido pelo futebol.",
+      "seoDescription": "Ferramentas de alcance da Copa do Mundo 2026 para América Latina e Caribe: compartilhe vídeos regionais, QR codes e jornadas em idiomas locais.",
+      "flags": {
+        "br": "Brasil",
+        "ar": "Argentina",
+        "co": "Colômbia",
+        "mx": "México",
+        "cl": "Chile"
+      }
+    },
+    "namestan": {
+      "name": "Norte da África, Oriente Médio e Ásia Central",
+      "blurb": "Do Marrocos ao Cazaquistão — através de três continentes.",
+      "seoDescription": "Ative o Norte da África, o Oriente Médio e a Ásia Central com vídeos da Copa do Mundo 2026, QR codes e ferramentas de compartilhamento em idiomas locais.",
+      "flags": {
+        "ma": "Marrocos",
+        "eg": "Egito",
+        "sa": "Arábia Saudita",
+        "ir": "Irã",
+        "kz": "Cazaquistão"
+      }
+    },
+    "nao": {
+      "name": "América do Norte e Oceania",
+      "blurb": "Estados Unidos, Canadá, Austrália, Nova Zelândia e o Pacífico.",
+      "seoDescription": "Ferramentas de alcance da Copa do Mundo 2026 para América do Norte e Oceania: compartilhe vídeos em idiomas locais, QR codes e dados regionais de visualizações.",
+      "flags": {
+        "us": "Estados Unidos",
+        "ca": "Canadá",
+        "au": "Austrália",
+        "nz": "Nova Zelândia",
+        "fj": "Fiji"
+      }
+    },
+    "sesa": {
+      "name": "Sul e Sudeste Asiático",
+      "blurb": "De Mumbai a Manila — lar de um quarto da população mundial.",
+      "seoDescription": "Ferramentas de alcance da Copa do Mundo 2026 para Sul e Sudeste Asiático: compartilhe vídeos em idiomas locais em uma região de grande alcance.",
+      "flags": {
+        "in": "Índia",
+        "id": "Indonésia",
+        "ph": "Filipinas",
+        "vn": "Vietnã",
+        "th": "Tailândia"
+      }
+    }
+  },
+  "Region": {
+    "eyebrow": "Copa do Mundo 2026 · {regionCode}",
+    "tagline": "Cada jogo, cada nação, cada alma.",
+    "title": "Ative {regionName}",
+    "description": "{regionBlurb} O Jesus Film Project criou uma forma simples de compartilhar o Evangelho com seus amigos e familiares durante a Copa do Mundo.",
+    "countriesLabel": "{count, plural, one {país} other {países}}",
+    "languagesLabel": "{count, plural, one {idioma} other {idiomas}}",
+    "allRegions": "Todas as regiões",
+    "otherRegionsHeading": "Explore outras regiões"
+  },
+  "Steps": {
+    "chooseNum": "01 / ESCOLHA",
+    "chooseTitle": "Escolha um idioma",
+    "chooseBody": "Encontre vídeos no idioma local do seu público — mais de 30 opções.",
+    "shareNum": "02 / COMPARTILHE",
+    "shareTitle": "Envie",
+    "shareBody": "Compartilhe o QR code ou o link em qualquer lugar: SMS, redes sociais, impresso ou pessoalmente.",
+    "trackNum": "03 / ACOMPANHE",
+    "trackTitle": "Veja o impacto",
+    "trackBody": "Acompanhe visualizações e compartilhamentos enquanto a história se espalha pela sua região."
+  },
+  "CountryViews": {
+    "homeEyebrow": "Visualizações globais",
+    "regionEyebrow": "Copa do Mundo 2026",
+    "heading": "Onde a história está se espalhando",
+    "topCountriesHeading": "Principais países por visualizações",
+    "globalRankingLabel": "Ranking global de visualizações por país",
+    "regionHeading": "Visualizações por país em {regionName}",
+    "regionRankingLabel": "Ranking de visualizações por país em {regionName}",
+    "topCountry": "Principal país",
+    "totalViews": "Visualizações totais",
+    "countries": "Países",
+    "rankingLabel": "Ranking de países",
+    "allRegions": "Todos",
+    "viewsSuffix": "visualizações",
+    "tooltip": "{countryName}: {views} visualizações",
+    "viewsUnavailableLabel": "Visualizações indisponíveis",
+    "viewsUnavailableBody": "Não foi possível carregar os dados de visualizações por país agora.",
+    "noViewsLabel": "Ainda não há visualizações por país",
+    "noViewsBody": "Ainda não há visualizações em nível de país disponíveis para {regionName}."
+  },
+  "SharePanel": {
+    "heading": "Escolha um idioma. Passe adiante.",
+    "description": "Escolha o idioma que combina com seu público e cole o link onde você já conversa com as pessoas.",
+    "chooseLanguage": "Escolha um idioma",
+    "selectLanguage": "Selecione um idioma",
+    "noJourneys": "Ainda não há jornadas para esta região.",
+    "shareLink": "Link de compartilhamento",
+    "copyLink": "Copiar link",
+    "qrCode": "QR code",
+    "downloaded": "Baixado",
+    "downloadPng": "Baixar PNG",
+    "shared": "Compartilhado",
+    "copied": "Copiado",
+    "tryAgain": "Tentar novamente",
+    "share": "Compartilhar",
+    "qrPlaceholder": "QR",
+    "madeWith": "Criado com",
+    "madeWithAria": "Criado com NextSteps",
+    "loadingPreview": "Carregando prévia",
+    "preview": "Prévia",
+    "previewTitle": "Prévia de {regionCode}",
+    "shareTitle": "Vídeo da Copa do Mundo 2026 em {language}",
+    "shareText": "Assista e compartilhe esta história da Copa do Mundo 2026 em {language}."
+  },
+  "Footer": {
+    "copyright": "© 2026 Jesus Film Project",
+    "rights": "Todos os direitos reservados",
+    "terms": "Termos de uso",
+    "privacy": "Sua privacidade"
+  },
+  "Header": {
+    "homeAria": "Jesus Film Project — início",
+    "logoAlt": "Jesus Film Project"
+  },
+  "LanguagePicker": {
+    "label": "Idioma",
+    "ariaLabel": "Alterar idioma",
+    "currentLanguage": "Idioma atual: {language}",
+    "menuLabel": "Escolha um idioma"
+  }
+}

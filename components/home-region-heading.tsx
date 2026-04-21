@@ -1,5 +1,6 @@
 "use client";
 
+import { useTranslations } from "next-intl";
 import { motion, useInView, useReducedMotion } from "motion/react";
 import { useRef } from "react";
 
@@ -7,6 +8,7 @@ const EASE = [0.16, 1, 0.3, 1] as const;
 const TOP_OF_PAGE_DELAY_MS = 2050;
 
 export function HomeRegionHeading() {
+  const t = useTranslations("Home");
   const ref = useRef<HTMLDivElement | null>(null);
   const inView = useInView(ref, {
     amount: 0.15,
@@ -33,7 +35,7 @@ export function HomeRegionHeading() {
         }}
       >
         <h2 className="mb-2 text-center font-display text-[28px] font-bold tracking-[-0.01em]">
-          Select Your Region
+          {t("regionHeading")}
         </h2>
       </motion.div>
       <motion.div
@@ -47,7 +49,7 @@ export function HomeRegionHeading() {
         }}
       >
         <p className="mb-8 text-center text-sm text-fg-dim">
-          Seven regions. Pick the one you&apos;re activating.
+          {t("regionSubheading")}
         </p>
       </motion.div>
     </div>

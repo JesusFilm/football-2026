@@ -1,9 +1,10 @@
-import { act, fireEvent, render, screen } from "@testing-library/react";
+import { act, fireEvent, screen } from "@testing-library/react";
 import type { CSSProperties } from "react";
 import { afterEach, describe, expect, it, vi } from "vitest";
 
 import { HomeCountryViewsInteractive } from "@/components/home-country-views-interactive";
 import { REGIONS } from "@/lib/regions";
+import { renderWithIntl } from "@/test/intl-test-utils";
 
 const reducedMotion = vi.hoisted(() => ({ value: false }));
 
@@ -82,7 +83,7 @@ describe("HomeCountryViewsInteractive", () => {
   it("starts with all countries and can filter to a region", () => {
     vi.useFakeTimers();
 
-    render(
+    renderWithIntl(
       <HomeCountryViewsInteractive regions={REGIONS} countries={countries} />,
     );
 
@@ -141,7 +142,7 @@ describe("HomeCountryViewsInteractive", () => {
   it("automatically advances through region selections", () => {
     vi.useFakeTimers();
 
-    render(
+    renderWithIntl(
       <HomeCountryViewsInteractive regions={REGIONS} countries={countries} />,
     );
 
@@ -167,7 +168,7 @@ describe("HomeCountryViewsInteractive", () => {
   it("stops auto-advance when a region is manually selected", () => {
     vi.useFakeTimers();
 
-    render(
+    renderWithIntl(
       <HomeCountryViewsInteractive regions={REGIONS} countries={countries} />,
     );
 
@@ -186,7 +187,7 @@ describe("HomeCountryViewsInteractive", () => {
   });
 
   it("can start with a region selected", () => {
-    render(
+    renderWithIntl(
       <HomeCountryViewsInteractive
         regions={REGIONS}
         countries={countries}
@@ -203,7 +204,7 @@ describe("HomeCountryViewsInteractive", () => {
   });
 
   it("can render the full country list for region pages", () => {
-    render(
+    renderWithIntl(
       <HomeCountryViewsInteractive
         regions={REGIONS}
         countries={countries}
@@ -219,7 +220,7 @@ describe("HomeCountryViewsInteractive", () => {
     reducedMotion.value = true;
     vi.useFakeTimers();
 
-    render(
+    renderWithIntl(
       <HomeCountryViewsInteractive regions={REGIONS} countries={countries} />,
     );
 

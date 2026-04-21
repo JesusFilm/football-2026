@@ -1,5 +1,6 @@
-import Link from "next/link";
+import { useTranslations } from "next-intl";
 
+import { Link } from "@/i18n/navigation";
 import type { Region } from "@/lib/regions";
 
 type Props = {
@@ -8,6 +9,7 @@ type Props = {
 };
 
 export function OtherRegionsNav({ currentRegionId, regions }: Props) {
+  const t = useTranslations("Region");
   const otherRegions = regions.filter(
     (region) => region.id !== currentRegionId,
   );
@@ -21,7 +23,7 @@ export function OtherRegionsNav({ currentRegionId, regions }: Props) {
         id="other-regions-heading"
         className="mb-4 text-center font-display text-[24px] font-bold tracking-[-0.01em]"
       >
-        Explore Other Regions
+        {t("otherRegionsHeading")}
       </h2>
       <div className="mx-auto flex max-w-[900px] flex-wrap justify-center gap-2">
         {otherRegions.map((region) => (

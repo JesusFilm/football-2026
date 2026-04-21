@@ -1,4 +1,4 @@
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
 
 type Props = {
   href: string;
@@ -19,6 +19,7 @@ export function BackCrumb({ href, label }: Props) {
         stroke="currentColor"
         strokeWidth="1.8"
         strokeLinecap="round"
+        className="rtl-mirror"
       >
         <path d="M7 3L4 6l3 3" />
       </svg>

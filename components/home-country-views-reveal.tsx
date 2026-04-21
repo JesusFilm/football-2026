@@ -1,6 +1,7 @@
 "use client";
 
 import { motion, useReducedMotion } from "motion/react";
+import { useTranslations } from "next-intl";
 import type { ReactNode } from "react";
 
 const EASE = [0.16, 1, 0.3, 1] as const;
@@ -12,6 +13,7 @@ type Props = {
 };
 
 export function HomeCountryViewsReveal({ interactive, summary }: Props) {
+  const t = useTranslations("CountryViews");
   const prefersReducedMotion = useReducedMotion();
 
   return (
@@ -27,10 +29,10 @@ export function HomeCountryViewsReveal({ interactive, summary }: Props) {
         }}
       >
         <span className="inline-block font-mono text-[11px] font-semibold tracking-[0.18em] text-accent uppercase">
-          Global views
+          {t("homeEyebrow")}
         </span>
         <h2 className="mt-2 mb-0 font-display text-[32px] font-bold tracking-[-0.01em]">
-          Where The Story is Spreading
+          {t("heading")}
         </h2>
       </motion.div>
 

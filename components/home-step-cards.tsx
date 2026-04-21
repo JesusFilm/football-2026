@@ -3,6 +3,7 @@
 import { ArrowDown, ArrowRight } from "lucide-react";
 import { ChartNoAxesCombined, Languages, Share2 } from "lucide-react";
 import { motion, useInView, useReducedMotion } from "motion/react";
+import { useTranslations } from "next-intl";
 import { Fragment, useRef } from "react";
 
 import { StepCard } from "@/components/step-card";
@@ -12,28 +13,8 @@ const START_DELAY_MS = 880;
 const STAGGER_MS = 150;
 const DURATION_MS = 700;
 
-const steps = [
-  {
-    icon: Languages,
-    num: "01 / CHOOSE",
-    title: "Pick a language",
-    body: "Find videos in your audience's local language — 30+ options.",
-  },
-  {
-    icon: Share2,
-    num: "02 / SHARE",
-    title: "Send it",
-    body: "Share the QR code or link anywhere — SMS, social, print, in person.",
-  },
-  {
-    icon: ChartNoAxesCombined,
-    num: "03 / TRACK",
-    title: "See the impact",
-    body: "Watch views and shares as the story spreads across your region.",
-  },
-] as const;
-
 export function HomeStepCards() {
+  const t = useTranslations("Steps");
   const ref = useRef<HTMLDivElement | null>(null);
   const inView = useInView(ref, {
     amount: 0.15,
@@ -44,6 +25,26 @@ export function HomeStepCards() {
   const visible = Boolean(inView || prefersReducedMotion);
   const startDelay =
     typeof window !== "undefined" && window.scrollY === 0 ? START_DELAY_MS : 0;
+  const steps = [
+    {
+      icon: Languages,
+      num: t("chooseNum"),
+      title: t("chooseTitle"),
+      body: t("chooseBody"),
+    },
+    {
+      icon: Share2,
+      num: t("shareNum"),
+      title: t("shareTitle"),
+      body: t("shareBody"),
+    },
+    {
+      icon: ChartNoAxesCombined,
+      num: t("trackNum"),
+      title: t("trackTitle"),
+      body: t("trackBody"),
+    },
+  ] as const;
 
   return (
     <div
@@ -106,7 +107,11 @@ function StepArrow({
       }}
     >
       <ArrowDown className="md:hidden" size={22} strokeWidth={1.8} />
-      <ArrowRight className="hidden md:block" size={24} strokeWidth={1.8} />
+      <ArrowRight
+        className="rtl-mirror hidden md:block"
+        size={24}
+        strokeWidth={1.8}
+      />
     </motion.div>
   );
 }

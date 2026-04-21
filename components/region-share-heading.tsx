@@ -1,11 +1,13 @@
 "use client";
 
 import { motion, useInView, useReducedMotion } from "motion/react";
+import { useTranslations } from "next-intl";
 import { useRef } from "react";
 
 const EASE = [0.16, 1, 0.3, 1] as const;
 
 export function RegionShareHeading() {
+  const t = useTranslations("SharePanel");
   const ref = useRef<HTMLDivElement | null>(null);
   const inView = useInView(ref, {
     amount: 0.15,
@@ -27,7 +29,7 @@ export function RegionShareHeading() {
         }}
       >
         <h2 className="mx-0 mt-0 mb-2.5 font-display text-[32px] font-bold tracking-[-0.01em]">
-          Pick a language. Pass it on.
+          {t("heading")}
         </h2>
       </motion.div>
       <motion.div
@@ -41,8 +43,7 @@ export function RegionShareHeading() {
         }}
       >
         <p className="text-[15px] leading-[1.6] text-fg-dim">
-          Pick the language that matches your audience, then paste the link
-          anywhere you already message people.
+          {t("description")}
         </p>
       </motion.div>
     </div>

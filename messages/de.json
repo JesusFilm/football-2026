@@ -1,0 +1,191 @@
+{
+  "Metadata": {
+    "siteName": "Jesus Film Project · WM 2026 Aktivierung",
+    "defaultTitle": "WM 2026 · Aktiviere deine Region",
+    "titleTemplate": "{title} · Aktivieren · WM 2026",
+    "defaultDescription": "Jesus Film Project Activate: Teile Videos zur WM 2026 in der Sprache, die zu deiner Zielgruppe passt.",
+    "socialAlt": "WM 2026 Aktivierung von Jesus Film Project",
+    "ogBrand": "Jesus Film Project",
+    "ogHeadline": "WM 2026 Outreach",
+    "ogTagline": "Jedes Spiel, jede Nation, jede Seele.",
+    "homeSchemaName": "WM 2026 · Aktiviere deine Region",
+    "breadcrumbAllRegions": "Alle Regionen",
+    "regionTitle": "{regionName} aktivieren",
+    "fallbackRegionTitle": "Region"
+  },
+  "Home": {
+    "eyebrow": "WM 2026 · Outreach",
+    "tagline": "Jedes Spiel, jede Nation, jede Seele.",
+    "title": "Aktiviere deine Region",
+    "description": "Jesus Film Project hat einen einfachen Weg geschaffen, während der WM das Evangelium mit Freunden und Familie zu teilen.",
+    "regionHeading": "Wähle deine Region",
+    "regionSubheading": "Sieben Regionen. Wähle die Region, die du aktivierst."
+  },
+  "Regions": {
+    "africa": {
+      "name": "Afrika",
+      "blurb": "In Afrikas Aktivierungsregion. Hunderte Sprachen. Ein Spiel.",
+      "seoDescription": "Outreach-Tools zur WM 2026 für Afrika: Videos in lokalen Sprachen teilen und Aufrufe auf Länderebene verfolgen.",
+      "flags": {
+        "ng": "Nigeria",
+        "za": "Südafrika",
+        "ke": "Kenia",
+        "gh": "Ghana",
+        "et": "Äthiopien"
+      }
+    },
+    "east-asia": {
+      "name": "Ostasien",
+      "blurb": "China, Japan, Korea, Mongolei — das Herz des pazifischen Raums.",
+      "seoDescription": "Aktiviere Ostasien für die WM 2026 mit regionalen Jesus-Film-Project-Videos, QR-Codes, Teilen-Links und Aufruftracking.",
+      "flags": {
+        "cn": "China",
+        "jp": "Japan",
+        "kr": "Südkorea",
+        "mn": "Mongolei",
+        "tw": "Taiwan"
+      }
+    },
+    "europe": {
+      "name": "Europa",
+      "blurb": "Der Kontinent, auf dem das moderne Spiel geschrieben wurde.",
+      "seoDescription": "Aktiviere Europa während der WM 2026 mit Jesus-Film-Project-Videos, QR-Codes, Teilen-Links und regionalen Aufrufdaten.",
+      "flags": {
+        "gb": "Vereinigtes Königreich",
+        "fr": "Frankreich",
+        "de": "Deutschland",
+        "es": "Spanien",
+        "it": "Italien"
+      }
+    },
+    "lac": {
+      "name": "Lateinamerika und Karibik",
+      "blurb": "Von Tijuana bis Feuerland — ein Kontinent, vereint durch Fußball.",
+      "seoDescription": "Outreach-Tools zur WM 2026 für Lateinamerika und die Karibik: regionale Videos, QR-Codes und Journeys in lokalen Sprachen teilen.",
+      "flags": {
+        "br": "Brasilien",
+        "ar": "Argentinien",
+        "co": "Kolumbien",
+        "mx": "Mexiko",
+        "cl": "Chile"
+      }
+    },
+    "namestan": {
+      "name": "Nordafrika, Naher Osten und Zentralasien",
+      "blurb": "Von Marokko bis Kasachstan — über drei Kontinente hinweg.",
+      "seoDescription": "Aktiviere Nordafrika, den Nahen Osten und Zentralasien mit WM-2026-Videos, QR-Codes und Teilen-Tools in lokalen Sprachen.",
+      "flags": {
+        "ma": "Marokko",
+        "eg": "Ägypten",
+        "sa": "Saudi-Arabien",
+        "ir": "Iran",
+        "kz": "Kasachstan"
+      }
+    },
+    "nao": {
+      "name": "Nordamerika und Ozeanien",
+      "blurb": "Vereinigte Staaten, Kanada, Australien, Neuseeland und der Pazifik.",
+      "seoDescription": "Outreach-Tools zur WM 2026 für Nordamerika und Ozeanien: Videos in lokalen Sprachen, QR-Codes und regionale Aufrufdaten teilen.",
+      "flags": {
+        "us": "Vereinigte Staaten",
+        "ca": "Kanada",
+        "au": "Australien",
+        "nz": "Neuseeland",
+        "fj": "Fidschi"
+      }
+    },
+    "sesa": {
+      "name": "Süd- und Südostasien",
+      "blurb": "Von Mumbai bis Manila — Heimat eines Viertels der Weltbevölkerung.",
+      "seoDescription": "Outreach-Tools zur WM 2026 für Süd- und Südostasien: Videos in lokalen Sprachen in einer reichweitenstarken Region teilen.",
+      "flags": {
+        "in": "Indien",
+        "id": "Indonesien",
+        "ph": "Philippinen",
+        "vn": "Vietnam",
+        "th": "Thailand"
+      }
+    }
+  },
+  "Region": {
+    "eyebrow": "WM 2026 · {regionCode}",
+    "tagline": "Jedes Spiel, jede Nation, jede Seele.",
+    "title": "{regionName} aktivieren",
+    "description": "{regionBlurb} Jesus Film Project hat einen einfachen Weg geschaffen, während der WM das Evangelium mit Freunden und Familie zu teilen.",
+    "countriesLabel": "{count, plural, one {Land} other {Länder}}",
+    "languagesLabel": "{count, plural, one {Sprache} other {Sprachen}}",
+    "allRegions": "Alle Regionen",
+    "otherRegionsHeading": "Andere Regionen erkunden"
+  },
+  "Steps": {
+    "chooseNum": "01 / WÄHLEN",
+    "chooseTitle": "Sprache wählen",
+    "chooseBody": "Finde Videos in der lokalen Sprache deiner Zielgruppe — mehr als 30 Optionen.",
+    "shareNum": "02 / TEILEN",
+    "shareTitle": "Senden",
+    "shareBody": "Teile QR-Code oder Link überall: SMS, Social Media, Druck oder persönlich.",
+    "trackNum": "03 / VERFOLGEN",
+    "trackTitle": "Wirkung sehen",
+    "trackBody": "Verfolge Aufrufe und Shares, während sich die Geschichte in deiner Region verbreitet."
+  },
+  "CountryViews": {
+    "homeEyebrow": "Globale Aufrufe",
+    "regionEyebrow": "WM 2026",
+    "heading": "Wo sich die Geschichte verbreitet",
+    "topCountriesHeading": "Top-Länder nach Aufrufen",
+    "globalRankingLabel": "Globales Länder-Ranking nach Aufrufen",
+    "regionHeading": "Länderaufrufe für {regionName}",
+    "regionRankingLabel": "Länder-Ranking für {regionName}",
+    "topCountry": "Top-Land",
+    "totalViews": "Aufrufe gesamt",
+    "countries": "Länder",
+    "rankingLabel": "Länder-Ranking",
+    "allRegions": "Alle",
+    "viewsSuffix": "Aufrufe",
+    "tooltip": "{countryName}: {views} Aufrufe",
+    "viewsUnavailableLabel": "Aufrufe nicht verfügbar",
+    "viewsUnavailableBody": "Länderbezogene Aufrufdaten konnten gerade nicht geladen werden.",
+    "noViewsLabel": "Noch keine Länderaufrufe",
+    "noViewsBody": "Für {regionName} sind noch keine länderbezogenen Aufrufe verfügbar."
+  },
+  "SharePanel": {
+    "heading": "Sprache wählen. Weitergeben.",
+    "description": "Wähle die Sprache, die zu deiner Zielgruppe passt, und füge den Link dort ein, wo du Menschen bereits kontaktierst.",
+    "chooseLanguage": "Sprache wählen",
+    "selectLanguage": "Sprache auswählen",
+    "noJourneys": "Für diese Region gibt es noch keine Journeys.",
+    "shareLink": "Link teilen",
+    "copyLink": "Link kopieren",
+    "qrCode": "QR-Code",
+    "downloaded": "Heruntergeladen",
+    "downloadPng": "PNG herunterladen",
+    "shared": "Geteilt",
+    "copied": "Kopiert",
+    "tryAgain": "Erneut versuchen",
+    "share": "Teilen",
+    "qrPlaceholder": "QR",
+    "madeWith": "Erstellt mit",
+    "madeWithAria": "Erstellt mit NextSteps",
+    "loadingPreview": "Vorschau wird geladen",
+    "preview": "Vorschau",
+    "previewTitle": "{regionCode} Vorschau",
+    "shareTitle": "{language} Video zur WM 2026",
+    "shareText": "Sieh dir diese WM-2026-Geschichte auf {language} an und teile sie."
+  },
+  "Footer": {
+    "copyright": "© 2026 Jesus Film Project",
+    "rights": "Alle Rechte vorbehalten",
+    "terms": "Nutzungsbedingungen",
+    "privacy": "Deine Privatsphäre"
+  },
+  "Header": {
+    "homeAria": "Jesus Film Project — Startseite",
+    "logoAlt": "Jesus Film Project"
+  },
+  "LanguagePicker": {
+    "label": "Sprache",
+    "ariaLabel": "Sprache ändern",
+    "currentLanguage": "Aktuelle Sprache: {language}",
+    "menuLabel": "Sprache wählen"
+  }
+}
