@@ -1,5 +1,5 @@
 import { render, screen } from "@testing-library/react";
-import { describe, expect, it, vi } from "vitest";
+import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 
 import RegionPage from "@/app/[id]/page";
 import type { CountryView } from "@/lib/country-views";
@@ -20,12 +20,6 @@ vi.mock("@/components/site-header", () => ({
 
 vi.mock("@/components/site-footer", () => ({
   SiteFooter: () => <footer data-testid="site-footer" />,
-}));
-
-vi.mock("@/components/reveal-group", () => ({
-  RevealGroup: ({ children }: { children: React.ReactNode }) => (
-    <div>{children}</div>
-  ),
 }));
 
 vi.mock("@/components/region-share-panel", () => ({
@@ -97,6 +91,26 @@ vi.mock("@/lib/country-views", async (importOriginal) => {
 });
 
 describe("RegionPage country views integration", () => {
+  beforeEach(() => {
+    class MockIntersectionObserver {
+      observe = vi.fn(() => {
+        this.callback([{ isIntersecting: true }]);
+      });
+      disconnect = vi.fn();
+      unobserve = vi.fn();
+
+      constructor(
+        private callback: (entries: { isIntersecting: boolean }[]) => void,
+      ) {}
+    }
+
+    vi.stubGlobal("IntersectionObserver", MockIntersectionObserver);
+  });
+
+  afterEach(() => {
+    vi.unstubAllGlobals();
+  });
+
   it("passes all country views to the shared map while counting the active region", async () => {
     const ui = await RegionPage({ params: Promise.resolve({ id: "nao" }) });
     render(ui);

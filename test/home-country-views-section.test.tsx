@@ -22,25 +22,7 @@ describe("HomeCountryViewsSection", () => {
     vi.unstubAllGlobals();
   });
 
-  it("renders the lightweight shell before the map is near the viewport", () => {
-    class MockIntersectionObserver {
-      observe = vi.fn();
-      disconnect = vi.fn();
-    }
-
-    vi.stubGlobal("IntersectionObserver", MockIntersectionObserver);
-
-    render(<HomeCountryViewsSection regions={REGIONS} countries={countries} />);
-
-    expect(
-      screen.getByRole("heading", { name: "Where The Story is Spreading" }),
-    ).toBeInTheDocument();
-    expect(screen.queryByTestId("interactive-map")).not.toBeInTheDocument();
-    expect(screen.getAllByTestId("skeleton-filter")).toHaveLength(8);
-    expect(screen.getAllByTestId("skeleton-country-row")).toHaveLength(10);
-  });
-
-  it("loads the interactive map when the section intersects", () => {
+  it("loads the interactive map without a viewport gate", () => {
     class MockIntersectionObserver {
       observe = vi.fn(() => {
         this.callback([{ isIntersecting: true }]);
@@ -56,6 +38,9 @@ describe("HomeCountryViewsSection", () => {
 
     render(<HomeCountryViewsSection regions={REGIONS} countries={countries} />);
 
+    expect(
+      screen.getByRole("heading", { name: "Where The Story is Spreading" }),
+    ).toBeInTheDocument();
     expect(screen.getByTestId("interactive-map")).toBeInTheDocument();
   });
 });

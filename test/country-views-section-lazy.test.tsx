@@ -39,14 +39,7 @@ describe("CountryViewsSection lazy loading", () => {
     vi.unstubAllGlobals();
   });
 
-  it("renders the region skeleton before the map is near the viewport", () => {
-    class MockIntersectionObserver {
-      observe = vi.fn();
-      disconnect = vi.fn();
-    }
-
-    vi.stubGlobal("IntersectionObserver", MockIntersectionObserver);
-
+  it("loads the interactive region map without a viewport gate", () => {
     render(
       <CountryViewsSection
         regionName="North America & Oceania"
@@ -58,36 +51,6 @@ describe("CountryViewsSection lazy loading", () => {
     expect(
       screen.getByRole("heading", { name: "Where The Story is Spreading" }),
     ).toBeInTheDocument();
-    expect(
-      screen.queryByTestId("region-interactive-map"),
-    ).not.toBeInTheDocument();
-    expect(screen.getAllByTestId("region-skeleton-country-row")).toHaveLength(
-      10,
-    );
-  });
-
-  it("loads the interactive map when the section intersects", () => {
-    class MockIntersectionObserver {
-      observe = vi.fn(() => {
-        this.callback([{ isIntersecting: true }]);
-      });
-      disconnect = vi.fn();
-
-      constructor(
-        private callback: (entries: { isIntersecting: boolean }[]) => void,
-      ) {}
-    }
-
-    vi.stubGlobal("IntersectionObserver", MockIntersectionObserver);
-
-    render(
-      <CountryViewsSection
-        regionName="North America & Oceania"
-        regionCode="NAmOceania"
-        countries={countries}
-      />,
-    );
-
     expect(screen.getByTestId("region-interactive-map")).toHaveTextContent(
       "NAmOceania:2",
     );

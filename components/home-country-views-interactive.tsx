@@ -159,7 +159,7 @@ export function HomeCountryViewsInteractive({
   };
 
   return (
-    <div className="rounded-[var(--radius-lg)] border border-line bg-[rgb(12_10_8_/_0.65)] p-5 backdrop-blur-md md:p-7">
+    <div className="rounded-none border-0 bg-transparent p-0 backdrop-blur-none md:rounded-[var(--radius-lg)] md:border md:border-line md:bg-[rgb(12_10_8_/_0.65)] md:p-7 md:backdrop-blur-md">
       <div className="mb-5 grid grid-cols-1 gap-4 lg:grid-cols-[minmax(0,1.35fr)_minmax(300px,0.8fr)] lg:items-stretch lg:gap-7">
         <div className="grid min-w-0 grid-cols-1 gap-3 sm:grid-cols-3">
           <Metric
@@ -219,7 +219,7 @@ export function HomeCountryViewsInteractive({
 
       <div className="grid grid-cols-1 gap-7 lg:grid-cols-[minmax(0,1.35fr)_minmax(300px,0.8fr)] lg:items-start">
         <div className="min-w-0">
-          <div className="flex overflow-hidden rounded-[var(--radius-md)] border border-line bg-[rgb(255_255_255_/_0.03)] px-2 py-4 md:h-[440px] md:items-center">
+          <div className="flex overflow-hidden rounded-[var(--radius-md)] border border-line bg-[rgb(12_10_8_/_0.42)] px-2 py-4 backdrop-blur-md md:h-[440px] md:items-center">
             <div
               className="w-full origin-center transition-transform duration-700 ease-out"
               style={{
@@ -261,10 +261,7 @@ export function HomeCountryViewsInteractive({
           </div>
         </div>
 
-        <ol
-          className="m-0 list-none p-0 md:h-[440px] md:overflow-y-auto md:pr-1"
-          aria-label="Country ranking"
-        >
+        <ol className="m-0 list-none p-0" aria-label="Country ranking">
           {Array.from({ length: visibleRowCount }, (_, index) => {
             const country = displayedCountries[index];
             const outgoingCountry = outgoingDisplayedCountries[index];
@@ -272,7 +269,7 @@ export function HomeCountryViewsInteractive({
             return (
               <li
                 key={`${displaySelection}-${outgoingSelection ?? "none"}-${index}`}
-                className="relative mb-1.5 min-h-10 overflow-hidden rounded-[var(--radius-md)] border border-line bg-[rgb(255_255_255_/_0.035)] px-3 py-2 transition-colors hover:border-[rgb(230_57_70_/_0.45)] hover:bg-[rgb(230_57_70_/_0.08)] md:h-[38.6px] md:min-h-0"
+                className="relative mb-1.5 min-h-10 overflow-hidden rounded-[var(--radius-md)] border border-line bg-[rgb(12_10_8_/_0.42)] px-3 py-2 backdrop-blur-md transition-colors hover:border-[rgb(230_57_70_/_0.45)] hover:bg-[rgb(230_57_70_/_0.08)] md:h-[38.6px] md:min-h-0"
                 onMouseEnter={() => {
                   if (country) highlightCountry(country);
                 }}
@@ -326,7 +323,7 @@ function Metric({
   const enterDelay = `${animationOrder * 90 + (outgoingValue ? 170 : 0)}ms`;
 
   return (
-    <div className="min-w-0 rounded-[var(--radius-md)] border border-line bg-[rgb(255_255_255_/_0.04)] px-4 py-3">
+    <div className="min-w-0 rounded-[var(--radius-md)] border border-line bg-[rgb(12_10_8_/_0.42)] px-4 py-3 backdrop-blur-md">
       <div className="mb-1 font-mono text-[10px] tracking-[0.14em] text-fg-mute uppercase">
         {label}
       </div>
@@ -398,8 +395,8 @@ function RegionButton({
       onClick={onClick}
       className={`relative min-w-0 overflow-hidden rounded-[var(--radius-md)] border px-2 py-2 font-mono text-[10px] tracking-[0.08em] whitespace-nowrap uppercase transition-colors lg:h-full ${
         active
-          ? "border-accent bg-accent text-white"
-          : "border-line-strong bg-[rgb(255_255_255_/_0.04)] text-fg-dim hover:border-accent hover:text-fg"
+          ? "border-accent bg-[rgb(230_57_70_/_0.82)] text-white backdrop-blur-md"
+          : "border-line-strong bg-[rgb(12_10_8_/_0.42)] text-fg-dim backdrop-blur-md hover:border-accent hover:text-fg"
       }`}
     >
       {active && autoAdvancing ? (

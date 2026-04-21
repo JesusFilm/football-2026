@@ -87,6 +87,37 @@ export const REGIONS: Region[] = [
   },
 ];
 
+function normalizeRegionRouteValue(value: string): string {
+  const decoded = (() => {
+    try {
+      return decodeURIComponent(value);
+    } catch {
+      return value;
+    }
+  })();
+
+  return decoded
+    .trim()
+    .toLowerCase()
+    .replace(/&/g, "and")
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "");
+}
+
 export function getRegion(id: string): Region | undefined {
-  return REGIONS.find((r) => r.id === id);
+  const normalizedId = normalizeRegionRouteValue(id);
+
+  return REGIONS.find((region) => {
+    const aliases = [
+      region.id,
+      region.code,
+      region.displayCode,
+      region.name,
+      region.name.replace(/^Sub-Saharan /, ""),
+    ];
+
+    return aliases.some(
+      (alias) => normalizeRegionRouteValue(alias) === normalizedId,
+    );
+  });
 }

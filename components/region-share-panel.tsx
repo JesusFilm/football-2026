@@ -1,5 +1,6 @@
 "use client";
 
+import NextImage from "next/image";
 import { useEffect, useRef, useState } from "react";
 
 import type { Journey } from "@/lib/journeys";
@@ -9,6 +10,57 @@ const SHARE_BASE = "https://your.nextstep.is";
 
 function shareUrl(slug: string): string {
   return `${SHARE_BASE}/${slug}`;
+}
+
+function previewUrl(slug: string): string {
+  return `${SHARE_BASE}/embed/${slug}?expand=false`;
+}
+
+function filenamePart(value: string): string {
+  return value
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "");
+}
+
+function qrFilename(regionCode: string, selected: Journey): string {
+  const region = filenamePart(regionCode);
+  const language = filenamePart(selected.language.english);
+
+  return `world-cup-2026-${region || "region"}-${language || "journey"}-qr.png`;
+}
+
+async function qrSvgToPngBlob(svg: string, size: number): Promise<Blob> {
+  const svgBlob = new Blob([svg], { type: "image/svg+xml;charset=utf-8" });
+  const svgUrl = URL.createObjectURL(svgBlob);
+
+  try {
+    const image = new Image();
+    const loaded = new Promise<void>((resolve, reject) => {
+      image.onload = () => resolve();
+      image.onerror = () => reject(new Error("QR image failed to load"));
+    });
+
+    image.src = svgUrl;
+    await loaded;
+
+    const canvas = document.createElement("canvas");
+    canvas.width = size;
+    canvas.height = size;
+    const context = canvas.getContext("2d");
+    if (!context) throw new Error("Canvas is unavailable");
+
+    context.drawImage(image, 0, 0, size, size);
+
+    return await new Promise<Blob>((resolve, reject) => {
+      canvas.toBlob((blob) => {
+        if (blob) resolve(blob);
+        else reject(new Error("QR PNG could not be created"));
+      }, "image/png");
+    });
+  } finally {
+    URL.revokeObjectURL(svgUrl);
+  }
 }
 
 type Props = {
@@ -22,6 +74,9 @@ export function RegionSharePanel({ regionCode, journeys }: Props) {
   );
   const [open, setOpen] = useState(false);
   const [copied, setCopied] = useState(false);
+  const [qrAction, setQrAction] = useState<
+    "downloaded" | "shared" | "copied" | null
+  >(null);
   const rootRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -47,8 +102,59 @@ export function RegionSharePanel({ regionCode, journeys }: Props) {
     setTimeout(() => setCopied(false), 1400);
   };
 
+  const showQrAction = (action: "downloaded" | "shared" | "copied") => {
+    setQrAction(action);
+    setTimeout(() => setQrAction(null), 1400);
+  };
+
+  const downloadQr = async () => {
+    if (!selected || !url) return;
+
+    const svg = renderQrSvg(url, 1024);
+    const pngBlob = await qrSvgToPngBlob(svg, 1024);
+    const pngUrl = URL.createObjectURL(pngBlob);
+
+    try {
+      const link = document.createElement("a");
+      link.href = pngUrl;
+      link.download = qrFilename(regionCode, selected);
+      document.body.appendChild(link);
+      link.click();
+      link.remove();
+      showQrAction("downloaded");
+    } finally {
+      URL.revokeObjectURL(pngUrl);
+    }
+  };
+
+  const shareQr = async () => {
+    if (!selected || !url) return;
+
+    const title = `${selected.language.english} World Cup 2026 video`;
+    const text = `Watch and share this World Cup 2026 story in ${selected.language.english}.`;
+
+    if (navigator.share) {
+      try {
+        await navigator.share({ title, text, url });
+        showQrAction("shared");
+        return;
+      } catch (error) {
+        if (error instanceof DOMException && error.name === "AbortError") {
+          return;
+        }
+      }
+    }
+
+    try {
+      await navigator.clipboard.writeText(url);
+    } catch {
+      // Ignore clipboard failures; the visible URL remains selectable.
+    }
+    showQrAction("copied");
+  };
+
   return (
-    <div className="mx-auto mb-20 grid max-w-[880px] grid-cols-1 gap-8 rounded-2xl border border-line bg-[rgb(12_10_8_/_0.7)] p-7 backdrop-blur-xl md:grid-cols-[280px_1fr] md:gap-10 md:px-8 md:py-8">
+    <div className="-mx-5 mb-20 grid grid-cols-1 gap-8 bg-[rgb(12_10_8_/_0.7)] px-5 py-7 backdrop-blur-xl sm:-mx-10 sm:px-10 md:mx-auto md:max-w-[880px] md:grid-cols-[280px_1fr] md:gap-10 md:rounded-2xl md:border md:border-line md:px-8 md:py-8">
       {/* Left: video preview */}
       <div className="order-2 md:order-1">
         <VideoPreview regionCode={regionCode} slug={selected?.slug} />
@@ -56,18 +162,25 @@ export function RegionSharePanel({ regionCode, journeys }: Props) {
           href="https://nextstep.is"
           target="_blank"
           rel="noreferrer"
-          className="mt-3 block text-center font-mono text-[9px] tracking-[0.14em] text-fg-mute uppercase no-underline transition-colors hover:text-fg"
+          className="mx-auto mt-3 flex w-fit items-center justify-center gap-2 opacity-60 no-underline transition-opacity hover:opacity-90"
+          aria-label="Made with NextSteps"
         >
-          — made with NextSteps —
+          <span className="font-mono text-[9px] tracking-[0.14em] text-fg-mute uppercase">
+            Made with
+          </span>
+          <NextImage
+            src="/nextsteps.png"
+            alt="NextSteps"
+            width={112}
+            height={40}
+            className="h-auto w-[112px] translate-y-px"
+          />
         </a>
       </div>
 
       {/* Right: language picker + share + QR */}
       <div className="order-1 min-w-0 md:order-2">
-        <FieldLabel
-          label="Choose a Language"
-          hint="Select your audience's heart language"
-        />
+        <FieldLabel label="Choose a Language" />
         <div
           ref={rootRef}
           className="relative mb-6"
@@ -84,12 +197,14 @@ export function RegionSharePanel({ regionCode, journeys }: Props) {
               open ? "border-accent" : "border-line-strong"
             }`}
           >
-            <span className="flex items-center gap-2.5">
+            <span className="flex items-baseline gap-2.5 leading-none">
               {selected ? (
                 <>
-                  <span>{selected.language.english}</span>
+                  <span className="leading-none">
+                    {selected.language.english}
+                  </span>
                   {selected.language.native && (
-                    <span className="text-[13px] text-fg-dim">
+                    <span className="leading-none text-fg-mute">
                       {selected.language.native}
                     </span>
                   )}
@@ -131,11 +246,11 @@ export function RegionSharePanel({ regionCode, journeys }: Props) {
                       setSelected(j);
                       setOpen(false);
                     }}
-                    className="flex w-full cursor-pointer items-center justify-between rounded-[4px] px-3 py-2.5 text-left text-sm transition-colors hover:bg-[rgb(230_57_70_/_0.1)]"
+                    className="flex w-full cursor-pointer items-baseline justify-between gap-4 rounded-[4px] px-3 py-2.5 text-left text-sm leading-none transition-colors hover:bg-[rgb(230_57_70_/_0.1)]"
                   >
-                    <span>{j.language.english}</span>
+                    <span className="leading-none">{j.language.english}</span>
                     {j.language.native && (
-                      <span className="font-mono text-xs text-fg-dim">
+                      <span className="shrink-0 leading-none text-fg-mute">
                         {j.language.native}
                       </span>
                     )}
@@ -162,7 +277,7 @@ export function RegionSharePanel({ regionCode, journeys }: Props) {
             onClick={copy}
             aria-label="Copy link"
             title="Copy link"
-            className={`flex items-center justify-center rounded-[var(--radius-md)] border px-[14px] text-white transition-colors ${
+            className={`flex cursor-pointer items-center justify-center rounded-[var(--radius-md)] border px-[14px] text-white transition-colors ${
               copied
                 ? "border-green bg-green"
                 : "border-accent-deep bg-accent-deep hover:bg-accent"
@@ -201,7 +316,11 @@ export function RegionSharePanel({ regionCode, journeys }: Props) {
         <div className="flex items-start gap-3.5">
           <QrBox value={hasSelection ? url : null} />
           <div className="flex flex-col gap-2">
-            <IconBtn title="Download PNG" disabled={!hasSelection}>
+            <IconBtn
+              title={qrAction === "downloaded" ? "Downloaded" : "Download PNG"}
+              disabled={!hasSelection}
+              onClick={downloadQr}
+            >
               <svg
                 width="14"
                 height="14"
@@ -214,7 +333,17 @@ export function RegionSharePanel({ regionCode, journeys }: Props) {
                 <path d="M7 2v7m0 0l-3-3m3 3l3-3M2 11h10" />
               </svg>
             </IconBtn>
-            <IconBtn title="Share" disabled={!hasSelection}>
+            <IconBtn
+              title={
+                qrAction === "shared"
+                  ? "Shared"
+                  : qrAction === "copied"
+                    ? "Copied"
+                    : "Share"
+              }
+              disabled={!hasSelection}
+              onClick={shareQr}
+            >
               <svg
                 width="14"
                 height="14"
@@ -242,7 +371,7 @@ function FieldLabel({ label, hint }: { label: string; hint?: string }) {
     <div className="mb-2 flex items-center justify-between font-mono text-[10px] tracking-[0.16em] text-fg-mute uppercase">
       <span>{label}</span>
       {hint && (
-        <span className="font-sans text-[11px] tracking-[0.02em] text-fg-mute normal-case">
+        <span className="hidden font-sans text-[11px] tracking-[0.02em] text-fg-mute normal-case sm:inline">
           {hint}
         </span>
       )}
@@ -271,17 +400,25 @@ function IconBtn({
   children,
   title,
   disabled,
+  onClick,
 }: {
   children: React.ReactNode;
   title: string;
   disabled?: boolean;
+  onClick?: () => void | Promise<void>;
 }) {
+  const handleClick = () => {
+    void onClick?.();
+  };
+
   return (
     <button
       type="button"
       title={title}
+      aria-label={title}
       disabled={disabled}
-      className="flex h-9 w-9 items-center justify-center rounded-[var(--radius-md)] border border-line-strong bg-[rgb(255_255_255_/_0.04)] text-fg-dim transition-colors hover:border-accent hover:bg-[rgb(255_255_255_/_0.08)] hover:text-fg disabled:cursor-not-allowed disabled:opacity-40 disabled:hover:border-line-strong disabled:hover:bg-[rgb(255_255_255_/_0.04)] disabled:hover:text-fg-dim"
+      onClick={handleClick}
+      className="flex h-9 w-9 cursor-pointer items-center justify-center rounded-[var(--radius-md)] border border-line-strong bg-[rgb(255_255_255_/_0.04)] text-fg-dim transition-colors hover:border-accent hover:bg-[rgb(255_255_255_/_0.08)] hover:text-fg disabled:cursor-not-allowed disabled:opacity-40 disabled:hover:border-line-strong disabled:hover:bg-[rgb(255_255_255_/_0.04)] disabled:hover:text-fg-dim"
     >
       {children}
     </button>
@@ -295,19 +432,28 @@ function VideoPreview({
   regionCode: string;
   slug: string | undefined;
 }) {
-  const iframeSrc = slug ? shareUrl(slug) : null;
+  const iframeSrc = slug ? previewUrl(slug) : null;
+  const [loadedSrc, setLoadedSrc] = useState<string | null>(null);
+  const loaded = iframeSrc !== null && loadedSrc === iframeSrc;
 
   return (
-    <div className="relative aspect-[9/16] w-full overflow-hidden rounded-[10px] border border-line-strong bg-gradient-to-br from-[#1a1510] to-[#0a0806]">
+    <div className="isolate relative aspect-[9/16] w-full overflow-hidden rounded-[10px] bg-transparent">
+      <div
+        className={`pointer-events-none absolute inset-0 z-0 bg-gradient-to-br from-[#1a1510] to-[#0a0806] transition-opacity duration-300 ${
+          loaded ? "opacity-0" : "opacity-100"
+        }`}
+      />
       {iframeSrc && (
         <iframe
           key={iframeSrc}
           src={iframeSrc}
           title={`${regionCode} preview`}
-          className="absolute inset-0 h-full w-full border-0"
+          className="pointer-events-auto absolute inset-0 z-10 h-full w-full border-0"
           loading="lazy"
+          onLoad={() => setLoadedSrc(iframeSrc)}
           referrerPolicy="no-referrer"
-          sandbox="allow-scripts allow-same-origin allow-popups allow-forms"
+          allow="autoplay; fullscreen; encrypted-media; picture-in-picture; clipboard-write; web-share"
+          allowFullScreen
         />
       )}
     </div>

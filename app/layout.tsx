@@ -85,6 +85,14 @@ export default function RootLayout({
       className={`motion-ready ${archivo.variable} ${inter.variable} ${fraunces.variable} ${jetbrainsMono.variable}`}
     >
       <body>
+        <noscript>
+          <style
+            dangerouslySetInnerHTML={{
+              __html:
+                ".motion-ready .reveal,.motion-ready .reveal.revealed{opacity:1!important;transform:none!important;transition:none!important}",
+            }}
+          />
+        </noscript>
         {children}
         <script
           type="application/ld+json"

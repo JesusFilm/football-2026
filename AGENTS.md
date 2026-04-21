@@ -3,7 +3,6 @@
 ## Project Shape
 
 - The active Next.js app lives at the repository root.
-- `football-2026-unpacked/` is a handoff bundle for later implementation work. Do not modify it unless the current task explicitly asks you to work on the handoff.
 - Use `pnpm` for all Node.js package operations. Do not introduce npm, Yarn, or Bun lockfiles.
 
 ## Fast Path

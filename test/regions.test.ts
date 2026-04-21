@@ -26,4 +26,23 @@ describe("REGIONS", () => {
       displayCode: "LAC",
     });
   });
+
+  it("accepts region code and display-code aliases as route params", () => {
+    expect(getRegion("NAmOceania")).toMatchObject({
+      id: "nao",
+      code: "NAmOceania",
+    });
+    expect(getRegion("NAO")).toMatchObject({
+      id: "nao",
+      displayCode: "NAO",
+    });
+    expect(getRegion("East%20Asia")).toMatchObject({
+      id: "east-asia",
+      code: "East Asia",
+    });
+    expect(getRegion("EUR")).toMatchObject({
+      id: "europe",
+      displayCode: "EUR",
+    });
+  });
 });

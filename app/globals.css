@@ -55,8 +55,10 @@ body {
 /* Stadium hero photo with darkening overlays */
 .bg-stadium {
   position: fixed;
-  inset: 0;
+  inset: -120px 0;
   z-index: -2;
+  pointer-events: none;
+  --stadium-parallax-y: 0px;
   background-color: #0a0806;
   background-image:
     radial-gradient(
@@ -72,8 +74,12 @@ body {
     ),
     url("/stadium-hero.webp");
   background-size: auto, auto, cover;
-  background-position: center, center, center;
+  background-position:
+    center center,
+    center center,
+    center calc(50% + var(--stadium-parallax-y));
   background-repeat: no-repeat, no-repeat, no-repeat;
+  will-change: background-position;
 }
 
 .bg-stadium::after {
