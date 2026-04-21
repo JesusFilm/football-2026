@@ -17,6 +17,8 @@ type Props = {
   params: Promise<{ locale: Locale }>;
 };
 
+export const dynamic = "force-dynamic";
+
 export default async function Home({ params }: Props) {
   const { locale } = await params;
   setRequestLocale(locale);

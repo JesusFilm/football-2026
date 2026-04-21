@@ -1,5 +1,10 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 
+vi.mock("next/cache", () => ({
+  unstable_cache: <T extends (...args: never[]) => Promise<unknown>>(cb: T) =>
+    cb,
+}));
+
 import {
   fetchCountryViews,
   filterCountryViewsByRegion,
@@ -169,16 +174,22 @@ describe("fetchCountryViews", () => {
     expect(fetchMock).toHaveBeenCalledWith(
       "https://api.jsonbin.io/v3/b/69d452a936566621a8867f6b?meta=false",
       {
-        next: {
-          revalidate: 3600,
-          tags: ["country-views"],
-        },
+        cache: "no-store",
       },
     );
   });
 
   it("returns unavailable for non-OK responses", async () => {
     mockFetchResponse({ message: "bad" }, 500);
+
+    await expect(fetchCountryViews()).resolves.toEqual({
+      status: "unavailable",
+      countries: [],
+    });
+  });
+
+  it("returns unavailable for responses without data rows", async () => {
+    mockFetchResponse({ message: "missing rows" });
 
     await expect(fetchCountryViews()).resolves.toEqual({
       status: "unavailable",

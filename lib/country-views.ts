@@ -1,3 +1,5 @@
+import { unstable_cache } from "next/cache";
+
 import type { JsonbinRegionCode } from "@/lib/regions";
 import { resolveCountryCodeFromName } from "@/lib/country-display";
 
@@ -105,22 +107,35 @@ export function filterCountryViewsByRegion(
   return countries.filter((country) => country.regionCode === regionCode);
 }
 
+async function fetchFreshCountryViews(): Promise<CountryView[]> {
+  const res = await fetch(JSONBIN_COUNTRY_VIEWS_URL, {
+    cache: "no-store",
+  });
+
+  if (!res.ok) {
+    throw new Error(`JSONBin country views request failed: ${res.status}`);
+  }
+
+  const json = (await res.json()) as RawCountryViewsResponse;
+  if (!Array.isArray(json.data)) {
+    throw new Error("JSONBin country views response is missing data rows");
+  }
+
+  return normalizeCountryViewsRows(json.data);
+}
+
+const getCachedCountryViews = unstable_cache(
+  fetchFreshCountryViews,
+  ["country-views"],
+  {
+    revalidate: 3600,
+    tags: ["country-views"],
+  },
+);
+
 export async function fetchCountryViews(): Promise<CountryViewsResult> {
   try {
-    const res = await fetch(JSONBIN_COUNTRY_VIEWS_URL, {
-      next: {
-        revalidate: 3600,
-        tags: ["country-views"],
-      },
-    });
-
-    if (!res.ok) {
-      return { status: "unavailable", countries: [] };
-    }
-
-    const json = (await res.json()) as RawCountryViewsResponse;
-    const countries = normalizeCountryViewsRows(json.data);
-
+    const countries = await getCachedCountryViews();
     return { status: "available", countries };
   } catch {
     return { status: "unavailable", countries: [] };
