@@ -126,9 +126,9 @@ describe("RegionSharePanel", () => {
       expect(writeText).toHaveBeenCalledWith(
         "https://your.nextstep.is/where-you-belong-swahili",
       );
-      expect(
-        screen.getByRole("button", { name: "Copied" }),
-      ).toBeInTheDocument();
+      expect(screen.getByRole("button", { name: "Copied" })).toHaveClass(
+        "bg-green",
+      );
     });
   });
 

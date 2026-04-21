@@ -381,18 +381,9 @@ export function RegionSharePanel({ regionCode, journeys }: Props) {
               title={qrAction === "downloaded" ? "Downloaded" : "Download PNG"}
               disabled={!hasSelection}
               onClick={downloadQr}
+              status={qrAction === "downloaded" ? "success" : "idle"}
             >
-              <svg
-                width="14"
-                height="14"
-                viewBox="0 0 14 14"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="1.6"
-                strokeLinecap="round"
-              >
-                <path d="M7 2v7m0 0l-3-3m3 3l3-3M2 11h10" />
-              </svg>
+              {qrAction === "downloaded" ? <CheckIcon /> : <DownloadIcon />}
             </IconBtn>
             <IconBtn
               title={
@@ -406,21 +397,21 @@ export function RegionSharePanel({ regionCode, journeys }: Props) {
               }
               disabled={!hasSelection}
               onClick={shareQr}
+              status={
+                qrAction === "shared" || qrAction === "copied"
+                  ? "success"
+                  : qrAction === "error"
+                    ? "error"
+                    : "idle"
+              }
             >
-              <svg
-                width="14"
-                height="14"
-                viewBox="0 0 14 14"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="1.6"
-                strokeLinecap="round"
-              >
-                <circle cx="3.5" cy="7" r="1.5" />
-                <circle cx="10.5" cy="3.5" r="1.5" />
-                <circle cx="10.5" cy="10.5" r="1.5" />
-                <path d="M4.8 6.2l4.4-2M4.8 7.8l4.4 2" />
-              </svg>
+              {qrAction === "shared" || qrAction === "copied" ? (
+                <CheckIcon />
+              ) : qrAction === "error" ? (
+                <span className="font-mono text-[11px]">!</span>
+              ) : (
+                <ShareIcon />
+              )}
             </IconBtn>
           </div>
         </div>
@@ -464,11 +455,13 @@ function IconBtn({
   title,
   disabled,
   onClick,
+  status = "idle",
 }: {
   children: React.ReactNode;
   title: string;
   disabled?: boolean;
   onClick?: () => void | Promise<void>;
+  status?: "idle" | "success" | "error";
 }) {
   const handleClick = () => {
     void onClick?.();
@@ -481,10 +474,67 @@ function IconBtn({
       aria-label={title}
       disabled={disabled}
       onClick={handleClick}
-      className="flex h-9 w-9 cursor-pointer items-center justify-center rounded-[var(--radius-md)] border border-line-strong bg-[rgb(255_255_255_/_0.04)] text-fg-dim transition-colors hover:border-accent hover:bg-[rgb(255_255_255_/_0.08)] hover:text-fg disabled:cursor-not-allowed disabled:opacity-40 disabled:hover:border-line-strong disabled:hover:bg-[rgb(255_255_255_/_0.04)] disabled:hover:text-fg-dim"
+      className={`flex h-9 w-9 cursor-pointer items-center justify-center rounded-[var(--radius-md)] border transition-colors disabled:cursor-not-allowed disabled:opacity-40 disabled:hover:border-line-strong disabled:hover:bg-[rgb(255_255_255_/_0.04)] disabled:hover:text-fg-dim ${
+        status === "success"
+          ? "border-green bg-green text-white"
+          : status === "error"
+            ? "border-accent bg-accent text-white"
+            : "border-line-strong bg-[rgb(255_255_255_/_0.04)] text-fg-dim hover:border-accent hover:bg-[rgb(255_255_255_/_0.08)] hover:text-fg"
+      }`}
     >
       {children}
     </button>
+  );
+}
+
+function CheckIcon() {
+  return (
+    <svg
+      width="14"
+      height="14"
+      viewBox="0 0 14 14"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+    >
+      <path d="M2 7l3 3 7-7" />
+    </svg>
+  );
+}
+
+function DownloadIcon() {
+  return (
+    <svg
+      width="14"
+      height="14"
+      viewBox="0 0 14 14"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.6"
+      strokeLinecap="round"
+    >
+      <path d="M7 2v7m0 0l-3-3m3 3l3-3M2 11h10" />
+    </svg>
+  );
+}
+
+function ShareIcon() {
+  return (
+    <svg
+      width="14"
+      height="14"
+      viewBox="0 0 14 14"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.6"
+      strokeLinecap="round"
+    >
+      <circle cx="3.5" cy="7" r="1.5" />
+      <circle cx="10.5" cy="3.5" r="1.5" />
+      <circle cx="10.5" cy="10.5" r="1.5" />
+      <path d="M4.8 6.2l4.4-2M4.8 7.8l4.4 2" />
+    </svg>
   );
 }
 
