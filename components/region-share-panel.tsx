@@ -229,8 +229,7 @@ export function RegionSharePanel({ regionCode, journeys }: Props) {
             alt="NextSteps"
             width={132}
             height={40}
-            className="translate-y-px"
-            style={{ width: "auto", height: "auto" }}
+            className="h-auto w-[74px] translate-y-px"
           />
         </a>
       </div>
