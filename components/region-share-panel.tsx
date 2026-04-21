@@ -227,9 +227,10 @@ export function RegionSharePanel({ regionCode, journeys }: Props) {
           <NextImage
             src="/nextsteps.png"
             alt="NextSteps"
-            width={132}
-            height={40}
-            className="h-auto w-[74px] translate-y-px"
+            width={412}
+            height={71}
+            className="translate-y-px"
+            style={{ width: "46px", height: "auto" }}
           />
         </a>
       </div>
