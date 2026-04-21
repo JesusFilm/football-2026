@@ -88,7 +88,14 @@ export function HomeCountryViewsSection({ regions, countries }: Props) {
           ease: EASE,
         }}
       >
-        <HomeCountryViewsInteractive regions={regions} countries={countries} />
+        {visible ? (
+          <HomeCountryViewsInteractive
+            regions={regions}
+            countries={countries}
+          />
+        ) : (
+          <MapSkeleton />
+        )}
       </motion.div>
     </section>
   );

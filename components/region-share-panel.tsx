@@ -73,11 +73,15 @@ export function RegionSharePanel({ regionCode, journeys }: Props) {
     () => journeys[0] ?? null,
   );
   const [open, setOpen] = useState(false);
-  const [copied, setCopied] = useState(false);
+  const [copyStatus, setCopyStatus] = useState<"idle" | "copied" | "error">(
+    "idle",
+  );
   const [qrAction, setQrAction] = useState<
-    "downloaded" | "shared" | "copied" | null
+    "downloaded" | "shared" | "copied" | "error" | null
   >(null);
   const rootRef = useRef<HTMLDivElement>(null);
+  const copyTimeoutRef = useRef<number | null>(null);
+  const qrTimeoutRef = useRef<number | null>(null);
 
   useEffect(() => {
     if (!open) return;
@@ -88,42 +92,77 @@ export function RegionSharePanel({ regionCode, journeys }: Props) {
     return () => document.removeEventListener("click", close);
   }, [open]);
 
+  useEffect(() => {
+    return () => {
+      if (copyTimeoutRef.current !== null) {
+        window.clearTimeout(copyTimeoutRef.current);
+      }
+      if (qrTimeoutRef.current !== null) {
+        window.clearTimeout(qrTimeoutRef.current);
+      }
+    };
+  }, []);
+
   const url = selected ? shareUrl(selected.slug) : "";
   const hasSelection = Boolean(selected);
+
+  const resetCopyStatus = (status: "copied" | "error") => {
+    if (copyTimeoutRef.current !== null) {
+      window.clearTimeout(copyTimeoutRef.current);
+    }
+    setCopyStatus(status);
+    copyTimeoutRef.current = window.setTimeout(() => {
+      setCopyStatus("idle");
+      copyTimeoutRef.current = null;
+    }, 1400);
+  };
+
+  const showQrAction = (
+    action: "downloaded" | "shared" | "copied" | "error",
+  ) => {
+    if (qrTimeoutRef.current !== null) {
+      window.clearTimeout(qrTimeoutRef.current);
+    }
+    setQrAction(action);
+    qrTimeoutRef.current = window.setTimeout(() => {
+      setQrAction(null);
+      qrTimeoutRef.current = null;
+    }, 1400);
+  };
 
   const copy = async () => {
     if (!url) return;
     try {
+      if (!navigator.clipboard?.writeText) {
+        throw new Error("Clipboard is unavailable");
+      }
       await navigator.clipboard.writeText(url);
+      resetCopyStatus("copied");
     } catch {
-      // ignore; UI still flips so user knows a copy was attempted
+      resetCopyStatus("error");
     }
-    setCopied(true);
-    setTimeout(() => setCopied(false), 1400);
-  };
-
-  const showQrAction = (action: "downloaded" | "shared" | "copied") => {
-    setQrAction(action);
-    setTimeout(() => setQrAction(null), 1400);
   };
 
   const downloadQr = async () => {
     if (!selected || !url) return;
 
-    const svg = renderQrSvg(url, 1024);
-    const pngBlob = await qrSvgToPngBlob(svg, 1024);
-    const pngUrl = URL.createObjectURL(pngBlob);
-
     try {
+      const svg = renderQrSvg(url, 1024);
+      const pngBlob = await qrSvgToPngBlob(svg, 1024);
+      const pngUrl = URL.createObjectURL(pngBlob);
       const link = document.createElement("a");
-      link.href = pngUrl;
-      link.download = qrFilename(regionCode, selected);
-      document.body.appendChild(link);
-      link.click();
-      link.remove();
-      showQrAction("downloaded");
-    } finally {
-      URL.revokeObjectURL(pngUrl);
+      try {
+        link.href = pngUrl;
+        link.download = qrFilename(regionCode, selected);
+        document.body.appendChild(link);
+        link.click();
+        link.remove();
+        showQrAction("downloaded");
+      } finally {
+        URL.revokeObjectURL(pngUrl);
+      }
+    } catch {
+      showQrAction("error");
     }
   };
 
@@ -146,11 +185,14 @@ export function RegionSharePanel({ regionCode, journeys }: Props) {
     }
 
     try {
+      if (!navigator.clipboard?.writeText) {
+        throw new Error("Clipboard is unavailable");
+      }
       await navigator.clipboard.writeText(url);
+      showQrAction("copied");
     } catch {
-      // Ignore clipboard failures; the visible URL remains selectable.
+      showQrAction("error");
     }
-    showQrAction("copied");
   };
 
   return (
@@ -278,12 +320,14 @@ export function RegionSharePanel({ regionCode, journeys }: Props) {
             aria-label="Copy link"
             title="Copy link"
             className={`flex cursor-pointer items-center justify-center rounded-[var(--radius-md)] border px-[14px] text-white transition-colors ${
-              copied
+              copyStatus === "copied"
                 ? "border-green bg-green"
-                : "border-accent-deep bg-accent-deep hover:bg-accent"
+                : copyStatus === "error"
+                  ? "border-accent bg-accent"
+                  : "border-accent-deep bg-accent-deep hover:bg-accent"
             }`}
           >
-            {copied ? (
+            {copyStatus === "copied" ? (
               <svg
                 width="14"
                 height="14"
@@ -295,6 +339,8 @@ export function RegionSharePanel({ regionCode, journeys }: Props) {
               >
                 <path d="M2 7l3 3 7-7" />
               </svg>
+            ) : copyStatus === "error" ? (
+              <span className="font-mono text-[11px]">!</span>
             ) : (
               <svg
                 width="14"
@@ -339,7 +385,9 @@ export function RegionSharePanel({ regionCode, journeys }: Props) {
                   ? "Shared"
                   : qrAction === "copied"
                     ? "Copied"
-                    : "Share"
+                    : qrAction === "error"
+                      ? "Try again"
+                      : "Share"
               }
               disabled={!hasSelection}
               onClick={shareQr}
@@ -452,7 +500,7 @@ function VideoPreview({
           loading="lazy"
           onLoad={() => setLoadedSrc(iframeSrc)}
           referrerPolicy="no-referrer"
-          allow="autoplay; fullscreen; encrypted-media; picture-in-picture; clipboard-write; web-share"
+          allow="autoplay; fullscreen; encrypted-media; picture-in-picture; clipboard-write"
           allowFullScreen
         />
       )}

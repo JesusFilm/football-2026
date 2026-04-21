@@ -60,20 +60,29 @@ export default async function RegionPage({ params }: Props) {
   const region = getRegion(id);
   if (!region) notFound();
 
-  const [journeys, countryViewsResult] = await Promise.all([
+  const [journeysResult, countryViewsResult] = await Promise.allSettled([
     fetchJourneys(region.teamId),
     fetchCountryViews(),
   ]);
+  const journeys =
+    journeysResult.status === "fulfilled" ? journeysResult.value : [];
+  const resolvedCountryViewsResult =
+    countryViewsResult.status === "fulfilled"
+      ? countryViewsResult.value
+      : { status: "unavailable" as const, countries: [] };
   const countryViews =
-    countryViewsResult.status === "available"
-      ? filterCountryViewsByRegion(countryViewsResult.countries, region.code)
+    resolvedCountryViewsResult.status === "available"
+      ? filterCountryViewsByRegion(
+          resolvedCountryViewsResult.countries,
+          region.code,
+        )
       : [];
   const allCountryViews =
-    countryViewsResult.status === "available"
-      ? countryViewsResult.countries
+    resolvedCountryViewsResult.status === "available"
+      ? resolvedCountryViewsResult.countries
       : [];
   const countryCountLabel =
-    countryViewsResult.status === "available"
+    resolvedCountryViewsResult.status === "available"
       ? String(countryViews.length)
       : "-";
 
@@ -118,7 +127,7 @@ export default async function RegionPage({ params }: Props) {
           regionName={region.name}
           regionCode={region.code}
           countries={allCountryViews}
-          unavailable={countryViewsResult.status === "unavailable"}
+          unavailable={resolvedCountryViewsResult.status === "unavailable"}
         />
       </main>
 

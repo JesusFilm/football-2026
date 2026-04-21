@@ -44,7 +44,9 @@ export function StadiumBg() {
 
   return (
     <>
-      <div ref={stadiumRef} className="bg-stadium" />
+      <div ref={stadiumRef} className="bg-stadium">
+        <div className="bg-stadium-photo" />
+      </div>
       <div className="grain" />
     </>
   );

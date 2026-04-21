@@ -55,11 +55,31 @@ body {
 /* Stadium hero photo with darkening overlays */
 .bg-stadium {
   position: fixed;
-  inset: -120px 0;
+  inset: 0;
   z-index: -2;
   pointer-events: none;
   --stadium-parallax-y: 0px;
   background-color: #0a0806;
+  overflow: hidden;
+}
+
+.bg-stadium-photo {
+  position: absolute;
+  inset: -120px 0;
+  z-index: 0;
+  background-image: url("/stadium-hero.webp");
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  transform: translate3d(0, var(--stadium-parallax-y), 0);
+  will-change: transform;
+}
+
+.bg-stadium::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
   background-image:
     radial-gradient(
       ellipse 80% 50% at 50% 0%,
@@ -71,21 +91,15 @@ body {
       rgba(10, 8, 6, 0.7) 0%,
       rgba(10, 8, 6, 0.82) 50%,
       rgba(8, 6, 4, 0.92) 100%
-    ),
-    url("/stadium-hero.webp");
-  background-size: auto, auto, cover;
-  background-position:
-    center center,
-    center center,
-    center calc(50% + var(--stadium-parallax-y));
-  background-repeat: no-repeat, no-repeat, no-repeat;
-  will-change: background-position;
+    );
+  pointer-events: none;
 }
 
 .bg-stadium::after {
   content: "";
   position: absolute;
   inset: 0;
+  z-index: 2;
   background-image:
     linear-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px),
     linear-gradient(90deg, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
@@ -201,41 +215,8 @@ body {
   outline-offset: 2px;
 }
 
-/* Entrance-reveal vocabulary.
- *
- * Elements wrapped in <Reveal> or <RevealGroup> carry the `.reveal` class.
- * The initial-hidden state is keyed behind `.motion-ready` — a class set on
- * <html> by a pre-paint inline script in the root layout. Server-rendered
- * pages without JS, or pre-hydration paint, never see `.motion-ready`, so
- * `.reveal` elements render fully visible. The JS adds `.revealed` when
- * the element crosses the viewport threshold (or its group's cascade fires).
- */
-.motion-ready .reveal {
-  opacity: 0;
-  transform: translateY(10px);
-  transition:
-    opacity 500ms var(--ease-editorial),
-    transform 500ms var(--ease-editorial);
-  will-change: opacity, transform;
-}
-
-.motion-ready .reveal.revealed {
-  opacity: 1;
-  transform: none;
-}
-
-/* Reduced-motion: the site's one-and-only motion kill switch.
- * Disables entrance reveals (opacity + transform snapped to revealed),
- * the animate-bob scroll-cue loop, and — when parallax ships (Unit 6) —
- * the --parallax-y-driven transform on .bg-stadium.
- */
+/* Reduced-motion: the site's one-and-only motion kill switch. */
 @media (prefers-reduced-motion: reduce) {
-  .motion-ready .reveal,
-  .motion-ready .reveal.revealed {
-    opacity: 1;
-    transform: none;
-    transition: none;
-  }
   .animate-bob {
     animation: none;
   }
@@ -255,8 +236,7 @@ body {
 
 /* Print: always reveal. Prevents opacity:0 content from printing blank. */
 @media print {
-  .reveal,
-  .reveal.revealed {
+  .reveal {
     opacity: 1 !important;
     transform: none !important;
     animation: none !important;

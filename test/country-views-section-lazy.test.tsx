@@ -1,4 +1,4 @@
-import { render, screen } from "@testing-library/react";
+import { act, render, screen } from "@testing-library/react";
 import { afterEach, describe, expect, it, vi } from "vitest";
 
 import { CountryViewsSection } from "@/components/country-views-section";
@@ -35,11 +35,28 @@ const countries = [
 ];
 
 describe("CountryViewsSection lazy loading", () => {
+  let intersect: (isIntersecting: boolean) => void;
+
   afterEach(() => {
     vi.unstubAllGlobals();
   });
 
-  it("loads the interactive region map without a viewport gate", () => {
+  it("loads the interactive region map after the section enters the viewport", () => {
+    class MockIntersectionObserver {
+      observe = vi.fn();
+      disconnect = vi.fn();
+
+      constructor(
+        private callback: (entries: { isIntersecting: boolean }[]) => void,
+      ) {
+        intersect = (isIntersecting: boolean) => {
+          this.callback([{ isIntersecting }]);
+        };
+      }
+    }
+
+    vi.stubGlobal("IntersectionObserver", MockIntersectionObserver);
+
     render(
       <CountryViewsSection
         regionName="North America & Oceania"
@@ -51,6 +68,17 @@ describe("CountryViewsSection lazy loading", () => {
     expect(
       screen.getByRole("heading", { name: "Where The Story is Spreading" }),
     ).toBeInTheDocument();
+    expect(
+      screen.queryByTestId("region-interactive-map"),
+    ).not.toBeInTheDocument();
+    expect(screen.getAllByTestId("region-skeleton-country-row")).toHaveLength(
+      10,
+    );
+
+    act(() => {
+      intersect(true);
+    });
+
     expect(screen.getByTestId("region-interactive-map")).toHaveTextContent(
       "NAmOceania:2",
     );

@@ -2,7 +2,9 @@ import { render, screen } from "@testing-library/react";
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 
 import RegionPage from "@/app/[id]/page";
+import { fetchCountryViews } from "@/lib/country-views";
 import type { CountryView } from "@/lib/country-views";
+import { fetchJourneys } from "@/lib/journeys";
 
 vi.mock("next/navigation", () => ({
   notFound: () => {
@@ -109,6 +111,8 @@ describe("RegionPage country views integration", () => {
 
   afterEach(() => {
     vi.unstubAllGlobals();
+    vi.mocked(fetchCountryViews).mockClear();
+    vi.mocked(fetchJourneys).mockClear();
   });
 
   it("passes all country views to the shared map while counting the active region", async () => {
@@ -119,6 +123,32 @@ describe("RegionPage country views integration", () => {
     expect(screen.getAllByText("1").length).toBeGreaterThanOrEqual(2);
     expect(screen.getByTestId("country-views-section")).toHaveTextContent(
       "North America & Oceania:NAmOceania:United States,Mexico:false",
+    );
+  });
+
+  it("keeps the region page renderable when journeys fail", async () => {
+    vi.mocked(fetchJourneys).mockRejectedValueOnce(new Error("journeys down"));
+
+    const ui = await RegionPage({ params: Promise.resolve({ id: "nao" }) });
+    render(ui);
+
+    expect(screen.getByTestId("share-panel")).toHaveTextContent("NAO:0");
+    expect(screen.getByTestId("country-views-section")).toHaveTextContent(
+      "North America & Oceania:NAmOceania:United States,Mexico:false",
+    );
+  });
+
+  it("keeps the region page renderable when country views fail", async () => {
+    vi.mocked(fetchCountryViews).mockRejectedValueOnce(
+      new Error("country views down"),
+    );
+
+    const ui = await RegionPage({ params: Promise.resolve({ id: "nao" }) });
+    render(ui);
+
+    expect(screen.getByTestId("share-panel")).toHaveTextContent("NAO:1");
+    expect(screen.getByTestId("country-views-section")).toHaveTextContent(
+      "North America & Oceania:NAmOceania::true",
     );
   });
 });

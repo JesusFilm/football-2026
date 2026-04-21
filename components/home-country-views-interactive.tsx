@@ -2,6 +2,7 @@
 
 import { useEffect, useMemo, useState } from "react";
 import type { CSSProperties } from "react";
+import { useReducedMotion } from "motion/react";
 import WorldMap from "react-svg-worldmap";
 
 import type { CountryView } from "@/lib/country-views";
@@ -18,6 +19,7 @@ type Props = {
   regions: Region[];
   countries: CountryView[];
   initialSelection?: Selection;
+  countryListLimit?: number | null;
 };
 
 type Selection = JsonbinRegionCode | "All";
@@ -36,17 +38,24 @@ export function HomeCountryViewsInteractive({
   regions,
   countries,
   initialSelection = "All",
+  countryListLimit = COUNTRY_LIST_LIMIT,
 }: Props) {
+  const prefersReducedMotion = useReducedMotion();
   const [selection, setSelection] = useState<Selection>(initialSelection);
   const [displaySelection, setDisplaySelection] =
     useState<Selection>(initialSelection);
   const [outgoingSelection, setOutgoingSelection] = useState<Selection | null>(
     null,
   );
-  const [autoAdvance, setAutoAdvance] = useState(true);
+  const [autoAdvance, setAutoAdvance] = useState(() => !prefersReducedMotion);
   const [highlightedCountryCode, setHighlightedCountryCode] = useState<
     string | null
   >(null);
+  const visualSelection = prefersReducedMotion ? selection : displaySelection;
+  const visualOutgoingSelection = prefersReducedMotion
+    ? null
+    : outgoingSelection;
+  const activeAutoAdvance = autoAdvance && !prefersReducedMotion;
 
   const selectionOrder = useMemo<Selection[]>(
     () => ["All", ...regions.map((region) => region.code)],
@@ -65,23 +74,21 @@ export function HomeCountryViewsInteractive({
   );
   const displayCountries = useMemo(
     () =>
-      displaySelection === "All"
+      visualSelection === "All"
         ? countries
-        : countries.filter(
-            (country) => country.regionCode === displaySelection,
-          ),
-    [countries, displaySelection],
+        : countries.filter((country) => country.regionCode === visualSelection),
+    [countries, visualSelection],
   );
   const outgoingCountries = useMemo(
     () =>
-      outgoingSelection === null
+      visualOutgoingSelection === null
         ? []
-        : outgoingSelection === "All"
+        : visualOutgoingSelection === "All"
           ? countries
           : countries.filter(
-              (country) => country.regionCode === outgoingSelection,
+              (country) => country.regionCode === visualOutgoingSelection,
             ),
-    [countries, outgoingSelection],
+    [countries, visualOutgoingSelection],
   );
   const maxViews = Math.max(...mapData.map((country) => country.value), 0);
   const focus =
@@ -91,16 +98,19 @@ export function HomeCountryViewsInteractive({
     0,
   );
   const topCountry = displayCountries[0]?.countryName ?? "-";
-  const displayedCountries = displayCountries.slice(0, COUNTRY_LIST_LIMIT);
+  const displayedCountries =
+    countryListLimit === null
+      ? displayCountries
+      : displayCountries.slice(0, countryListLimit);
   const outgoingTopCountry = outgoingCountries[0]?.countryName;
   const outgoingTotalViews = outgoingCountries.reduce(
     (sum, country) => sum + country.journeyViews,
     0,
   );
-  const outgoingDisplayedCountries = outgoingCountries.slice(
-    0,
-    COUNTRY_LIST_LIMIT,
-  );
+  const outgoingDisplayedCountries =
+    countryListLimit === null
+      ? outgoingCountries
+      : outgoingCountries.slice(0, countryListLimit);
   const visibleRowCount = Math.max(
     displayedCountries.length,
     outgoingDisplayedCountries.length,
@@ -108,6 +118,7 @@ export function HomeCountryViewsInteractive({
 
   useEffect(() => {
     if (selection === displaySelection) return;
+    if (prefersReducedMotion) return;
 
     let transitionTimeoutId: number | undefined;
     const startTimeoutId = window.setTimeout(() => {
@@ -125,10 +136,11 @@ export function HomeCountryViewsInteractive({
         window.clearTimeout(transitionTimeoutId);
       }
     };
-  }, [displaySelection, selection]);
+  }, [displaySelection, prefersReducedMotion, selection]);
 
   useEffect(() => {
-    if (!autoAdvance || selectionOrder.length < 2) return;
+    if (prefersReducedMotion || !autoAdvance || selectionOrder.length < 2)
+      return;
 
     const intervalId = window.setInterval(() => {
       setSelection((currentSelection) => {
@@ -141,7 +153,7 @@ export function HomeCountryViewsInteractive({
     }, ROTATION_INTERVAL_MS);
 
     return () => window.clearInterval(intervalId);
-  }, [autoAdvance, selectionOrder]);
+  }, [autoAdvance, prefersReducedMotion, selectionOrder]);
 
   const selectRegion = (nextSelection: Selection) => {
     setAutoAdvance(false);
@@ -163,36 +175,46 @@ export function HomeCountryViewsInteractive({
       <div className="mb-5 grid grid-cols-1 gap-4 lg:grid-cols-[minmax(0,1.35fr)_minmax(300px,0.8fr)] lg:items-stretch lg:gap-7">
         <div className="grid min-w-0 grid-cols-1 gap-3 sm:grid-cols-3">
           <Metric
-            animationKey={`${displaySelection}-top-country`}
+            animationKey={`${visualSelection}-top-country`}
             animationOrder={0}
             label="Top country"
             outgoingKey={
-              outgoingSelection ? `${outgoingSelection}-top-country` : undefined
+              visualOutgoingSelection
+                ? `${visualOutgoingSelection}-top-country`
+                : undefined
             }
             outgoingValue={outgoingTopCountry}
             value={topCountry}
           />
           <Metric
-            animationKey={`${displaySelection}-total-views`}
+            animationKey={`${visualSelection}-total-views`}
             animationOrder={1}
             label="Total views"
             outgoingKey={
-              outgoingSelection ? `${outgoingSelection}-total-views` : undefined
+              visualOutgoingSelection
+                ? `${visualOutgoingSelection}-total-views`
+                : undefined
             }
             outgoingValue={
-              outgoingSelection ? formatViews(outgoingTotalViews) : undefined
+              visualOutgoingSelection
+                ? formatViews(outgoingTotalViews)
+                : undefined
             }
             value={formatViews(totalViews)}
           />
           <Metric
-            animationKey={`${displaySelection}-countries`}
+            animationKey={`${visualSelection}-countries`}
             animationOrder={2}
             label="Countries"
             outgoingKey={
-              outgoingSelection ? `${outgoingSelection}-countries` : undefined
+              visualOutgoingSelection
+                ? `${visualOutgoingSelection}-countries`
+                : undefined
             }
             outgoingValue={
-              outgoingSelection ? String(outgoingCountries.length) : undefined
+              visualOutgoingSelection
+                ? String(outgoingCountries.length)
+                : undefined
             }
             value={String(displayCountries.length)}
           />
@@ -201,7 +223,7 @@ export function HomeCountryViewsInteractive({
         <div className="grid grid-cols-2 gap-2 sm:grid-cols-4 lg:h-full lg:w-full lg:grid-rows-2">
           <RegionButton
             active={selection === "All"}
-            autoAdvancing={autoAdvance}
+            autoAdvancing={activeAutoAdvance}
             label="All"
             onClick={() => selectRegion("All")}
           />
@@ -209,7 +231,7 @@ export function HomeCountryViewsInteractive({
             <RegionButton
               key={region.id}
               active={selection === region.code}
-              autoAdvancing={autoAdvance}
+              autoAdvancing={activeAutoAdvance}
               label={region.displayCode}
               onClick={() => selectRegion(region.code)}
             />
@@ -221,7 +243,11 @@ export function HomeCountryViewsInteractive({
         <div className="min-w-0">
           <div className="flex overflow-hidden rounded-[var(--radius-md)] border border-line bg-[rgb(12_10_8_/_0.42)] px-2 py-4 backdrop-blur-md md:h-[440px] md:items-center">
             <div
-              className="w-full origin-center transition-transform duration-700 ease-out"
+              className={`w-full origin-center ${
+                prefersReducedMotion
+                  ? ""
+                  : "transition-transform duration-700 ease-out"
+              }`}
               style={{
                 transform: `scale(${focus.scale})`,
                 transformOrigin: `${focus.x}% ${focus.y}%`,
@@ -268,7 +294,7 @@ export function HomeCountryViewsInteractive({
 
             return (
               <li
-                key={`${displaySelection}-${outgoingSelection ?? "none"}-${index}`}
+                key={`${visualSelection}-${visualOutgoingSelection ?? "none"}-${index}`}
                 className="relative mb-1.5 min-h-10 overflow-hidden rounded-[var(--radius-md)] border border-line bg-[rgb(12_10_8_/_0.42)] px-3 py-2 backdrop-blur-md transition-colors hover:border-[rgb(230_57_70_/_0.45)] hover:bg-[rgb(230_57_70_/_0.08)] md:h-[38.6px] md:min-h-0"
                 onMouseEnter={() => {
                   if (country) highlightCountry(country);
@@ -291,7 +317,7 @@ export function HomeCountryViewsInteractive({
                     country={country}
                     rank={index + 1}
                     style={{
-                      animationDelay: `${Math.min(index, 9) * 70 + (outgoingSelection ? 170 : 0)}ms`,
+                      animationDelay: `${Math.min(index, 9) * 70 + (visualOutgoingSelection ? 170 : 0)}ms`,
                     }}
                   />
                 ) : null}

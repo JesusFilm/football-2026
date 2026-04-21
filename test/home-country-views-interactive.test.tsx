@@ -5,6 +5,12 @@ import { afterEach, describe, expect, it, vi } from "vitest";
 import { HomeCountryViewsInteractive } from "@/components/home-country-views-interactive";
 import { REGIONS } from "@/lib/regions";
 
+const reducedMotion = vi.hoisted(() => ({ value: false }));
+
+vi.mock("motion/react", () => ({
+  useReducedMotion: () => reducedMotion.value,
+}));
+
 vi.mock("react-svg-worldmap", () => ({
   default: ({
     data,
@@ -69,6 +75,7 @@ const countries = [
 
 describe("HomeCountryViewsInteractive", () => {
   afterEach(() => {
+    reducedMotion.value = false;
     vi.useRealTimers();
   });
 
@@ -114,7 +121,7 @@ describe("HomeCountryViewsInteractive", () => {
 
     expect(
       screen
-        .getAllByText("United States")
+        .queryAllByText("United States")
         .some((element) =>
           element.parentElement?.classList.contains("country-row-exit"),
         ),
@@ -192,5 +199,48 @@ describe("HomeCountryViewsInteractive", () => {
     expect(screen.getByTestId("world-map")).toHaveTextContent('"country":"mx"');
     expect(screen.getByText("LAC extra country 9")).toBeInTheDocument();
     expect(screen.queryByText("Extra country 1")).not.toBeInTheDocument();
+  });
+
+  it("can render the full country list for region pages", () => {
+    render(
+      <HomeCountryViewsInteractive
+        regions={REGIONS}
+        countries={countries}
+        initialSelection="LAC"
+        countryListLimit={null}
+      />,
+    );
+
+    expect(screen.getByText("LAC extra country 10")).toBeInTheDocument();
+  });
+
+  it("disables auto-advance and outgoing layers for reduced-motion users", () => {
+    reducedMotion.value = true;
+    vi.useFakeTimers();
+
+    render(
+      <HomeCountryViewsInteractive regions={REGIONS} countries={countries} />,
+    );
+
+    expect(
+      screen.queryByTestId("auto-advance-progress"),
+    ).not.toBeInTheDocument();
+
+    act(() => {
+      vi.advanceTimersByTime(6000);
+    });
+
+    expect(screen.getByTestId("world-map")).toHaveTextContent('"country":"mx"');
+
+    fireEvent.click(screen.getByRole("button", { name: "LAC" }));
+
+    expect(
+      screen
+        .queryAllByText("United States")
+        .some((element) =>
+          element.parentElement?.classList.contains("country-row-exit"),
+        ),
+    ).toBe(false);
+    expect(screen.getByText("LAC extra country 9")).toBeInTheDocument();
   });
 });

@@ -113,11 +113,18 @@ export function CountryViewsSection({
             body={`No country-level views are available for ${regionName} yet.`}
           />
         ) : (
-          <HomeCountryViewsInteractive
-            regions={REGIONS}
-            initialSelection={regionCode}
-            countries={countries}
-          />
+          <>
+            {visible ? (
+              <HomeCountryViewsInteractive
+                regions={REGIONS}
+                initialSelection={regionCode}
+                countries={countries}
+                countryListLimit={null}
+              />
+            ) : (
+              <MapSkeleton />
+            )}
+          </>
         )}
       </motion.div>
     </section>
