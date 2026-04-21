@@ -1,0 +1,44 @@
+{
+  "name": "football-2026",
+  "version": "0.1.0",
+  "private": true,
+  "packageManager": "pnpm@10.33.0",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "format": "prettier . --write",
+    "format:check": "prettier . --check",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest",
+    "test:run": "vitest run",
+    "test:coverage": "vitest run --coverage",
+    "prepare": "husky"
+  },
+  "dependencies": {
+    "next": "16.2.4",
+    "react": "19.2.5",
+    "react-dom": "19.2.5"
+  },
+  "devDependencies": {
+    "@testing-library/dom": "latest",
+    "@testing-library/jest-dom": "latest",
+    "@testing-library/react": "latest",
+    "@types/node": "latest",
+    "@types/react": "latest",
+    "@types/react-dom": "latest",
+    "@vitejs/plugin-react": "latest",
+    "@vitest/coverage-v8": "latest",
+    "eslint": "9.39.4",
+    "eslint-config-next": "16.2.4",
+    "eslint-config-prettier": "latest",
+    "husky": "9.1.7",
+    "jsdom": "latest",
+    "lint-staged": "16.4.0",
+    "prettier": "3.8.3",
+    "typescript": "5.9.3",
+    "vitest": "4.1.4"
+  }
+}

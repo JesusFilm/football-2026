@@ -1,0 +1,9 @@
+.devcontainer/
+.next/
+.pnpm-store/
+coverage/
+football-2026-handoff.zip
+football-2026-unpacked/
+node_modules/
+out/
+pnpm-lock.yaml
