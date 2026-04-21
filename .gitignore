@@ -31,3 +31,7 @@ pnpm-debug.log*
 # OS/editor
 .DS_Store
 *.swp
+
+# Handoff artifacts (per AGENTS.md — out of scope for the active app)
+football-2026-handoff.zip
+football-2026-unpacked/
