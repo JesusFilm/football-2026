@@ -61,6 +61,19 @@ describe("RegionSharePanel", () => {
     );
   });
 
+  it("does not load the external video iframe until preview is requested", () => {
+    render(<RegionSharePanel regionCode="NAO" journeys={journeys} />);
+
+    expect(screen.queryByTitle("NAO preview")).not.toBeInTheDocument();
+
+    fireEvent.click(screen.getByRole("button", { name: "Preview NAO video" }));
+
+    expect(screen.getByTitle("NAO preview")).toHaveAttribute(
+      "src",
+      "https://your.nextstep.is/embed/where-you-belong-swahili?expand=false",
+    );
+  });
+
   it("marks copy as an error when clipboard fails", async () => {
     stubClipboard(vi.fn().mockRejectedValue(new Error("blocked")));
 

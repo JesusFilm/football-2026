@@ -199,7 +199,11 @@ export function RegionSharePanel({ regionCode, journeys }: Props) {
     <div className="-mx-5 mb-20 grid grid-cols-1 gap-8 bg-[rgb(12_10_8_/_0.7)] px-5 py-7 backdrop-blur-xl sm:-mx-10 sm:px-10 md:mx-auto md:max-w-[880px] md:grid-cols-[280px_1fr] md:gap-10 md:rounded-2xl md:border md:border-line md:px-8 md:py-8">
       {/* Left: video preview */}
       <div className="order-2 md:order-1">
-        <VideoPreview regionCode={regionCode} slug={selected?.slug} />
+        <VideoPreview
+          key={selected?.slug ?? "empty-preview"}
+          regionCode={regionCode}
+          slug={selected?.slug}
+        />
         <a
           href="https://nextstep.is"
           target="_blank"
@@ -481,6 +485,7 @@ function VideoPreview({
   slug: string | undefined;
 }) {
   const iframeSrc = slug ? previewUrl(slug) : null;
+  const [previewOpen, setPreviewOpen] = useState(false);
   const [loadedSrc, setLoadedSrc] = useState<string | null>(null);
   const loaded = iframeSrc !== null && loadedSrc === iframeSrc;
 
@@ -491,7 +496,30 @@ function VideoPreview({
           loaded ? "opacity-0" : "opacity-100"
         }`}
       />
-      {iframeSrc && (
+      {iframeSrc && !previewOpen && (
+        <button
+          type="button"
+          onClick={() => setPreviewOpen(true)}
+          className="absolute inset-0 z-20 flex cursor-pointer flex-col items-center justify-center gap-3 border-0 bg-transparent p-6 text-center text-fg"
+          aria-label={`Preview ${regionCode} video`}
+        >
+          <span className="flex h-12 w-12 items-center justify-center rounded-full border border-line-strong bg-[rgb(230_57_70_/_0.88)] text-white shadow-[0_12px_32px_rgba(0,0,0,0.45)]">
+            <svg
+              width="18"
+              height="18"
+              viewBox="0 0 18 18"
+              fill="currentColor"
+              aria-hidden="true"
+            >
+              <path d="M6 4.2v9.6L13.4 9 6 4.2Z" />
+            </svg>
+          </span>
+          <span className="font-mono text-[10px] tracking-[0.16em] text-fg-dim uppercase">
+            Preview
+          </span>
+        </button>
+      )}
+      {iframeSrc && previewOpen && (
         <iframe
           key={iframeSrc}
           src={iframeSrc}

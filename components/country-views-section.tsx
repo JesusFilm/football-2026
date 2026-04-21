@@ -4,6 +4,7 @@ import dynamic from "next/dynamic";
 import { motion, useReducedMotion } from "motion/react";
 import { useEffect, useRef, useState } from "react";
 
+import { CountryViewsSummary } from "@/components/country-views-summary";
 import type { CountryView } from "@/lib/country-views";
 import { REGIONS, type JsonbinRegionCode } from "@/lib/regions";
 
@@ -114,12 +115,17 @@ export function CountryViewsSection({
           />
         ) : (
           <>
+            <CountryViewsSummary
+              countries={regionCountries}
+              heading={`${regionName} country views`}
+              listLabel={`${regionName} country views ranking`}
+            />
             {visible ? (
               <HomeCountryViewsInteractive
                 regions={REGIONS}
                 initialSelection={regionCode}
                 countries={countries}
-                countryListLimit={null}
+                countryListLimit={10}
               />
             ) : (
               <MapSkeleton />

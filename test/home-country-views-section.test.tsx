@@ -45,6 +45,8 @@ describe("HomeCountryViewsSection", () => {
     expect(
       screen.getByRole("heading", { name: "Where The Story is Spreading" }),
     ).toBeInTheDocument();
+    expect(screen.getAllByText("United States").length).toBeGreaterThan(0);
+    expect(screen.getAllByText("170,768").length).toBeGreaterThan(0);
     expect(screen.queryByTestId("interactive-map")).not.toBeInTheDocument();
     expect(screen.getAllByTestId("skeleton-country-row")).toHaveLength(10);
 

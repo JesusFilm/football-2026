@@ -58,6 +58,10 @@ vi.mock("@/components/country-views-section", () => ({
   ),
 }));
 
+vi.mock("@/components/other-regions-nav", () => ({
+  OtherRegionsNav: () => <nav data-testid="other-regions-nav" />,
+}));
+
 vi.mock("@/lib/journeys", () => ({
   fetchJourneys: vi.fn(async () => [
     {
@@ -150,5 +154,11 @@ describe("RegionPage country views integration", () => {
     expect(screen.getByTestId("country-views-section")).toHaveTextContent(
       "North America & Oceania:NAmOceania::true",
     );
+  });
+
+  it("rejects non-canonical region aliases", async () => {
+    await expect(
+      RegionPage({ params: Promise.resolve({ id: "NAO" }) }),
+    ).rejects.toThrow("not found");
   });
 });

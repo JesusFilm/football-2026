@@ -17,6 +17,7 @@ export type Region = {
   teamId: string;
   name: string;
   blurb: string;
+  seoDescription: string;
   flags: string[];
 };
 
@@ -28,6 +29,8 @@ export const REGIONS: Region[] = [
     teamId: "ac6991e8-02e2-45fc-8ec4-db4a6219777b",
     name: "North America & Oceania",
     blurb: "United States, Canada, Australia, New Zealand & the Pacific.",
+    seoDescription:
+      "World Cup 2026 activation tools for North America & Oceania: share heart-language videos, QR codes, and regional view data.",
     flags: ["🇺🇸", "🇨🇦", "🇦🇺", "🇳🇿", "🇫🇯"],
   },
   {
@@ -37,6 +40,8 @@ export const REGIONS: Region[] = [
     teamId: "9615769e-cae6-4195-9653-94a3a85aeb8c",
     name: "North Africa, Middle East & Central Asia",
     blurb: "Morocco to Kazakhstan — 22 countries across three continents.",
+    seoDescription:
+      "Activate North Africa, the Middle East & Central Asia with World Cup 2026 videos, QR codes, and heart-language sharing tools.",
     flags: ["🇲🇦", "🇪🇬", "🇸🇦", "🇮🇷", "🇰🇿"],
   },
   {
@@ -47,6 +52,8 @@ export const REGIONS: Region[] = [
     name: "Latin America & Caribbean",
     blurb:
       "From Tijuana to Tierra del Fuego — a continent unified by football.",
+    seoDescription:
+      "World Cup 2026 activation tools for Latin America & Caribbean: share regional videos, QR codes, and heart-language journeys.",
     flags: ["🇧🇷", "🇦🇷", "🇨🇴", "🇲🇽", "🇨🇱"],
   },
   {
@@ -56,6 +63,8 @@ export const REGIONS: Region[] = [
     teamId: "5b4f4e32-36f3-48d5-a282-c25a395a9858",
     name: "Europe",
     blurb: "The continent where the modern game was written.",
+    seoDescription:
+      "Activate Europe during World Cup 2026 with Jesus Film Project videos, QR codes, share links, and regional view data.",
     flags: ["🇬🇧", "🇫🇷", "🇩🇪", "🇪🇸", "🇮🇹"],
   },
   {
@@ -65,6 +74,8 @@ export const REGIONS: Region[] = [
     teamId: "029e30eb-4ae3-4e94-a803-3552206fa99b",
     name: "South & South East Asia",
     blurb: "From Mumbai to Manila — home to a quarter of the world's people.",
+    seoDescription:
+      "World Cup 2026 activation tools for South & South East Asia: share heart-language videos across a high-reach region.",
     flags: ["🇮🇳", "🇮🇩", "🇵🇭", "🇻🇳", "🇹🇭"],
   },
   {
@@ -74,6 +85,8 @@ export const REGIONS: Region[] = [
     teamId: "8edb9a03-5e5a-4c11-96ab-530a1dfed384",
     name: "East Asia",
     blurb: "China, Japan, Korea, Mongolia — the heart of the Pacific rim.",
+    seoDescription:
+      "Activate East Asia for World Cup 2026 with regional Jesus Film Project videos, QR codes, share links, and view tracking.",
     flags: ["🇨🇳", "🇯🇵", "🇰🇷", "🇲🇳", "🇹🇼"],
   },
   {
@@ -83,6 +96,8 @@ export const REGIONS: Region[] = [
     teamId: "f73ae713-cf8e-446b-8cb2-45228edfd69e",
     name: "Sub-Saharan Africa",
     blurb: "Fifty-four nations. Two thousand languages. One game.",
+    seoDescription:
+      "World Cup 2026 activation tools for Sub-Saharan Africa: share videos in heart languages and track country-level views.",
     flags: ["🇳🇬", "🇿🇦", "🇰🇪", "🇬🇭", "🇪🇹"],
   },
 ];
@@ -120,4 +135,8 @@ export function getRegion(id: string): Region | undefined {
       (alias) => normalizeRegionRouteValue(alias) === normalizedId,
     );
   });
+}
+
+export function getRegionById(id: string): Region | undefined {
+  return REGIONS.find((region) => region.id === id);
 }

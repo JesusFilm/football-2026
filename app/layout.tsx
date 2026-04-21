@@ -1,6 +1,15 @@
 import type { Metadata } from "next";
 import { Archivo, Fraunces, Inter, JetBrains_Mono } from "next/font/google";
 
+import {
+  DEFAULT_DESCRIPTION,
+  DEFAULT_TITLE,
+  sharedOpenGraph,
+  sharedTwitter,
+  SITE_NAME,
+  SITE_URL,
+} from "@/lib/site";
+
 import "./globals.css";
 
 const archivo = Archivo({
@@ -28,12 +37,6 @@ const jetbrainsMono = JetBrains_Mono({
   variable: "--font-mono",
 });
 
-const SITE_NAME = "Jesus Film Project · World Cup 2026 Activate";
-const SITE_URL = "https://football2026.nextstep.is";
-const DEFAULT_TITLE = "World Cup 2026 · Activate Your Region";
-const DEFAULT_DESCRIPTION =
-  "Jesus Film Project Activate — share ready-to-use World Cup 2026 videos in your audience's heart language.";
-
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
@@ -46,23 +49,21 @@ export const metadata: Metadata = {
     canonical: "/",
   },
   openGraph: {
-    type: "website",
-    siteName: SITE_NAME,
-    locale: "en_US",
+    ...sharedOpenGraph,
     url: SITE_URL,
     title: DEFAULT_TITLE,
     description: DEFAULT_DESCRIPTION,
   },
   twitter: {
-    card: "summary_large_image",
+    ...sharedTwitter,
     title: DEFAULT_TITLE,
     description: DEFAULT_DESCRIPTION,
   },
 };
 
 const organizationSchema = {
-  "@context": "https://schema.org",
   "@type": "Organization",
+  "@id": "https://www.jesusfilm.org/#organization",
   name: "Jesus Film Project",
   alternateName: "JFP",
   url: "https://www.jesusfilm.org",
@@ -72,6 +73,21 @@ const organizationSchema = {
     "https://www.instagram.com/jesusfilm",
     "https://www.youtube.com/jesusfilm",
   ],
+};
+
+const websiteSchema = {
+  "@type": "WebSite",
+  "@id": `${SITE_URL}/#website`,
+  name: SITE_NAME,
+  url: SITE_URL,
+  publisher: {
+    "@id": "https://www.jesusfilm.org/#organization",
+  },
+};
+
+const siteSchema = {
+  "@context": "https://schema.org",
+  "@graph": [organizationSchema, websiteSchema],
 };
 
 export default function RootLayout({
@@ -89,7 +105,7 @@ export default function RootLayout({
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
-            __html: JSON.stringify(organizationSchema),
+            __html: JSON.stringify(siteSchema),
           }}
         />
       </body>

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 
 import { CountryViewsSection } from "@/components/country-views-section";
+import { OtherRegionsNav } from "@/components/other-regions-nav";
 import { RegionSharePanel } from "@/components/region-share-panel";
 import { RegionHero } from "@/components/region-hero";
 import { RegionShareHeading } from "@/components/region-share-heading";
@@ -14,7 +15,8 @@ import {
   filterCountryViewsByRegion,
 } from "@/lib/country-views";
 import { fetchJourneys } from "@/lib/journeys";
-import { getRegion, REGIONS } from "@/lib/regions";
+import { getRegionById, REGIONS } from "@/lib/regions";
+import { sharedOpenGraph, sharedTwitter, SITE_URL } from "@/lib/site";
 
 export async function generateStaticParams() {
   return REGIONS.map((r) => ({ id: r.id }));
@@ -26,25 +28,25 @@ export async function generateMetadata({
   params: Promise<{ id: string }>;
 }): Promise<Metadata> {
   const { id } = await params;
-  const region = getRegion(id);
+  const region = getRegionById(id);
   if (!region) {
     return { title: "Region" };
   }
   const title = `Activate ${region.name}`;
-  const description = `${region.blurb} Share ready-to-use World Cup 2026 videos in your audience's heart language.`;
+  const description = region.seoDescription;
   const canonical = `/${region.id}`;
   return {
     title,
     description,
     alternates: { canonical },
     openGraph: {
-      type: "website",
+      ...sharedOpenGraph,
       url: canonical,
       title,
       description,
     },
     twitter: {
-      card: "summary_large_image",
+      ...sharedTwitter,
       title,
       description,
     },
@@ -57,7 +59,7 @@ type Props = {
 
 export default async function RegionPage({ params }: Props) {
   const { id } = await params;
-  const region = getRegion(id);
+  const region = getRegionById(id);
   if (!region) notFound();
 
   const [journeysResult, countryViewsResult] = await Promise.allSettled([
@@ -85,6 +87,42 @@ export default async function RegionPage({ params }: Props) {
     resolvedCountryViewsResult.status === "available"
       ? String(countryViews.length)
       : "-";
+  const pageSchema = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebPage",
+        "@id": `${SITE_URL}/${region.id}#webpage`,
+        url: `${SITE_URL}/${region.id}`,
+        name: `Activate ${region.name}`,
+        description: region.seoDescription,
+        isPartOf: {
+          "@id": `${SITE_URL}/#website`,
+        },
+        breadcrumb: {
+          "@id": `${SITE_URL}/${region.id}#breadcrumb`,
+        },
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": `${SITE_URL}/${region.id}#breadcrumb`,
+        itemListElement: [
+          {
+            "@type": "ListItem",
+            position: 1,
+            name: "All regions",
+            item: SITE_URL,
+          },
+          {
+            "@type": "ListItem",
+            position: 2,
+            name: region.name,
+            item: `${SITE_URL}/${region.id}`,
+          },
+        ],
+      },
+    ],
+  };
 
   return (
     <>
@@ -129,9 +167,17 @@ export default async function RegionPage({ params }: Props) {
           countries={allCountryViews}
           unavailable={resolvedCountryViewsResult.status === "unavailable"}
         />
+
+        <OtherRegionsNav currentRegionId={region.id} regions={REGIONS} />
       </main>
 
       <SiteFooter />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(pageSchema),
+        }}
+      />
     </>
   );
 }

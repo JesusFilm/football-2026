@@ -68,6 +68,8 @@ describe("CountryViewsSection lazy loading", () => {
     expect(
       screen.getByRole("heading", { name: "Where The Story is Spreading" }),
     ).toBeInTheDocument();
+    expect(screen.getAllByText("United States").length).toBeGreaterThan(0);
+    expect(screen.getAllByText("170,768").length).toBeGreaterThan(0);
     expect(
       screen.queryByTestId("region-interactive-map"),
     ).not.toBeInTheDocument();

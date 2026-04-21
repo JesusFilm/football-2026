@@ -1,21 +1,19 @@
 import type { MetadataRoute } from "next";
 
+import { SITE_LAST_MODIFIED, SITE_URL } from "@/lib/site";
 import { REGIONS } from "@/lib/regions";
 
-const BASE_URL = "https://football2026.nextstep.is";
-
 export default function sitemap(): MetadataRoute.Sitemap {
-  const now = new Date();
   return [
     {
-      url: BASE_URL,
-      lastModified: now,
+      url: SITE_URL,
+      lastModified: SITE_LAST_MODIFIED,
       changeFrequency: "weekly",
       priority: 1,
     },
     ...REGIONS.map((r) => ({
-      url: `${BASE_URL}/${r.id}`,
-      lastModified: now,
+      url: `${SITE_URL}/${r.id}`,
+      lastModified: SITE_LAST_MODIFIED,
       changeFrequency: "weekly" as const,
       priority: 0.8,
     })),

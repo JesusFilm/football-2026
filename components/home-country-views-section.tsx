@@ -4,6 +4,7 @@ import dynamic from "next/dynamic";
 import { motion, useReducedMotion } from "motion/react";
 import { useEffect, useRef, useState } from "react";
 
+import { CountryViewsSummary } from "@/components/country-views-summary";
 import type { CountryView } from "@/lib/country-views";
 import type { Region } from "@/lib/regions";
 
@@ -88,6 +89,12 @@ export function HomeCountryViewsSection({ regions, countries }: Props) {
           ease: EASE,
         }}
       >
+        <CountryViewsSummary
+          countries={countries}
+          heading="Top countries by views"
+          listLabel="Global country views ranking"
+          limit={10}
+        />
         {visible ? (
           <HomeCountryViewsInteractive
             regions={regions}

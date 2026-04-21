@@ -8,11 +8,23 @@ import { SiteHeader } from "@/components/site-header";
 import { StadiumBg } from "@/components/stadium-bg";
 import { fetchCountryViews } from "@/lib/country-views";
 import { REGIONS } from "@/lib/regions";
+import { DEFAULT_DESCRIPTION, DEFAULT_TITLE, SITE_URL } from "@/lib/site";
 
 export default async function Home() {
   const countryViews = await fetchCountryViews();
   const countries =
     countryViews.status === "available" ? countryViews.countries : [];
+  const pageSchema = {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "@id": `${SITE_URL}/#webpage`,
+    url: SITE_URL,
+    name: DEFAULT_TITLE,
+    description: DEFAULT_DESCRIPTION,
+    isPartOf: {
+      "@id": `${SITE_URL}/#website`,
+    },
+  };
 
   return (
     <>
@@ -29,6 +41,12 @@ export default async function Home() {
         )}
       </main>
       <SiteFooter />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(pageSchema),
+        }}
+      />
     </>
   );
 }

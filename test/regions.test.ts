@@ -1,6 +1,11 @@
 import { describe, expect, it } from "vitest";
 
-import { getRegion, JSONBIN_REGION_CODES, REGIONS } from "@/lib/regions";
+import {
+  getRegion,
+  getRegionById,
+  JSONBIN_REGION_CODES,
+  REGIONS,
+} from "@/lib/regions";
 
 describe("REGIONS", () => {
   it("uses JSONBin region labels as canonical region codes", () => {
@@ -15,19 +20,25 @@ describe("REGIONS", () => {
   });
 
   it("keeps stable route ids while updating country-view taxonomy", () => {
-    expect(getRegion("nao")).toMatchObject({
+    expect(getRegionById("nao")).toMatchObject({
       id: "nao",
       code: "NAmOceania",
       displayCode: "NAO",
     });
-    expect(getRegion("lac")).toMatchObject({
+    expect(getRegionById("lac")).toMatchObject({
       id: "lac",
       code: "LAC",
       displayCode: "LAC",
     });
   });
 
-  it("accepts region code and display-code aliases as route params", () => {
+  it("only treats exact route ids as canonical region page ids", () => {
+    expect(getRegionById("NAO")).toBeUndefined();
+    expect(getRegionById("Europe")).toBeUndefined();
+    expect(getRegionById("sub-saharan-africa")).toBeUndefined();
+  });
+
+  it("keeps region alias lookup available outside canonical page routing", () => {
     expect(getRegion("NAmOceania")).toMatchObject({
       id: "nao",
       code: "NAmOceania",
