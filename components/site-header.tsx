@@ -10,7 +10,7 @@ export function SiteHeader() {
       >
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
-          src="/jfp-red.svg"
+          src="/jfp-red.svg?v=20260421"
           alt="Jesus Film Project"
           width={186}
           height={47}
