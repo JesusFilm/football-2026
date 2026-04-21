@@ -135,5 +135,5 @@ Success:
 - [x] Railway workspace confirmed.
 - [x] Project created.
 - [x] Service connected to repo.
-- [ ] First deployment active.
-- [ ] Railway domain generated and smoke-tested.
+- [x] First deployment active.
+- [x] Railway domain generated and smoke-tested.
