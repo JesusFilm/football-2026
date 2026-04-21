@@ -14,6 +14,5 @@ export default defineConfig([
     "coverage/**",
     "node_modules/**",
     "out/**",
-    "football-2026-unpacked/**",
   ]),
 ]);
