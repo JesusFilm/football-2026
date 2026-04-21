@@ -546,7 +546,7 @@ function VideoPreview({
           key={iframeSrc}
           src={iframeSrc}
           title={`${regionCode} preview`}
-          className="pointer-events-auto absolute inset-0 z-10 h-full w-full border-0"
+          className="pointer-events-auto absolute inset-0 z-10 h-full w-full origin-top-left border-0 md:h-[125%] md:w-[125%] md:scale-[0.8]"
           loading="lazy"
           onLoad={() => setLoadedSrc(iframeSrc)}
           referrerPolicy="no-referrer"
