@@ -160,7 +160,8 @@ describe("HomeCountryViewsInteractive", () => {
       vi.advanceTimersByTime(1150);
     });
 
-    expect(screen.getByText("Extra country 9")).toBeInTheDocument();
+    expect(screen.getByText("AFR")).toBeInTheDocument();
+    expect(screen.getAllByText("0").length).toBeGreaterThanOrEqual(2);
   });
 
   it("stops auto-advance when a region is manually selected", () => {

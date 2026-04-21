@@ -2,7 +2,7 @@ export const SITE_URL = "https://football2026.nextstep.is";
 export const SITE_NAME = "Jesus Film Project · World Cup 2026 Activate";
 export const DEFAULT_TITLE = "World Cup 2026 · Activate Your Region";
 export const DEFAULT_DESCRIPTION =
-  "Jesus Film Project Activate — share ready-to-use World Cup 2026 videos in your audience's heart language.";
+  "Jesus Film Project Activate — share World Cup 2026 videos in the language that matches your audience.";
 export const SOCIAL_IMAGE = "/opengraph-image";
 export const SITE_LAST_MODIFIED = "2026-04-21";
 

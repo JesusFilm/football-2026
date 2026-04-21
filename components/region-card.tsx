@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useRef } from "react";
 import type { MouseEvent } from "react";
 
+import { RegionFlags } from "@/components/region-flags";
 import type { Region } from "@/lib/regions";
 
 type Props = {
@@ -58,10 +59,8 @@ export function RegionCard({ region }: Props) {
       <div className="relative z-10 mb-[18px] min-h-[38px] text-[13px] leading-[1.5] text-fg-dim">
         {region.blurb}
       </div>
-      <div className="relative z-10 mt-auto flex items-center gap-1.5 text-xl">
-        {region.flags.map((flag) => (
-          <span key={flag}>{flag}</span>
-        ))}
+      <div className="relative z-10 mt-auto flex items-center gap-1.5">
+        <RegionFlags flagCodes={region.flagCodes} />
       </div>
     </Link>
   );

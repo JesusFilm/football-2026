@@ -30,6 +30,16 @@ function qrFilename(regionCode: string, selected: Journey): string {
   return `world-cup-2026-${region || "region"}-${language || "journey"}-qr.png`;
 }
 
+function defaultJourney(journeys: Journey[]): Journey | null {
+  return (
+    journeys.find(
+      (journey) => journey.language.english.toLowerCase() === "english",
+    ) ??
+    journeys[0] ??
+    null
+  );
+}
+
 async function qrSvgToPngBlob(svg: string, size: number): Promise<Blob> {
   const svgBlob = new Blob([svg], { type: "image/svg+xml;charset=utf-8" });
   const svgUrl = URL.createObjectURL(svgBlob);
@@ -69,8 +79,8 @@ type Props = {
 };
 
 export function RegionSharePanel({ regionCode, journeys }: Props) {
-  const [selected, setSelected] = useState<Journey | null>(
-    () => journeys[0] ?? null,
+  const [selected, setSelected] = useState<Journey | null>(() =>
+    defaultJourney(journeys),
   );
   const [open, setOpen] = useState(false);
   const [copyStatus, setCopyStatus] = useState<"idle" | "copied" | "error">(
@@ -486,41 +496,52 @@ function VideoPreview({
   slug: string | undefined;
 }) {
   const iframeSrc = slug ? previewUrl(slug) : null;
-  const [previewOpen, setPreviewOpen] = useState(false);
+  const rootRef = useRef<HTMLDivElement | null>(null);
+  const [isInView, setIsInView] = useState(false);
   const [loadedSrc, setLoadedSrc] = useState<string | null>(null);
   const loaded = iframeSrc !== null && loadedSrc === iframeSrc;
 
+  useEffect(() => {
+    const element = rootRef.current;
+    if (!element) return;
+
+    if (typeof IntersectionObserver === "undefined") {
+      const frame = window.requestAnimationFrame(() => setIsInView(true));
+      return () => window.cancelAnimationFrame(frame);
+    }
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsInView(true);
+          observer.disconnect();
+        }
+      },
+      { rootMargin: "160px 0px", threshold: 0.15 },
+    );
+
+    observer.observe(element);
+    return () => observer.disconnect();
+  }, []);
+
   return (
-    <div className="isolate relative aspect-[9/16] w-full overflow-hidden rounded-[10px] bg-transparent">
+    <div
+      ref={rootRef}
+      className="isolate relative aspect-[9/16] w-full overflow-hidden rounded-[10px] bg-transparent"
+    >
       <div
         className={`pointer-events-none absolute inset-0 z-0 bg-gradient-to-br from-[#1a1510] to-[#0a0806] transition-opacity duration-300 ${
           loaded ? "opacity-0" : "opacity-100"
         }`}
       />
-      {iframeSrc && !previewOpen && (
-        <button
-          type="button"
-          onClick={() => setPreviewOpen(true)}
-          className="absolute inset-0 z-20 flex cursor-pointer flex-col items-center justify-center gap-3 border-0 bg-transparent p-6 text-center text-fg"
-          aria-label={`Preview ${regionCode} video`}
-        >
-          <span className="flex h-12 w-12 items-center justify-center rounded-full border border-line-strong bg-[rgb(230_57_70_/_0.88)] text-white shadow-[0_12px_32px_rgba(0,0,0,0.45)]">
-            <svg
-              width="18"
-              height="18"
-              viewBox="0 0 18 18"
-              fill="currentColor"
-              aria-hidden="true"
-            >
-              <path d="M6 4.2v9.6L13.4 9 6 4.2Z" />
-            </svg>
-          </span>
+      {iframeSrc && !loaded && (
+        <div className="absolute inset-0 z-20 flex flex-col items-center justify-center gap-3 p-6 text-center text-fg">
           <span className="font-mono text-[10px] tracking-[0.16em] text-fg-dim uppercase">
-            Preview
+            {isInView ? "Loading preview" : "Preview"}
           </span>
-        </button>
+        </div>
       )}
-      {iframeSrc && previewOpen && (
+      {iframeSrc && isInView && (
         <iframe
           key={iframeSrc}
           src={iframeSrc}

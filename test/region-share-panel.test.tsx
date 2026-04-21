@@ -1,4 +1,10 @@
-import { fireEvent, render, screen, waitFor } from "@testing-library/react";
+import {
+  act,
+  fireEvent,
+  render,
+  screen,
+  waitFor,
+} from "@testing-library/react";
 import { afterEach, describe, expect, it, vi } from "vitest";
 
 import { RegionSharePanel } from "@/components/region-share-panel";
@@ -61,12 +67,27 @@ describe("RegionSharePanel", () => {
     );
   });
 
-  it("does not load the external video iframe until preview is requested", () => {
+  it("does not load the external video iframe until preview enters the viewport", () => {
+    let intersect: ((isIntersecting: boolean) => void) | undefined;
+    class MockIntersectionObserver {
+      observe = vi.fn();
+      disconnect = vi.fn();
+      unobserve = vi.fn();
+
+      constructor(callback: (entries: { isIntersecting: boolean }[]) => void) {
+        intersect = (isIntersecting: boolean) => callback([{ isIntersecting }]);
+      }
+    }
+
+    vi.stubGlobal("IntersectionObserver", MockIntersectionObserver);
+
     render(<RegionSharePanel regionCode="NAO" journeys={journeys} />);
 
     expect(screen.queryByTitle("NAO preview")).not.toBeInTheDocument();
 
-    fireEvent.click(screen.getByRole("button", { name: "Preview NAO video" }));
+    act(() => {
+      intersect?.(true);
+    });
 
     expect(screen.getByTitle("NAO preview")).toHaveAttribute(
       "src",

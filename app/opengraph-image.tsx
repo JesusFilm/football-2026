@@ -45,7 +45,7 @@ export default function Image() {
           textAlign: "center",
         }}
       >
-        World Cup 2026 Activate
+        World Cup 2026 Outreach
       </div>
       <div
         style={{
@@ -57,7 +57,7 @@ export default function Image() {
           textAlign: "center",
         }}
       >
-        One story. Every language.
+        Every match, every nation, every soul.
       </div>
     </div>,
     size,

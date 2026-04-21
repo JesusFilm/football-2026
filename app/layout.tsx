@@ -11,6 +11,7 @@ import {
   SITE_URL,
 } from "@/lib/site";
 
+import "flag-icons/css/flag-icons.min.css";
 import "./globals.css";
 
 const archivo = Archivo({

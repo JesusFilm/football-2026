@@ -41,9 +41,8 @@ export function RegionShareHeading() {
         }}
       >
         <p className="text-[15px] leading-[1.6] text-fg-dim">
-          Every video is dubbed by native speakers and captioned for sharing.
-          Pick the one your audience will read in their heart, then paste the
-          link anywhere you already message people.
+          Pick the language that matches your audience, then paste the link
+          anywhere you already message people.
         </p>
       </motion.div>
     </div>

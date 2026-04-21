@@ -3,12 +3,12 @@ export function HomeHero() {
     <section className="px-0 pt-16 pb-12 text-center">
       <div className="hero-transition-item hero-transition-item-0">
         <span className="inline-block font-mono text-[11px] font-semibold tracking-[0.18em] text-accent uppercase">
-          World Cup 2026 · Toolkit
+          World Cup 2026 · Outreach
         </span>
       </div>
       <div className="hero-transition-item hero-transition-item-1">
         <p className="mx-0 my-[14px] mb-1.5 font-serif text-[clamp(18px,1.6vw,22px)] font-medium tracking-[-0.01em] text-fg-dim italic">
-          One story. Every language.
+          Every match, every nation, every soul.
         </p>
       </div>
       <div className="hero-transition-item hero-transition-item-2">
@@ -18,10 +18,8 @@ export function HomeHero() {
       </div>
       <div className="hero-transition-item hero-transition-item-3">
         <p className="mx-auto max-w-[600px] text-base leading-[1.6] text-fg-dim">
-          The FIFA World Cup 2026 is here. Turn the world&apos;s most-watched
-          sporting event into a moment that matters. Jesus Film Project has
-          created ready-to-use interactive World Cup videos to share with anyone
-          across your region.
+          Jesus Film Project has created a simple way to share the Gospel with
+          your friends and family during the World Cup.
         </p>
       </div>
     </section>

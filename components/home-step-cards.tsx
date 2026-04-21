@@ -1,8 +1,9 @@
 "use client";
 
-import { motion, useInView, useReducedMotion } from "motion/react";
+import { ArrowDown, ArrowRight } from "lucide-react";
 import { ChartNoAxesCombined, Languages, Share2 } from "lucide-react";
-import { useRef } from "react";
+import { motion, useInView, useReducedMotion } from "motion/react";
+import { Fragment, useRef } from "react";
 
 import { StepCard } from "@/components/step-card";
 
@@ -16,7 +17,7 @@ const steps = [
     icon: Languages,
     num: "01 / CHOOSE",
     title: "Pick a language",
-    body: "Find videos in your audience's local language — over 70 options.",
+    body: "Find videos in your audience's local language — 30+ options.",
   },
   {
     icon: Share2,
@@ -47,25 +48,65 @@ export function HomeStepCards() {
   return (
     <div
       ref={ref}
-      className="mx-auto mt-12 mb-20 grid max-w-[820px] grid-cols-1 gap-3.5 md:grid-cols-3"
+      className="mx-auto mt-12 mb-20 grid max-w-[820px] grid-cols-1 items-start gap-2 md:grid-cols-[1fr_auto_1fr_auto_1fr] md:gap-5"
     >
       {steps.map((step, index) => (
-        <motion.div
-          key={step.num}
-          className="reveal"
-          initial={false}
-          animate={visible ? { opacity: 1, y: 0 } : { opacity: 0, y: 10 }}
-          transition={{
-            duration: prefersReducedMotion ? 0 : DURATION_MS / 1000,
-            delay: prefersReducedMotion
-              ? 0
-              : (startDelay + index * STAGGER_MS) / 1000,
-            ease: EASE,
-          }}
-        >
-          <StepCard {...step} />
-        </motion.div>
+        <Fragment key={step.num}>
+          <motion.div
+            className="reveal"
+            initial={false}
+            animate={visible ? { opacity: 1, y: 0 } : { opacity: 0, y: 10 }}
+            transition={{
+              duration: prefersReducedMotion ? 0 : DURATION_MS / 1000,
+              delay: prefersReducedMotion
+                ? 0
+                : (startDelay + index * STAGGER_MS) / 1000,
+              ease: EASE,
+            }}
+          >
+            <StepCard {...step} />
+          </motion.div>
+          {index < steps.length - 1 && (
+            <StepArrow
+              index={index}
+              prefersReducedMotion={Boolean(prefersReducedMotion)}
+              startDelay={startDelay}
+              visible={visible}
+            />
+          )}
+        </Fragment>
       ))}
     </div>
+  );
+}
+
+function StepArrow({
+  index,
+  prefersReducedMotion,
+  startDelay,
+  visible,
+}: {
+  index: number;
+  prefersReducedMotion: boolean;
+  startDelay: number;
+  visible: boolean;
+}) {
+  return (
+    <motion.div
+      className="flex items-center justify-center text-accent/70 md:mt-10"
+      aria-hidden
+      initial={false}
+      animate={visible ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.85 }}
+      transition={{
+        duration: prefersReducedMotion ? 0 : 0.45,
+        delay: prefersReducedMotion
+          ? 0
+          : (startDelay + index * STAGGER_MS + STAGGER_MS / 2) / 1000,
+        ease: EASE,
+      }}
+    >
+      <ArrowDown className="md:hidden" size={22} strokeWidth={1.8} />
+      <ArrowRight className="hidden md:block" size={24} strokeWidth={1.8} />
+    </motion.div>
   );
 }
