@@ -95,9 +95,9 @@
       }
     },
     "sesa": {
-      "name": "Süd- und Südostasien",
+      "name": "Südostasien und Südasien",
       "blurb": "Von Mumbai bis Manila — Heimat eines Viertels der Weltbevölkerung.",
-      "seoDescription": "Outreach-Tools zur WM 2026 für Süd- und Südostasien: Videos in lokalen Sprachen in einer reichweitenstarken Region teilen.",
+      "seoDescription": "Outreach-Tools zur WM 2026 für Südostasien und Südasien: Videos in lokalen Sprachen in einer reichweitenstarken Region teilen.",
       "flags": {
         "in": "Indien",
         "id": "Indonesien",
@@ -149,8 +149,6 @@
     "noViewsBody": "Für {regionName} sind noch keine länderbezogenen Aufrufe verfügbar."
   },
   "SharePanel": {
-    "heading": "Sprache wählen. Weitergeben.",
-    "description": "Wähle die Sprache, die zu deiner Zielgruppe passt, und füge den Link dort ein, wo du Menschen bereits kontaktierst.",
     "chooseLanguage": "Sprache wählen",
     "selectLanguage": "Sprache auswählen",
     "noJourneys": "Für diese Region gibt es noch keine Journeys.",

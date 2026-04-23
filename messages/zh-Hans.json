@@ -95,9 +95,9 @@
       }
     },
     "sesa": {
-      "name": "南亚和东南亚",
+      "name": "东南亚和南亚",
       "blurb": "从孟买到马尼拉——世界四分之一人口的家园。",
-      "seoDescription": "面向南亚和东南亚的 2026 世界杯外展工具：在高覆盖区域分享当地语言视频。",
+      "seoDescription": "面向东南亚和南亚的 2026 世界杯外展工具：在高覆盖区域分享当地语言视频。",
       "flags": {
         "in": "印度",
         "id": "印度尼西亚",
@@ -149,8 +149,6 @@
     "noViewsBody": "{regionName} 目前还没有国家级观看数据。"
   },
   "SharePanel": {
-    "heading": "选择一种语言。传递出去。",
-    "description": "选择符合受众的语言，然后把链接粘贴到你平常联系人的任何地方。",
     "chooseLanguage": "选择语言",
     "selectLanguage": "选择一种语言",
     "noJourneys": "该区域还没有旅程。",

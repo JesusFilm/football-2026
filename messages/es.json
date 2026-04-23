@@ -95,9 +95,9 @@
       }
     },
     "sesa": {
-      "name": "Asia del Sur y Sudeste Asiático",
+      "name": "Sudeste Asiático y Asia Meridional",
       "blurb": "De Mumbai a Manila: hogar de una cuarta parte de la población mundial.",
-      "seoDescription": "Herramientas de alcance de la Copa Mundial 2026 para Asia del Sur y Sudeste Asiático: comparte videos en idiomas locales en una región de gran alcance.",
+      "seoDescription": "Herramientas de alcance de la Copa Mundial 2026 para el Sudeste Asiático y Asia Meridional: comparte videos en idiomas locales en una región de gran alcance.",
       "flags": {
         "in": "India",
         "id": "Indonesia",
@@ -149,8 +149,6 @@
     "noViewsBody": "Aún no hay vistas a nivel de país disponibles para {regionName}."
   },
   "SharePanel": {
-    "heading": "Elige un idioma. Compártelo.",
-    "description": "Elige el idioma que coincida con tu audiencia y pega el enlace donde ya envías mensajes.",
     "chooseLanguage": "Elige un idioma",
     "selectLanguage": "Selecciona un idioma",
     "noJourneys": "Aún no hay journeys para esta región.",

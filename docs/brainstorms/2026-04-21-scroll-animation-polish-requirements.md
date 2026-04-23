@@ -43,7 +43,7 @@ This applies to the marketing-facing surfaces that a supporter or coordinator wi
 
 - R11. On first load, the hero block performs the same staggered mount sequence as the home page: back crumb → eyebrow → italic tagline → headline → subcopy. The stats row (flags · countries · languages) reveals as the trailing element of the same sequence. The stats row reveals as a single unit — its internal flag / separator-dot / country-count / language-count children do not stagger among themselves. Total region hero budget is ~1000ms (6-element cascade × 80ms stagger + 400–600ms reveal). The home hero's ~700ms budget does not apply to the region hero because it has more elements.
 - R12. The three step cards reveal as a staggered wave when the section enters the viewport, matching home-page behavior (same above-fold exception as R7; see R24, R29).
-- R13. The "Pick a language. Pass it on." heading and subcopy reveal as a staggered pair.
+- R13. The region share panel reveal animates without a separate intro heading or subcopy.
 - R14. The `RegionSharePanel` reveals as a single block (the panel's inner widgets — language picker, share link, QR — do not have individual reveal animations, because they are interactive controls and the user may interact with them before a stagger would complete).
 - R15. The "Where The Story is Spreading" section heading, eyebrow, and placeholder card reveal as a staggered group.
 

@@ -6,7 +6,6 @@ import { CountryViewsSection } from "@/components/country-views-section";
 import { OtherRegionsNav } from "@/components/other-regions-nav";
 import { RegionSharePanel } from "@/components/region-share-panel";
 import { RegionHero } from "@/components/region-hero";
-import { RegionShareHeading } from "@/components/region-share-heading";
 import { RegionStepCards } from "@/components/region-step-cards";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
@@ -158,8 +157,6 @@ export default async function RegionPage({ params }: Props) {
         />
 
         <RegionStepCards />
-
-        <RegionShareHeading />
 
         <RegionSharePanel
           key={region.id}

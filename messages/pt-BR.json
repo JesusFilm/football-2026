@@ -95,9 +95,9 @@
       }
     },
     "sesa": {
-      "name": "Sul e Sudeste Asiático",
+      "name": "Sudeste Asiático e Sul da Ásia",
       "blurb": "De Mumbai a Manila — lar de um quarto da população mundial.",
-      "seoDescription": "Ferramentas de alcance da Copa do Mundo 2026 para Sul e Sudeste Asiático: compartilhe vídeos em idiomas locais em uma região de grande alcance.",
+      "seoDescription": "Ferramentas de alcance da Copa do Mundo 2026 para o Sudeste Asiático e o Sul da Ásia: compartilhe vídeos em idiomas locais em uma região de grande alcance.",
       "flags": {
         "in": "Índia",
         "id": "Indonésia",
@@ -149,8 +149,6 @@
     "noViewsBody": "Ainda não há visualizações em nível de país disponíveis para {regionName}."
   },
   "SharePanel": {
-    "heading": "Escolha um idioma. Passe adiante.",
-    "description": "Escolha o idioma que combina com seu público e cole o link onde você já conversa com as pessoas.",
     "chooseLanguage": "Escolha um idioma",
     "selectLanguage": "Selecione um idioma",
     "noJourneys": "Ainda não há jornadas para esta região.",

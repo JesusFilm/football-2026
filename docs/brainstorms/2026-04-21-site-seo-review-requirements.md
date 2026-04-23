@@ -20,7 +20,7 @@ The review should make sure search engines can discover, index, understand, and 
 | `/namestan`  | `app/[id]/page.tsx` + `lib/regions.ts` | North Africa, Middle East & Central Asia activation page.                        |
 | `/lac`       | `app/[id]/page.tsx` + `lib/regions.ts` | Latin America & Caribbean activation page.                                       |
 | `/europe`    | `app/[id]/page.tsx` + `lib/regions.ts` | Europe activation page.                                                          |
-| `/sesa`      | `app/[id]/page.tsx` + `lib/regions.ts` | South & South East Asia activation page.                                         |
+| `/sesa`      | `app/[id]/page.tsx` + `lib/regions.ts` | South East & Southern Asia activation page.                                      |
 | `/east-asia` | `app/[id]/page.tsx` + `lib/regions.ts` | East Asia activation page.                                                       |
 | `/africa`    | `app/[id]/page.tsx` + `lib/regions.ts` | Sub-Saharan Africa activation page.                                              |
 

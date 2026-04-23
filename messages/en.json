@@ -95,9 +95,9 @@
       }
     },
     "sesa": {
-      "name": "South & South East Asia",
+      "name": "South East & Southern Asia",
       "blurb": "From Mumbai to Manila — home to a quarter of the world's people.",
-      "seoDescription": "World Cup 2026 outreach tools for South & South East Asia: share local-language videos across a high-reach region.",
+      "seoDescription": "World Cup 2026 outreach tools for South East & Southern Asia: share local-language videos across a high-reach region.",
       "flags": {
         "in": "India",
         "id": "Indonesia",
@@ -149,8 +149,6 @@
     "noViewsBody": "No country-level views are available for {regionName} yet."
   },
   "SharePanel": {
-    "heading": "Pick a language. Pass it on.",
-    "description": "Pick the language that matches your audience, then paste the link anywhere you already message people.",
     "chooseLanguage": "Choose a Language",
     "selectLanguage": "Select a language",
     "noJourneys": "No journeys yet for this region.",

@@ -95,9 +95,9 @@
       }
     },
     "sesa": {
-      "name": "Asie du Sud et du Sud-Est",
+      "name": "Asie du Sud-Est et Asie méridionale",
       "blurb": "De Mumbai à Manille — le foyer d’un quart de la population mondiale.",
-      "seoDescription": "Outils de rayonnement Coupe du monde 2026 pour l’Asie du Sud et du Sud-Est : partagez des vidéos en langues locales dans une région à forte portée.",
+      "seoDescription": "Outils de rayonnement Coupe du monde 2026 pour l’Asie du Sud-Est et l’Asie méridionale : partagez des vidéos en langues locales dans une région à forte portée.",
       "flags": {
         "in": "Inde",
         "id": "Indonésie",
@@ -149,8 +149,6 @@
     "noViewsBody": "Aucune vue au niveau des pays n’est encore disponible pour {regionName}."
   },
   "SharePanel": {
-    "heading": "Choisissez une langue. Faites passer.",
-    "description": "Choisissez la langue adaptée à votre public, puis collez le lien là où vous contactez déjà les personnes.",
     "chooseLanguage": "Choisir une langue",
     "selectLanguage": "Sélectionner une langue",
     "noJourneys": "Aucun parcours pour cette région pour le moment.",

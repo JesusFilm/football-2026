@@ -95,9 +95,9 @@
       }
     },
     "sesa": {
-      "name": "Asia Selatan dan Asia Tenggara",
+      "name": "Asia Tenggara dan Asia Selatan",
       "blurb": "Dari Mumbai hingga Manila — rumah bagi seperempat penduduk dunia.",
-      "seoDescription": "Alat penjangkauan Piala Dunia 2026 untuk Asia Selatan dan Asia Tenggara: bagikan video dalam bahasa lokal di wilayah dengan jangkauan besar.",
+      "seoDescription": "Alat penjangkauan Piala Dunia 2026 untuk Asia Tenggara dan Asia Selatan: bagikan video dalam bahasa lokal di wilayah dengan jangkauan besar.",
       "flags": {
         "in": "India",
         "id": "Indonesia",
@@ -149,8 +149,6 @@
     "noViewsBody": "Belum ada views tingkat negara untuk {regionName}."
   },
   "SharePanel": {
-    "heading": "Pilih bahasa. Teruskan.",
-    "description": "Pilih bahasa yang sesuai dengan audiens Anda, lalu tempel tautan di tempat Anda biasa mengirim pesan.",
     "chooseLanguage": "Pilih Bahasa",
     "selectLanguage": "Pilih bahasa",
     "noJourneys": "Belum ada journey untuk wilayah ini.",
