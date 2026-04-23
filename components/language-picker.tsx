@@ -12,27 +12,14 @@ import {
   type Locale,
   type LocaleOption,
 } from "@/i18n/routing";
+import { getLocalizedLanguageName } from "@/lib/language-display";
+
+export { getLocalizedLanguageName };
 
 function getCurrentOption(locale: string): LocaleOption {
   return (
     localeOptions.find((option) => option.code === locale) ?? localeOptions[0]
   );
-}
-
-export function getLocalizedLanguageName(
-  activeLocale: string,
-  targetLocale: string,
-  fallback: string,
-): string {
-  try {
-    const displayNames = new Intl.DisplayNames([activeLocale, "en"], {
-      type: "language",
-    });
-
-    return displayNames.of(targetLocale) ?? fallback;
-  } catch {
-    return fallback;
-  }
 }
 
 export function setPreferredLocaleCookie(locale: Locale) {

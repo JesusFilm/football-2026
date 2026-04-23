@@ -1,10 +1,11 @@
 "use client";
 
 import NextImage from "next/image";
-import { useTranslations } from "next-intl";
-import { useEffect, useRef, useState } from "react";
+import { useLocale, useTranslations } from "next-intl";
+import { useEffect, useMemo, useRef, useState } from "react";
 
-import type { Journey } from "@/lib/journeys";
+import type { Journey, JourneyLanguage } from "@/lib/journeys";
+import { getLocalizedLanguageName } from "@/lib/language-display";
 import { renderQrSvg } from "@/lib/qr";
 
 const SHARE_BASE = "https://your.nextstep.is";
@@ -31,14 +32,78 @@ function qrFilename(regionCode: string, selected: Journey): string {
   return `world-cup-2026-${region || "region"}-${language || "journey"}-qr.png`;
 }
 
-function defaultJourney(journeys: Journey[]): Journey | null {
+function languageMatchesLocale(
+  languageCode: string | undefined,
+  locale: string,
+): boolean {
+  if (!languageCode) return false;
+
+  const normalizedLanguageCode = languageCode.toLowerCase();
+  const normalizedLocale = locale.toLowerCase();
+
   return (
+    normalizedLanguageCode === normalizedLocale ||
+    normalizedLanguageCode.split("-")[0] === normalizedLocale.split("-")[0]
+  );
+}
+
+export function defaultJourney(
+  journeys: Journey[],
+  locale: string,
+): Journey | null {
+  return (
+    journeys.find((journey) =>
+      languageMatchesLocale(journey.language.bcp47, locale),
+    ) ??
     journeys.find(
       (journey) => journey.language.english.toLowerCase() === "english",
     ) ??
     journeys[0] ??
     null
   );
+}
+
+export function getJourneyLanguageLabel(
+  language: JourneyLanguage,
+  activeLocale: string,
+): string {
+  if (!language.bcp47) return language.english;
+
+  return getLocalizedLanguageName(
+    activeLocale,
+    language.bcp47,
+    language.english,
+  );
+}
+
+export function sortJourneysForLocale(
+  journeys: Journey[],
+  locale: string,
+  selected: Journey | null,
+): Journey[] {
+  const collator = new Intl.Collator(locale);
+  const sorted = [...journeys].sort((a, b) =>
+    collator.compare(
+      getJourneyLanguageLabel(a.language, locale),
+      getJourneyLanguageLabel(b.language, locale),
+    ),
+  );
+
+  if (!selected) return sorted;
+
+  return [
+    selected,
+    ...sorted.filter((journey) => journey.slug !== selected.slug),
+  ];
+}
+
+function getJourneyNativeLabel(
+  language: JourneyLanguage,
+  displayLabel: string,
+): string | undefined {
+  return language.native && language.native !== displayLabel
+    ? language.native
+    : undefined;
 }
 
 async function qrSvgToPngBlob(svg: string, size: number): Promise<Blob> {
@@ -81,8 +146,9 @@ type Props = {
 
 export function RegionSharePanel({ regionCode, journeys }: Props) {
   const t = useTranslations("SharePanel");
+  const locale = useLocale();
   const [selected, setSelected] = useState<Journey | null>(() =>
-    defaultJourney(journeys),
+    defaultJourney(journeys, locale),
   );
   const [open, setOpen] = useState(false);
   const [copyStatus, setCopyStatus] = useState<"idle" | "copied" | "error">(
@@ -117,6 +183,16 @@ export function RegionSharePanel({ regionCode, journeys }: Props) {
 
   const url = selected ? shareUrl(selected.slug) : "";
   const hasSelection = Boolean(selected);
+  const selectedLanguageName = selected
+    ? getJourneyLanguageLabel(selected.language, locale)
+    : "";
+  const selectedNativeName = selected
+    ? getJourneyNativeLabel(selected.language, selectedLanguageName)
+    : undefined;
+  const sortedJourneys = useMemo(
+    () => sortJourneysForLocale(journeys, locale, selected),
+    [journeys, locale, selected],
+  );
 
   const resetCopyStatus = (status: "copied" | "error") => {
     if (copyTimeoutRef.current !== null) {
@@ -181,8 +257,8 @@ export function RegionSharePanel({ regionCode, journeys }: Props) {
   const shareQr = async () => {
     if (!selected || !url) return;
 
-    const title = t("shareTitle", { language: selected.language.english });
-    const text = t("shareText", { language: selected.language.english });
+    const title = t("shareTitle", { language: selectedLanguageName });
+    const text = t("shareText", { language: selectedLanguageName });
 
     if (navigator.share) {
       try {
@@ -262,12 +338,10 @@ export function RegionSharePanel({ regionCode, journeys }: Props) {
             <span className="flex items-baseline gap-2.5 leading-none">
               {selected ? (
                 <>
-                  <span className="leading-none">
-                    {selected.language.english}
-                  </span>
-                  {selected.language.native && (
+                  <span className="leading-none">{selectedLanguageName}</span>
+                  {selectedNativeName && (
                     <span className="leading-none text-fg-mute">
-                      {selected.language.native}
+                      {selectedNativeName}
                     </span>
                   )}
                 </>
@@ -299,25 +373,36 @@ export function RegionSharePanel({ regionCode, journeys }: Props) {
                   {t("noJourneys")}
                 </div>
               ) : (
-                journeys.map((j) => (
-                  <button
-                    key={j.slug}
-                    type="button"
-                    onClick={(e) => {
-                      e.stopPropagation();
-                      setSelected(j);
-                      setOpen(false);
-                    }}
-                    className="flex w-full cursor-pointer items-baseline justify-between gap-4 rounded-[4px] px-3 py-2.5 text-start text-sm leading-none transition-colors hover:bg-[rgb(230_57_70_/_0.1)]"
-                  >
-                    <span className="leading-none">{j.language.english}</span>
-                    {j.language.native && (
-                      <span className="shrink-0 leading-none text-fg-mute">
-                        {j.language.native}
-                      </span>
-                    )}
-                  </button>
-                ))
+                sortedJourneys.map((j) => {
+                  const languageName = getJourneyLanguageLabel(
+                    j.language,
+                    locale,
+                  );
+                  const nativeName = getJourneyNativeLabel(
+                    j.language,
+                    languageName,
+                  );
+
+                  return (
+                    <button
+                      key={j.slug}
+                      type="button"
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        setSelected(j);
+                        setOpen(false);
+                      }}
+                      className="flex w-full cursor-pointer items-baseline justify-between gap-4 rounded-[4px] px-3 py-2.5 text-start text-sm leading-none transition-colors hover:bg-[rgb(230_57_70_/_0.1)]"
+                    >
+                      <span className="leading-none">{languageName}</span>
+                      {nativeName && (
+                        <span className="shrink-0 leading-none text-fg-mute">
+                          {nativeName}
+                        </span>
+                      )}
+                    </button>
+                  );
+                })
               )}
             </div>
           )}
@@ -599,6 +684,7 @@ function VideoPreview({
   return (
     <div
       ref={rootRef}
+      dir="ltr"
       className="isolate relative aspect-[9/16] w-full overflow-hidden rounded-[10px] bg-transparent"
     >
       <div
@@ -618,7 +704,7 @@ function VideoPreview({
           key={iframeSrc}
           src={iframeSrc}
           title={previewTitle(regionCode)}
-          className="pointer-events-auto absolute inset-0 z-10 h-full w-full origin-top-left border-0 md:h-[125%] md:w-[125%] md:scale-[0.8]"
+          className="pointer-events-auto absolute top-0 left-0 z-10 h-full w-full origin-top-left border-0 md:h-[125%] md:w-[125%] md:scale-[0.8]"
           loading="lazy"
           onLoad={() => setLoadedSrc(iframeSrc)}
           referrerPolicy="no-referrer"

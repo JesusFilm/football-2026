@@ -30,6 +30,7 @@ describe("fetchJourneys", () => {
             slug: "where-you-belong-africa-french",
             language: {
               id: "496",
+              bcp47: "fr",
               name: [
                 {
                   value: "Français",
@@ -54,6 +55,7 @@ describe("fetchJourneys", () => {
       slug: "where-you-belong-africa-french",
       language: {
         id: "496",
+        bcp47: "fr",
         english: "French",
         native: "Français",
       },
@@ -68,6 +70,7 @@ describe("fetchJourneys", () => {
             slug: "where-you-belong-nao-template",
             language: {
               id: "529",
+              bcp47: "en",
               name: [
                 {
                   value: "English",
@@ -82,6 +85,7 @@ describe("fetchJourneys", () => {
     });
 
     const [journey] = await fetchJourneys("team-id");
+    expect(journey.language.bcp47).toBe("en");
     expect(journey.language.english).toBe("English");
     expect(journey.language.native).toBeUndefined();
   });

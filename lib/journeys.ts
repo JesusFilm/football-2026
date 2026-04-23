@@ -8,6 +8,7 @@ const QUERY = /* GraphQL */ `
       slug
       language {
         id
+        bcp47
         name(languageId: "${ENGLISH_LANGUAGE_ID}", primary: true) {
           value
           primary
@@ -30,6 +31,7 @@ type RawJourney = {
   slug: string;
   language: {
     id: string;
+    bcp47?: string | null;
     name: RawName[];
   };
 };
@@ -42,6 +44,8 @@ type RawResponse = {
 export type JourneyLanguage = {
   /** Stable per-language ID from the GraphQL API. */
   id: string;
+  /** BCP 47 language code, when provided by the GraphQL API. */
+  bcp47?: string;
   /** English name of the language — display primary (e.g. "Spanish"). */
   english: string;
   /** Native name, if distinct from English (e.g. "Español"). */
@@ -68,6 +72,7 @@ function normalizeJourney(raw: RawJourney): Journey {
     slug: raw.slug,
     language: {
       id: raw.language.id,
+      bcp47: raw.language.bcp47 ?? undefined,
       english,
       native,
     },
