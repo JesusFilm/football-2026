@@ -4,7 +4,7 @@ const GRAPHQL_ENDPOINT =
 
 const QUERY = /* GraphQL */ `
   query GetJourneys($teamId: String!) {
-    journeys(where: { teamId: $teamId }) {
+    journeys(where: { teamId: $teamId, template: false }) {
       slug
       language {
         id
