@@ -317,7 +317,9 @@ describe("RegionSharePanel", () => {
       ),
     ).toBeInTheDocument();
     expect(
-      screen.getByText("Watch what they'll experience before you send it."),
+      screen.getByText(
+        "Watch what they'll experience below before you send it.",
+      ),
     ).toBeInTheDocument();
     expect(
       screen.getByText("Share this link below with them."),

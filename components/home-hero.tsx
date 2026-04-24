@@ -4,7 +4,7 @@ export function HomeHero() {
   const t = useTranslations("Home");
 
   return (
-    <section className="px-0 pt-16 pb-12 text-center">
+    <section className="px-0 pt-9 pb-12 text-center">
       <div className="hero-transition-item hero-transition-item-0">
         <span className="inline-block font-mono text-[11px] font-semibold tracking-[0.18em] text-accent uppercase">
           {t("eyebrow")}

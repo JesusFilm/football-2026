@@ -12,6 +12,7 @@ import { REGIONS, type JsonbinRegionCode } from "@/lib/regions";
 type Props = {
   regionName: string;
   regionCode: JsonbinRegionCode;
+  regionDisplayCode?: string;
   countries: CountryView[];
   hideHeader?: boolean;
   unavailable?: boolean;
@@ -34,6 +35,7 @@ const HomeCountryViewsInteractive = dynamic(
 export function CountryViewsSection({
   regionName,
   regionCode,
+  regionDisplayCode,
   countries,
   hideHeader = false,
   unavailable = false,
@@ -125,6 +127,11 @@ export function CountryViewsSection({
               countries={regionCountries}
               heading={t("regionHeading", { regionName })}
               listLabel={t("regionRankingLabel", { regionName })}
+              totalViewsLabel={
+                regionDisplayCode
+                  ? t("regionCodeViews", { regionCode: regionDisplayCode })
+                  : t("totalViews")
+              }
             />
             {visible ? (
               <HomeCountryViewsInteractive
@@ -158,8 +165,8 @@ function MapSkeleton() {
   return (
     <div className="rounded-none border-0 bg-transparent p-0 backdrop-blur-none md:rounded-[var(--radius-lg)] md:border md:border-line md:bg-[rgb(12_10_8_/_0.65)] md:p-7 md:backdrop-blur-md">
       <div className="mb-5 grid grid-cols-1 gap-4 lg:grid-cols-[minmax(0,1.35fr)_minmax(300px,0.8fr)] lg:items-stretch lg:gap-7">
-        <div className="grid min-w-0 grid-cols-1 gap-3 sm:grid-cols-3">
-          {["Top country", "Total views", "Countries"].map((label) => (
+        <div className="grid min-w-0 grid-cols-1 gap-3 sm:grid-cols-2">
+          {["Top country", "Total views"].map((label) => (
             <div
               key={label}
               className="min-w-0 rounded-[var(--radius-md)] border border-line bg-[rgb(12_10_8_/_0.42)] px-4 py-[13px] backdrop-blur-md"

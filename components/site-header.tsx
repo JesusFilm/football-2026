@@ -7,7 +7,7 @@ export function SiteHeader() {
   const t = useTranslations("Header");
 
   return (
-    <header className="relative z-10 flex items-center gap-4 px-6 pt-6 pb-6 sm:px-10 sm:pt-8 sm:pb-8">
+    <header className="relative z-10 flex items-center gap-4 px-6 pt-4 pb-4 sm:px-10 sm:pt-5 sm:pb-5">
       <Link
         href="/"
         className="inline-flex items-center text-fg no-underline"

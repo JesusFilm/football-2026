@@ -4,6 +4,7 @@ import Image from "next/image";
 import { useLocale, useTranslations } from "next-intl";
 import { type ReactNode, useEffect, useMemo, useRef, useState } from "react";
 
+import { getLocaleDirection } from "@/i18n/routing";
 import type { Journey, JourneyLanguage } from "@/lib/journeys";
 import { getLocalizedLanguageName } from "@/lib/language-display";
 
@@ -99,6 +100,9 @@ type Props = {
 export function RegionSharePanel({ regionCode, journeys }: Props) {
   const t = useTranslations("SharePanel");
   const locale = useLocale();
+  const direction = getLocaleDirection(
+    locale as Parameters<typeof getLocaleDirection>[0],
+  );
   const [selected, setSelected] = useState<Journey | null>(() =>
     defaultJourney(journeys, locale),
   );
@@ -106,6 +110,7 @@ export function RegionSharePanel({ regionCode, journeys }: Props) {
   const [copyStatus, setCopyStatus] = useState<"idle" | "copied" | "error">(
     "idle",
   );
+  const [isDesktopLayout, setIsDesktopLayout] = useState(false);
   const rootRef = useRef<HTMLDivElement>(null);
   const copyTimeoutRef = useRef<number | null>(null);
 
@@ -117,6 +122,18 @@ export function RegionSharePanel({ regionCode, journeys }: Props) {
     document.addEventListener("click", close);
     return () => document.removeEventListener("click", close);
   }, [open]);
+
+  useEffect(() => {
+    if (typeof window === "undefined" || !window.matchMedia) return;
+
+    const mediaQuery = window.matchMedia("(min-width: 1024px)");
+    const updateLayout = () => setIsDesktopLayout(mediaQuery.matches);
+
+    updateLayout();
+    mediaQuery.addEventListener("change", updateLayout);
+
+    return () => mediaQuery.removeEventListener("change", updateLayout);
+  }, []);
 
   useEffect(() => {
     return () => {
@@ -138,6 +155,11 @@ export function RegionSharePanel({ regionCode, journeys }: Props) {
     () => sortJourneysForLocale(journeys, locale),
     [journeys, locale],
   );
+  const stepTwoDirection = isDesktopLayout
+    ? direction === "rtl"
+      ? t("directionLeft")
+      : t("directionRight")
+    : t("directionBelow");
 
   const resetCopyStatus = (status: "copied" | "error") => {
     if (copyTimeoutRef.current !== null) {
@@ -293,7 +315,10 @@ export function RegionSharePanel({ regionCode, journeys }: Props) {
               </div>
             </StepBlock>
 
-            <StepBlock number="2." body={t("stepTwo")} />
+            <StepBlock
+              number="2."
+              body={t("stepTwo", { direction: stepTwoDirection })}
+            />
 
             <StepBlock number="3." body={t("stepThree")}>
               <div className="flex gap-2 pt-1">
@@ -357,8 +382,13 @@ export function RegionSharePanel({ regionCode, journeys }: Props) {
         </div>
 
         <aside className="mx-auto w-full max-w-[332px] lg:sticky lg:top-24">
-          <div className="p-4 shadow-[0_22px_90px_rgba(0,0,0,0.45)]">
-            <div className="overflow-hidden rounded-[22px] bg-black/30">
+          <div className="rounded-[24px] border border-accent/10 bg-[radial-gradient(circle_at_top,_rgba(230,57,70,0.09),_rgba(12,10,8,0)_72%)] px-3 py-2.5 shadow-[0_18px_64px_rgba(0,0,0,0.22)]">
+            <div className="mb-2 flex items-center justify-center px-1">
+              <span className="font-mono text-[10px] tracking-[0.16em] text-white/55 uppercase">
+                {t("preview")}
+              </span>
+            </div>
+            <div className="overflow-visible rounded-none bg-transparent">
               <VideoPreview
                 key={selected?.slug ?? "empty-preview"}
                 loadingLabel={t("loadingPreview")}
@@ -370,9 +400,9 @@ export function RegionSharePanel({ regionCode, journeys }: Props) {
             </div>
             <div
               aria-label={t("madeWithAria")}
-              className="mt-5 flex items-center justify-center gap-2.5 text-white/55"
+              className="mt-1 flex items-center justify-center gap-2 text-white/55"
             >
-              <span className="font-mono text-[9px] tracking-[0.28em] uppercase">
+              <span className="font-mono text-[8px] tracking-[0.24em] uppercase">
                 {t("madeWith")}
               </span>
               <Image
@@ -380,7 +410,7 @@ export function RegionSharePanel({ regionCode, journeys }: Props) {
                 alt="NextSteps"
                 width={92}
                 height={16}
-                className="h-4 w-auto opacity-85"
+                className="h-[13px] w-auto opacity-85"
               />
             </div>
           </div>

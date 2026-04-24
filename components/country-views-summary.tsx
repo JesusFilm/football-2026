@@ -9,6 +9,7 @@ type Props = {
   heading: string;
   listLabel: string;
   limit?: number;
+  totalViewsLabel?: string;
 };
 
 export function CountryViewsSummary({
@@ -16,6 +17,7 @@ export function CountryViewsSummary({
   heading,
   listLabel,
   limit = 10,
+  totalViewsLabel,
 }: Props) {
   const locale = useLocale();
   const t = useTranslations("CountryViews");
@@ -30,15 +32,11 @@ export function CountryViewsSummary({
 
   return (
     <div className="mb-6 rounded-none border-0 bg-transparent p-0 md:rounded-[var(--radius-lg)] md:border md:border-line md:bg-[rgb(12_10_8_/_0.54)] md:p-5 md:backdrop-blur-md">
-      <div className="mb-4 grid grid-cols-1 gap-3 sm:grid-cols-3">
+      <div className="mb-4 grid grid-cols-1 gap-3 sm:grid-cols-2">
         <SummaryMetric label={t("topCountry")} value={topCountry} />
         <SummaryMetric
-          label={t("totalViews")}
+          label={totalViewsLabel ?? t("totalViews")}
           value={formatViewsForLocale(totalViews, locale)}
-        />
-        <SummaryMetric
-          label={t("countries")}
-          value={formatViewsForLocale(countries.length, locale)}
         />
       </div>
 

@@ -11,9 +11,9 @@ export function RegionHero({ region }: Props) {
   const t = useTranslations("Region");
 
   return (
-    <section className="mx-auto max-w-[980px] px-0 pt-12 pb-10 text-center sm:pt-16 sm:pb-14">
+    <section className="mx-auto max-w-[980px] px-0 pt-4 pb-10 text-center sm:pt-6 sm:pb-14">
       <div className="hero-transition-item hero-transition-item-0">
-        <div className="mb-8 flex justify-center">
+        <div className="mb-5 flex justify-center">
           <BackCrumb href="/" label={t("allRegions")} />
         </div>
       </div>

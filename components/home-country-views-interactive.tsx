@@ -60,6 +60,10 @@ export function HomeCountryViewsInteractive({
     ? null
     : outgoingSelection;
   const activeAutoAdvance = autoAdvance && !prefersReducedMotion;
+  const regionByCode = useMemo(
+    () => new Map(regions.map((region) => [region.code, region] as const)),
+    [regions],
+  );
 
   const selectionOrder = useMemo<Selection[]>(
     () => ["All", ...regions.map((region) => region.code)],
@@ -119,6 +123,12 @@ export function HomeCountryViewsInteractive({
     countryListLimit === null
       ? outgoingCountries
       : outgoingCountries.slice(0, countryListLimit);
+  const totalViewsLabel =
+    visualSelection === "All"
+      ? t("totalViews")
+      : t("regionCodeViews", {
+          regionCode: regionByCode.get(visualSelection)?.displayCode ?? "",
+        });
   const visibleRowCount = Math.max(
     displayedCountries.length,
     outgoingDisplayedCountries.length,
@@ -181,7 +191,7 @@ export function HomeCountryViewsInteractive({
   return (
     <div className="rounded-none border-0 bg-transparent p-0 backdrop-blur-none md:rounded-[var(--radius-lg)] md:border md:border-line md:bg-[rgb(12_10_8_/_0.65)] md:p-7 md:backdrop-blur-md">
       <div className="mb-5 grid grid-cols-1 gap-4 lg:grid-cols-[minmax(0,1.35fr)_minmax(300px,0.8fr)] lg:items-stretch lg:gap-7">
-        <div className="grid min-w-0 grid-cols-1 gap-3 sm:grid-cols-3">
+        <div className="grid min-w-0 grid-cols-1 gap-3 sm:grid-cols-2">
           <Metric
             animationKey={`${visualSelection}-top-country`}
             animationOrder={0}
@@ -197,7 +207,7 @@ export function HomeCountryViewsInteractive({
           <Metric
             animationKey={`${visualSelection}-total-views`}
             animationOrder={1}
-            label={t("totalViews")}
+            label={totalViewsLabel}
             outgoingKey={
               visualOutgoingSelection
                 ? `${visualOutgoingSelection}-total-views`
@@ -209,22 +219,6 @@ export function HomeCountryViewsInteractive({
                 : undefined
             }
             value={formatViewsForLocale(totalViews, locale)}
-          />
-          <Metric
-            animationKey={`${visualSelection}-countries`}
-            animationOrder={2}
-            label={t("countries")}
-            outgoingKey={
-              visualOutgoingSelection
-                ? `${visualOutgoingSelection}-countries`
-                : undefined
-            }
-            outgoingValue={
-              visualOutgoingSelection
-                ? formatViewsForLocale(outgoingCountries.length, locale)
-                : undefined
-            }
-            value={formatViewsForLocale(displayCountries.length, locale)}
           />
         </div>
 

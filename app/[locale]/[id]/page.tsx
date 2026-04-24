@@ -146,6 +146,7 @@ export default async function RegionPage({ params }: Props) {
         <CountryViewsSection
           regionName={region.name}
           regionCode={region.code}
+          regionDisplayCode={region.displayCode}
           countries={allCountryViews}
           hideHeader
           unavailable={resolvedCountryViewsResult.status === "unavailable"}
