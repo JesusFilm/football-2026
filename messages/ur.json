@@ -110,8 +110,8 @@
   "Region": {
     "eyebrow": "ورلڈ کپ 2026 · {regionCode}",
     "tagline": "ہر میچ، ہر قوم، ہر جان۔",
-    "title": "{regionName} فعال کریں",
-    "description": "{regionBlurb} Jesus Film Project نے ورلڈ کپ کے دوران دوستوں اور خاندان کے ساتھ انجیل شیئر کرنے کا ایک آسان طریقہ بنایا ہے۔",
+    "title": "ورلڈ کپ کے دوران انجیل بانٹیں",
+    "description": "ورلڈ کپ اربوں لوگوں کو ایک ساتھ لاتا ہے۔ یہ سب سے اہم بات کو بانٹنے کا بہترین وقت ہے۔ اس ٹول کو استعمال کرکے چند ہی مرحلوں میں کسی شخص کی دل کی زبان میں ایک ذاتی انجیل پیغام بھیجیں۔",
     "countriesLabel": "{count, plural, one {ملک} other {ممالک}}",
     "languagesLabel": "{count, plural, one {زبان} other {زبانیں}}",
     "allRegions": "تمام خطے",
@@ -153,6 +153,11 @@
     "selectLanguage": "زبان منتخب کریں",
     "noJourneys": "اس خطے کے لیے ابھی کوئی journey نہیں ہے۔",
     "shareLink": "شیئر لنک",
+    "howItWorks": "یہ اس طرح کام کرتا ہے:",
+    "stepOne": "ایسی زبان منتخب کریں جسے آپ کا دوست، خاندان کا فرد، یا پڑوسی سمجھتا ہو۔",
+    "stepTwo": "بھیجنے سے پہلے دیکھیں کہ وہ کیا تجربہ کریں گے۔",
+    "stepThree": "نیچے دیا گیا یہ لنک ان کے ساتھ شیئر کریں۔",
+    "mapPrompt": "کیا آپ دیکھنا چاہتے ہیں کہ اس موسم میں دنیا بھر کے لوگ ایمان کے بارے میں کیسے جواب دے رہے ہیں؟ نیچے دیا گیا نقشہ دیکھیں۔",
     "copyLink": "لنک کاپی کریں",
     "qrCode": "QR کوڈ",
     "downloaded": "ڈاؤن لوڈ ہو گیا",
@@ -169,8 +174,8 @@
     "previewTitle": "{regionCode} پری ویو",
     "shareTitle": "{language} ورلڈ کپ 2026 ویڈیو",
     "shareText": "{language} میں یہ ورلڈ کپ 2026 کہانی دیکھیں اور شیئر کریں۔",
-    "journeyBody": "This is an interactive Gospel journey that bridges between football and faith in Jesus. We've provided videos and text translated into your heart language, with an opportunity to follow up.",
-    "mapBody": "Visit the map below to see how people are engaging with faith this World Cup season."
+    "journeyBody": "یہ ایک تعاملی انجیل سفر ہے جو فٹ بال اور یسوع پر ایمان کے درمیان پل بناتا ہے۔ ہم نے ویڈیوز اور متن آپ کے دل کی زبان میں ترجمہ کرکے فراہم کیے ہیں، اور بعد میں رابطے کا موقع بھی رکھا ہے۔",
+    "mapBody": "نیچے دیا گیا نقشہ دیکھیں تاکہ آپ جان سکیں کہ اس ورلڈ کپ سیزن میں لوگ ایمان کے ساتھ کیسے جڑ رہے ہیں۔"
   },
   "Footer": {
     "copyright": "© 2026 Jesus Film Project",

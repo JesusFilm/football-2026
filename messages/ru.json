@@ -110,8 +110,8 @@
   "Region": {
     "eyebrow": "ЧМ-2026 · {regionCode}",
     "tagline": "Каждый матч, каждая нация, каждая душа.",
-    "title": "Активировать {regionName}",
-    "description": "{regionBlurb} Jesus Film Project создал простой способ делиться Евангелием с друзьями и семьей во время чемпионата мира.",
+    "title": "Делитесь Евангелием во время чемпионата мира",
+    "description": "Чемпионат мира объединяет миллиарды людей. Это идеальный момент, чтобы поделиться самым важным. Используйте этот инструмент, чтобы всего за несколько шагов отправить персональное евангельское послание на родном языке сердца человека.",
     "countriesLabel": "{count, plural, one {страна} other {стран}}",
     "languagesLabel": "{count, plural, one {язык} other {языков}}",
     "allRegions": "Все регионы",
@@ -153,6 +153,11 @@
     "selectLanguage": "Выберите язык",
     "noJourneys": "Для этого региона пока нет journeys.",
     "shareLink": "Ссылка для отправки",
+    "howItWorks": "Вот как это работает:",
+    "stepOne": "Выберите язык, который понимает ваш друг, родственник или сосед.",
+    "stepTwo": "Посмотрите, что они увидят, прежде чем вы отправите это.",
+    "stepThree": "Поделитесь с ними ссылкой ниже.",
+    "mapPrompt": "Хотите увидеть, как люди по всему миру откликаются на веру в этом сезоне? Изучите карту ниже.",
     "copyLink": "Скопировать ссылку",
     "qrCode": "QR-код",
     "downloaded": "Скачано",
@@ -169,8 +174,8 @@
     "previewTitle": "Предпросмотр {regionCode}",
     "shareTitle": "Видео ЧМ-2026 на языке {language}",
     "shareText": "Смотрите и делитесь этой историей ЧМ-2026 на языке {language}.",
-    "journeyBody": "This is an interactive Gospel journey that bridges between football and faith in Jesus. We've provided videos and text translated into your heart language, with an opportunity to follow up.",
-    "mapBody": "Visit the map below to see how people are engaging with faith this World Cup season."
+    "journeyBody": "Это интерактивное евангельское путешествие, которое соединяет футбол и веру в Иисуса. Мы подготовили видео и тексты, переведенные на язык вашего сердца, а также возможность для дальнейшего контакта.",
+    "mapBody": "Посетите карту ниже, чтобы увидеть, как люди взаимодействуют с верой в этот сезон чемпионата мира."
   },
   "Footer": {
     "copyright": "© 2026 Jesus Film Project",

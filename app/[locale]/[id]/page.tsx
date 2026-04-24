@@ -6,7 +6,6 @@ import { CountryViewsSection } from "@/components/country-views-section";
 import { OtherRegionsNav } from "@/components/other-regions-nav";
 import { RegionSharePanel } from "@/components/region-share-panel";
 import { RegionHero } from "@/components/region-hero";
-import { SectionChevron } from "@/components/section-chevron";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 import { StadiumBg } from "@/components/stadium-bg";
@@ -144,16 +143,13 @@ export default async function RegionPage({ params }: Props) {
           journeys={journeys}
         />
 
-        <SectionChevron />
-
         <CountryViewsSection
           regionName={region.name}
           regionCode={region.code}
           countries={allCountryViews}
+          hideHeader
           unavailable={resolvedCountryViewsResult.status === "unavailable"}
         />
-
-        <SectionChevron />
 
         <OtherRegionsNav currentRegionId={region.id} regions={regions} />
       </main>

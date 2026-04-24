@@ -13,6 +13,7 @@ type Props = {
   regionName: string;
   regionCode: JsonbinRegionCode;
   countries: CountryView[];
+  hideHeader?: boolean;
   unavailable?: boolean;
 };
 
@@ -34,6 +35,7 @@ export function CountryViewsSection({
   regionName,
   regionCode,
   countries,
+  hideHeader = false,
   unavailable = false,
 }: Props) {
   const t = useTranslations("CountryViews");
@@ -74,29 +76,31 @@ export function CountryViewsSection({
 
   return (
     <section ref={ref}>
-      <motion.div
-        className="reveal mb-7 text-center"
-        initial={false}
-        animate={visible ? { opacity: 1, y: 0 } : { opacity: 0, y: 10 }}
-        transition={{
-          duration: prefersReducedMotion ? 0 : 0.5,
-          ease: EASE,
-        }}
-      >
-        <span className="inline-block font-mono text-[11px] font-semibold tracking-[0.18em] text-accent uppercase">
-          {t("regionEyebrow")}
-        </span>
-        <h2
-          id="country-views-heading"
-          className="mt-2 mb-0 font-display text-[32px] font-bold tracking-[-0.01em]"
+      {!hideHeader ? (
+        <motion.div
+          className="reveal mb-7 text-center"
+          initial={false}
+          animate={visible ? { opacity: 1, y: 0 } : { opacity: 0, y: 10 }}
+          transition={{
+            duration: prefersReducedMotion ? 0 : 0.5,
+            ease: EASE,
+          }}
         >
-          {t("heading")}
-        </h2>
-      </motion.div>
+          <span className="inline-block font-mono text-[11px] font-semibold tracking-[0.18em] text-accent uppercase">
+            {t("regionEyebrow")}
+          </span>
+          <h2
+            id="country-views-heading"
+            className="mt-2 mb-0 font-display text-[32px] font-bold tracking-[-0.01em]"
+          >
+            {t("heading")}
+          </h2>
+        </motion.div>
+      ) : null}
 
       <motion.div
         className="reveal"
-        aria-labelledby="country-views-heading"
+        aria-labelledby={hideHeader ? undefined : "country-views-heading"}
         initial={false}
         animate={visible ? { opacity: 1, y: 0 } : { opacity: 0, y: 10 }}
         transition={{

@@ -110,8 +110,8 @@
   "Region": {
     "eyebrow": "كأس العالم 2026 · {regionCode}",
     "tagline": "كل مباراة، كل أمة، كل نفس.",
-    "title": "فعّل {regionName}",
-    "description": "{regionBlurb} أنشأ Jesus Film Project طريقة بسيطة لمشاركة الإنجيل مع أصدقائك وعائلتك أثناء كأس العالم.",
+    "title": "شارك الإنجيل خلال كأس العالم",
+    "description": "يجمع كأس العالم مليارات الناس معًا، وهو الوقت المثالي لمشاركة ما هو الأهم. استخدم هذه الأداة لإرسال رسالة إنجيلية شخصية بلغة القلب لدى الشخص، في بضع خطوات فقط.",
     "countriesLabel": "{count, plural, one {بلد} other {بلدان}}",
     "languagesLabel": "{count, plural, one {لغة} other {لغات}}",
     "allRegions": "كل المناطق",
@@ -153,6 +153,11 @@
     "selectLanguage": "اختر لغة",
     "noJourneys": "لا توجد رحلات لهذه المنطقة بعد.",
     "shareLink": "رابط المشاركة",
+    "howItWorks": "إليك كيف يعمل الأمر:",
+    "stepOne": "اختر لغة يفهمها صديقك أو أحد أفراد عائلتك أو جارك.",
+    "stepTwo": "شاهد ما سيختبرونه قبل أن ترسله.",
+    "stepThree": "شارك معهم هذا الرابط أدناه.",
+    "mapPrompt": "هل تريد أن ترى كيف يستجيب الناس حول العالم للإيمان هذا الموسم؟ استكشف الخريطة أدناه.",
     "copyLink": "نسخ الرابط",
     "qrCode": "رمز QR",
     "downloaded": "تم التنزيل",
@@ -169,8 +174,8 @@
     "previewTitle": "معاينة {regionCode}",
     "shareTitle": "فيديو كأس العالم 2026 باللغة {language}",
     "shareText": "شاهد وشارك قصة كأس العالم 2026 هذه باللغة {language}.",
-    "journeyBody": "This is an interactive Gospel journey that bridges between football and faith in Jesus. We've provided videos and text translated into your heart language, with an opportunity to follow up.",
-    "mapBody": "Visit the map below to see how people are engaging with faith this World Cup season."
+    "journeyBody": "هذه رحلة تفاعلية للإنجيل تربط بين كرة القدم والإيمان بيسوع. لقد وفرنا مقاطع فيديو ونصوصًا مترجمة إلى لغة قلبك، مع فرصة للمتابعة.",
+    "mapBody": "زر الخريطة أدناه لترى كيف يتفاعل الناس مع الإيمان خلال موسم كأس العالم هذا."
   },
   "Footer": {
     "copyright": "© 2026 Jesus Film Project",

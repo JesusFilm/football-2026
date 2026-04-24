@@ -110,8 +110,8 @@
   "Region": {
     "eyebrow": "2026 世界杯 · {regionCode}",
     "tagline": "每一场比赛，每一个国家，每一个灵魂。",
-    "title": "启动{regionName}",
-    "description": "{regionBlurb} Jesus Film Project创建了一种简单方式，帮助你在世界杯期间与亲友分享福音。",
+    "title": "在世界杯期间分享福音",
+    "description": "世界杯把数十亿人聚集在一起，这是分享最重要之事的绝佳时刻。使用这个工具，只需几个步骤，就能用对方心里的语言发送一条个性化的福音信息。",
     "countriesLabel": "{count, plural, one {国家} other {国家}}",
     "languagesLabel": "{count, plural, one {语言} other {语言}}",
     "allRegions": "所有区域",
@@ -153,6 +153,11 @@
     "selectLanguage": "选择一种语言",
     "noJourneys": "该区域还没有旅程。",
     "shareLink": "分享链接",
+    "howItWorks": "使用方法如下：",
+    "stepOne": "选择一种你的朋友、家人或邻居能理解的语言。",
+    "stepTwo": "在发送之前，先看看他们将会体验到什么。",
+    "stepThree": "把下面这个链接分享给他们。",
+    "mapPrompt": "想看看这个季节世界各地的人如何回应信仰吗？请探索下面的地图。",
     "copyLink": "复制链接",
     "qrCode": "二维码",
     "downloaded": "已下载",
@@ -169,8 +174,8 @@
     "previewTitle": "{regionCode} 预览",
     "shareTitle": "{language} 2026 世界杯视频",
     "shareText": "观看并分享这个使用 {language} 的 2026 世界杯故事。",
-    "journeyBody": "This is an interactive Gospel journey that bridges between football and faith in Jesus. We've provided videos and text translated into your heart language, with an opportunity to follow up.",
-    "mapBody": "Visit the map below to see how people are engaging with faith this World Cup season."
+    "journeyBody": "这是一个互动式福音旅程，把足球与对耶稣的信仰连接起来。我们提供了翻译成你心里语言的视频和文字，并预留了后续跟进的机会。",
+    "mapBody": "访问下面的地图，看看人们在这个世界杯赛季如何与信仰互动。"
   },
   "Footer": {
     "copyright": "© 2026 Jesus Film Project",

@@ -1,7 +1,8 @@
 "use client";
 
+import Image from "next/image";
 import { useLocale, useTranslations } from "next-intl";
-import { useEffect, useMemo, useRef, useState } from "react";
+import { type ReactNode, useEffect, useMemo, useRef, useState } from "react";
 
 import type { Journey, JourneyLanguage } from "@/lib/journeys";
 import { getLocalizedLanguageName } from "@/lib/language-display";
@@ -163,202 +164,258 @@ export function RegionSharePanel({ regionCode, journeys }: Props) {
   };
 
   return (
-    <section className="mx-auto max-w-[760px] rounded-[24px] border border-line bg-[rgb(12_10_8_/_0.78)] px-5 py-6 backdrop-blur-xl sm:px-8 sm:py-8">
-      <div className="min-w-0">
-        <FieldLabel label={t("chooseLanguage")} />
-        <div
-          ref={rootRef}
-          className="relative mb-7"
-          aria-expanded={open}
-          data-open={open || undefined}
-        >
-          <button
-            type="button"
-            onClick={(e) => {
-              e.stopPropagation();
-              setOpen((v) => !v);
-            }}
-            className={`flex w-full items-center justify-between gap-2.5 rounded-[var(--radius-md)] border bg-[rgb(20_16_12_/_0.6)] px-4 py-3 font-sans text-sm text-fg transition-colors hover:border-accent ${
-              open ? "border-accent" : "border-line-strong"
-            }`}
-            title={t("chooseLanguage")}
-          >
-            <span className="flex items-baseline gap-2.5 leading-none">
-              {selected ? (
-                <>
-                  <span className="leading-none">{selectedLanguageName}</span>
-                  {selectedNativeName && (
-                    <span className="leading-none text-fg-mute">
-                      {selectedNativeName}
-                    </span>
-                  )}
-                </>
-              ) : (
-                <span className="text-fg-mute">{t("selectLanguage")}</span>
-              )}
-            </span>
-            <span
-              className={`text-fg-mute transition-transform duration-200 ${open ? "rotate-180" : ""}`}
-            >
-              <svg
-                width="12"
-                height="12"
-                viewBox="0 0 12 12"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="1.8"
-                strokeLinecap="round"
+    <section className="mx-auto max-w-[1060px] px-0 pb-20">
+      <div className="grid gap-12 lg:grid-cols-[minmax(0,1fr)_340px] lg:items-center lg:gap-14">
+        <div className="min-w-0 lg:self-center">
+          <h2 className="mb-5 font-display text-[clamp(22px,2.8vw,30px)] leading-[1.12] font-semibold tracking-[-0.025em] text-accent">
+            {t("howItWorks")}
+          </h2>
+
+          <div className="space-y-5">
+            <StepBlock number="1." body={t("stepOne")}>
+              <div
+                ref={rootRef}
+                className="relative"
+                aria-expanded={open}
+                data-open={open || undefined}
               >
-                <path d="M3 5l3 3 3-3" />
-              </svg>
-            </span>
-          </button>
-
-          {open && (
-            <div className="absolute top-[calc(100%+6px)] right-0 left-0 z-40 max-h-[260px] overflow-y-auto rounded-[var(--radius-md)] border border-line-strong bg-[#141009] p-1.5 shadow-[0_12px_32px_rgba(0,0,0,0.5)]">
-              {journeys.length === 0 ? (
-                <div className="px-3 py-2.5 text-sm text-fg-mute">
-                  {t("noJourneys")}
-                </div>
-              ) : (
-                sortedJourneys.map((j) => {
-                  const languageName = getJourneyLanguageLabel(
-                    j.language,
-                    locale,
-                  );
-                  const nativeName = getJourneyNativeLabel(
-                    j.language,
-                    languageName,
-                  );
-                  const isSelected = j.slug === selected?.slug;
-
-                  return (
-                    <button
-                      key={j.slug}
-                      type="button"
-                      aria-pressed={isSelected}
-                      onClick={(e) => {
-                        e.stopPropagation();
-                        setSelected(j);
-                        setOpen(false);
-                      }}
-                      className={`flex w-full cursor-pointer items-center justify-between gap-4 rounded-[4px] px-3 py-2.5 text-start text-sm transition-colors ${
-                        isSelected
-                          ? "bg-[rgb(230_57_70_/_0.14)] text-fg"
-                          : "hover:bg-[rgb(230_57_70_/_0.1)]"
-                      }`}
-                    >
-                      <span className="flex min-w-0 items-baseline gap-3">
-                        <span className="leading-none">{languageName}</span>
-                        {nativeName && (
-                          <span className="shrink-0 leading-none text-fg-mute">
-                            {nativeName}
+                <button
+                  type="button"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    setOpen((v) => !v);
+                  }}
+                  className={`flex w-full items-center justify-between gap-2.5 rounded-[14px] border bg-[rgb(18_15_12_/_0.86)] px-4 py-3.5 font-sans text-sm text-fg transition-colors hover:border-accent ${
+                    open ? "border-accent" : "border-white/12"
+                  }`}
+                  title={t("chooseLanguage")}
+                >
+                  <span className="flex items-baseline gap-2.5 leading-none">
+                    {selected ? (
+                      <>
+                        <span className="leading-none">
+                          {selectedLanguageName}
+                        </span>
+                        {selectedNativeName && (
+                          <span className="leading-none text-fg-mute">
+                            {selectedNativeName}
                           </span>
                         )}
+                      </>
+                    ) : (
+                      <span className="text-fg-mute">
+                        {t("selectLanguage")}
                       </span>
-                      {isSelected ? (
-                        <svg
-                          aria-hidden="true"
-                          width="14"
-                          height="14"
-                          viewBox="0 0 14 14"
-                          fill="none"
-                          stroke="currentColor"
-                          strokeWidth="2"
-                          strokeLinecap="round"
-                          className="shrink-0 text-accent"
-                        >
-                          <path d="M2 7l3 3 7-7" />
-                        </svg>
-                      ) : null}
-                    </button>
-                  );
-                })
-              )}
-            </div>
-          )}
-        </div>
+                    )}
+                  </span>
+                  <span
+                    className={`text-fg-mute transition-transform duration-200 ${open ? "rotate-180" : ""}`}
+                  >
+                    <svg
+                      width="12"
+                      height="12"
+                      viewBox="0 0 12 12"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="1.8"
+                      strokeLinecap="round"
+                    >
+                      <path d="M3 5l3 3 3-3" />
+                    </svg>
+                  </span>
+                </button>
 
-        <div className="mx-auto max-w-[240px]">
-          <VideoPreview
-            key={selected?.slug ?? "empty-preview"}
-            loadingLabel={t("loadingPreview")}
-            previewLabel={t("preview")}
-            previewTitle={(code) => t("previewTitle", { regionCode: code })}
-            regionCode={regionCode}
-            slug={selected?.slug}
-          />
-        </div>
+                {open && (
+                  <div className="absolute top-[calc(100%+6px)] right-0 left-0 z-40 max-h-[260px] overflow-y-auto rounded-[14px] border border-white/12 bg-[#141009] p-1.5 shadow-[0_12px_32px_rgba(0,0,0,0.5)]">
+                    {journeys.length === 0 ? (
+                      <div className="px-3 py-2.5 text-sm text-fg-mute">
+                        {t("noJourneys")}
+                      </div>
+                    ) : (
+                      sortedJourneys.map((j) => {
+                        const languageName = getJourneyLanguageLabel(
+                          j.language,
+                          locale,
+                        );
+                        const nativeName = getJourneyNativeLabel(
+                          j.language,
+                          languageName,
+                        );
+                        const isSelected = j.slug === selected?.slug;
 
-        <FieldLabel label={t("shareLink")} />
-        <div className="flex gap-2">
-          <div
-            className={`flex flex-1 items-center overflow-hidden rounded-[var(--radius-md)] border px-4 py-3 font-mono text-[13px] text-ellipsis whitespace-nowrap select-all ${
-              hasSelection
-                ? "border-line-strong bg-[rgb(20_16_12_/_0.6)] text-fg"
-                : "border-line-strong bg-ink-2 text-fg-mute"
-            }`}
-          >
-            <span dir="ltr">{hasSelection ? url : t("selectLanguage")}</span>
+                        return (
+                          <button
+                            key={j.slug}
+                            type="button"
+                            aria-pressed={isSelected}
+                            onClick={(e) => {
+                              e.stopPropagation();
+                              setSelected(j);
+                              setOpen(false);
+                            }}
+                            className={`flex w-full cursor-pointer items-center justify-between gap-4 rounded-[10px] px-3 py-2.5 text-start text-sm transition-colors ${
+                              isSelected
+                                ? "bg-[rgb(230_57_70_/_0.14)] text-fg"
+                                : "hover:bg-[rgb(230_57_70_/_0.1)]"
+                            }`}
+                          >
+                            <span className="flex min-w-0 items-baseline gap-3">
+                              <span className="leading-none">
+                                {languageName}
+                              </span>
+                              {nativeName && (
+                                <span className="shrink-0 leading-none text-fg-mute">
+                                  {nativeName}
+                                </span>
+                              )}
+                            </span>
+                            {isSelected ? (
+                              <svg
+                                aria-hidden="true"
+                                width="14"
+                                height="14"
+                                viewBox="0 0 14 14"
+                                fill="none"
+                                stroke="currentColor"
+                                strokeWidth="2"
+                                strokeLinecap="round"
+                                className="shrink-0 text-accent"
+                              >
+                                <path d="M2 7l3 3 7-7" />
+                              </svg>
+                            ) : null}
+                          </button>
+                        );
+                      })
+                    )}
+                  </div>
+                )}
+              </div>
+            </StepBlock>
+
+            <StepBlock number="2." body={t("stepTwo")} />
+
+            <StepBlock number="3." body={t("stepThree")}>
+              <div className="flex gap-2 pt-1">
+                <div
+                  className={`flex flex-1 items-center overflow-hidden rounded-[14px] border px-4 py-3.5 font-mono text-[13px] text-ellipsis whitespace-nowrap select-all ${
+                    hasSelection
+                      ? "border-accent/25 bg-accent/95 text-white"
+                      : "border-white/12 bg-[rgb(18_15_12_/_0.86)] text-fg-mute"
+                  }`}
+                >
+                  <span dir="ltr">
+                    {hasSelection ? url : t("selectLanguage")}
+                  </span>
+                </div>
+                <button
+                  type="button"
+                  onClick={copy}
+                  aria-label={t("copyLink")}
+                  title={t("copyLink")}
+                  disabled={!hasSelection}
+                  className={`flex cursor-pointer items-center justify-center rounded-[14px] border px-[18px] text-white transition-colors disabled:cursor-not-allowed disabled:opacity-40 ${
+                    copyStatus === "copied"
+                      ? "border-green bg-green"
+                      : copyStatus === "error"
+                        ? "border-accent bg-accent"
+                        : "border-accent-deep bg-accent-deep hover:bg-accent"
+                  }`}
+                >
+                  {copyStatus === "copied" ? (
+                    <svg
+                      width="14"
+                      height="14"
+                      viewBox="0 0 14 14"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                    >
+                      <path d="M2 7l3 3 7-7" />
+                    </svg>
+                  ) : copyStatus === "error" ? (
+                    <span className="font-mono text-[11px]">!</span>
+                  ) : (
+                    <svg
+                      width="14"
+                      height="14"
+                      viewBox="0 0 14 14"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="1.6"
+                      strokeLinecap="round"
+                    >
+                      <rect x="3" y="3" width="8" height="8" rx="1" />
+                      <path d="M5 3V1.5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-.5.5H11" />
+                    </svg>
+                  )}
+                </button>
+              </div>
+            </StepBlock>
           </div>
-          <button
-            type="button"
-            onClick={copy}
-            aria-label={t("copyLink")}
-            title={t("copyLink")}
-            disabled={!hasSelection}
-            className={`flex cursor-pointer items-center justify-center rounded-[var(--radius-md)] border px-[14px] text-white transition-colors disabled:cursor-not-allowed disabled:opacity-40 ${
-              copyStatus === "copied"
-                ? "border-green bg-green"
-                : copyStatus === "error"
-                  ? "border-accent bg-accent"
-                  : "border-accent-deep bg-accent-deep hover:bg-accent"
-            }`}
-          >
-            {copyStatus === "copied" ? (
-              <svg
-                width="14"
-                height="14"
-                viewBox="0 0 14 14"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-              >
-                <path d="M2 7l3 3 7-7" />
-              </svg>
-            ) : copyStatus === "error" ? (
-              <span className="font-mono text-[11px]">!</span>
-            ) : (
-              <svg
-                width="14"
-                height="14"
-                viewBox="0 0 14 14"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="1.6"
-                strokeLinecap="round"
-              >
-                <rect x="3" y="3" width="8" height="8" rx="1" />
-                <path d="M5 3V1.5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-.5.5H11" />
-              </svg>
-            )}
-          </button>
         </div>
 
-        <div className="mt-9 space-y-5 text-sm leading-7 text-fg-dim sm:text-[15px]">
-          <p>{t("journeyBody")}</p>
-          <p>{t("mapBody")}</p>
-        </div>
+        <aside className="mx-auto w-full max-w-[332px] lg:sticky lg:top-24">
+          <div className="p-4 shadow-[0_22px_90px_rgba(0,0,0,0.45)]">
+            <div className="overflow-hidden rounded-[22px] bg-black/30">
+              <VideoPreview
+                key={selected?.slug ?? "empty-preview"}
+                loadingLabel={t("loadingPreview")}
+                previewLabel={t("preview")}
+                previewTitle={(code) => t("previewTitle", { regionCode: code })}
+                regionCode={regionCode}
+                slug={selected?.slug}
+              />
+            </div>
+            <div
+              aria-label={t("madeWithAria")}
+              className="mt-5 flex items-center justify-center gap-2.5 text-white/55"
+            >
+              <span className="font-mono text-[9px] tracking-[0.28em] uppercase">
+                {t("madeWith")}
+              </span>
+              <Image
+                src="/nextsteps.png"
+                alt="NextSteps"
+                width={92}
+                height={16}
+                className="h-4 w-auto opacity-85"
+              />
+            </div>
+          </div>
+        </aside>
+      </div>
+
+      <div className="mx-auto mt-16 max-w-[820px] text-center">
+        <p className="text-balance text-[20px] leading-[1.55] text-white/88 sm:text-[22px]">
+          {t("mapPrompt")}
+        </p>
       </div>
     </section>
   );
 }
 
-function FieldLabel({ label }: { label: string }) {
+function StepBlock({
+  body,
+  children,
+  number,
+}: {
+  body: string;
+  children?: ReactNode;
+  number: string;
+}) {
   return (
-    <div className="mb-2 flex items-center justify-between font-mono text-[10px] tracking-[0.16em] text-fg-mute uppercase">
-      <span>{label}</span>
+    <div className="max-w-[640px]">
+      <div className="mb-3 flex items-start gap-4">
+        <span className="pt-0.5 font-display text-[20px] font-bold text-white">
+          {number}
+        </span>
+        <p className="min-w-0 flex-1 text-[16px] leading-8 text-white sm:text-[18px]">
+          {body}
+        </p>
+      </div>
+      {children ? <div className="ps-10">{children}</div> : null}
     </div>
   );
 }

@@ -303,7 +303,7 @@ describe("RegionPage country views integration", () => {
 
     expect(
       screen.getByRole("heading", {
-        name: "Share the Gospel this World Cup",
+        name: "Share the Gospel during the World Cup",
       }),
     ).toBeInTheDocument();
     expect(screen.getByTestId("share-panel")).toHaveTextContent("NAO:1");

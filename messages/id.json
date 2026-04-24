@@ -110,8 +110,8 @@
   "Region": {
     "eyebrow": "Piala Dunia 2026 · {regionCode}",
     "tagline": "Setiap pertandingan, setiap bangsa, setiap jiwa.",
-    "title": "Aktifkan {regionName}",
-    "description": "{regionBlurb} Jesus Film Project membuat cara sederhana untuk membagikan Injil kepada teman dan keluarga selama Piala Dunia.",
+    "title": "Bagikan Injil selama Piala Dunia",
+    "description": "Piala Dunia mempertemukan miliaran orang. Ini adalah momen yang tepat untuk membagikan hal yang paling berarti. Gunakan alat ini untuk mengirim pesan Injil yang dipersonalisasi dalam bahasa hati seseorang, hanya dalam beberapa langkah.",
     "countriesLabel": "{count, plural, one {negara} other {negara}}",
     "languagesLabel": "{count, plural, one {bahasa} other {bahasa}}",
     "allRegions": "Semua wilayah",
@@ -153,6 +153,11 @@
     "selectLanguage": "Pilih bahasa",
     "noJourneys": "Belum ada journey untuk wilayah ini.",
     "shareLink": "Tautan Berbagi",
+    "howItWorks": "Begini cara kerjanya:",
+    "stepOne": "Pilih bahasa yang dipahami teman, anggota keluarga, atau tetangga Anda.",
+    "stepTwo": "Lihat apa yang akan mereka alami sebelum Anda mengirimkannya.",
+    "stepThree": "Bagikan tautan di bawah ini kepada mereka.",
+    "mapPrompt": "Ingin melihat bagaimana orang-orang di seluruh dunia menanggapi iman pada musim ini? Jelajahi peta di bawah ini.",
     "copyLink": "Salin tautan",
     "qrCode": "Kode QR",
     "downloaded": "Diunduh",
@@ -169,8 +174,8 @@
     "previewTitle": "Pratinjau {regionCode}",
     "shareTitle": "Video Piala Dunia 2026 dalam {language}",
     "shareText": "Tonton dan bagikan cerita Piala Dunia 2026 ini dalam {language}.",
-    "journeyBody": "This is an interactive Gospel journey that bridges between football and faith in Jesus. We've provided videos and text translated into your heart language, with an opportunity to follow up.",
-    "mapBody": "Visit the map below to see how people are engaging with faith this World Cup season."
+    "journeyBody": "Ini adalah perjalanan Injil interaktif yang menjembatani sepak bola dan iman kepada Yesus. Kami telah menyediakan video dan teks yang diterjemahkan ke dalam bahasa hati Anda, disertai kesempatan untuk tindak lanjut.",
+    "mapBody": "Kunjungi peta di bawah ini untuk melihat bagaimana orang-orang terlibat dengan iman selama musim Piala Dunia ini."
   },
   "Footer": {
     "copyright": "© 2026 Jesus Film Project",

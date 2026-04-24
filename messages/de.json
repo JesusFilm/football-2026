@@ -110,8 +110,8 @@
   "Region": {
     "eyebrow": "WM 2026 · {regionCode}",
     "tagline": "Jedes Spiel, jede Nation, jede Seele.",
-    "title": "{regionName} aktivieren",
-    "description": "{regionBlurb} Jesus Film Project hat einen einfachen Weg geschaffen, während der WM das Evangelium mit Freunden und Familie zu teilen.",
+    "title": "Teile das Evangelium während der Weltmeisterschaft",
+    "description": "Die Weltmeisterschaft bringt Milliarden Menschen zusammen. Es ist der perfekte Moment, um das zu teilen, was am meisten zählt. Mit diesem Tool kannst du in nur wenigen Schritten eine persönliche Botschaft des Evangeliums in der Herzenssprache einer Person senden.",
     "countriesLabel": "{count, plural, one {Land} other {Länder}}",
     "languagesLabel": "{count, plural, one {Sprache} other {Sprachen}}",
     "allRegions": "Alle Regionen",
@@ -153,6 +153,11 @@
     "selectLanguage": "Sprache auswählen",
     "noJourneys": "Für diese Region gibt es noch keine Journeys.",
     "shareLink": "Link teilen",
+    "howItWorks": "So funktioniert es:",
+    "stepOne": "Wähle eine Sprache, die dein Freund, Familienmitglied oder Nachbar versteht.",
+    "stepTwo": "Sieh dir an, was die Person erleben wird, bevor du es sendest.",
+    "stepThree": "Teile den untenstehenden Link mit ihr.",
+    "mapPrompt": "Möchtest du sehen, wie Menschen auf der ganzen Welt in dieser Saison auf den Glauben reagieren? Entdecke die Karte unten.",
     "copyLink": "Link kopieren",
     "qrCode": "QR-Code",
     "downloaded": "Heruntergeladen",
@@ -169,8 +174,8 @@
     "previewTitle": "{regionCode} Vorschau",
     "shareTitle": "{language} Video zur WM 2026",
     "shareText": "Sieh dir diese WM-2026-Geschichte auf {language} an und teile sie.",
-    "journeyBody": "This is an interactive Gospel journey that bridges between football and faith in Jesus. We've provided videos and text translated into your heart language, with an opportunity to follow up.",
-    "mapBody": "Visit the map below to see how people are engaging with faith this World Cup season."
+    "journeyBody": "Dies ist eine interaktive Evangeliumsreise, die eine Brücke zwischen Fußball und dem Glauben an Jesus schlägt. Wir haben Videos und Texte in deine Herzenssprache übersetzt und eine Möglichkeit zur Nachverfolgung vorbereitet.",
+    "mapBody": "Besuche die Karte unten, um zu sehen, wie Menschen sich in dieser WM-Saison mit dem Glauben beschäftigen."
   },
   "Footer": {
     "copyright": "© 2026 Jesus Film Project",

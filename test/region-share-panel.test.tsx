@@ -307,17 +307,24 @@ describe("RegionSharePanel", () => {
     });
   });
 
-  it("renders the updated explanatory copy under the preview", () => {
+  it("renders the screenshot copy around the share flow", () => {
     renderWithIntl(<RegionSharePanel regionCode="NAO" journeys={journeys} />);
 
+    expect(screen.getByText("Here's how it works:")).toBeInTheDocument();
     expect(
       screen.getByText(
-        "This is an interactive Gospel journey that bridges between football and faith in Jesus. We've provided videos and text translated into your heart language, with an opportunity to follow up.",
+        "Pick a language your friend, family member, or neighbor understands.",
       ),
     ).toBeInTheDocument();
     expect(
+      screen.getByText("Watch what they'll experience before you send it."),
+    ).toBeInTheDocument();
+    expect(
+      screen.getByText("Share this link below with them."),
+    ).toBeInTheDocument();
+    expect(
       screen.getByText(
-        "Visit the map below to see how people are engaging with faith this World Cup season.",
+        "Want to see how people around the world are responding to faith this season? Explore the map below.",
       ),
     ).toBeInTheDocument();
   });

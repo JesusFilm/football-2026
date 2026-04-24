@@ -94,7 +94,7 @@ function OtherRegionCard({
     >
       <Link
         href={`/${region.id}`}
-        className="group relative isolate flex min-h-[150px] w-full flex-col overflow-hidden rounded-[var(--radius-lg)] border border-line bg-[rgb(20_16_12_/_0.52)] px-4 pt-4 pb-3.5 text-fg no-underline backdrop-blur-md transition-[border-color,background-color,box-shadow] duration-300 ease-out hover:border-[rgb(230_57_70_/_0.42)] hover:bg-[rgb(24_19_14_/_0.68)] hover:shadow-[0_18px_46px_rgba(0,0,0,0.24)] focus-visible:border-accent"
+        className="group relative isolate flex min-h-[178px] w-full flex-col overflow-hidden rounded-[var(--radius-lg)] border border-line bg-[rgb(20_16_12_/_0.52)] px-5 pt-5 pb-4.5 text-fg no-underline backdrop-blur-md transition-[border-color,background-color,box-shadow] duration-300 ease-out hover:border-[rgb(230_57_70_/_0.42)] hover:bg-[rgb(24_19_14_/_0.68)] hover:shadow-[0_18px_46px_rgba(0,0,0,0.24)] focus-visible:border-accent"
       >
         <span className="pointer-events-none absolute inset-0 z-0 bg-[radial-gradient(180px_circle_at_85%_0%,rgba(230,57,70,0.12),transparent_60%)] opacity-0 transition-opacity duration-300 ease-out group-hover:opacity-100 group-focus-visible:opacity-100" />
         <span className="absolute top-4 end-4 z-10 flex h-7 w-7 items-center justify-center rounded-full bg-[rgb(255_255_255_/_0.04)] text-fg-mute transition-[background-color,color,transform] duration-300 ease-out group-hover:translate-x-px group-hover:-translate-y-px group-hover:bg-[rgb(230_57_70_/_0.88)] group-hover:text-white group-focus-visible:bg-[rgb(230_57_70_/_0.88)] group-focus-visible:text-white rtl:group-hover:-translate-x-px">
@@ -112,13 +112,13 @@ function OtherRegionCard({
             <path d="M3 11L11 3M5 3h6v6" />
           </svg>
         </span>
-        <span className="relative z-10 mb-2 pe-10 font-mono text-[10px] tracking-[0.16em] text-accent uppercase">
+        <span className="relative z-10 mb-3 pe-10 font-mono text-[10px] tracking-[0.16em] text-accent uppercase">
           {region.displayCode}
         </span>
-        <span className="relative z-10 mb-1 pe-9 text-[17px] leading-[1.25] font-semibold tracking-[-0.01em]">
+        <span className="relative z-10 mb-2 pe-9 text-[17px] leading-[1.25] font-semibold tracking-[-0.01em]">
           {region.name}
         </span>
-        <span className="relative z-10 mb-4 line-clamp-2 text-[12px] leading-[1.45] text-fg-dim">
+        <span className="relative z-10 mb-5 line-clamp-2 text-[12px] leading-[1.5] text-fg-dim">
           {region.blurb}
         </span>
         <span className="relative z-10 mt-auto flex items-center gap-1.5">

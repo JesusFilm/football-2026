@@ -110,8 +110,8 @@
   "Region": {
     "eyebrow": "Coupe du monde 2026 · {regionCode}",
     "tagline": "Chaque match, chaque nation, chaque âme.",
-    "title": "Activez {regionName}",
-    "description": "{regionBlurb} Jesus Film Project a créé une façon simple de partager l’Évangile avec vos amis et votre famille pendant la Coupe du monde.",
+    "title": "Partagez l'Évangile pendant la Coupe du monde",
+    "description": "La Coupe du monde rassemble des milliards de personnes. C'est le moment idéal pour partager ce qui compte le plus. Utilisez cet outil pour envoyer un message personnalisé de l'Évangile dans la langue du coeur de quelqu'un, en quelques étapes seulement.",
     "countriesLabel": "{count, plural, one {pays} other {pays}}",
     "languagesLabel": "{count, plural, one {langue} other {langues}}",
     "allRegions": "Toutes les régions",
@@ -153,6 +153,11 @@
     "selectLanguage": "Sélectionner une langue",
     "noJourneys": "Aucun parcours pour cette région pour le moment.",
     "shareLink": "Lien de partage",
+    "howItWorks": "Voici comment cela fonctionne :",
+    "stepOne": "Choisissez une langue que votre ami, un membre de votre famille ou votre voisin comprend.",
+    "stepTwo": "Regardez ce qu'ils vont découvrir avant de l'envoyer.",
+    "stepThree": "Partagez avec eux le lien ci-dessous.",
+    "mapPrompt": "Vous voulez voir comment les gens du monde entier répondent à la foi cette saison ? Explorez la carte ci-dessous.",
     "copyLink": "Copier le lien",
     "qrCode": "QR code",
     "downloaded": "Téléchargé",
@@ -169,8 +174,8 @@
     "previewTitle": "Aperçu {regionCode}",
     "shareTitle": "Vidéo Coupe du monde 2026 en {language}",
     "shareText": "Regardez et partagez cette histoire de la Coupe du monde 2026 en {language}.",
-    "journeyBody": "This is an interactive Gospel journey that bridges between football and faith in Jesus. We've provided videos and text translated into your heart language, with an opportunity to follow up.",
-    "mapBody": "Visit the map below to see how people are engaging with faith this World Cup season."
+    "journeyBody": "Il s'agit d'un parcours interactif de l'Évangile qui fait le lien entre le football et la foi en Jésus. Nous avons préparé des vidéos et des textes traduits dans votre langue du coeur, avec une possibilité de suivi.",
+    "mapBody": "Consultez la carte ci-dessous pour voir comment les gens s'engagent avec la foi pendant cette saison de Coupe du monde."
   },
   "Footer": {
     "copyright": "© 2026 Jesus Film Project",
