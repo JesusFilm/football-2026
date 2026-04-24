@@ -32,7 +32,11 @@ export function OtherRegionsNav({ currentRegionId, regions }: Props) {
   const columnCount = useResponsiveColumnCount();
 
   return (
-    <nav ref={ref} aria-labelledby="other-regions-heading" className="pb-10">
+    <nav
+      ref={ref}
+      aria-labelledby="other-regions-heading"
+      className="py-4 pb-10 sm:py-8 lg:py-12"
+    >
       <motion.h2
         id="other-regions-heading"
         className="reveal mb-4 text-center font-display text-[24px] font-bold tracking-[-0.01em]"
