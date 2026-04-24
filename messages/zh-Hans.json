@@ -168,7 +168,9 @@
     "preview": "预览",
     "previewTitle": "{regionCode} 预览",
     "shareTitle": "{language} 2026 世界杯视频",
-    "shareText": "观看并分享这个使用 {language} 的 2026 世界杯故事。"
+    "shareText": "观看并分享这个使用 {language} 的 2026 世界杯故事。",
+    "journeyBody": "This is an interactive Gospel journey that bridges between football and faith in Jesus. We've provided videos and text translated into your heart language, with an opportunity to follow up.",
+    "mapBody": "Visit the map below to see how people are engaging with faith this World Cup season."
   },
   "Footer": {
     "copyright": "© 2026 Jesus Film Project",

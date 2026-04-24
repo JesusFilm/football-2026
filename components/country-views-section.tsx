@@ -73,7 +73,7 @@ export function CountryViewsSection({
   }, []);
 
   return (
-    <section ref={ref} className="border-t border-line py-[60px] pb-20">
+    <section ref={ref}>
       <motion.div
         className="reveal mb-7 text-center"
         initial={false}

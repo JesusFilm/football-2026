@@ -301,8 +301,12 @@ describe("RegionPage country views integration", () => {
     });
     renderWithIntl(ui);
 
+    expect(
+      screen.getByRole("heading", {
+        name: "Share the Gospel this World Cup",
+      }),
+    ).toBeInTheDocument();
     expect(screen.getByTestId("share-panel")).toHaveTextContent("NAO:1");
-    expect(screen.getAllByText("1").length).toBeGreaterThanOrEqual(2);
     expect(screen.getByTestId("country-views-section")).toHaveTextContent(
       "North America & Oceania:NAmOceania:United States,Mexico:false",
     );

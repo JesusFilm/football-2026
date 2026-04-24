@@ -6,14 +6,11 @@ import { CountryViewsSection } from "@/components/country-views-section";
 import { OtherRegionsNav } from "@/components/other-regions-nav";
 import { RegionSharePanel } from "@/components/region-share-panel";
 import { RegionHero } from "@/components/region-hero";
-import { RegionStepCards } from "@/components/region-step-cards";
+import { SectionChevron } from "@/components/section-chevron";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 import { StadiumBg } from "@/components/stadium-bg";
-import {
-  fetchCountryViews,
-  filterCountryViewsByRegion,
-} from "@/lib/country-views";
+import { fetchCountryViews } from "@/lib/country-views";
 import { getLocaleOption, type Locale } from "@/i18n/routing";
 import { fetchJourneys } from "@/lib/journeys";
 import {
@@ -92,21 +89,10 @@ export default async function RegionPage({ params }: Props) {
     countryViewsResult.status === "fulfilled"
       ? countryViewsResult.value
       : { status: "unavailable" as const, countries: [] };
-  const countryViews =
-    resolvedCountryViewsResult.status === "available"
-      ? filterCountryViewsByRegion(
-          resolvedCountryViewsResult.countries,
-          region.code,
-        )
-      : [];
   const allCountryViews =
     resolvedCountryViewsResult.status === "available"
       ? resolvedCountryViewsResult.countries
       : [];
-  const countryCountLabel =
-    resolvedCountryViewsResult.status === "available"
-      ? String(countryViews.length)
-      : "-";
   const pageSchema = {
     "@context": "https://schema.org",
     "@graph": [
@@ -150,13 +136,7 @@ export default async function RegionPage({ params }: Props) {
       <SiteHeader />
 
       <main className="mx-auto max-w-[1200px] px-5 sm:px-10">
-        <RegionHero
-          countryCountLabel={countryCountLabel}
-          journeyCount={journeys.length}
-          region={region}
-        />
-
-        <RegionStepCards />
+        <RegionHero region={region} />
 
         <RegionSharePanel
           key={region.id}
@@ -164,20 +144,7 @@ export default async function RegionPage({ params }: Props) {
           journeys={journeys}
         />
 
-        <div className="py-5 pb-10 text-center text-fg-mute">
-          <svg
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="1.5"
-            strokeLinecap="round"
-            className="inline-block animate-bob"
-          >
-            <path d="M7 10l5 5 5-5M7 4l5 5 5-5" />
-          </svg>
-        </div>
+        <SectionChevron />
 
         <CountryViewsSection
           regionName={region.name}
@@ -185,6 +152,8 @@ export default async function RegionPage({ params }: Props) {
           countries={allCountryViews}
           unavailable={resolvedCountryViewsResult.status === "unavailable"}
         />
+
+        <SectionChevron />
 
         <OtherRegionsNav currentRegionId={region.id} regions={regions} />
       </main>

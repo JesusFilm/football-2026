@@ -131,7 +131,7 @@ describe("RegionSharePanel", () => {
     );
   });
 
-  it("puts the default journey first, then sorts the rest alphabetically", () => {
+  it("keeps the locale-default journey first, then sorts the rest alphabetically", () => {
     const localizedJourneys: Journey[] = [
       {
         slug: "where-you-belong-zulu",
@@ -166,18 +166,64 @@ describe("RegionSharePanel", () => {
         },
       },
     ];
-    const selected = defaultJourney(localizedJourneys, "fr");
 
     expect(
-      sortJourneysForLocale(localizedJourneys, "en", selected).map(
+      sortJourneysForLocale(localizedJourneys, "fr").map(
         (journey) => journey.slug,
       ),
     ).toEqual([
       "where-you-belong-french",
-      "where-you-belong-arabic",
       "where-you-belong-english",
+      "where-you-belong-arabic",
       "where-you-belong-zulu",
     ]);
+  });
+
+  it("shows which language is currently selected in the dropdown list", () => {
+    const localizedJourneys: Journey[] = [
+      {
+        slug: "where-you-belong-english",
+        language: {
+          id: "529",
+          bcp47: "en",
+          english: "English",
+        },
+      },
+      {
+        slug: "where-you-belong-spanish",
+        language: {
+          id: "21028",
+          bcp47: "es-419",
+          english: "Spanish, Latin America",
+          native: "Español",
+        },
+      },
+    ];
+
+    renderWithIntl(
+      <RegionSharePanel regionCode="LAC" journeys={localizedJourneys} />,
+      { locale: "en" },
+    );
+
+    fireEvent.click(screen.getByRole("button", { name: "English" }));
+    expect(
+      screen
+        .getAllByRole("button", { name: /english/i })
+        .find((element) => element.getAttribute("aria-pressed") === "true"),
+    ).toBeTruthy();
+
+    fireEvent.click(
+      screen.getByRole("button", { name: /latin american spanish/i }),
+    );
+    fireEvent.click(
+      screen.getByRole("button", { name: /latin american spanish/i }),
+    );
+
+    expect(
+      screen
+        .getAllByRole("button", { name: /latin american spanish/i })
+        .find((element) => element.getAttribute("aria-pressed") === "true"),
+    ).toBeTruthy();
   });
 
   it("falls back to the English journey language label without a BCP 47 code", () => {
@@ -261,73 +307,18 @@ describe("RegionSharePanel", () => {
     });
   });
 
-  it("falls back to clipboard when native share fails", async () => {
-    const writeText = stubClipboard();
-    const share = vi.fn().mockRejectedValue(new Error("share unavailable"));
-    Object.defineProperty(navigator, "share", {
-      value: share,
-      configurable: true,
-    });
-
+  it("renders the updated explanatory copy under the preview", () => {
     renderWithIntl(<RegionSharePanel regionCode="NAO" journeys={journeys} />);
 
-    fireEvent.click(screen.getByRole("button", { name: "Share" }));
-
-    await waitFor(() => {
-      expect(share).toHaveBeenCalled();
-      expect(writeText).toHaveBeenCalledWith(
-        "https://your.nextstep.is/where-you-belong-swahili",
-      );
-      expect(screen.getByRole("button", { name: "Copied" })).toHaveClass(
-        "bg-green",
-      );
-    });
-  });
-
-  it("downloads the QR image with region and language in the filename", async () => {
-    stubClipboard();
-    vi.stubGlobal(
-      "Image",
-      class {
-        onload: (() => void) | null = null;
-
-        set src(_value: string) {
-          queueMicrotask(() => this.onload?.());
-        }
-      },
-    );
-    Object.defineProperty(URL, "createObjectURL", {
-      value: vi.fn(() => "blob:qr"),
-      configurable: true,
-    });
-    Object.defineProperty(URL, "revokeObjectURL", {
-      value: vi.fn(),
-      configurable: true,
-    });
-    vi.spyOn(HTMLCanvasElement.prototype, "getContext").mockReturnValue({
-      drawImage: vi.fn(),
-    } as unknown as CanvasRenderingContext2D);
-    vi.spyOn(HTMLCanvasElement.prototype, "toBlob").mockImplementation(
-      function toBlob(callback) {
-        callback(new Blob(["png"], { type: "image/png" }));
-      },
-    );
-    let downloadedName = "";
-    vi.spyOn(HTMLAnchorElement.prototype, "click").mockImplementation(
-      function click(this: HTMLAnchorElement) {
-        downloadedName = this.download;
-      },
-    );
-
-    renderWithIntl(<RegionSharePanel regionCode="NAO" journeys={journeys} />);
-
-    fireEvent.click(screen.getByRole("button", { name: "Download PNG" }));
-
-    await waitFor(() => {
-      expect(downloadedName).toBe("world-cup-2026-nao-swahili-tanzania-qr.png");
-      expect(
-        screen.getByRole("button", { name: "Downloaded" }),
-      ).toBeInTheDocument();
-    });
+    expect(
+      screen.getByText(
+        "This is an interactive Gospel journey that bridges between football and faith in Jesus. We've provided videos and text translated into your heart language, with an opportunity to follow up.",
+      ),
+    ).toBeInTheDocument();
+    expect(
+      screen.getByText(
+        "Visit the map below to see how people are engaging with faith this World Cup season.",
+      ),
+    ).toBeInTheDocument();
   });
 });

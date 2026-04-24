@@ -5,6 +5,7 @@ import { HomeHero } from "@/components/home-hero";
 import { HomeRegionGrid } from "@/components/home-region-grid";
 import { HomeRegionHeading } from "@/components/home-region-heading";
 import { HomeStepCards } from "@/components/home-step-cards";
+import { SectionChevron } from "@/components/section-chevron";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 import { StadiumBg } from "@/components/stadium-bg";
@@ -53,7 +54,10 @@ export default async function Home({ params }: Props) {
         <HomeRegionGrid regions={regions} />
 
         {countryViews.status === "available" && (
-          <HomeCountryViewsSection regions={regions} countries={countries} />
+          <>
+            <SectionChevron />
+            <HomeCountryViewsSection regions={regions} countries={countries} />
+          </>
         )}
       </main>
       <SiteFooter />

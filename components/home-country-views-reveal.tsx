@@ -17,7 +17,7 @@ export function HomeCountryViewsReveal({ interactive, summary }: Props) {
   const prefersReducedMotion = useReducedMotion();
 
   return (
-    <section className="border-t border-line py-[60px]">
+    <section>
       <motion.div
         className="reveal mb-7 text-center"
         initial={{ opacity: 0, y: 10 }}

@@ -14,7 +14,7 @@ type Props = {
 
 export function HomeRegionGrid({ regions }: Props) {
   return (
-    <div className="mb-20 grid grid-cols-1 gap-3.5 md:grid-cols-2 lg:grid-cols-6">
+    <div className="grid grid-cols-1 gap-3.5 md:grid-cols-2 lg:grid-cols-6">
       {regions.map((region, index) => (
         <MotionRegionCard key={region.id} index={index} region={region} />
       ))}

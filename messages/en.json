@@ -110,8 +110,8 @@
   "Region": {
     "eyebrow": "World Cup 2026 · {regionCode}",
     "tagline": "Every match, every nation, every soul.",
-    "title": "Activate {regionName}",
-    "description": "{regionBlurb} Jesus Film Project has created a simple way to share the Gospel with your friends and family during the World Cup.",
+    "title": "Share the Gospel this World Cup",
+    "description": "Experience the gospel journey below, choose a language, and share.",
     "countriesLabel": "{count, plural, one {country} other {countries}}",
     "languagesLabel": "{count, plural, one {language} other {languages}}",
     "allRegions": "All regions",
@@ -168,7 +168,9 @@
     "preview": "Preview",
     "previewTitle": "{regionCode} preview",
     "shareTitle": "{language} World Cup 2026 video",
-    "shareText": "Watch and share this World Cup 2026 story in {language}."
+    "shareText": "Watch and share this World Cup 2026 story in {language}.",
+    "journeyBody": "This is an interactive Gospel journey that bridges between football and faith in Jesus. We've provided videos and text translated into your heart language, with an opportunity to follow up.",
+    "mapBody": "Visit the map below to see how people are engaging with faith this World Cup season."
   },
   "Footer": {
     "copyright": "© 2026 Jesus Film Project",
