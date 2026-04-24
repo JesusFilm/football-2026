@@ -38,20 +38,6 @@ export function HomeRegionHeading() {
           {t("regionHeading")}
         </h2>
       </motion.div>
-      <motion.div
-        className="reveal"
-        initial={false}
-        animate={visible ? { opacity: 1, y: 0 } : { opacity: 0, y: 10 }}
-        transition={{
-          duration: prefersReducedMotion ? 0 : 0.5,
-          delay: prefersReducedMotion ? 0 : (startDelay + 90) / 1000,
-          ease: EASE,
-        }}
-      >
-        <p className="mb-8 text-center text-sm text-fg-dim">
-          {t("regionSubheading")}
-        </p>
-      </motion.div>
     </div>
   );
 }

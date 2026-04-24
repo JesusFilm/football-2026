@@ -255,13 +255,15 @@ describe("RegionSharePanel", () => {
 
     renderWithIntl(<RegionSharePanel regionCode="NAO" journeys={journeys} />);
 
-    expect(screen.queryByTitle("NAO preview")).not.toBeInTheDocument();
+    expect(
+      screen.queryByTitle("NAO interactive preview"),
+    ).not.toBeInTheDocument();
 
     act(() => {
       intersect?.(true);
     });
 
-    expect(screen.getByTitle("NAO preview")).toHaveAttribute(
+    expect(screen.getByTitle("NAO interactive preview")).toHaveAttribute(
       "src",
       "https://your.nextstep.is/embed/where-you-belong-swahili?expand=false",
     );
@@ -287,7 +289,7 @@ describe("RegionSharePanel", () => {
       intersect?.(true);
     });
 
-    const iframe = screen.getByTitle("NAO preview");
+    const iframe = screen.getByTitle("NAO interactive preview");
     expect(iframe.parentElement).toHaveAttribute("dir", "ltr");
     expect(iframe).toHaveClass("top-0", "left-0");
     expect(iframe).not.toHaveClass("inset-0");

@@ -4,7 +4,6 @@ import { HomeCountryViewsSection } from "@/components/home-country-views-section
 import { HomeHero } from "@/components/home-hero";
 import { HomeRegionGrid } from "@/components/home-region-grid";
 import { HomeRegionHeading } from "@/components/home-region-heading";
-import { HomeStepCards } from "@/components/home-step-cards";
 import { SectionChevron } from "@/components/section-chevron";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
@@ -49,7 +48,6 @@ export default async function Home({ params }: Props) {
       <SiteHeader />
       <main className="mx-auto max-w-[1200px] px-5 sm:px-10">
         <HomeHero />
-        <HomeStepCards />
         <HomeRegionHeading />
         <HomeRegionGrid regions={regions} />
 

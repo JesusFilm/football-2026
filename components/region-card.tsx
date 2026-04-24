@@ -54,11 +54,8 @@ export function RegionCard({ region }: Props) {
       <div className="relative z-10 mb-3 pe-12 font-mono text-[10px] tracking-[0.16em] text-accent">
         {region.displayCode}
       </div>
-      <div className="relative z-10 mb-1 pe-8 text-[19px] font-semibold tracking-[-0.01em]">
+      <div className="relative z-10 mb-[18px] pe-8 text-[19px] font-semibold tracking-[-0.01em]">
         {region.name}
-      </div>
-      <div className="relative z-10 mb-[18px] min-h-[38px] text-[13px] leading-[1.5] text-fg-dim">
-        {region.blurb}
       </div>
       <div className="relative z-10 mt-auto flex items-center gap-1.5">
         <RegionFlags flagCodes={region.flagCodes} />
