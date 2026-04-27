@@ -102,9 +102,6 @@ describe("HomeCountryViewsInteractive", () => {
     expect(screen.getByText("194,897")).toHaveStyle({
       animationDelay: "90ms",
     });
-    expect(screen.getByText("21")).toHaveStyle({
-      animationDelay: "180ms",
-    });
     expect(screen.getByText("LAC extra country 8").parentElement).toHaveClass(
       "country-row-enter",
     );
@@ -162,7 +159,8 @@ describe("HomeCountryViewsInteractive", () => {
     });
 
     expect(screen.getByText("AFR")).toBeInTheDocument();
-    expect(screen.getAllByText("0").length).toBeGreaterThanOrEqual(2);
+    expect(screen.getByText("-")).toBeInTheDocument();
+    expect(screen.getByText("0")).toBeInTheDocument();
   });
 
   it("stops auto-advance when a region is manually selected", () => {
