@@ -131,10 +131,10 @@ export const REGIONS: Region[] = [
     code: "SESA",
     displayCode: "SESA",
     teamId: "029e30eb-4ae3-4e94-a803-3552206fa99b",
-    name: "South East & Southern Asia",
+    name: "Southeast & South Asia",
     blurb: "From Mumbai to Manila — home to a quarter of the world's people.",
     seoDescription:
-      "World Cup 2026 outreach tools for South East & Southern Asia: share local-language videos across a high-reach region.",
+      "World Cup 2026 outreach tools for Southeast & South Asia: share local-language videos across a high-reach region.",
     flagCodes: [
       { countryCode: "in", label: "India" },
       { countryCode: "id", label: "Indonesia" },

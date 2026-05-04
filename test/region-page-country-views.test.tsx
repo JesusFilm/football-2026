@@ -103,11 +103,11 @@ vi.mock("next-intl/server", () => {
         },
       },
       sesa: {
-        name: "South East & Southern Asia",
+        name: "Southeast & South Asia",
         blurb:
           "From Mumbai to Manila — home to a quarter of the world's people.",
         seoDescription:
-          "World Cup 2026 outreach tools for South East & Southern Asia: share local-language videos across a high-reach region.",
+          "World Cup 2026 outreach tools for Southeast & South Asia: share local-language videos across a high-reach region.",
         flags: {
           in: "India",
           id: "Indonesia",
