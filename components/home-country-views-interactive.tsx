@@ -315,7 +315,7 @@ export function HomeCountryViewsInteractive({
             return (
               <li
                 key={`${visualSelection}-${visualOutgoingSelection ?? "none"}-${index}`}
-                className="relative mb-1.5 min-h-10 overflow-hidden rounded-[var(--radius-md)] border border-line bg-[rgb(12_10_8_/_0.42)] px-3 py-2 backdrop-blur-md transition-colors hover:border-[rgb(230_57_70_/_0.45)] hover:bg-[rgb(230_57_70_/_0.08)] md:h-[38.6px] md:min-h-0"
+                className={`relative mb-1.5 min-h-10 overflow-hidden rounded-[var(--radius-md)] border border-line bg-[rgb(12_10_8_/_0.42)] px-3 py-2 backdrop-blur-md transition-colors hover:border-[rgb(230_57_70_/_0.45)] hover:bg-[rgb(230_57_70_/_0.08)] md:h-[38.6px] md:min-h-0${!country && outgoingCountry ? " country-li-exit" : ""}`}
                 onMouseEnter={() => {
                   if (country) highlightCountry(country);
                 }}

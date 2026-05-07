@@ -265,6 +265,20 @@ html[data-route-transition="true"] .hero-transition-item-5 {
   animation: country-row-exit 520ms var(--ease-editorial) both;
 }
 
+@keyframes country-li-exit {
+  0%,
+  44% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+.country-li-exit {
+  animation: country-li-exit 1150ms ease-out both;
+}
+
 :focus-visible {
   outline: 2px solid var(--color-accent-hot);
   outline-offset: 2px;
@@ -308,7 +322,8 @@ html[data-route-transition="true"] .hero-transition-item-5 {
   .metric-value-enter,
   .metric-value-exit,
   .country-row-exit,
-  .country-row-enter {
+  .country-row-enter,
+  .country-li-exit {
     animation: none !important;
     opacity: 1;
     transform: none;
