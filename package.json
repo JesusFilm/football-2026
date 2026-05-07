@@ -44,7 +44,7 @@
     "eslint-config-next": "16.2.4",
     "eslint-config-prettier": "latest",
     "husky": "9.1.7",
-    "jsdom": "latest",
+    "jsdom": "26.1.0",
     "lint-staged": "16.4.0",
     "playwright": "1.59.1",
     "prettier": "3.8.3",

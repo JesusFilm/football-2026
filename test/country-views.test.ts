@@ -29,11 +29,11 @@ function mockFetch(
 }
 
 const JOURNEY_IDS_RESPONSE = (ids: string[]) => ({
-  data: { journeys: ids.map((id) => ({ id })) },
+  data: { journeys: ids.map((id) => ({ id, plausibleToken: "token" })) },
 });
 
 const PLAUSIBLE_RESPONSE = (
-  results: { country: string; visitors: number }[],
+  results: { country: string; pageviews: number }[],
 ) => ({ results });
 
 describe("filterCountryViewsByRegion", () => {
@@ -82,14 +82,14 @@ describe("fetchCountryViews", () => {
       { body: JOURNEY_IDS_RESPONSE(["journey-1", "journey-2"]) },
       {
         body: PLAUSIBLE_RESPONSE([
-          { country: "US", visitors: 10 },
-          { country: "CA", visitors: 4 },
+          { country: "US", pageviews: 10 },
+          { country: "CA", pageviews: 4 },
         ]),
       },
       {
         body: PLAUSIBLE_RESPONSE([
-          { country: "US", visitors: 5 },
-          { country: "NZ", visitors: 12 },
+          { country: "US", pageviews: 5 },
+          { country: "NZ", pageviews: 12 },
         ]),
       },
     );
@@ -98,25 +98,23 @@ describe("fetchCountryViews", () => {
 
     expect(result.status).toBe("available");
     if (result.status !== "available") return;
-    expect(result.countries).toEqual(
-      [
-        expect.objectContaining({
-          countryCode: "NZ",
-          journeyViews: 12,
-          regionCode: "NAmOceania",
-        }),
-        expect.objectContaining({
-          countryCode: "US",
-          journeyViews: 15,
-          regionCode: "NAmOceania",
-        }),
-        expect.objectContaining({
-          countryCode: "CA",
-          journeyViews: 4,
-          regionCode: "NAmOceania",
-        }),
-      ].sort((a, b) => b.journeyViews - a.journeyViews),
-    );
+    expect(result.countries).toEqual([
+      expect.objectContaining({
+        countryCode: "US",
+        journeyViews: 15,
+        regionCode: "NAmOceania",
+      }),
+      expect.objectContaining({
+        countryCode: "NZ",
+        journeyViews: 12,
+        regionCode: "NAmOceania",
+      }),
+      expect.objectContaining({
+        countryCode: "CA",
+        journeyViews: 4,
+        regionCode: "NAmOceania",
+      }),
+    ]);
   });
 
   it("returns available with empty list when team has no journeys", async () => {
@@ -130,7 +128,7 @@ describe("fetchCountryViews", () => {
   it("sets countryName from Intl.DisplayNames", async () => {
     mockFetch(
       { body: JOURNEY_IDS_RESPONSE(["journey-1"]) },
-      { body: PLAUSIBLE_RESPONSE([{ country: "JP", visitors: 500 }]) },
+      { body: PLAUSIBLE_RESPONSE([{ country: "JP", pageviews: 500 }]) },
     );
 
     const result = await fetchCountryViews(TEAM_ID, "East Asia");
@@ -145,8 +143,8 @@ describe("fetchCountryViews", () => {
       { body: JOURNEY_IDS_RESPONSE(["journey-1"]) },
       {
         body: PLAUSIBLE_RESPONSE([
-          { country: "US", visitors: 10 },
-          { country: "Unknown", visitors: 5 },
+          { country: "US", pageviews: 10 },
+          { country: "Unknown", pageviews: 5 },
         ]),
       },
     );
@@ -188,7 +186,7 @@ describe("fetchCountryViews", () => {
     mockFetch(
       { body: JOURNEY_IDS_RESPONSE(["journey-1", "journey-2"]) },
       { body: { error: "not found" }, status: 404 },
-      { body: PLAUSIBLE_RESPONSE([{ country: "BR", visitors: 20 }]) },
+      { body: PLAUSIBLE_RESPONSE([{ country: "BR", pageviews: 20 }]) },
     );
 
     const result = await fetchCountryViews(TEAM_ID, "LAC");

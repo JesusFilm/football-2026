@@ -3,7 +3,7 @@ import type { ReactNode } from "react";
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 
 import RegionPage from "@/app/[locale]/[id]/page";
-import { fetchCountryViews } from "@/lib/country-views";
+import { fetchAllCountryViews } from "@/lib/country-views";
 import type { CountryView } from "@/lib/country-views";
 import { fetchJourneys } from "@/lib/journeys";
 import { renderWithIntl } from "@/test/intl-test-utils";
@@ -252,7 +252,7 @@ vi.mock("@/lib/country-views", async (importOriginal) => {
 
   return {
     ...actual,
-    fetchCountryViews: vi.fn(async () => ({
+    fetchAllCountryViews: vi.fn(async () => ({
       status: "available",
       countries: [
         {
@@ -291,7 +291,7 @@ describe("RegionPage country views integration", () => {
 
   afterEach(() => {
     vi.unstubAllGlobals();
-    vi.mocked(fetchCountryViews).mockClear();
+    vi.mocked(fetchAllCountryViews).mockClear();
     vi.mocked(fetchJourneys).mockClear();
   });
 
@@ -327,7 +327,7 @@ describe("RegionPage country views integration", () => {
   });
 
   it("keeps the region page renderable when country views fail", async () => {
-    vi.mocked(fetchCountryViews).mockRejectedValueOnce(
+    vi.mocked(fetchAllCountryViews).mockRejectedValueOnce(
       new Error("country views down"),
     );
 
