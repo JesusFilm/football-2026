@@ -77,6 +77,15 @@ describe("LanguagePicker", () => {
     );
   });
 
+  it("uses the english fallback when the runtime has no CLDR data for the code", () => {
+    // "fuv" (Nigerian Fulfulde) is not in Node's or Chrome's CLDR — same
+    // failure mode as "ff" in Chrome. Without fallback: "none" the code
+    // itself would leak through to the UI.
+    expect(getLocalizedLanguageName("en", "fuv", "Nigerian Fulfulde")).toBe(
+      "Nigerian Fulfulde",
+    );
+  });
+
   it("sets the preferred locale cookie when a language is selected", () => {
     setPreferredLocaleCookie("pt-BR");
 

@@ -3,8 +3,8 @@ import { afterEach, describe, expect, it, vi } from "vitest";
 
 import {
   defaultJourney,
-  getJourneyLanguageLabel,
   RegionSharePanel,
+  resolveJourneyLabels,
   sortJourneysForLocale,
 } from "@/components/region-share-panel";
 import type { Journey } from "@/lib/journeys";
@@ -68,12 +68,34 @@ describe("RegionSharePanel", () => {
     );
   });
 
-  it("shows journey language names from BCP 47 codes with native subtitles", () => {
+  it("shows the localized journey language name with no subtitle when CLDR resolves the BCP 47 code", () => {
     renderWithIntl(<RegionSharePanel regionCode="NAO" journeys={journeys} />);
 
     expect(screen.getByText("Swahili (Tanzania)")).toBeInTheDocument();
-    expect(screen.getByText("Kiswahili")).toBeInTheDocument();
     expect(screen.queryByText("Swahili, Tanzania")).not.toBeInTheDocument();
+    expect(screen.queryByText("Kiswahili")).not.toBeInTheDocument();
+  });
+
+  it("shows the english name as a subtitle when the BCP 47 code is not in CLDR", () => {
+    const fulaJourneys: Journey[] = [
+      {
+        slug: "where-you-belong-fulfulde",
+        language: {
+          id: "fuv",
+          // "fuv" (Nigerian Fulfulde) has no CLDR data — same as "ff" in Chrome.
+          bcp47: "fuv",
+          english: "Nigerian Fulfulde",
+          native: "Fulfulde",
+        },
+      },
+    ];
+
+    renderWithIntl(
+      <RegionSharePanel regionCode="WCA" journeys={fulaJourneys} />,
+    );
+
+    expect(screen.getByText("Fulfulde")).toBeInTheDocument();
+    expect(screen.getByText("Nigerian Fulfulde")).toBeInTheDocument();
   });
 
   it("defaults to the active locale journey when that language is available", () => {
@@ -103,7 +125,10 @@ describe("RegionSharePanel", () => {
     );
 
     expect(screen.getByText("español latinoamericano")).toBeInTheDocument();
-    expect(screen.getByText("Español")).toBeInTheDocument();
+    expect(
+      screen.queryByText("Spanish, Latin America"),
+    ).not.toBeInTheDocument();
+    expect(screen.queryByText("Español")).not.toBeInTheDocument();
   });
 
   it("falls back to English as the default journey when the active locale is unavailable", () => {
@@ -226,9 +251,9 @@ describe("RegionSharePanel", () => {
     ).toBeTruthy();
   });
 
-  it("falls back to the English journey language label without a BCP 47 code", () => {
+  it("falls back to the native label with the english as a subtitle when there is no BCP 47 code", () => {
     expect(
-      getJourneyLanguageLabel(
+      resolveJourneyLabels(
         {
           id: "legacy",
           english: "Legacy Language",
@@ -236,7 +261,19 @@ describe("RegionSharePanel", () => {
         },
         "es",
       ),
-    ).toBe("Legacy Language");
+    ).toEqual({ primary: "Primary Language", subtitle: "Legacy Language" });
+  });
+
+  it("falls back to the english label with no subtitle when neither CLDR data nor a native name is available", () => {
+    expect(
+      resolveJourneyLabels(
+        {
+          id: "legacy",
+          english: "Legacy Language",
+        },
+        "es",
+      ),
+    ).toEqual({ primary: "Legacy Language" });
   });
 
   it("does not load the external video iframe until preview enters the viewport", () => {

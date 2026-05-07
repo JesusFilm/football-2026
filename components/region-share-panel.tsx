@@ -7,7 +7,7 @@ import { type ReactNode, useEffect, useMemo, useRef, useState } from "react";
 
 import { getLocaleDirection } from "@/i18n/routing";
 import type { Journey, JourneyLanguage } from "@/lib/journeys";
-import { getLocalizedLanguageName } from "@/lib/language-display";
+import { tryLocalizeLanguageName } from "@/lib/language-display";
 import { renderQrSvg } from "@/lib/qr";
 
 const SHARE_BASE = "https://your.nextstep.is";
@@ -51,17 +51,34 @@ export function defaultJourney(
   );
 }
 
-export function getJourneyLanguageLabel(
+export type JourneyLabels = {
+  /** Primary label shown to the user — localized when CLDR has the language. */
+  primary: string;
+  /**
+   * English subtitle shown only when the primary label is a fallback (native or
+   * english) because the runtime's CLDR has no data for the BCP 47 code. Helps
+   * users recognize the language across UI locales.
+   */
+  subtitle?: string;
+};
+
+export function resolveJourneyLabels(
   language: JourneyLanguage,
   activeLocale: string,
-): string {
-  if (!language.bcp47) return language.english;
+): JourneyLabels {
+  const localized = language.bcp47
+    ? tryLocalizeLanguageName(activeLocale, language.bcp47)
+    : undefined;
 
-  return getLocalizedLanguageName(
-    activeLocale,
-    language.bcp47,
-    language.english,
-  );
+  if (localized) return { primary: localized };
+
+  const primary = language.native ?? language.english;
+  const subtitle =
+    language.english && language.english !== primary
+      ? language.english
+      : undefined;
+
+  return { primary, subtitle };
 }
 
 export function sortJourneysForLocale(
@@ -71,8 +88,8 @@ export function sortJourneysForLocale(
   const collator = new Intl.Collator(locale);
   const sorted = [...journeys].sort((a, b) =>
     collator.compare(
-      getJourneyLanguageLabel(a.language, locale),
-      getJourneyLanguageLabel(b.language, locale),
+      resolveJourneyLabels(a.language, locale).primary,
+      resolveJourneyLabels(b.language, locale).primary,
     ),
   );
   const priorityJourney = defaultJourney(journeys, locale);
@@ -83,15 +100,6 @@ export function sortJourneysForLocale(
     priorityJourney,
     ...sorted.filter((journey) => journey.slug !== priorityJourney.slug),
   ];
-}
-
-function getJourneyNativeLabel(
-  language: JourneyLanguage,
-  displayLabel: string,
-): string | undefined {
-  return language.native && language.native !== displayLabel
-    ? language.native
-    : undefined;
 }
 
 type Props = {
@@ -163,12 +171,11 @@ export function RegionSharePanel({ regionCode, journeys }: Props) {
     [qrSvg],
   );
   const hasSelection = Boolean(selected);
-  const selectedLanguageName = selected
-    ? getJourneyLanguageLabel(selected.language, locale)
-    : "";
-  const selectedNativeName = selected
-    ? getJourneyNativeLabel(selected.language, selectedLanguageName)
-    : undefined;
+  const selectedLabels = selected
+    ? resolveJourneyLabels(selected.language, locale)
+    : null;
+  const selectedLanguageName = selectedLabels?.primary ?? "";
+  const selectedEnglishName = selectedLabels?.subtitle;
   const sortedJourneys = useMemo(
     () => sortJourneysForLocale(journeys, locale),
     [journeys, locale],
@@ -279,9 +286,9 @@ export function RegionSharePanel({ regionCode, journeys }: Props) {
                         <span className="leading-none">
                           {selectedLanguageName}
                         </span>
-                        {selectedNativeName && (
+                        {selectedEnglishName && (
                           <span className="leading-none text-fg-mute">
-                            {selectedNativeName}
+                            {selectedEnglishName}
                           </span>
                         )}
                       </>
@@ -316,14 +323,8 @@ export function RegionSharePanel({ regionCode, journeys }: Props) {
                       </div>
                     ) : (
                       sortedJourneys.map((j) => {
-                        const languageName = getJourneyLanguageLabel(
-                          j.language,
-                          locale,
-                        );
-                        const nativeName = getJourneyNativeLabel(
-                          j.language,
-                          languageName,
-                        );
+                        const { primary: languageName, subtitle: englishName } =
+                          resolveJourneyLabels(j.language, locale);
                         const isSelected = j.slug === selected?.slug;
 
                         return (
@@ -346,9 +347,9 @@ export function RegionSharePanel({ regionCode, journeys }: Props) {
                               <span className="leading-none">
                                 {languageName}
                               </span>
-                              {nativeName && (
+                              {englishName && (
                                 <span className="shrink-0 leading-none text-fg-mute">
-                                  {nativeName}
+                                  {englishName}
                                 </span>
                               )}
                             </span>
