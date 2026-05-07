@@ -9,7 +9,7 @@ import { RegionHero } from "@/components/region-hero";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 import { StadiumBg } from "@/components/stadium-bg";
-import { fetchCountryViews } from "@/lib/country-views";
+import { fetchAllCountryViews } from "@/lib/country-views";
 import { getLocaleOption, type Locale } from "@/i18n/routing";
 import { fetchJourneys } from "@/lib/journeys";
 import {
@@ -80,7 +80,7 @@ export default async function RegionPage({ params }: Props) {
 
   const [journeysResult, countryViewsResult] = await Promise.allSettled([
     fetchJourneys(region.teamId),
-    fetchCountryViews(region.teamId, region.code),
+    fetchAllCountryViews(),
   ]);
   const journeys =
     journeysResult.status === "fulfilled" ? journeysResult.value : [];

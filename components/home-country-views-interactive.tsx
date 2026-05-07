@@ -10,6 +10,7 @@ import type { CountryView } from "@/lib/country-views";
 import { getCountryDisplayName } from "@/lib/country-display";
 import { REGION_FOCUS } from "@/lib/map-focus";
 import {
+  aggregateByCountry,
   countryFill,
   formatViewsForLocale,
   supportedCountryCodes,
@@ -72,7 +73,7 @@ export function HomeCountryViewsInteractive({
   const selectedCountries = useMemo(
     () =>
       selection === "All"
-        ? countries
+        ? aggregateByCountry(countries)
         : countries.filter((country) => country.regionCode === selection),
     [countries, selection],
   );
@@ -83,7 +84,7 @@ export function HomeCountryViewsInteractive({
   const displayCountries = useMemo(
     () =>
       visualSelection === "All"
-        ? countries
+        ? aggregateByCountry(countries)
         : countries.filter((country) => country.regionCode === visualSelection),
     [countries, visualSelection],
   );
@@ -92,7 +93,7 @@ export function HomeCountryViewsInteractive({
       visualOutgoingSelection === null
         ? []
         : visualOutgoingSelection === "All"
-          ? countries
+          ? aggregateByCountry(countries)
           : countries.filter(
               (country) => country.regionCode === visualOutgoingSelection,
             ),

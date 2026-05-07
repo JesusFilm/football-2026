@@ -12,6 +12,7 @@ const JOURNEY_IDS_QUERY = /* GraphQL */ `
   query GetJourneyIds($teamId: String!) {
     journeys(where: { teamId: $teamId, template: false }) {
       id
+      plausibleToken
     }
   }
 `;
@@ -39,7 +40,7 @@ async function fetchJourneyIds(teamId: string): Promise<string[]> {
   });
   if (!res.ok) throw new Error(`Journey IDs request failed: ${res.status}`);
   const json = (await res.json()) as {
-    data?: { journeys: { id: string }[] };
+    data?: { journeys: { id: string; plausibleToken?: string | null }[] };
     errors?: { message: string }[];
   };
   if (json.errors?.length) {
@@ -47,12 +48,14 @@ async function fetchJourneyIds(teamId: string): Promise<string[]> {
       `Journey IDs query errors: ${json.errors.map((e) => e.message).join("; ")}`,
     );
   }
-  return (json.data?.journeys ?? []).map((j) => j.id);
+  return (json.data?.journeys ?? [])
+    .filter((j) => j.plausibleToken)
+    .map((j) => j.id);
 }
 
 async function fetchJourneyCountryBreakdown(
   journeyId: string,
-): Promise<Array<{ countryCode: string; visitors: number }>> {
+): Promise<Array<{ countryCode: string; views: number }>> {
   const apiKey = process.env.PLAUSIBLE_API_KEY;
   if (!apiKey) throw new Error("PLAUSIBLE_API_KEY is not set");
 
