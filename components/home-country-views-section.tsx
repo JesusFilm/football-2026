@@ -4,6 +4,7 @@ import { HomeCountryViewsReveal } from "@/components/home-country-views-reveal";
 import { HomeCountryViewsInteractiveLoader } from "@/components/home-country-views-interactive-loader";
 import { CountryViewsSummary } from "@/components/country-views-summary";
 import type { CountryView } from "@/lib/country-views";
+import { aggregateByCountry } from "@/lib/map-utils";
 import type { Region } from "@/lib/regions";
 
 type Props = {
@@ -18,7 +19,7 @@ export function HomeCountryViewsSection({ regions, countries }: Props) {
     <HomeCountryViewsReveal
       summary={
         <CountryViewsSummary
-          countries={countries}
+          countries={aggregateByCountry(countries)}
           heading={t("topCountriesHeading")}
           listLabel={t("globalRankingLabel")}
           limit={10}
