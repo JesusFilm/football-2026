@@ -61,7 +61,7 @@ async function fetchJourneyCountryBreakdown(
   url.searchParams.set("property", "visit:country");
   url.searchParams.set("period", "custom");
   url.searchParams.set("date", CAMPAIGN_DATE_RANGE);
-  url.searchParams.set("metrics", "visitors");
+  url.searchParams.set("metrics", "pageviews");
   url.searchParams.set("limit", "1000");
 
   const res = await fetch(url.toString(), {
@@ -71,25 +71,25 @@ async function fetchJourneyCountryBreakdown(
   if (!res.ok) return [];
 
   const json = (await res.json()) as {
-    results?: Array<{ country: string; visitors: number }>;
+    results?: Array<{ country: string; pageviews: number }>;
   };
   return (json.results ?? [])
     .filter((r) => /^[A-Z]{2}$/.test(r.country ?? ""))
-    .map((r) => ({ countryCode: r.country, visitors: r.visitors }));
+    .map((r) => ({ countryCode: r.country, views: r.pageviews }));
 }
 
 function mergeCountryBreakdowns(
-  breakdowns: Array<Array<{ countryCode: string; visitors: number }>>,
-): Array<{ countryCode: string; visitors: number }> {
+  breakdowns: Array<Array<{ countryCode: string; views: number }>>,
+): Array<{ countryCode: string; views: number }> {
   const merged = new Map<string, number>();
   for (const breakdown of breakdowns) {
-    for (const { countryCode, visitors } of breakdown) {
-      merged.set(countryCode, (merged.get(countryCode) ?? 0) + visitors);
+    for (const { countryCode, views } of breakdown) {
+      merged.set(countryCode, (merged.get(countryCode) ?? 0) + views);
     }
   }
   return Array.from(merged.entries())
-    .map(([countryCode, visitors]) => ({ countryCode, visitors }))
-    .sort((a, b) => b.visitors - a.visitors);
+    .map(([countryCode, views]) => ({ countryCode, views }))
+    .sort((a, b) => b.views - a.views);
 }
 
 async function fetchFreshCountryViews(
@@ -105,11 +105,11 @@ async function fetchFreshCountryViews(
   const merged = mergeCountryBreakdowns(breakdowns);
 
   const displayNames = new Intl.DisplayNames(["en"], { type: "region" });
-  return merged.map(({ countryCode, visitors }) => ({
+  return merged.map(({ countryCode, views }) => ({
     countryCode,
     countryName: displayNames.of(countryCode) ?? countryCode,
     regionCode,
-    journeyViews: visitors,
+    journeyViews: views,
   }));
 }
 
