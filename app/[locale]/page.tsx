@@ -1,3 +1,4 @@
+import { Suspense } from "react";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 
 import { HomeCountryViewsSection } from "@/components/home-country-views-section";
@@ -11,6 +12,7 @@ import { StadiumBg } from "@/components/stadium-bg";
 import type { Locale } from "@/i18n/routing";
 import { fetchAllCountryViews } from "@/lib/country-views";
 import { getLocalizedRegions } from "@/lib/localized-regions";
+import type { Region } from "@/lib/regions";
 import { SITE_URL } from "@/lib/site";
 
 type Props = {
@@ -23,13 +25,10 @@ export default async function Home({ params }: Props) {
   const { locale } = await params;
   setRequestLocale(locale);
 
-  const [countryViews, regions, metadataT] = await Promise.all([
-    fetchAllCountryViews(),
+  const [regions, metadataT] = await Promise.all([
     getLocalizedRegions(locale),
     getTranslations({ locale, namespace: "Metadata" }),
   ]);
-  const countries =
-    countryViews.status === "available" ? countryViews.countries : [];
   const pageSchema = {
     "@context": "https://schema.org",
     "@type": "WebPage",
@@ -51,12 +50,9 @@ export default async function Home({ params }: Props) {
         <HomeRegionHeading />
         <HomeRegionGrid regions={regions} />
 
-        {countryViews.status === "available" && (
-          <>
-            <SectionChevron />
-            <HomeCountryViewsSection regions={regions} countries={countries} />
-          </>
-        )}
+        <Suspense>
+          <HomeCountryViewsStream regions={regions} />
+        </Suspense>
       </main>
       <SiteFooter />
       <script
@@ -64,6 +60,20 @@ export default async function Home({ params }: Props) {
         dangerouslySetInnerHTML={{
           __html: JSON.stringify(pageSchema),
         }}
+      />
+    </>
+  );
+}
+
+async function HomeCountryViewsStream({ regions }: { regions: Region[] }) {
+  const countryViews = await fetchAllCountryViews();
+  if (countryViews.status !== "available") return null;
+  return (
+    <>
+      <SectionChevron />
+      <HomeCountryViewsSection
+        regions={regions}
+        countries={countryViews.countries}
       />
     </>
   );

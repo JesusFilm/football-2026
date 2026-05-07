@@ -12,7 +12,6 @@ const JOURNEY_IDS_QUERY = /* GraphQL */ `
   query GetJourneyIds($teamId: String!) {
     journeys(where: { teamId: $teamId, template: false }) {
       id
-      plausibleToken
     }
   }
 `;
@@ -40,7 +39,7 @@ async function fetchJourneyIds(teamId: string): Promise<string[]> {
   });
   if (!res.ok) throw new Error(`Journey IDs request failed: ${res.status}`);
   const json = (await res.json()) as {
-    data?: { journeys: { id: string; plausibleToken?: string | null }[] };
+    data?: { journeys: { id: string }[] };
     errors?: { message: string }[];
   };
   if (json.errors?.length) {
@@ -48,9 +47,7 @@ async function fetchJourneyIds(teamId: string): Promise<string[]> {
       `Journey IDs query errors: ${json.errors.map((e) => e.message).join("; ")}`,
     );
   }
-  return (json.data?.journeys ?? [])
-    .filter((j) => j.plausibleToken)
-    .map((j) => j.id);
+  return (json.data?.journeys ?? []).map((j) => j.id);
 }
 
 async function fetchJourneyCountryBreakdown(

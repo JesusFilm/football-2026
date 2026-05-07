@@ -29,7 +29,7 @@ function mockFetch(
 }
 
 const JOURNEY_IDS_RESPONSE = (ids: string[]) => ({
-  data: { journeys: ids.map((id) => ({ id, plausibleToken: "token" })) },
+  data: { journeys: ids.map((id) => ({ id })) },
 });
 
 const PLAUSIBLE_RESPONSE = (
