@@ -328,8 +328,32 @@ describe("RegionSharePanel", () => {
     ).toBeInTheDocument();
     expect(
       screen.getByText(
+        "Download a QR code if you want one for print or in-person sharing.",
+      ),
+    ).toBeInTheDocument();
+    expect(
+      screen.getByText(
         "Want to see how people around the world are responding to faith this season? Explore the map below.",
       ),
+    ).toBeInTheDocument();
+  });
+
+  it("keeps the QR code behind a secondary drawer", () => {
+    renderWithIntl(<RegionSharePanel regionCode="NAO" journeys={journeys} />);
+
+    expect(
+      screen.queryByRole("img", { name: "QR Code" }),
+    ).not.toBeInTheDocument();
+
+    fireEvent.click(screen.getByRole("button", { name: "Download a QR code" }));
+
+    const qrCode = screen.getByRole("img", { name: "QR Code" });
+    expect(qrCode).toHaveAttribute(
+      "src",
+      expect.stringContaining("data:image/svg+xml"),
+    );
+    expect(
+      screen.getByRole("button", { name: "Download PNG" }),
     ).toBeInTheDocument();
   });
 });

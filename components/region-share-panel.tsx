@@ -1,5 +1,6 @@
 "use client";
 
+import { ChevronDown, Download, QrCode } from "lucide-react";
 import Image from "next/image";
 import { useLocale, useTranslations } from "next-intl";
 import { type ReactNode, useEffect, useMemo, useRef, useState } from "react";
@@ -7,6 +8,7 @@ import { type ReactNode, useEffect, useMemo, useRef, useState } from "react";
 import { getLocaleDirection } from "@/i18n/routing";
 import type { Journey, JourneyLanguage } from "@/lib/journeys";
 import { getLocalizedLanguageName } from "@/lib/language-display";
+import { renderQrSvg } from "@/lib/qr";
 
 const SHARE_BASE = "https://your.nextstep.is";
 
@@ -107,12 +109,17 @@ export function RegionSharePanel({ regionCode, journeys }: Props) {
     defaultJourney(journeys, locale),
   );
   const [open, setOpen] = useState(false);
+  const [qrOpen, setQrOpen] = useState(false);
+  const [downloadStatus, setDownloadStatus] = useState<"idle" | "downloaded">(
+    "idle",
+  );
   const [copyStatus, setCopyStatus] = useState<"idle" | "copied" | "error">(
     "idle",
   );
   const [isDesktopLayout, setIsDesktopLayout] = useState(false);
   const rootRef = useRef<HTMLDivElement>(null);
   const copyTimeoutRef = useRef<number | null>(null);
+  const downloadTimeoutRef = useRef<number | null>(null);
 
   useEffect(() => {
     if (!open) return;
@@ -140,10 +147,21 @@ export function RegionSharePanel({ regionCode, journeys }: Props) {
       if (copyTimeoutRef.current !== null) {
         window.clearTimeout(copyTimeoutRef.current);
       }
+      if (downloadTimeoutRef.current !== null) {
+        window.clearTimeout(downloadTimeoutRef.current);
+      }
     };
   }, []);
 
   const url = selected ? shareUrl(selected.slug) : "";
+  const qrSvg = useMemo(() => (url ? renderQrSvg(url, 360) : ""), [url]);
+  const qrImageSrc = useMemo(
+    () =>
+      qrSvg
+        ? `data:image/svg+xml;charset=utf-8,${encodeURIComponent(qrSvg)}`
+        : "",
+    [qrSvg],
+  );
   const hasSelection = Boolean(selected);
   const selectedLanguageName = selected
     ? getJourneyLanguageLabel(selected.language, locale)
@@ -182,6 +200,49 @@ export function RegionSharePanel({ regionCode, journeys }: Props) {
       resetCopyStatus("copied");
     } catch {
       resetCopyStatus("error");
+    }
+  };
+
+  const downloadQr = async () => {
+    if (!qrSvg || !selected) return;
+
+    const image = new window.Image();
+    const svgBlob = new Blob([qrSvg], { type: "image/svg+xml;charset=utf-8" });
+    const objectUrl = URL.createObjectURL(svgBlob);
+
+    try {
+      const loaded = new Promise<void>((resolve, reject) => {
+        image.onload = () => resolve();
+        image.onerror = () => reject(new Error("QR image failed to load"));
+      });
+      image.src = objectUrl;
+      await loaded;
+
+      const canvas = document.createElement("canvas");
+      canvas.width = 720;
+      canvas.height = 720;
+      const context = canvas.getContext("2d");
+      if (!context) throw new Error("Canvas is unavailable");
+
+      context.fillStyle = "#fff";
+      context.fillRect(0, 0, canvas.width, canvas.height);
+      context.drawImage(image, 0, 0, canvas.width, canvas.height);
+
+      const link = document.createElement("a");
+      link.href = canvas.toDataURL("image/png");
+      link.download = `${selected.slug}-qr-code.png`;
+      link.click();
+
+      if (downloadTimeoutRef.current !== null) {
+        window.clearTimeout(downloadTimeoutRef.current);
+      }
+      setDownloadStatus("downloaded");
+      downloadTimeoutRef.current = window.setTimeout(() => {
+        setDownloadStatus("idle");
+        downloadTimeoutRef.current = null;
+      }, 1400);
+    } finally {
+      URL.revokeObjectURL(objectUrl);
     }
   };
 
@@ -376,6 +437,87 @@ export function RegionSharePanel({ regionCode, journeys }: Props) {
                     </svg>
                   )}
                 </button>
+              </div>
+            </StepBlock>
+
+            <StepBlock number="4." body={t("stepFour")}>
+              <div className="pt-1">
+                <button
+                  type="button"
+                  onClick={() => setQrOpen((current) => !current)}
+                  aria-expanded={qrOpen}
+                  aria-controls="region-qr-drawer"
+                  disabled={!hasSelection}
+                  className="flex w-full cursor-pointer items-center justify-between gap-4 rounded-[14px] border border-white/12 bg-[rgb(18_15_12_/_0.62)] px-4 py-3.5 text-start text-sm text-fg transition-colors hover:border-accent disabled:cursor-not-allowed disabled:opacity-40"
+                >
+                  <span className="flex min-w-0 items-center gap-3">
+                    <QrCode
+                      aria-hidden="true"
+                      className="shrink-0 text-fg-mute"
+                      size={16}
+                      strokeWidth={1.8}
+                    />
+                    <span className="min-w-0 font-medium">
+                      {t("downloadQrCode")}
+                    </span>
+                  </span>
+                  <ChevronDown
+                    aria-hidden="true"
+                    className={`shrink-0 text-fg-mute transition-transform duration-200 ${
+                      qrOpen ? "rotate-180" : ""
+                    }`}
+                    size={16}
+                    strokeWidth={1.8}
+                  />
+                </button>
+
+                {qrOpen && (
+                  <div
+                    id="region-qr-drawer"
+                    className="mt-3 rounded-[16px] border border-white/12 bg-[rgb(18_15_12_/_0.72)] p-4"
+                  >
+                    <div className="grid gap-4 sm:grid-cols-[132px_1fr] sm:items-center">
+                      <div className="mx-auto flex size-[132px] items-center justify-center rounded-[12px] bg-white p-2 sm:mx-0">
+                        {qrImageSrc ? (
+                          // eslint-disable-next-line @next/next/no-img-element
+                          <img
+                            src={qrImageSrc}
+                            alt={t("qrCode")}
+                            width={116}
+                            height={116}
+                            className="size-[116px]"
+                          />
+                        ) : (
+                          <span className="font-mono text-xs text-[#0a0806]">
+                            {t("qrPlaceholder")}
+                          </span>
+                        )}
+                      </div>
+                      <div className="min-w-0 text-center sm:text-start">
+                        <p className="mb-3 text-sm leading-6 text-fg-dim">
+                          {selectedLanguageName}
+                        </p>
+                        <button
+                          type="button"
+                          onClick={downloadQr}
+                          disabled={!hasSelection}
+                          className="inline-flex cursor-pointer items-center justify-center gap-2 rounded-[14px] border border-accent-deep bg-accent-deep px-4 py-3 text-sm font-semibold text-white transition-colors hover:bg-accent disabled:cursor-not-allowed disabled:opacity-40"
+                        >
+                          <Download
+                            aria-hidden="true"
+                            size={15}
+                            strokeWidth={1.8}
+                          />
+                          <span>
+                            {downloadStatus === "downloaded"
+                              ? t("downloaded")
+                              : t("downloadPng")}
+                          </span>
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                )}
               </div>
             </StepBlock>
           </div>
