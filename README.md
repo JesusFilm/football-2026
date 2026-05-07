@@ -80,15 +80,17 @@ Then open:
 http://localhost:3000
 ```
 
-The app does not require local environment variables for the current production behavior. It uses public defaults for external data:
-
-- Journeys GraphQL endpoint: `https://api-gateway.central.jesusfilm.org`
-- Country views JSONBin endpoint: configured in `lib/country-views.ts`
-
-To test a different journeys endpoint locally, set:
+Country views require a Plausible API key. Without it, the country views section shows an unavailable state instead of crashing.
 
 ```bash
-GRAPHQL_ENDPOINT=https://example.test pnpm dev
+PLAUSIBLE_API_KEY=your-key pnpm dev
+```
+
+Optional overrides:
+
+```bash
+GRAPHQL_ENDPOINT=https://example.test pnpm dev   # override Jesus Film GraphQL endpoint
+PLAUSIBLE_URL=https://plausible.example pnpm dev  # override Plausible base URL
 ```
 
 ## Scripts

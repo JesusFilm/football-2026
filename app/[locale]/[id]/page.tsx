@@ -80,7 +80,7 @@ export default async function RegionPage({ params }: Props) {
 
   const [journeysResult, countryViewsResult] = await Promise.allSettled([
     fetchJourneys(region.teamId),
-    fetchCountryViews(),
+    fetchCountryViews(region.teamId, region.code),
   ]);
   const journeys =
     journeysResult.status === "fulfilled" ? journeysResult.value : [];

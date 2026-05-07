@@ -9,7 +9,7 @@ import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 import { StadiumBg } from "@/components/stadium-bg";
 import type { Locale } from "@/i18n/routing";
-import { fetchCountryViews } from "@/lib/country-views";
+import { fetchAllCountryViews } from "@/lib/country-views";
 import { getLocalizedRegions } from "@/lib/localized-regions";
 import { SITE_URL } from "@/lib/site";
 
@@ -24,7 +24,7 @@ export default async function Home({ params }: Props) {
   setRequestLocale(locale);
 
   const [countryViews, regions, metadataT] = await Promise.all([
-    fetchCountryViews(),
+    fetchAllCountryViews(),
     getLocalizedRegions(locale),
     getTranslations({ locale, namespace: "Metadata" }),
   ]);

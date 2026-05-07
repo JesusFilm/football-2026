@@ -1,103 +1,151 @@
 import { unstable_cache } from "next/cache";
 
-import type { JsonbinRegionCode } from "@/lib/regions";
-import { resolveCountryCodeFromName } from "@/lib/country-display";
+import { REGIONS, type JsonbinRegionCode } from "@/lib/regions";
 
-const JSONBIN_COUNTRY_VIEWS_URL =
-  "https://api.jsonbin.io/v3/b/69d452a936566621a8867f6b?meta=false";
+const GRAPHQL_ENDPOINT =
+  process.env.GRAPHQL_ENDPOINT ?? "https://api-gateway.central.jesusfilm.org";
+const PLAUSIBLE_URL = process.env.PLAUSIBLE_URL ?? "https://plausible.io";
 
-const REAL_LIST_ONLY_COUNTRIES = new Set(["Kosovo"]);
-const NON_COUNTRY_NAMES = new Set(["Error", "Unknown"]);
+const CAMPAIGN_DATE_RANGE = "2024-01-01,2026-12-31";
 
-type RawCountryViewsResponse = {
-  data?: unknown;
-};
-
-type RawCountryViewsRow = {
-  "prod_geo[country_name]"?: unknown;
-  "prod_geo[cru_global_region]"?: unknown;
-  "prod_geo[iso3_2]"?: unknown;
-  "[JourneyViews]"?: unknown;
-};
+const JOURNEY_IDS_QUERY = /* GraphQL */ `
+  query GetJourneyIds($teamId: String!) {
+    journeys(where: { teamId: $teamId, template: false }) {
+      id
+    }
+  }
+`;
 
 export type CountryView = {
   countryName: string;
-  sourceCountryName?: string;
   regionCode: string;
-  countryCode?: string;
+  countryCode: string;
   journeyViews: number;
 };
 
 export type CountryViewsResult =
-  | {
-      status: "available";
-      countries: CountryView[];
-    }
-  | {
-      status: "unavailable";
-      countries: [];
-    };
+  | { status: "available"; countries: CountryView[] }
+  | { status: "unavailable"; countries: [] };
 
-function isRecord(value: unknown): value is Record<string, unknown> {
-  return typeof value === "object" && value !== null;
-}
-
-function normalizeString(value: unknown): string | undefined {
-  if (typeof value !== "string") return undefined;
-  const trimmed = value.trim();
-  return trimmed.length > 0 ? trimmed : undefined;
-}
-
-function normalizeViews(value: unknown): number {
-  if (typeof value === "number" && Number.isFinite(value)) {
-    return Math.max(0, Math.trunc(value));
-  }
-  if (typeof value === "string") {
-    const parsed = Number(value);
-    if (Number.isFinite(parsed)) return Math.max(0, Math.trunc(parsed));
-  }
-  return 0;
-}
-
-function normalizeCountryCode(value: unknown): string | undefined {
-  const code = normalizeString(value)?.toUpperCase();
-  return code && /^[A-Z]{2}$/.test(code) ? code : undefined;
-}
-
-export function normalizeCountryViewsRows(rows: unknown): CountryView[] {
-  if (!Array.isArray(rows)) return [];
-
-  return rows
-    .map((row): CountryView | null => {
-      if (!isRecord(row)) return null;
-      const raw = row as RawCountryViewsRow;
-      const countryName = normalizeString(raw["prod_geo[country_name]"]);
-      const regionCode = normalizeString(raw["prod_geo[cru_global_region]"]);
-
-      if (!countryName || !regionCode) return null;
-      if (NON_COUNTRY_NAMES.has(countryName)) return null;
-
-      const countryCode =
-        normalizeCountryCode(raw["prod_geo[iso3_2]"]) ??
-        resolveCountryCodeFromName(countryName);
-      if (!countryCode && !REAL_LIST_ONLY_COUNTRIES.has(countryName)) {
-        return null;
-      }
-
-      return {
-        countryName,
-        sourceCountryName: countryName,
-        regionCode,
-        countryCode,
-        journeyViews: normalizeViews(raw["[JourneyViews]"]),
-      };
-    })
-    .filter((row): row is CountryView => row !== null)
-    .sort(
-      (a, b) =>
-        b.journeyViews - a.journeyViews ||
-        a.countryName.localeCompare(b.countryName),
+async function fetchJourneyIds(teamId: string): Promise<string[]> {
+  const res = await fetch(GRAPHQL_ENDPOINT, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      query: JOURNEY_IDS_QUERY,
+      variables: { teamId },
+    }),
+    next: { revalidate: 3600, tags: [`journey-ids:${teamId}`] },
+  });
+  if (!res.ok) throw new Error(`Journey IDs request failed: ${res.status}`);
+  const json = (await res.json()) as {
+    data?: { journeys: { id: string }[] };
+    errors?: { message: string }[];
+  };
+  if (json.errors?.length) {
+    throw new Error(
+      `Journey IDs query errors: ${json.errors.map((e) => e.message).join("; ")}`,
     );
+  }
+  return (json.data?.journeys ?? []).map((j) => j.id);
+}
+
+async function fetchJourneyCountryBreakdown(
+  journeyId: string,
+): Promise<Array<{ countryCode: string; visitors: number }>> {
+  const apiKey = process.env.PLAUSIBLE_API_KEY;
+  if (!apiKey) throw new Error("PLAUSIBLE_API_KEY is not set");
+
+  const url = new URL(`${PLAUSIBLE_URL}/api/v1/stats/breakdown`);
+  url.searchParams.set("site_id", `api-journeys-journey-${journeyId}`);
+  url.searchParams.set("property", "visit:country");
+  url.searchParams.set("period", "custom");
+  url.searchParams.set("date", CAMPAIGN_DATE_RANGE);
+  url.searchParams.set("metrics", "visitors");
+  url.searchParams.set("limit", "1000");
+
+  const res = await fetch(url.toString(), {
+    headers: { Authorization: `Bearer ${apiKey}` },
+    next: { revalidate: 3600, tags: [`plausible-country:${journeyId}`] },
+  });
+  if (!res.ok) return [];
+
+  const json = (await res.json()) as {
+    results?: Array<{ country: string; visitors: number }>;
+  };
+  return (json.results ?? [])
+    .filter((r) => /^[A-Z]{2}$/.test(r.country ?? ""))
+    .map((r) => ({ countryCode: r.country, visitors: r.visitors }));
+}
+
+function mergeCountryBreakdowns(
+  breakdowns: Array<Array<{ countryCode: string; visitors: number }>>,
+): Array<{ countryCode: string; visitors: number }> {
+  const merged = new Map<string, number>();
+  for (const breakdown of breakdowns) {
+    for (const { countryCode, visitors } of breakdown) {
+      merged.set(countryCode, (merged.get(countryCode) ?? 0) + visitors);
+    }
+  }
+  return Array.from(merged.entries())
+    .map(([countryCode, visitors]) => ({ countryCode, visitors }))
+    .sort((a, b) => b.visitors - a.visitors);
+}
+
+async function fetchFreshCountryViews(
+  teamId: string,
+  regionCode: JsonbinRegionCode,
+): Promise<CountryView[]> {
+  const journeyIds = await fetchJourneyIds(teamId);
+  if (journeyIds.length === 0) return [];
+
+  const breakdowns = await Promise.all(
+    journeyIds.map(fetchJourneyCountryBreakdown),
+  );
+  const merged = mergeCountryBreakdowns(breakdowns);
+
+  const displayNames = new Intl.DisplayNames(["en"], { type: "region" });
+  return merged.map(({ countryCode, visitors }) => ({
+    countryCode,
+    countryName: displayNames.of(countryCode) ?? countryCode,
+    regionCode,
+    journeyViews: visitors,
+  }));
+}
+
+const getCachedCountryViews = unstable_cache(
+  fetchFreshCountryViews,
+  ["country-views"],
+  { revalidate: 3600, tags: ["country-views"] },
+);
+
+export async function fetchCountryViews(
+  teamId: string,
+  regionCode: JsonbinRegionCode,
+): Promise<CountryViewsResult> {
+  try {
+    const countries = await getCachedCountryViews(teamId, regionCode);
+    return { status: "available", countries };
+  } catch {
+    return { status: "unavailable", countries: [] };
+  }
+}
+
+export async function fetchAllCountryViews(): Promise<CountryViewsResult> {
+  const results = await Promise.allSettled(
+    REGIONS.map((region) => getCachedCountryViews(region.teamId, region.code)),
+  );
+  const countries = results
+    .filter(
+      (r): r is PromiseFulfilledResult<CountryView[]> =>
+        r.status === "fulfilled",
+    )
+    .flatMap((r) => r.value)
+    .sort((a, b) => b.journeyViews - a.journeyViews);
+
+  return countries.length > 0
+    ? { status: "available", countries }
+    : { status: "unavailable", countries: [] };
 }
 
 export function filterCountryViewsByRegion(
@@ -105,39 +153,4 @@ export function filterCountryViewsByRegion(
   regionCode: JsonbinRegionCode,
 ): CountryView[] {
   return countries.filter((country) => country.regionCode === regionCode);
-}
-
-async function fetchFreshCountryViews(): Promise<CountryView[]> {
-  const res = await fetch(JSONBIN_COUNTRY_VIEWS_URL, {
-    cache: "no-store",
-  });
-
-  if (!res.ok) {
-    throw new Error(`JSONBin country views request failed: ${res.status}`);
-  }
-
-  const json = (await res.json()) as RawCountryViewsResponse;
-  if (!Array.isArray(json.data)) {
-    throw new Error("JSONBin country views response is missing data rows");
-  }
-
-  return normalizeCountryViewsRows(json.data);
-}
-
-const getCachedCountryViews = unstable_cache(
-  fetchFreshCountryViews,
-  ["country-views"],
-  {
-    revalidate: 3600,
-    tags: ["country-views"],
-  },
-);
-
-export async function fetchCountryViews(): Promise<CountryViewsResult> {
-  try {
-    const countries = await getCachedCountryViews();
-    return { status: "available", countries };
-  } catch {
-    return { status: "unavailable", countries: [] };
-  }
 }

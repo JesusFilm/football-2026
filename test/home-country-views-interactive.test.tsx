@@ -65,11 +65,13 @@ const countries = [
   ...Array.from({ length: 10 }, (_, index) => ({
     countryName: `LAC extra country ${index + 1}`,
     regionCode: "LAC",
+    countryCode: "XX",
     journeyViews: index + 1,
   })),
   ...Array.from({ length: 9 }, (_, index) => ({
     countryName: `Extra country ${index + 1}`,
     regionCode: "NAmOceania",
+    countryCode: "XX",
     journeyViews: index + 1,
   })),
 ];
