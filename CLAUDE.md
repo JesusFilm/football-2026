@@ -45,14 +45,14 @@ Next.js 16 App Router campaign microsite for Jesus Film Project's World Cup 2026
 `lib/regions.ts` is the single source of truth for activation regions. Each `Region` has:
 
 - `id` — canonical URL segment (e.g. `"east-asia"`)
-- `code` — JSONBin region label used to filter country-view rows
-- `teamId` — Jesus Film GraphQL API team ID for fetching journeys
+- `code` — region tag (typed `JsonbinRegionCode` for historical reasons) used to label country-view rows; `filterCountryViewsByRegion` in `lib/country-views.ts` partitions results by this value
+- `teamId` — Jesus Film GraphQL API team ID for fetching journeys and country-view data
 - `getRegion(id)` — fuzzy lookup supporting aliases; `getRegionById(id)` — exact match
 
 ### Data fetching
 
 - **Journeys** (`lib/journeys.ts`): fetches from Jesus Film GraphQL API by `teamId`, cached 1 hour. Throws on failure; region pages catch and continue with empty list.
-- **Country views** (`lib/country-views.ts`): fetches public JSONBin payload, cached 1 hour. Returns unavailable state (no throw) on failure. Filters aggregate rows and normalizes country identity via `lib/country-display.ts` + `Intl.DisplayNames`.
+- **Country views** (`lib/country-views.ts`): fetches journey IDs from the Jesus Film GraphQL API (by `teamId`), then queries the Plausible API (`/api/v1/stats/breakdown`) per journey for country-level pageviews over the campaign date range (`2024-01-01,2026-12-31`). Pageviews are merged across journeys and country names normalized via `Intl.DisplayNames`. Cached 1 hour via `unstable_cache` + `next.revalidate: 3600`. Returns unavailable state (no throw) on any failure.
 
 ### Internationalization
 

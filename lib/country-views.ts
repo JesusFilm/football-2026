@@ -7,6 +7,7 @@ const GRAPHQL_ENDPOINT =
 const PLAUSIBLE_URL = process.env.PLAUSIBLE_URL ?? "https://plausible.io";
 
 const CAMPAIGN_DATE_RANGE = "2024-01-01,2026-12-31";
+const FETCH_TIMEOUT_MS = 5000;
 
 const JOURNEY_IDS_QUERY = /* GraphQL */ `
   query GetJourneyIds($teamId: String!) {
@@ -35,6 +36,7 @@ async function fetchJourneyIds(teamId: string): Promise<string[]> {
       query: JOURNEY_IDS_QUERY,
       variables: { teamId },
     }),
+    signal: AbortSignal.timeout(FETCH_TIMEOUT_MS),
     next: { revalidate: 3600, tags: [`journey-ids:${teamId}`] },
   });
   if (!res.ok) throw new Error(`Journey IDs request failed: ${res.status}`);
@@ -64,18 +66,23 @@ async function fetchJourneyCountryBreakdown(
   url.searchParams.set("metrics", "pageviews");
   url.searchParams.set("limit", "1000");
 
-  const res = await fetch(url.toString(), {
-    headers: { Authorization: `Bearer ${apiKey}` },
-    next: { revalidate: 3600, tags: [`plausible-country:${journeyId}`] },
-  });
-  if (!res.ok) return [];
+  try {
+    const res = await fetch(url.toString(), {
+      headers: { Authorization: `Bearer ${apiKey}` },
+      signal: AbortSignal.timeout(FETCH_TIMEOUT_MS),
+      next: { revalidate: 3600, tags: [`plausible-country:${journeyId}`] },
+    });
+    if (!res.ok) return [];
 
-  const json = (await res.json()) as {
-    results?: Array<{ country: string; pageviews: number }>;
-  };
-  return (json.results ?? [])
-    .filter((r) => /^[A-Z]{2}$/.test(r.country ?? ""))
-    .map((r) => ({ countryCode: r.country, views: r.pageviews }));
+    const json = (await res.json()) as {
+      results?: Array<{ country: string; pageviews: number }>;
+    };
+    return (json.results ?? [])
+      .filter((r) => /^[A-Z]{2}$/.test(r.country ?? ""))
+      .map((r) => ({ countryCode: r.country, views: r.pageviews }));
+  } catch {
+    return [];
+  }
 }
 
 function mergeCountryBreakdowns(
