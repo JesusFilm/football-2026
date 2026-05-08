@@ -13,7 +13,8 @@ type Props = {
   regionName: string;
   regionCode: JsonbinRegionCode;
   regionDisplayCode?: string;
-  countries: CountryView[];
+  jsonbinCountries: CountryView[];
+  plausibleCountries: CountryView[];
   hideHeader?: boolean;
   unavailable?: boolean;
 };
@@ -36,20 +37,28 @@ export function CountryViewsSection({
   regionName,
   regionCode,
   regionDisplayCode,
-  countries,
+  jsonbinCountries,
+  plausibleCountries,
   hideHeader = false,
   unavailable = false,
 }: Props) {
   const t = useTranslations("CountryViews");
   const ref = useRef<HTMLElement | null>(null);
   const [inView, setInView] = useState(false);
+  const [source, setSource] = useState<"original" | "live">("original");
   const prefersReducedMotion = useReducedMotion();
   const visible = Boolean(inView || prefersReducedMotion);
   const contentDelay =
     typeof window !== "undefined" && window.scrollY === 0
       ? CONTENT_DELAY_MS
       : 0;
-  const regionCountries = countries.filter(
+  const showToggle =
+    jsonbinCountries.length > 0 && plausibleCountries.length > 0;
+  const allCountries =
+    source === "live" && plausibleCountries.length > 0
+      ? plausibleCountries
+      : jsonbinCountries;
+  const regionCountries = allCountries.filter(
     (country) => country.regionCode === regionCode,
   );
 
@@ -123,6 +132,22 @@ export function CountryViewsSection({
           />
         ) : (
           <>
+            {showToggle && (
+              <div className="mb-4 flex justify-end gap-1">
+                <SourceButton
+                  active={source === "original"}
+                  onClick={() => setSource("original")}
+                >
+                  Original
+                </SourceButton>
+                <SourceButton
+                  active={source === "live"}
+                  onClick={() => setSource("live")}
+                >
+                  Live
+                </SourceButton>
+              </div>
+            )}
             <CountryViewsSummary
               countries={regionCountries}
               heading={t("regionHeading", { regionName })}
@@ -137,7 +162,7 @@ export function CountryViewsSection({
               <HomeCountryViewsInteractive
                 regions={REGIONS}
                 initialSelection={regionCode}
-                countries={countries}
+                countries={allCountries}
                 countryListLimit={10}
               />
             ) : (
@@ -201,5 +226,29 @@ function MapSkeleton() {
         </div>
       </div>
     </div>
+  );
+}
+
+function SourceButton({
+  active,
+  onClick,
+  children,
+}: {
+  active: boolean;
+  onClick: () => void;
+  children: string;
+}) {
+  return (
+    <button
+      type="button"
+      onClick={onClick}
+      className={`rounded-[var(--radius-md)] border px-2.5 py-1 font-mono text-[10px] tracking-[0.1em] uppercase transition-colors ${
+        active
+          ? "border-accent bg-[rgb(230_57_70_/_0.82)] text-white"
+          : "border-line-strong bg-[rgb(12_10_8_/_0.42)] text-fg-dim hover:border-accent hover:text-fg"
+      }`}
+    >
+      {children}
+    </button>
   );
 }

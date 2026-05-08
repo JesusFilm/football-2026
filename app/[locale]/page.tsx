@@ -10,7 +10,10 @@ import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 import { StadiumBg } from "@/components/stadium-bg";
 import type { Locale } from "@/i18n/routing";
-import { fetchAllCountryViews } from "@/lib/country-views";
+import {
+  fetchAllCountryViews,
+  fetchAllCountryViewsFromJsonBin,
+} from "@/lib/country-views";
 import { getLocalizedRegions } from "@/lib/localized-regions";
 import type { Region } from "@/lib/regions";
 import { SITE_URL } from "@/lib/site";
@@ -66,14 +69,31 @@ export default async function Home({ params }: Props) {
 }
 
 async function HomeCountryViewsStream({ regions }: { regions: Region[] }) {
-  const countryViews = await fetchAllCountryViews();
-  if (countryViews.status !== "available") return null;
+  const [jsonbinResult, plausibleResult] = await Promise.allSettled([
+    fetchAllCountryViewsFromJsonBin(),
+    fetchAllCountryViews(),
+  ]);
+  const jsonbinCountries =
+    jsonbinResult.status === "fulfilled" &&
+    jsonbinResult.value.status === "available"
+      ? jsonbinResult.value.countries
+      : [];
+  const plausibleCountries =
+    plausibleResult.status === "fulfilled" &&
+    plausibleResult.value.status === "available"
+      ? plausibleResult.value.countries
+      : [];
+
+  if (jsonbinCountries.length === 0 && plausibleCountries.length === 0)
+    return null;
+
   return (
     <>
       <SectionChevron />
       <HomeCountryViewsSection
         regions={regions}
-        countries={countryViews.countries}
+        jsonbinCountries={jsonbinCountries}
+        plausibleCountries={plausibleCountries}
       />
     </>
   );

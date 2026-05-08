@@ -43,7 +43,11 @@ describe("HomeCountryViewsSection", () => {
     vi.stubGlobal("IntersectionObserver", MockIntersectionObserver);
 
     renderWithIntl(
-      <HomeCountryViewsSection regions={REGIONS} countries={countries} />,
+      <HomeCountryViewsSection
+        regions={REGIONS}
+        jsonbinCountries={countries}
+        plausibleCountries={[]}
+      />,
     );
 
     expect(

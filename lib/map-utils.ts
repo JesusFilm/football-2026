@@ -32,17 +32,16 @@ export function countryFill(value: number, maxValue: number) {
 }
 
 export function aggregateByCountry(countries: CountryView[]): CountryView[] {
+  const key = (c: CountryView) => c.countryCode ?? c.countryName;
   const totals = new Map<string, number>();
   const first = new Map<string, CountryView>();
   for (const c of countries) {
-    totals.set(
-      c.countryCode,
-      (totals.get(c.countryCode) ?? 0) + c.journeyViews,
-    );
-    if (!first.has(c.countryCode)) first.set(c.countryCode, c);
+    const k = key(c);
+    totals.set(k, (totals.get(k) ?? 0) + c.journeyViews);
+    if (!first.has(k)) first.set(k, c);
   }
   return Array.from(totals.entries())
-    .map(([code, journeyViews]) => ({ ...first.get(code)!, journeyViews }))
+    .map(([k, journeyViews]) => ({ ...first.get(k)!, journeyViews }))
     .sort((a, b) => b.journeyViews - a.journeyViews);
 }
 

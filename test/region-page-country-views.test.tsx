@@ -3,7 +3,10 @@ import type { ReactNode } from "react";
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 
 import RegionPage from "@/app/[locale]/[id]/page";
-import { fetchAllCountryViews } from "@/lib/country-views";
+import {
+  fetchAllCountryViews,
+  fetchAllCountryViewsFromJsonBin,
+} from "@/lib/country-views";
 import type { CountryView } from "@/lib/country-views";
 import { fetchJourneys } from "@/lib/journeys";
 import { renderWithIntl } from "@/test/intl-test-utils";
@@ -218,17 +221,17 @@ vi.mock("@/components/country-views-section", () => ({
   CountryViewsSection: ({
     regionName,
     regionCode,
-    countries,
+    jsonbinCountries,
     unavailable,
   }: {
     regionName: string;
     regionCode: string;
-    countries: CountryView[];
+    jsonbinCountries: CountryView[];
     unavailable?: boolean;
   }) => (
     <section data-testid="country-views-section">
       {regionName}:{regionCode}:
-      {countries.map((country) => country.countryName).join(",")}:
+      {jsonbinCountries.map((country) => country.countryName).join(",")}:
       {String(Boolean(unavailable))}
     </section>
   ),
@@ -247,27 +250,33 @@ vi.mock("@/lib/journeys", () => ({
   ]),
 }));
 
+const MOCK_COUNTRIES = [
+  {
+    countryName: "United States",
+    regionCode: "NAmOceania",
+    countryCode: "US",
+    journeyViews: 170768,
+  },
+  {
+    countryName: "Mexico",
+    regionCode: "LAC",
+    countryCode: "MX",
+    journeyViews: 24029,
+  },
+];
+
 vi.mock("@/lib/country-views", async (importOriginal) => {
   const actual = await importOriginal<typeof import("@/lib/country-views")>();
 
   return {
     ...actual,
+    fetchAllCountryViewsFromJsonBin: vi.fn(async () => ({
+      status: "available",
+      countries: MOCK_COUNTRIES,
+    })),
     fetchAllCountryViews: vi.fn(async () => ({
       status: "available",
-      countries: [
-        {
-          countryName: "United States",
-          regionCode: "NAmOceania",
-          countryCode: "US",
-          journeyViews: 170768,
-        },
-        {
-          countryName: "Mexico",
-          regionCode: "LAC",
-          countryCode: "MX",
-          journeyViews: 24029,
-        },
-      ],
+      countries: MOCK_COUNTRIES,
     })),
   };
 });
@@ -291,6 +300,7 @@ describe("RegionPage country views integration", () => {
 
   afterEach(() => {
     vi.unstubAllGlobals();
+    vi.mocked(fetchAllCountryViewsFromJsonBin).mockClear();
     vi.mocked(fetchAllCountryViews).mockClear();
     vi.mocked(fetchJourneys).mockClear();
   });
@@ -327,6 +337,9 @@ describe("RegionPage country views integration", () => {
   });
 
   it("keeps the region page renderable when country views fail", async () => {
+    vi.mocked(fetchAllCountryViewsFromJsonBin).mockRejectedValueOnce(
+      new Error("country views down"),
+    );
     vi.mocked(fetchAllCountryViews).mockRejectedValueOnce(
       new Error("country views down"),
     );
