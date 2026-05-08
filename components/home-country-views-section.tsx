@@ -64,16 +64,17 @@ function DataSourceToggle({
   source: DataSource;
   onChange: (s: DataSource) => void;
 }) {
+  const t = useTranslations("CountryViews");
   return (
     <div className="mb-4 flex justify-end gap-1">
       <SourceButton
         active={source === "original"}
         onClick={() => onChange("original")}
       >
-        All
+        {t("sourceOriginal")}
       </SourceButton>
       <SourceButton active={source === "live"} onClick={() => onChange("live")}>
-        Football2026
+        {t("sourceLive")}
       </SourceButton>
     </div>
   );

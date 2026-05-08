@@ -147,7 +147,9 @@
     "viewsUnavailableLabel": "Просмотры недоступны",
     "viewsUnavailableBody": "Сейчас не удалось загрузить данные просмотров по странам.",
     "noViewsLabel": "Пока нет просмотров по странам",
-    "noViewsBody": "Для {regionName} пока нет данных о просмотрах по странам."
+    "noViewsBody": "Для {regionName} пока нет данных о просмотрах по странам.",
+    "sourceOriginal": "Все",
+    "sourceLive": "Футбол2026"
   },
   "SharePanel": {
     "chooseLanguage": "Выберите язык",

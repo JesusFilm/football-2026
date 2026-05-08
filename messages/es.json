@@ -147,7 +147,9 @@
     "viewsUnavailableLabel": "Vistas no disponibles",
     "viewsUnavailableBody": "No se pudieron cargar los datos de vistas por país en este momento.",
     "noViewsLabel": "Aún no hay vistas por país",
-    "noViewsBody": "Aún no hay vistas a nivel de país disponibles para {regionName}."
+    "noViewsBody": "Aún no hay vistas a nivel de país disponibles para {regionName}.",
+    "sourceOriginal": "Todos",
+    "sourceLive": "Fútbol2026"
   },
   "SharePanel": {
     "chooseLanguage": "Elige un idioma",

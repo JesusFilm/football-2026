@@ -147,7 +147,9 @@
     "viewsUnavailableLabel": "المشاهدات غير متاحة",
     "viewsUnavailableBody": "تعذر تحميل بيانات المشاهدات حسب البلد الآن.",
     "noViewsLabel": "لا توجد مشاهدات حسب البلد بعد",
-    "noViewsBody": "لا توجد مشاهدات على مستوى البلدان متاحة لـ {regionName} بعد."
+    "noViewsBody": "لا توجد مشاهدات على مستوى البلدان متاحة لـ {regionName} بعد.",
+    "sourceOriginal": "الكل",
+    "sourceLive": "كرة القدم2026"
   },
   "SharePanel": {
     "chooseLanguage": "اختر لغة",
