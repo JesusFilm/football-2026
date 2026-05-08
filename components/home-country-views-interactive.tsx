@@ -67,7 +67,7 @@ export function HomeCountryViewsInteractive({
   );
 
   const selectionOrder = useMemo<Selection[]>(
-    () => ["All", ...regions.map((region) => region.code)],
+    () => [...regions.map((region) => region.code), "All"],
     [regions],
   );
   const selectedCountries = useMemo(
@@ -224,12 +224,6 @@ export function HomeCountryViewsInteractive({
         </div>
 
         <div className="grid grid-cols-2 gap-2 sm:grid-cols-4 lg:h-full lg:w-full lg:grid-rows-2">
-          <RegionButton
-            active={selection === "All"}
-            autoAdvancing={activeAutoAdvance}
-            label={t("allRegions")}
-            onClick={() => selectRegion("All")}
-          />
           {regions.map((region) => (
             <RegionButton
               key={region.id}
@@ -239,6 +233,12 @@ export function HomeCountryViewsInteractive({
               onClick={() => selectRegion(region.code)}
             />
           ))}
+          <RegionButton
+            active={selection === "All"}
+            autoAdvancing={activeAutoAdvance}
+            label={t("allRegions")}
+            onClick={() => selectRegion("All")}
+          />
         </div>
       </div>
 
