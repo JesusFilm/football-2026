@@ -138,13 +138,13 @@ export function CountryViewsSection({
                   active={source === "original"}
                   onClick={() => setSource("original")}
                 >
-                  Original
+                  All
                 </SourceButton>
                 <SourceButton
                   active={source === "live"}
                   onClick={() => setSource("live")}
                 >
-                  Live
+                  Football2026
                 </SourceButton>
               </div>
             )}

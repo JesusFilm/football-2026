@@ -70,10 +70,10 @@ function DataSourceToggle({
         active={source === "original"}
         onClick={() => onChange("original")}
       >
-        Original
+        All
       </SourceButton>
       <SourceButton active={source === "live"} onClick={() => onChange("live")}>
-        Live
+        Football2026
       </SourceButton>
     </div>
   );
