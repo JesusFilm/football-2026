@@ -147,7 +147,9 @@
     "viewsUnavailableLabel": "Aufrufe nicht verfügbar",
     "viewsUnavailableBody": "Länderbezogene Aufrufdaten konnten gerade nicht geladen werden.",
     "noViewsLabel": "Noch keine Länderaufrufe",
-    "noViewsBody": "Für {regionName} sind noch keine länderbezogenen Aufrufe verfügbar."
+    "noViewsBody": "Für {regionName} sind noch keine länderbezogenen Aufrufe verfügbar.",
+    "sourceOriginal": "Alle",
+    "sourceLive": "Fußball2026"
   },
   "SharePanel": {
     "chooseLanguage": "Sprache wählen",

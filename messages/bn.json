@@ -147,7 +147,9 @@
     "viewsUnavailableLabel": "views অনুপলব্ধ",
     "viewsUnavailableBody": "দেশভিত্তিক view data এখন লোড করা যাচ্ছে না।",
     "noViewsLabel": "এখনও দেশভিত্তিক views নেই",
-    "noViewsBody": "{regionName}-এর জন্য এখনও দেশভিত্তিক views নেই।"
+    "noViewsBody": "{regionName}-এর জন্য এখনও দেশভিত্তিক views নেই।",
+    "sourceOriginal": "সব",
+    "sourceLive": "ফুটবল2026"
   },
   "SharePanel": {
     "chooseLanguage": "ভাষা বেছে নিন",

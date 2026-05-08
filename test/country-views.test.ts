@@ -8,201 +8,192 @@ vi.mock("next/cache", () => ({
 import {
   fetchCountryViews,
   filterCountryViewsByRegion,
-  normalizeCountryViewsRows,
 } from "@/lib/country-views";
 
 type FetchMock = ReturnType<typeof vi.fn>;
 
-function mockFetchResponse(body: unknown, status = 200): FetchMock {
-  const res = new Response(JSON.stringify(body), {
-    status,
-    headers: { "Content-Type": "application/json" },
-  });
-  const fn = vi.fn().mockResolvedValue(res);
+function mockFetch(
+  ...responses: { body: unknown; status?: number }[]
+): FetchMock {
+  const fn = vi.fn();
+  for (const { body, status = 200 } of responses) {
+    fn.mockResolvedValueOnce(
+      new Response(JSON.stringify(body), {
+        status,
+        headers: { "Content-Type": "application/json" },
+      }),
+    );
+  }
   vi.stubGlobal("fetch", fn);
   return fn;
 }
 
-describe("normalizeCountryViewsRows", () => {
-  it("normalizes valid JSONBin rows and sorts by journey views", () => {
-    const countries = normalizeCountryViewsRows([
-      {
-        "prod_geo[country_name]": "Canada",
-        "prod_geo[cru_global_region]": "NAmOceania",
-        "prod_geo[iso3_2]": "ca",
-        "[JourneyViews]": "10",
-      },
-      {
-        "prod_geo[country_name]": "United States",
-        "prod_geo[cru_global_region]": "NAmOceania",
-        "prod_geo[iso3_2]": "US",
-        "[JourneyViews]": 170768,
-      },
-    ]);
+const JOURNEY_IDS_RESPONSE = (ids: string[]) => ({
+  data: { journeys: ids.map((id) => ({ id })) },
+});
 
-    expect(countries).toEqual([
+const PLAUSIBLE_RESPONSE = (
+  results: { country: string; pageviews: number }[],
+) => ({ results });
+
+describe("filterCountryViewsByRegion", () => {
+  it("filters countries by region code", () => {
+    const countries = [
       {
         countryName: "United States",
-        sourceCountryName: "United States",
         regionCode: "NAmOceania",
         countryCode: "US",
         journeyViews: 170768,
       },
       {
-        countryName: "Canada",
-        sourceCountryName: "Canada",
-        regionCode: "NAmOceania",
-        countryCode: "CA",
-        journeyViews: 10,
+        countryName: "Mexico",
+        regionCode: "LAC",
+        countryCode: "MX",
+        journeyViews: 24029,
       },
-    ]);
-  });
-
-  it("filters aggregate rows and non-country artifacts", () => {
-    const countries = normalizeCountryViewsRows([
-      { "[JourneyViews]": 199209 },
-      {
-        "prod_geo[country_name]": "Error",
-        "prod_geo[cru_global_region]": "Other/Unknown",
-        "[JourneyViews]": 0,
-      },
-      {
-        "prod_geo[country_name]": "Unknown",
-        "prod_geo[cru_global_region]": "Other/Unknown",
-        "[JourneyViews]": 0,
-      },
-      {
-        "prod_geo[country_name]": "Mexico",
-        "prod_geo[cru_global_region]": "LAC",
-        "prod_geo[iso3_2]": "MX",
-        "[JourneyViews]": 24029,
-      },
-    ]);
-
-    expect(countries).toHaveLength(1);
-    expect(countries[0]?.countryName).toBe("Mexico");
-  });
-
-  it("keeps real list-only countries without a map code", () => {
-    const countries = normalizeCountryViewsRows([
-      {
-        "prod_geo[country_name]": "Kosovo",
-        "prod_geo[cru_global_region]": "Europe",
-        "[JourneyViews]": 0,
-      },
-      {
-        "prod_geo[country_name]": "Antarctica",
-        "prod_geo[cru_global_region]": "Other/Unknown",
-        "[JourneyViews]": 0,
-      },
-    ]);
-
-    expect(countries).toEqual([
-      {
-        countryName: "Kosovo",
-        sourceCountryName: "Kosovo",
-        regionCode: "Europe",
-        countryCode: "XK",
-        journeyViews: 0,
-      },
-    ]);
-  });
-});
-
-describe("filterCountryViewsByRegion", () => {
-  it("uses JSONBin region labels for membership", () => {
-    const countries = normalizeCountryViewsRows([
-      {
-        "prod_geo[country_name]": "United States",
-        "prod_geo[cru_global_region]": "NAmOceania",
-        "prod_geo[iso3_2]": "US",
-        "[JourneyViews]": 170768,
-      },
-      {
-        "prod_geo[country_name]": "Mexico",
-        "prod_geo[cru_global_region]": "LAC",
-        "prod_geo[iso3_2]": "MX",
-        "[JourneyViews]": 24029,
-      },
-    ]);
+    ];
 
     expect(
       filterCountryViewsByRegion(countries, "NAmOceania").map(
-        (country) => country.countryName,
+        (c) => c.countryName,
       ),
     ).toEqual(["United States"]);
     expect(
-      filterCountryViewsByRegion(countries, "LAC").map(
-        (country) => country.countryName,
-      ),
+      filterCountryViewsByRegion(countries, "LAC").map((c) => c.countryName),
     ).toEqual(["Mexico"]);
   });
 });
 
 describe("fetchCountryViews", () => {
+  const TEAM_ID = "team-abc";
+
   beforeEach(() => {
     vi.unstubAllGlobals();
+    process.env.PLAUSIBLE_API_KEY = "test-key";
   });
+
   afterEach(() => {
     vi.restoreAllMocks();
+    delete process.env.PLAUSIBLE_API_KEY;
   });
 
-  it("fetches and normalizes country views", async () => {
-    const fetchMock = mockFetchResponse({
-      data: [
-        {
-          "prod_geo[country_name]": "Japan",
-          "prod_geo[cru_global_region]": "East Asia",
-          "prod_geo[iso3_2]": "JP",
-          "[JourneyViews]": 4639,
-        },
-      ],
-    });
-
-    await expect(fetchCountryViews()).resolves.toEqual({
-      status: "available",
-      countries: [
-        {
-          countryName: "Japan",
-          sourceCountryName: "Japan",
-          regionCode: "East Asia",
-          countryCode: "JP",
-          journeyViews: 4639,
-        },
-      ],
-    });
-    expect(fetchMock).toHaveBeenCalledWith(
-      "https://api.jsonbin.io/v3/b/69d452a936566621a8867f6b?meta=false",
+  it("fetches journey IDs then aggregates Plausible country breakdown", async () => {
+    mockFetch(
+      { body: JOURNEY_IDS_RESPONSE(["journey-1", "journey-2"]) },
       {
-        cache: "no-store",
+        body: PLAUSIBLE_RESPONSE([
+          { country: "US", pageviews: 10 },
+          { country: "CA", pageviews: 4 },
+        ]),
+      },
+      {
+        body: PLAUSIBLE_RESPONSE([
+          { country: "US", pageviews: 5 },
+          { country: "NZ", pageviews: 12 },
+        ]),
       },
     );
+
+    const result = await fetchCountryViews(TEAM_ID, "NAmOceania");
+
+    expect(result.status).toBe("available");
+    if (result.status !== "available") return;
+    expect(result.countries).toEqual([
+      expect.objectContaining({
+        countryCode: "US",
+        journeyViews: 15,
+        regionCode: "NAmOceania",
+      }),
+      expect.objectContaining({
+        countryCode: "NZ",
+        journeyViews: 12,
+        regionCode: "NAmOceania",
+      }),
+      expect.objectContaining({
+        countryCode: "CA",
+        journeyViews: 4,
+        regionCode: "NAmOceania",
+      }),
+    ]);
   });
 
-  it("returns unavailable for non-OK responses", async () => {
-    mockFetchResponse({ message: "bad" }, 500);
+  it("returns available with empty list when team has no journeys", async () => {
+    mockFetch({ body: JOURNEY_IDS_RESPONSE([]) });
 
-    await expect(fetchCountryViews()).resolves.toEqual({
-      status: "unavailable",
-      countries: [],
-    });
+    const result = await fetchCountryViews(TEAM_ID, "Africa");
+
+    expect(result).toEqual({ status: "available", countries: [] });
   });
 
-  it("returns unavailable for responses without data rows", async () => {
-    mockFetchResponse({ message: "missing rows" });
+  it("sets countryName from Intl.DisplayNames", async () => {
+    mockFetch(
+      { body: JOURNEY_IDS_RESPONSE(["journey-1"]) },
+      { body: PLAUSIBLE_RESPONSE([{ country: "JP", pageviews: 500 }]) },
+    );
 
-    await expect(fetchCountryViews()).resolves.toEqual({
-      status: "unavailable",
-      countries: [],
-    });
+    const result = await fetchCountryViews(TEAM_ID, "East Asia");
+
+    expect(result.status).toBe("available");
+    if (result.status !== "available") return;
+    expect(result.countries[0]?.countryName).toBe("Japan");
   });
 
-  it("returns unavailable for malformed responses", async () => {
+  it("skips Plausible results with invalid country codes", async () => {
+    mockFetch(
+      { body: JOURNEY_IDS_RESPONSE(["journey-1"]) },
+      {
+        body: PLAUSIBLE_RESPONSE([
+          { country: "US", pageviews: 10 },
+          { country: "Unknown", pageviews: 5 },
+        ]),
+      },
+    );
+
+    const result = await fetchCountryViews(TEAM_ID, "NAmOceania");
+
+    expect(result.status).toBe("available");
+    if (result.status !== "available") return;
+    expect(result.countries).toHaveLength(1);
+    expect(result.countries[0]?.countryCode).toBe("US");
+  });
+
+  it("returns unavailable when journey IDs request fails", async () => {
+    mockFetch({ body: { message: "bad" }, status: 500 });
+
+    const result = await fetchCountryViews(TEAM_ID, "Europe");
+
+    expect(result).toEqual({ status: "unavailable", countries: [] });
+  });
+
+  it("returns unavailable when PLAUSIBLE_API_KEY is not set", async () => {
+    delete process.env.PLAUSIBLE_API_KEY;
+    mockFetch({ body: JOURNEY_IDS_RESPONSE(["journey-1"]) });
+
+    const result = await fetchCountryViews(TEAM_ID, "Europe");
+
+    expect(result).toEqual({ status: "unavailable", countries: [] });
+  });
+
+  it("returns unavailable on network error", async () => {
     vi.stubGlobal("fetch", vi.fn().mockRejectedValue(new Error("network")));
 
-    await expect(fetchCountryViews()).resolves.toEqual({
-      status: "unavailable",
-      countries: [],
-    });
+    const result = await fetchCountryViews(TEAM_ID, "LAC");
+
+    expect(result).toEqual({ status: "unavailable", countries: [] });
+  });
+
+  it("skips failed Plausible calls and returns data from successful ones", async () => {
+    mockFetch(
+      { body: JOURNEY_IDS_RESPONSE(["journey-1", "journey-2"]) },
+      { body: { error: "not found" }, status: 404 },
+      { body: PLAUSIBLE_RESPONSE([{ country: "BR", pageviews: 20 }]) },
+    );
+
+    const result = await fetchCountryViews(TEAM_ID, "LAC");
+
+    expect(result.status).toBe("available");
+    if (result.status !== "available") return;
+    expect(result.countries).toHaveLength(1);
+    expect(result.countries[0]?.countryCode).toBe("BR");
   });
 });

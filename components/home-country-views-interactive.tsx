@@ -10,6 +10,7 @@ import type { CountryView } from "@/lib/country-views";
 import { getCountryDisplayName } from "@/lib/country-display";
 import { REGION_FOCUS } from "@/lib/map-focus";
 import {
+  aggregateByCountry,
   countryFill,
   formatViewsForLocale,
   supportedCountryCodes,
@@ -72,7 +73,7 @@ export function HomeCountryViewsInteractive({
   const selectedCountries = useMemo(
     () =>
       selection === "All"
-        ? countries
+        ? aggregateByCountry(countries)
         : countries.filter((country) => country.regionCode === selection),
     [countries, selection],
   );
@@ -83,7 +84,7 @@ export function HomeCountryViewsInteractive({
   const displayCountries = useMemo(
     () =>
       visualSelection === "All"
-        ? countries
+        ? aggregateByCountry(countries)
         : countries.filter((country) => country.regionCode === visualSelection),
     [countries, visualSelection],
   );
@@ -92,7 +93,7 @@ export function HomeCountryViewsInteractive({
       visualOutgoingSelection === null
         ? []
         : visualOutgoingSelection === "All"
-          ? countries
+          ? aggregateByCountry(countries)
           : countries.filter(
               (country) => country.regionCode === visualOutgoingSelection,
             ),
@@ -314,7 +315,7 @@ export function HomeCountryViewsInteractive({
             return (
               <li
                 key={`${visualSelection}-${visualOutgoingSelection ?? "none"}-${index}`}
-                className="relative mb-1.5 min-h-10 overflow-hidden rounded-[var(--radius-md)] border border-line bg-[rgb(12_10_8_/_0.42)] px-3 py-2 backdrop-blur-md transition-colors hover:border-[rgb(230_57_70_/_0.45)] hover:bg-[rgb(230_57_70_/_0.08)] md:h-[38.6px] md:min-h-0"
+                className={`relative mb-1.5 min-h-10 overflow-hidden rounded-[var(--radius-md)] border border-line bg-[rgb(12_10_8_/_0.42)] px-3 py-2 backdrop-blur-md transition-colors hover:border-[rgb(230_57_70_/_0.45)] hover:bg-[rgb(230_57_70_/_0.08)] md:h-[38.6px] md:min-h-0${!country && outgoingCountry ? " country-li-exit" : ""}`}
                 onMouseEnter={() => {
                   if (country) highlightCountry(country);
                 }}

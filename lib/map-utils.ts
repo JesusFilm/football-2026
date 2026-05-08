@@ -31,6 +31,20 @@ export function countryFill(value: number, maxValue: number) {
   return `rgba(230, 57, 70, ${opacity.toFixed(2)})`;
 }
 
+export function aggregateByCountry(countries: CountryView[]): CountryView[] {
+  const key = (c: CountryView) => c.countryCode ?? c.countryName;
+  const totals = new Map<string, number>();
+  const first = new Map<string, CountryView>();
+  for (const c of countries) {
+    const k = key(c);
+    totals.set(k, (totals.get(k) ?? 0) + c.journeyViews);
+    if (!first.has(k)) first.set(k, c);
+  }
+  return Array.from(totals.entries())
+    .map(([k, journeyViews]) => ({ ...first.get(k)!, journeyViews }))
+    .sort((a, b) => b.journeyViews - a.journeyViews);
+}
+
 export function toMapData(countries: CountryView[]): DataItem<number>[] {
   return countries
     .filter(

@@ -65,11 +65,13 @@ const countries = [
   ...Array.from({ length: 10 }, (_, index) => ({
     countryName: `LAC extra country ${index + 1}`,
     regionCode: "LAC",
+    countryCode: `L${index}`,
     journeyViews: index + 1,
   })),
   ...Array.from({ length: 9 }, (_, index) => ({
     countryName: `Extra country ${index + 1}`,
     regionCode: "NAmOceania",
+    countryCode: `N${index}`,
     journeyViews: index + 1,
   })),
 ];
@@ -80,7 +82,7 @@ describe("HomeCountryViewsInteractive", () => {
     vi.useRealTimers();
   });
 
-  it("starts with all countries and can filter to a region", () => {
+  it("starts with all countries and can filter to a region", async () => {
     vi.useFakeTimers();
 
     renderWithIntl(
@@ -92,7 +94,7 @@ describe("HomeCountryViewsInteractive", () => {
     expect(screen.queryByText("Mapped")).not.toBeInTheDocument();
     expect(screen.getByText("Top country")).toBeInTheDocument();
     expect(screen.getByText("LAC extra country 8")).toBeInTheDocument();
-    expect(screen.queryByText("LAC extra country 9")).not.toBeInTheDocument();
+    expect(screen.queryByText("Extra country 6")).not.toBeInTheDocument();
     expect(screen.queryByText("Extra country 1")).not.toBeInTheDocument();
     expect(
       screen
@@ -124,16 +126,28 @@ describe("HomeCountryViewsInteractive", () => {
           element.parentElement?.classList.contains("country-row-exit"),
         ),
     ).toBe(true);
-    expect(screen.getByText("LAC extra country 9").parentElement).toHaveClass(
-      "country-row-enter",
-    );
+    expect(
+      screen
+        .getAllByText("LAC extra country 9")
+        .some((el) =>
+          el.parentElement?.classList.contains("country-row-enter"),
+        ),
+    ).toBe(true);
 
-    act(() => {
+    await act(async () => {
       vi.advanceTimersByTime(1150);
     });
 
-    expect(screen.getByText("LAC extra country 9")).toBeInTheDocument();
-    expect(screen.queryByText("LAC extra country 10")).not.toBeInTheDocument();
+    expect(screen.getAllByText("LAC extra country 9").length).toBeGreaterThan(
+      0,
+    );
+    expect(
+      screen
+        .queryAllByText("LAC extra country 10")
+        .every((el) =>
+          el.parentElement?.classList.contains("country-row-exit"),
+        ),
+    ).toBe(true);
   });
 
   it("automatically advances through region selections", () => {

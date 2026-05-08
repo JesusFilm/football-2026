@@ -147,7 +147,9 @@
     "viewsUnavailableLabel": "views دستیاب نہیں",
     "viewsUnavailableBody": "ملکی سطح کا view data ابھی لوڈ نہیں ہو سکا۔",
     "noViewsLabel": "ابھی کوئی ملک views نہیں",
-    "noViewsBody": "{regionName} کے لیے ابھی ملکی سطح کے views دستیاب نہیں ہیں۔"
+    "noViewsBody": "{regionName} کے لیے ابھی ملکی سطح کے views دستیاب نہیں ہیں۔",
+    "sourceOriginal": "سب",
+    "sourceLive": "فٹبال2026"
   },
   "SharePanel": {
     "chooseLanguage": "زبان منتخب کریں",

@@ -62,7 +62,8 @@ describe("CountryViewsSection lazy loading", () => {
       <CountryViewsSection
         regionName="North America & Oceania"
         regionCode="NAmOceania"
-        countries={countries}
+        jsonbinCountries={countries}
+        plausibleCountries={[]}
       />,
     );
 
@@ -92,7 +93,8 @@ describe("CountryViewsSection lazy loading", () => {
       <CountryViewsSection
         regionName="East Asia"
         regionCode="East Asia"
-        countries={[]}
+        jsonbinCountries={[]}
+        plausibleCountries={[]}
       />,
     );
 
@@ -110,7 +112,8 @@ describe("CountryViewsSection lazy loading", () => {
       <CountryViewsSection
         regionName="East Asia"
         regionCode="East Asia"
-        countries={[]}
+        jsonbinCountries={[]}
+        plausibleCountries={[]}
         unavailable
       />,
     );

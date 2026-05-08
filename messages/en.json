@@ -147,7 +147,9 @@
     "viewsUnavailableLabel": "Views unavailable",
     "viewsUnavailableBody": "Country view data could not be loaded right now.",
     "noViewsLabel": "No country views yet",
-    "noViewsBody": "No country-level views are available for {regionName} yet."
+    "noViewsBody": "No country-level views are available for {regionName} yet.",
+    "sourceOriginal": "All",
+    "sourceLive": "Football2026"
   },
   "SharePanel": {
     "chooseLanguage": "Choose a Language",

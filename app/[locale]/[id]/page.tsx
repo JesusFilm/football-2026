@@ -9,7 +9,10 @@ import { RegionHero } from "@/components/region-hero";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 import { StadiumBg } from "@/components/stadium-bg";
-import { fetchCountryViews } from "@/lib/country-views";
+import {
+  fetchAllCountryViews,
+  fetchAllCountryViewsFromJsonBin,
+} from "@/lib/country-views";
 import { getLocaleOption, type Locale } from "@/i18n/routing";
 import { fetchJourneys } from "@/lib/journeys";
 import {
@@ -78,20 +81,26 @@ export default async function RegionPage({ params }: Props) {
   ]);
   if (!region) notFound();
 
-  const [journeysResult, countryViewsResult] = await Promise.allSettled([
-    fetchJourneys(region.teamId),
-    fetchCountryViews(),
-  ]);
+  const [journeysResult, jsonbinResult, plausibleResult] =
+    await Promise.allSettled([
+      fetchJourneys(region.teamId),
+      fetchAllCountryViewsFromJsonBin(),
+      fetchAllCountryViews(),
+    ]);
   const journeys =
     journeysResult.status === "fulfilled" ? journeysResult.value : [];
-  const resolvedCountryViewsResult =
-    countryViewsResult.status === "fulfilled"
-      ? countryViewsResult.value
-      : { status: "unavailable" as const, countries: [] };
-  const allCountryViews =
-    resolvedCountryViewsResult.status === "available"
-      ? resolvedCountryViewsResult.countries
+  const jsonbinCountries =
+    jsonbinResult.status === "fulfilled" &&
+    jsonbinResult.value.status === "available"
+      ? jsonbinResult.value.countries
       : [];
+  const plausibleCountries =
+    plausibleResult.status === "fulfilled" &&
+    plausibleResult.value.status === "available"
+      ? plausibleResult.value.countries
+      : [];
+  const unavailable =
+    jsonbinCountries.length === 0 && plausibleCountries.length === 0;
   const pageSchema = {
     "@context": "https://schema.org",
     "@graph": [
@@ -147,9 +156,10 @@ export default async function RegionPage({ params }: Props) {
           regionName={region.name}
           regionCode={region.code}
           regionDisplayCode={region.displayCode}
-          countries={allCountryViews}
+          jsonbinCountries={jsonbinCountries}
+          plausibleCountries={plausibleCountries}
           hideHeader
-          unavailable={resolvedCountryViewsResult.status === "unavailable"}
+          unavailable={unavailable}
         />
 
         <OtherRegionsNav currentRegionId={region.id} regions={regions} />

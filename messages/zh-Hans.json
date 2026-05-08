@@ -147,7 +147,9 @@
     "viewsUnavailableLabel": "观看数据不可用",
     "viewsUnavailableBody": "目前无法加载国家观看数据。",
     "noViewsLabel": "还没有国家观看数据",
-    "noViewsBody": "{regionName} 目前还没有国家级观看数据。"
+    "noViewsBody": "{regionName} 目前还没有国家级观看数据。",
+    "sourceOriginal": "全部",
+    "sourceLive": "足球2026"
   },
   "SharePanel": {
     "chooseLanguage": "选择语言",

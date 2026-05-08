@@ -147,7 +147,9 @@
     "viewsUnavailableLabel": "views उपलब्ध नहीं",
     "viewsUnavailableBody": "देश-स्तरीय view डेटा अभी लोड नहीं हो सका।",
     "noViewsLabel": "अभी कोई देश views नहीं",
-    "noViewsBody": "{regionName} के लिए अभी देश-स्तरीय views उपलब्ध नहीं हैं।"
+    "noViewsBody": "{regionName} के लिए अभी देश-स्तरीय views उपलब्ध नहीं हैं।",
+    "sourceOriginal": "सभी",
+    "sourceLive": "फ़ुटबॉल2026"
   },
   "SharePanel": {
     "chooseLanguage": "भाषा चुनें",

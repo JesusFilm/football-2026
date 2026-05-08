@@ -147,7 +147,9 @@
     "viewsUnavailableLabel": "Views tidak tersedia",
     "viewsUnavailableBody": "Data views per negara belum dapat dimuat saat ini.",
     "noViewsLabel": "Belum ada views per negara",
-    "noViewsBody": "Belum ada views tingkat negara untuk {regionName}."
+    "noViewsBody": "Belum ada views tingkat negara untuk {regionName}.",
+    "sourceOriginal": "Semua",
+    "sourceLive": "Sepakbola2026"
   },
   "SharePanel": {
     "chooseLanguage": "Pilih Bahasa",
