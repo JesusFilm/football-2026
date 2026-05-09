@@ -40,9 +40,11 @@ function supportsDesktopHover(): boolean {
 export function HomeCountryViewsInteractive({
   regions,
   countries,
-  initialSelection = "All",
+  initialSelection,
   countryListLimit = COUNTRY_LIST_LIMIT,
 }: Props) {
+  const defaultSelection: Selection = regions[0]?.code ?? "All";
+  initialSelection ??= defaultSelection;
   const locale = useLocale();
   const t = useTranslations("CountryViews");
   const prefersReducedMotion = useReducedMotion();
