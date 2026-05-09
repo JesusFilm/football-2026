@@ -86,7 +86,11 @@ describe("HomeCountryViewsInteractive", () => {
     vi.useFakeTimers();
 
     renderWithIntl(
-      <HomeCountryViewsInteractive regions={REGIONS} countries={countries} />,
+      <HomeCountryViewsInteractive
+        regions={REGIONS}
+        countries={countries}
+        initialSelection="All"
+      />,
     );
 
     expect(screen.getByTestId("world-map")).toHaveTextContent('"country":"us"');
@@ -154,7 +158,11 @@ describe("HomeCountryViewsInteractive", () => {
     vi.useFakeTimers();
 
     renderWithIntl(
-      <HomeCountryViewsInteractive regions={REGIONS} countries={countries} />,
+      <HomeCountryViewsInteractive
+        regions={REGIONS}
+        countries={countries}
+        initialSelection="All"
+      />,
     );
 
     expect(screen.getByTestId("world-map")).toHaveTextContent('"country":"mx"');
@@ -244,7 +252,9 @@ describe("HomeCountryViewsInteractive", () => {
       vi.advanceTimersByTime(6000);
     });
 
-    expect(screen.getByTestId("world-map")).toHaveTextContent('"country":"mx"');
+    expect(
+      screen.queryByTestId("auto-advance-progress"),
+    ).not.toBeInTheDocument();
 
     fireEvent.click(screen.getByRole("button", { name: "LAC" }));
 
