@@ -5,7 +5,7 @@
 
 ## Problem & Value
 
-Three concurrent activations need surface area on the campaign microsite ahead of the May 28 launch call:
+Three concurrent activations need surface area on the campaign microsite ahead of the June 1 launch call:
 
 1. A **hero launch video** to give visitors a 30-second emotional onramp before they scroll into the region grid.
 2. A **Zoom launch event card** to convert interested partners into registrants for the kickoff call.
@@ -25,7 +25,7 @@ Three concurrent activations need surface area on the campaign microsite ahead o
 ### Addition 2 — Zoom launch event card (`components/home-launch-event.tsx`)
 
 - Slot below `<HomeRegionGrid />` and above the country views `<Suspense>`.
-- Event: World Cup 2026 Activation launch call, Thursday May 28, 2026, 9:00 AM EST, 60 min.
+- Event: World Cup 2026 Activation launch call, Monday June 1, 2026, 9:00 AM EST, 60 min.
 - Registration URL (new tab, `rel="noopener noreferrer"`): `https://staffweb.zoom.us/meeting/register/E9vxp8T5TLmyfii4gh8SXw`.
 - Meeting ID `963 3748 1824` shown for reference.
 - Stable values (URL, ID, ISO date, time, duration) live in `lib/launch-event.ts` — out of translations per AGENTS.md.
