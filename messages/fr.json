@@ -11,7 +11,10 @@
     "homeSchemaName": "Coupe du monde 2026 · Activez votre région",
     "breadcrumbAllRegions": "Toutes les régions",
     "regionTitle": "Activez {regionName}",
-    "fallbackRegionTitle": "Région"
+    "fallbackRegionTitle": "Région",
+    "resourcesTitle": "Resources — World Cup 2026 Activation",
+    "resourcesDescription": "The complete outreach toolkit for the World Cup 2026 — ready-to-use journeys, customizable videos, and physical kits.",
+    "resourcesSchemaName": "World Cup 2026 · Resources"
   },
   "Home": {
     "eyebrow": "Coupe du monde 2026 · Rayonnement",
@@ -193,12 +196,135 @@
   },
   "Header": {
     "homeAria": "Jesus Film Project — accueil",
-    "logoAlt": "Jesus Film Project"
+    "logoAlt": "Jesus Film Project",
+    "resources": "Resources"
   },
   "LanguagePicker": {
     "label": "Langue",
     "ariaLabel": "Changer de langue",
     "currentLanguage": "Langue actuelle : {language}",
     "menuLabel": "Choisir une langue"
+  },
+  "HomeLaunchVideo": {
+    "eyebrow": "Watch",
+    "heading": "See the heart of the activation.",
+    "iframeTitle": "World Cup 2026 launch video"
+  },
+  "HomeLaunchEvent": {
+    "eyebrow": "Global launch call",
+    "heading": "Walk through the toolkit together.",
+    "body": "Join Jesus Film Project, partners, and ministry leaders worldwide for a live briefing. Hear the vision, see the resources in action, and leave with your launch plan.",
+    "cta": "Register on Zoom",
+    "dateLabel": "Date",
+    "dateValue": "Monday, June 1, 2026",
+    "timeLabel": "Time",
+    "timeValue": "9:00 AM EST",
+    "durationLabel": "Duration",
+    "durationValue": "60 minutes",
+    "meetingIdLabel": "Meeting ID"
+  },
+  "Resources": {
+    "eyebrow": "The toolkit",
+    "tagline": "Every match, every nation, every soul.",
+    "title": "Resources for the moment.",
+    "description": "Everything is free and built for the 39 days of the World Cup. Take what fits your team and run with it.",
+    "categories": {
+      "readyToUse": {
+        "heading": "Ready-to-Use",
+        "body": "Copy, share, done. No editing required — text these to seekers and new believers today."
+      },
+      "customizable": {
+        "heading": "Customizable",
+        "body": "Templates, dubbing kits, and source files. Adapt them to your language, your audience, your moment."
+      },
+      "physicalKits": {
+        "heading": "Physical Kits",
+        "body": "Tangible tools for watch parties, sports evangelism, and ministry teams on the ground."
+      }
+    },
+    "languageCountLabel": "{count} languages",
+    "openCta": "Open resource",
+    "items": {
+      "prayforawin": {
+        "title": "PrayForAWin.com",
+        "blurb": "A simple link to share a Gospel presentation with a live-chat mentor option built in."
+      },
+      "when-everything": {
+        "title": "When Everything is On the Line",
+        "blurb": "A soccer-themed digital journey for people exploring their instinct to pray in moments of fear or uncertainty."
+      },
+      "where-you-belong": {
+        "title": "Where You Belong",
+        "blurb": "Mobile-friendly follow-up with a one-minute video on personal value to Jesus — available in 76 languages."
+      },
+      "i-belong-jesus": {
+        "title": "I Belong to Jesus",
+        "blurb": "A six-day YouVersion devotional by Kaká on finding identity in Christ."
+      },
+      "kingdom-playmaker": {
+        "title": "Kingdom Playmaker: Living With Intention",
+        "blurb": "A five-day YouVersion plan by Eyong Enoh on discovering your God-given identity."
+      },
+      "fully-his": {
+        "title": "Fully His: The Power of Daily Surrender",
+        "blurb": "A six-day YouVersion plan by Jonathan Mensah on surrendering every area of life to God."
+      },
+      "tools-transformation": {
+        "title": "Tools for Transformation",
+        "blurb": "A five-day YouVersion plan by Lucas Moura on spiritual habits and character."
+      },
+      "nextsteps-templates": {
+        "title": "NextSteps Journey Templates",
+        "blurb": "Build sports-themed digital journeys with images, videos, quizzes, Bible verses, and prayer prompts."
+      },
+      "hope-ball-not-enough": {
+        "title": "When You Feel Like You're Not Enough",
+        "blurb": "A dubbing kit on the emotional journey of pursuing a goal — and the impact of failure."
+      },
+      "hope-ball-joy-gone": {
+        "title": "When the Joy is Gone",
+        "blurb": "A dubbing kit that contrasts the fleeting joy of winning with the lasting victory Jesus won on the cross."
+      },
+      "praying-hands-prayer": {
+        "title": "Praying Hands",
+        "blurb": "A one-minute dubbing kit on how we all instinctively pray in moments of fear or uncertainty."
+      },
+      "praying-hands-talk-jesus": {
+        "title": "You Can Talk to Jesus",
+        "blurb": "A sports-themed dubbing kit with a voiceover Gospel presentation."
+      },
+      "ultimate-coach": {
+        "title": "The Ultimate Coach",
+        "blurb": "A one-minute Gospel presentation using sports, coaching, and game plans as the entry point."
+      },
+      "most-asked-questions": {
+        "title": "The Most Asked Questions Online",
+        "blurb": "A sports-themed dubbing kit on our deepest curiosity — leading to questions about Jesus."
+      },
+      "after-the-win": {
+        "title": "After the Win",
+        "blurb": "A reflective dubbing kit to set up conversations after the game — perfect for follow-up."
+      },
+      "print-collection": {
+        "title": "Print & other resources",
+        "blurb": "Printable materials, invitations, and miscellaneous assets to help you share videos and the Gospel."
+      },
+      "all-videos": {
+        "title": "All videos — Global Football collection",
+        "blurb": "The full collection of sports-themed films you can use to spark Gospel conversations."
+      },
+      "watch-party-kit": {
+        "title": "Watch Party Kit",
+        "blurb": "Host guides, bracket, recipes, and a soccer ball — everything you need for a home or church gathering."
+      },
+      "movement-maker-kit": {
+        "title": "Movement Maker Kit",
+        "blurb": "Two soccer balls, 100 wristbands, Bibles, and a kit manual — built for global ministry teams."
+      },
+      "jesus-loves-you-ball": {
+        "title": "Jesus Loves You Ball",
+        "blurb": "A sports evangelism tool with four symbols designed for cultural sensitivity in any context."
+      }
+    }
   }
 }
