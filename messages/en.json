@@ -228,13 +228,16 @@
     "durationValue": "60 minutes",
     "whereLabel": "Where",
     "whereValue": "Zoom",
-    "addToCalendar": "Add to calendar",
+    "addToCalendar": "Apple Calendar",
     "toolkitLink": "Toolkit and resources",
     "shareLink": "Share link",
     "shareSubject": "Join the World Cup 2026 launch call",
     "shareBody": "Register for the World Cup 2026 Activation launch call on Monday, June 1 at 9:00 AM ET:",
     "calendarTitle": "World Cup 2026 Activation — Launch Call",
-    "calendarDescription": "Live briefing from Jesus Film Project on the World Cup 2026 outreach toolkit, digital strategy, and how to activate your region. Register at"
+    "calendarDescription": "Live briefing from Jesus Film Project on the World Cup 2026 outreach toolkit, digital strategy, and how to activate your region.",
+    "googleCalendar": "Google Calendar",
+    "calendarRegisterLabel": "Register",
+    "calendarMeetingIdLabel": "Meeting ID"
   },
   "Resources": {
     "eyebrow": "The toolkit",

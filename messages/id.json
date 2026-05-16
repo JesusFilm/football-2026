@@ -197,11 +197,11 @@
   "Header": {
     "homeAria": "Jesus Film Project — beranda",
     "logoAlt": "Jesus Film Project",
-    "home": "Home",
-    "resources": "Resources",
+    "home": "Beranda",
+    "resources": "Sumber Daya",
     "menuLabel": "Menu",
-    "menuOpenLabel": "Open menu",
-    "menuCloseLabel": "Close menu"
+    "menuOpenLabel": "Buka menu",
+    "menuCloseLabel": "Tutup menu"
   },
   "LanguagePicker": {
     "label": "Bahasa",
@@ -210,53 +210,56 @@
     "menuLabel": "Pilih bahasa"
   },
   "HomeLaunchVideo": {
-    "eyebrow": "Watch",
-    "heading": "See the heart of the activation.",
-    "iframeTitle": "World Cup 2026 launch video"
+    "eyebrow": "Tonton",
+    "heading": "Lihat inti dari aktivasi ini.",
+    "iframeTitle": "Video peluncuran Piala Dunia 2026"
   },
   "HomeLaunchEvent": {
-    "pill": "Live briefing",
-    "heading": "Walk through the toolkit together.",
-    "body": "Join Jesus Film Project, partners, and ministry leaders worldwide for a live briefing. Hear the vision, see the resources in action, and leave with your launch plan.",
-    "cta": "Register on Zoom",
-    "freeCaption": "Free. Confirmation and join link sent by Zoom after you register.",
-    "dateLabel": "Date",
-    "dateValue": "Monday, June 1, 2026",
-    "timeLabel": "Time",
-    "timeValue": "9:00 AM EST",
-    "durationLabel": "Duration",
-    "durationValue": "60 minutes",
-    "whereLabel": "Where",
+    "pill": "Briefing langsung",
+    "heading": "Mari telusuri perlengkapan ini bersama.",
+    "body": "Satu jam. Seluruh visi. Dengarkan bagaimana Jesus Film Project, mitra, dan para pemimpin pelayanan di seluruh dunia mengaktifkan momen ini — dan pulanglah dengan rencana peluncuran untuk wilayah Anda.",
+    "cta": "Daftar di Zoom",
+    "freeCaption": "Gratis. Konfirmasi dan tautan bergabung dikirim oleh Zoom setelah Anda mendaftar.",
+    "dateLabel": "Tanggal",
+    "dateValue": "Sen, 1 Jun 2026",
+    "timeLabel": "Waktu",
+    "timeValue": "9:00 ET",
+    "durationLabel": "Durasi",
+    "durationValue": "60 menit",
+    "whereLabel": "Tempat",
     "whereValue": "Zoom",
-    "addToCalendar": "Add to calendar",
-    "toolkitLink": "Toolkit and resources",
-    "shareLink": "Share link",
-    "shareSubject": "Join the World Cup 2026 launch call",
-    "shareBody": "Register for the World Cup 2026 Activation launch call on Monday, June 1 at 9:00 AM ET:",
-    "calendarTitle": "World Cup 2026 Activation — Launch Call",
-    "calendarDescription": "Live briefing from Jesus Film Project on the World Cup 2026 outreach toolkit, digital strategy, and how to activate your region. Register at"
+    "addToCalendar": "Kalender Apple",
+    "toolkitLink": "Perlengkapan dan sumber daya",
+    "shareLink": "Bagikan tautan",
+    "shareSubject": "Ikuti panggilan peluncuran Piala Dunia 2026",
+    "shareBody": "Daftar untuk panggilan peluncuran Aktivasi Piala Dunia 2026 pada Senin, 1 Juni pukul 9:00 ET:",
+    "calendarTitle": "Aktivasi Piala Dunia 2026 — Panggilan peluncuran",
+    "calendarDescription": "Briefing langsung Jesus Film Project tentang perlengkapan penjangkauan Piala Dunia 2026, strategi digital, dan cara mengaktifkan wilayah Anda.",
+    "googleCalendar": "Google Calendar",
+    "calendarRegisterLabel": "Pendaftaran",
+    "calendarMeetingIdLabel": "ID rapat"
   },
   "Resources": {
-    "eyebrow": "The toolkit",
-    "tagline": "Every match, every nation, every soul.",
-    "title": "Resources for the moment.",
-    "description": "Everything is free and built for the 39 days of the World Cup. Take what fits your team and run with it.",
+    "eyebrow": "Perlengkapan",
+    "tagline": "Setiap pertandingan, setiap bangsa, setiap jiwa.",
+    "title": "Sumber daya untuk momen ini.",
+    "description": "Semua gratis dan dirancang untuk 39 hari Piala Dunia. Ambil yang cocok untuk tim Anda dan jalankan.",
     "categories": {
       "readyToUse": {
-        "heading": "Ready-to-Use",
-        "body": "Copy, share, done. No editing required — text these to seekers and new believers today."
+        "heading": "Siap pakai",
+        "body": "Salin, bagikan, selesai. Tanpa pengeditan — kirim hari ini juga kepada pencari dan orang percaya baru."
       },
       "customizable": {
-        "heading": "Customizable",
-        "body": "Templates, dubbing kits, and source files. Adapt them to your language, your audience, your moment."
+        "heading": "Dapat disesuaikan",
+        "body": "Templat, kit sulih suara, dan berkas sumber — sesuaikan dengan bahasa, audiens, dan momen Anda."
       },
       "physicalKits": {
-        "heading": "Physical Kits",
-        "body": "Tangible tools for watch parties, sports evangelism, and ministry teams on the ground."
+        "heading": "Kit fisik",
+        "body": "Alat nyata untuk watch party, penginjilan olahraga, dan tim pelayanan di lapangan."
       }
     },
-    "languageCountLabel": "{count} languages",
-    "openCta": "Open resource",
+    "languageCountLabel": "bahasa",
+    "openCta": "Buka sumber daya",
     "items": {
       "prayforawin": {
         "title": "PrayForAWin.com",

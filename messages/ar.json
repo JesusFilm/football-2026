@@ -197,11 +197,11 @@
   "Header": {
     "homeAria": "Jesus Film Project — الصفحة الرئيسية",
     "logoAlt": "Jesus Film Project",
-    "home": "Home",
-    "resources": "Resources",
-    "menuLabel": "Menu",
-    "menuOpenLabel": "Open menu",
-    "menuCloseLabel": "Close menu"
+    "home": "الرئيسية",
+    "resources": "الموارد",
+    "menuLabel": "القائمة",
+    "menuOpenLabel": "فتح القائمة",
+    "menuCloseLabel": "إغلاق القائمة"
   },
   "LanguagePicker": {
     "label": "اللغة",
@@ -210,53 +210,56 @@
     "menuLabel": "اختر لغة"
   },
   "HomeLaunchVideo": {
-    "eyebrow": "Watch",
-    "heading": "See the heart of the activation.",
-    "iframeTitle": "World Cup 2026 launch video"
+    "eyebrow": "شاهد",
+    "heading": "اقترب من قلب هذه الفعالية.",
+    "iframeTitle": "فيديو انطلاق كأس العالم 2026"
   },
   "HomeLaunchEvent": {
-    "pill": "Live briefing",
-    "heading": "Walk through the toolkit together.",
-    "body": "Join Jesus Film Project, partners, and ministry leaders worldwide for a live briefing. Hear the vision, see the resources in action, and leave with your launch plan.",
-    "cta": "Register on Zoom",
-    "freeCaption": "Free. Confirmation and join link sent by Zoom after you register.",
-    "dateLabel": "Date",
-    "dateValue": "Monday, June 1, 2026",
-    "timeLabel": "Time",
-    "timeValue": "9:00 AM EST",
-    "durationLabel": "Duration",
-    "durationValue": "60 minutes",
-    "whereLabel": "Where",
+    "pill": "إحاطة مباشرة",
+    "heading": "نتعرّف على الأدوات معًا.",
+    "body": "ساعة واحدة. الرؤية كاملة. اسمع كيف يُفعِّل مشروع جيسس فيلم وشركاؤه وقادة الخدمة حول العالم هذه اللحظة — واخرج بخطة الإطلاق لمنطقتك.",
+    "cta": "سجّل في Zoom",
+    "freeCaption": "مجانًا. سيرسل Zoom التأكيد ورابط الانضمام بعد التسجيل.",
+    "dateLabel": "التاريخ",
+    "dateValue": "الإثنين، 1 يونيو 2026",
+    "timeLabel": "الوقت",
+    "timeValue": "9:00 صباحًا بتوقيت شرق أمريكا",
+    "durationLabel": "المدة",
+    "durationValue": "60 دقيقة",
+    "whereLabel": "المكان",
     "whereValue": "Zoom",
-    "addToCalendar": "Add to calendar",
-    "toolkitLink": "Toolkit and resources",
-    "shareLink": "Share link",
-    "shareSubject": "Join the World Cup 2026 launch call",
-    "shareBody": "Register for the World Cup 2026 Activation launch call on Monday, June 1 at 9:00 AM ET:",
-    "calendarTitle": "World Cup 2026 Activation — Launch Call",
-    "calendarDescription": "Live briefing from Jesus Film Project on the World Cup 2026 outreach toolkit, digital strategy, and how to activate your region. Register at"
+    "addToCalendar": "تقويم Apple",
+    "toolkitLink": "الأدوات والموارد",
+    "shareLink": "مشاركة الرابط",
+    "shareSubject": "انضم إلى لقاء انطلاق كأس العالم 2026",
+    "shareBody": "سجّل لحضور لقاء انطلاق تفعيل كأس العالم 2026 يوم الإثنين 1 يونيو الساعة 9:00 صباحًا بتوقيت شرق أمريكا:",
+    "calendarTitle": "تفعيل كأس العالم 2026 — لقاء الانطلاق",
+    "calendarDescription": "إحاطة مباشرة من مشروع جيسس فيلم حول أدوات كأس العالم 2026، والاستراتيجية الرقمية، وكيفية تفعيل منطقتك.",
+    "googleCalendar": "تقويم Google",
+    "calendarRegisterLabel": "التسجيل",
+    "calendarMeetingIdLabel": "معرّف الاجتماع"
   },
   "Resources": {
-    "eyebrow": "The toolkit",
-    "tagline": "Every match, every nation, every soul.",
-    "title": "Resources for the moment.",
-    "description": "Everything is free and built for the 39 days of the World Cup. Take what fits your team and run with it.",
+    "eyebrow": "الأدوات",
+    "tagline": "كل مباراة، كل أمة، كل نفس.",
+    "title": "موارد لهذه اللحظة.",
+    "description": "كل شيء مجاني ومصمم لـ39 يومًا من كأس العالم. خذ ما يناسب فريقك وابدأ.",
     "categories": {
       "readyToUse": {
-        "heading": "Ready-to-Use",
-        "body": "Copy, share, done. No editing required — text these to seekers and new believers today."
+        "heading": "جاهزة للاستخدام",
+        "body": "انسخ، شارك، انتهيت. لا حاجة للتعديل — أرسلها اليوم للباحثين والمؤمنين الجدد."
       },
       "customizable": {
-        "heading": "Customizable",
-        "body": "Templates, dubbing kits, and source files. Adapt them to your language, your audience, your moment."
+        "heading": "قابلة للتخصيص",
+        "body": "قوالب وأطقم دبلجة وملفات مصدرية — كيِّفها مع لغتك وجمهورك ولحظتك."
       },
       "physicalKits": {
-        "heading": "Physical Kits",
-        "body": "Tangible tools for watch parties, sports evangelism, and ministry teams on the ground."
+        "heading": "أطقم فعلية",
+        "body": "أدوات ملموسة للقاءات المشاهدة، والتبشير الرياضي، وفرق الخدمة على الأرض."
       }
     },
-    "languageCountLabel": "{count} languages",
-    "openCta": "Open resource",
+    "languageCountLabel": "لغة",
+    "openCta": "افتح المورد",
     "items": {
       "prayforawin": {
         "title": "PrayForAWin.com",

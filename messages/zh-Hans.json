@@ -197,11 +197,11 @@
   "Header": {
     "homeAria": "Jesus Film Project — 首页",
     "logoAlt": "Jesus Film Project",
-    "home": "Home",
-    "resources": "Resources",
-    "menuLabel": "Menu",
-    "menuOpenLabel": "Open menu",
-    "menuCloseLabel": "Close menu"
+    "home": "首页",
+    "resources": "资源",
+    "menuLabel": "菜单",
+    "menuOpenLabel": "打开菜单",
+    "menuCloseLabel": "关闭菜单"
   },
   "LanguagePicker": {
     "label": "语言",
@@ -210,53 +210,56 @@
     "menuLabel": "选择语言"
   },
   "HomeLaunchVideo": {
-    "eyebrow": "Watch",
-    "heading": "See the heart of the activation.",
-    "iframeTitle": "World Cup 2026 launch video"
+    "eyebrow": "观看",
+    "heading": "走进这次激活的核心。",
+    "iframeTitle": "2026 世界杯启动视频"
   },
   "HomeLaunchEvent": {
-    "pill": "Live briefing",
-    "heading": "Walk through the toolkit together.",
-    "body": "Join Jesus Film Project, partners, and ministry leaders worldwide for a live briefing. Hear the vision, see the resources in action, and leave with your launch plan.",
-    "cta": "Register on Zoom",
-    "freeCaption": "Free. Confirmation and join link sent by Zoom after you register.",
-    "dateLabel": "Date",
-    "dateValue": "Monday, June 1, 2026",
-    "timeLabel": "Time",
-    "timeValue": "9:00 AM EST",
-    "durationLabel": "Duration",
-    "durationValue": "60 minutes",
-    "whereLabel": "Where",
+    "pill": "现场简报",
+    "heading": "我们一起走一遍工具包。",
+    "body": "一小时。完整的异象。听听 Jesus Film Project、合作伙伴以及全球各地的事工领袖如何把握这个时刻——并带走专属于你所在地区的启动计划。",
+    "cta": "在 Zoom 上注册",
+    "freeCaption": "免费。注册后 Zoom 会发送确认信和加入链接。",
+    "dateLabel": "日期",
+    "dateValue": "2026 年 6 月 1 日(周一)",
+    "timeLabel": "时间",
+    "timeValue": "美东时间 上午 9:00",
+    "durationLabel": "时长",
+    "durationValue": "60 分钟",
+    "whereLabel": "地点",
     "whereValue": "Zoom",
-    "addToCalendar": "Add to calendar",
-    "toolkitLink": "Toolkit and resources",
-    "shareLink": "Share link",
-    "shareSubject": "Join the World Cup 2026 launch call",
-    "shareBody": "Register for the World Cup 2026 Activation launch call on Monday, June 1 at 9:00 AM ET:",
-    "calendarTitle": "World Cup 2026 Activation — Launch Call",
-    "calendarDescription": "Live briefing from Jesus Film Project on the World Cup 2026 outreach toolkit, digital strategy, and how to activate your region. Register at"
+    "addToCalendar": "Apple 日历",
+    "toolkitLink": "工具包与资源",
+    "shareLink": "分享链接",
+    "shareSubject": "一起加入 2026 世界杯启动呼召",
+    "shareBody": "报名参加 2026 世界杯激活启动呼召,周一 6 月 1 日 美东时间上午 9:00:",
+    "calendarTitle": "2026 世界杯激活 — 启动呼召",
+    "calendarDescription": "Jesus Film Project 关于 2026 世界杯外展工具包、数字策略以及如何激活你所在地区的现场简报。",
+    "googleCalendar": "Google 日历",
+    "calendarRegisterLabel": "报名",
+    "calendarMeetingIdLabel": "会议 ID"
   },
   "Resources": {
-    "eyebrow": "The toolkit",
-    "tagline": "Every match, every nation, every soul.",
-    "title": "Resources for the moment.",
-    "description": "Everything is free and built for the 39 days of the World Cup. Take what fits your team and run with it.",
+    "eyebrow": "工具包",
+    "tagline": "每一场比赛,每一个国家,每一个灵魂。",
+    "title": "为此刻准备的资源。",
+    "description": "所有内容免费,专为世界杯 39 天而设计。选用适合你团队的内容,开始行动。",
     "categories": {
       "readyToUse": {
-        "heading": "Ready-to-Use",
-        "body": "Copy, share, done. No editing required — text these to seekers and new believers today."
+        "heading": "即拿即用",
+        "body": "复制、分享、搞定。无需编辑——今天就可以发给寻道者和新信徒。"
       },
       "customizable": {
-        "heading": "Customizable",
-        "body": "Templates, dubbing kits, and source files. Adapt them to your language, your audience, your moment."
+        "heading": "可定制",
+        "body": "模板、配音包和源文件——按语言、受众和时机进行调整。"
       },
       "physicalKits": {
-        "heading": "Physical Kits",
-        "body": "Tangible tools for watch parties, sports evangelism, and ministry teams on the ground."
+        "heading": "实物礼包",
+        "body": "用于观赛聚会、运动福音和一线宣教队的实物工具。"
       }
     },
-    "languageCountLabel": "{count} languages",
-    "openCta": "Open resource",
+    "languageCountLabel": "种语言",
+    "openCta": "打开资源",
     "items": {
       "prayforawin": {
         "title": "PrayForAWin.com",

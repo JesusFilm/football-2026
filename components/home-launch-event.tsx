@@ -139,9 +139,27 @@ const SHARE_ICON = (
   </svg>
 );
 
+// Shared event-details helper so iCal (.ics) and Google Calendar links
+// surface identical information: the localized description, plus the
+// registration URL and Meeting ID for at-a-glance reference.
+function buildEventDetails(opts: {
+  description: string;
+  url: string;
+  meetingId: string;
+  registerLabel: string;
+  meetingIdLabel: string;
+}) {
+  return [
+    opts.description,
+    "",
+    `${opts.registerLabel}: ${opts.url}`,
+    `${opts.meetingIdLabel}: ${opts.meetingId}`,
+  ].join("\n");
+}
+
 function buildIcsDataUri(opts: {
   title: string;
-  description: string;
+  details: string;
   startIso: string;
   durationMinutes: number;
   url: string;
@@ -168,7 +186,7 @@ function buildIcsDataUri(opts: {
     `DTSTART:${fmt(start)}`,
     `DTEND:${fmt(end)}`,
     `SUMMARY:${escape(opts.title)}`,
-    `DESCRIPTION:${escape(`${opts.description} ${opts.url}`)}`,
+    `DESCRIPTION:${escape(opts.details)}`,
     `URL:${opts.url}`,
     "LOCATION:Zoom",
     "END:VEVENT",
@@ -177,15 +195,53 @@ function buildIcsDataUri(opts: {
   return `data:text/calendar;charset=utf-8,${encodeURIComponent(ics)}`;
 }
 
+// Google Calendar pre-fill URL.
+// Reference: https://stackoverflow.com/a/21653600 — Google's "render?action=TEMPLATE"
+// endpoint is undocumented but stable; it accepts text, dates, details, location.
+function buildGoogleCalendarUrl(opts: {
+  title: string;
+  details: string;
+  startIso: string;
+  durationMinutes: number;
+}) {
+  const start = new Date(opts.startIso);
+  const end = new Date(start.getTime() + opts.durationMinutes * 60 * 1000);
+  const fmt = (d: Date) =>
+    `${d.getUTCFullYear()}${String(d.getUTCMonth() + 1).padStart(2, "0")}${String(d.getUTCDate()).padStart(2, "0")}T${String(d.getUTCHours()).padStart(2, "0")}${String(d.getUTCMinutes()).padStart(2, "0")}${String(d.getUTCSeconds()).padStart(2, "0")}Z`;
+  const params = new URLSearchParams({
+    action: "TEMPLATE",
+    text: opts.title,
+    dates: `${fmt(start)}/${fmt(end)}`,
+    details: opts.details,
+    location: "Zoom",
+  });
+  return `https://calendar.google.com/calendar/render?${params.toString()}`;
+}
+
 export function HomeLaunchEvent() {
   const t = useTranslations("HomeLaunchEvent");
 
+  const eventDetails = buildEventDetails({
+    description: t("calendarDescription"),
+    url: LAUNCH_EVENT.registrationUrl,
+    meetingId: LAUNCH_EVENT.meetingId,
+    registerLabel: t("calendarRegisterLabel"),
+    meetingIdLabel: t("calendarMeetingIdLabel"),
+  });
+
   const icsHref = buildIcsDataUri({
     title: t("calendarTitle"),
-    description: t("calendarDescription"),
+    details: eventDetails,
     startIso: LAUNCH_EVENT.dateIso,
     durationMinutes: LAUNCH_EVENT.durationMinutes,
     url: LAUNCH_EVENT.registrationUrl,
+  });
+
+  const googleCalHref = buildGoogleCalendarUrl({
+    title: t("calendarTitle"),
+    details: eventDetails,
+    startIso: LAUNCH_EVENT.dateIso,
+    durationMinutes: LAUNCH_EVENT.durationMinutes,
   });
 
   const shareHref = `mailto:?subject=${encodeURIComponent(t("shareSubject"))}&body=${encodeURIComponent(`${t("shareBody")} ${LAUNCH_EVENT.registrationUrl}`)}`;
@@ -269,6 +325,15 @@ export function HomeLaunchEvent() {
           >
             <span className="text-fg-mute">{CAL_ICON}</span>
             {t("addToCalendar")}
+          </a>
+          <a
+            href={googleCalHref}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-1.5 text-fg-dim no-underline transition-colors hover:text-fg"
+          >
+            <span className="text-fg-mute">{CAL_ICON}</span>
+            {t("googleCalendar")}
           </a>
           <Link
             href="/resources"
