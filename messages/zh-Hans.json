@@ -197,7 +197,11 @@
   "Header": {
     "homeAria": "Jesus Film Project — 首页",
     "logoAlt": "Jesus Film Project",
-    "resources": "Resources"
+    "home": "Home",
+    "resources": "Resources",
+    "menuLabel": "Menu",
+    "menuOpenLabel": "Open menu",
+    "menuCloseLabel": "Close menu"
   },
   "LanguagePicker": {
     "label": "语言",
@@ -211,17 +215,26 @@
     "iframeTitle": "World Cup 2026 launch video"
   },
   "HomeLaunchEvent": {
-    "eyebrow": "Global launch call",
+    "pill": "Live briefing",
     "heading": "Walk through the toolkit together.",
     "body": "Join Jesus Film Project, partners, and ministry leaders worldwide for a live briefing. Hear the vision, see the resources in action, and leave with your launch plan.",
     "cta": "Register on Zoom",
+    "freeCaption": "Free. Confirmation and join link sent by Zoom after you register.",
     "dateLabel": "Date",
     "dateValue": "Monday, June 1, 2026",
     "timeLabel": "Time",
     "timeValue": "9:00 AM EST",
     "durationLabel": "Duration",
     "durationValue": "60 minutes",
-    "meetingIdLabel": "Meeting ID"
+    "whereLabel": "Where",
+    "whereValue": "Zoom",
+    "addToCalendar": "Add to calendar",
+    "toolkitLink": "Toolkit and resources",
+    "shareLink": "Share link",
+    "shareSubject": "Join the World Cup 2026 launch call",
+    "shareBody": "Register for the World Cup 2026 Activation launch call on Monday, June 1 at 9:00 AM ET:",
+    "calendarTitle": "World Cup 2026 Activation — Launch Call",
+    "calendarDescription": "Live briefing from Jesus Film Project on the World Cup 2026 outreach toolkit, digital strategy, and how to activate your region. Register at"
   },
   "Resources": {
     "eyebrow": "The toolkit",

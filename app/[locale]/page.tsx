@@ -52,10 +52,10 @@ export default async function Home({ params }: Props) {
       <SiteHeader />
       <main className="mx-auto max-w-[1200px] px-5 sm:px-10">
         <HomeHero />
-        <HomeLaunchVideo />
         <HomeRegionHeading />
         <HomeRegionGrid regions={regions} />
         <HomeLaunchEvent />
+        <HomeLaunchVideo />
 
         <Suspense>
           <HomeCountryViewsStream regions={regions} />

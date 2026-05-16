@@ -132,3 +132,76 @@ to be reused in three or more places.
   near the viewport, but a viewport-based component swap (e.g. via
   `matchMedia` + a tiny client component) would mount only one iframe.
   Skip for now — the lazy-load behavior is good enough at this volume.
+
+---
+
+## Iteration 1 — what feedback surfaced
+
+After the first preview, three things read weak in actual use and
+generated three more reusable lessons. Captured in
+`docs/brainstorms/2026-05-15-launch-additions-iteration-1.md`.
+
+### 6. A nav "link" hidden between logo and language picker is invisible
+
+The first cut put `RESOURCES` as a single mono-cap link in the header,
+following the existing eyebrow vocabulary. **Visitors read it as a
+label, not a tab.** The fix was to introduce explicit nav tabs with
+visible active state — an accent underline under the current page and a
+text-color shift between active/inactive.
+
+When adding new top-level destinations to a site whose header was
+previously single-purpose (logo + language only), don't try to slot the
+link as quietly as possible — give it the visual weight of a tab. The
+existing eyebrow vocabulary is for **labels**, not **destinations**.
+
+### 7. `useEffect(() => setState(false), [pathname])` triggers a lint rule
+
+The repo's ESLint config includes `react-hooks/set-state-in-effect`
+which rejects calling `setState` directly inside a `useEffect`. This is
+a recent React-team-recommended rule that flags an anti-pattern: state
+changes that should be derived or pushed back to event handlers.
+
+**Don't:**
+
+```tsx
+useEffect(() => {
+  setIsOpen(false);
+}, [pathname]);
+```
+
+**Do:** close the menu imperatively in the `onClick` handler of each
+nav link:
+
+```tsx
+const closeMenu = () => setIsOpen(false);
+// ...
+<Link onClick={closeMenu} ... />
+```
+
+Same outcome, no effect, lint clean.
+
+### 8. `.ics` data URI works as a cross-vendor "Add to calendar" link
+
+For a one-shot event, generating an iCalendar string at render time and
+exposing it as a `data:text/calendar;charset=utf-8,...` URI on a
+`<a download="...">` element is the lightest "Add to calendar"
+implementation possible. No deps, no client component, no API.
+
+Helper signature lives inline in `components/home-launch-event.tsx`:
+
+```ts
+buildIcsDataUri({
+  title, description, startIso, durationMinutes, url
+}): string
+```
+
+It escapes special chars per RFC 5545 (newline, comma, semicolon,
+backslash). Works in Gmail/Google Calendar, Outlook, Apple Calendar.
+For broader compatibility (corporate-locked-down Outlook builds), a
+Google Calendar URL fallback could be added side-by-side. Skipped for
+this PR.
+
+A nice-to-have for multi-event sites: move `buildIcsDataUri` to
+`lib/ics.ts` so the next event can reuse it. Not done here because
+this is the only event in the codebase — extracting one-off code into a
+"util" is premature.

@@ -1,6 +1,7 @@
 import { useTranslations } from "next-intl";
 
 import { LanguagePicker } from "@/components/language-picker";
+import { SiteNav } from "@/components/site-nav";
 import { Link } from "@/i18n/navigation";
 
 export function SiteHeader() {
@@ -23,15 +24,10 @@ export function SiteHeader() {
           className="h-8 w-auto sm:h-9"
         />
       </Link>
-      <nav className="ms-auto flex items-center">
-        <Link
-          href="/resources"
-          className="font-mono text-[11px] font-semibold tracking-[0.18em] text-fg-dim uppercase no-underline transition-colors hover:text-fg"
-        >
-          {t("resources")}
-        </Link>
-      </nav>
-      <LanguagePicker />
+      <div className="ms-auto flex items-center gap-4">
+        <SiteNav />
+        <LanguagePicker />
+      </div>
     </header>
   );
 }
