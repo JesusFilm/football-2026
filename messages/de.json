@@ -231,13 +231,13 @@
     "addToCalendar": "Apple Kalender",
     "toolkitLink": "Toolkit und Ressourcen",
     "shareLink": "Link teilen",
-    "shareSubject": "Sei beim WM-2026-Startcall dabei",
-    "shareBody": "Melde dich zum Startcall der WM-2026-Aktivierung am Montag, 1. Juni um 9:00 Uhr ET an:",
-    "calendarTitle": "WM 2026 Aktivierung — Startcall",
-    "calendarDescription": "Live-Briefing von Jesus Film Project zum WM-2026-Toolkit, zur digitalen Strategie und zur Aktivierung deiner Region.",
+    "calendarTitle": "Activate the Global Soccer Moment, June 2026 Outreach Opportunities",
+    "calendarDescription": "Sei Teil des globalen Gesprächs auf Zoom — einer wachsenden Bewegung von Christen, die ihre Häuser öffnen, ihre Gemeinden aktivieren und ihre Nachbarschaft mit einfachem, digitalem Outreach in einem weltweit geteilten Moment zusammenführen. Mit diesen Materialien wird aus einem gemeinsamen Moment eine echte Verbindung.\n\nJesus Film Project stellt diese weltweiten kostenlosen Ressourcen bereit, damit du das meistgesehene Sportereignis der Welt bewusst, gastfreundlich und im Glauben mitgestalten kannst.\n\nMehr erfahren auf https://football2026.nextstep.is/",
     "googleCalendar": "Google Kalender",
     "calendarRegisterLabel": "Anmeldung",
-    "calendarMeetingIdLabel": "Meeting-ID"
+    "calendarMeetingIdLabel": "Meeting-ID",
+    "shareCopyText": "Du bist eingeladen: Activate the Global Soccer Moment — Outreach-Möglichkeiten im Juni 2026.\n\nWann: Montag, 1. Juni 2026 · 9:00 Uhr ET (60 Minuten)\nWo: Zoom\n\nAnmeldung: {registrationUrl}\nMeeting-ID: {meetingId}\n\nJesus Film Project bietet weltweite kostenlose Materialien, um das meistgesehene Sportereignis der Welt bewusst, gastfreundlich und im Glauben mitzugestalten.\nMehr Infos: https://football2026.nextstep.is/",
+    "shareCopiedFeedback": "In die Zwischenablage kopiert"
   },
   "Resources": {
     "eyebrow": "Das Toolkit",

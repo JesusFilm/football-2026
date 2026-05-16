@@ -231,13 +231,13 @@
     "addToCalendar": "Kalender Apple",
     "toolkitLink": "Perlengkapan dan sumber daya",
     "shareLink": "Bagikan tautan",
-    "shareSubject": "Ikuti panggilan peluncuran Piala Dunia 2026",
-    "shareBody": "Daftar untuk panggilan peluncuran Aktivasi Piala Dunia 2026 pada Senin, 1 Juni pukul 9:00 ET:",
-    "calendarTitle": "Aktivasi Piala Dunia 2026 — Panggilan peluncuran",
-    "calendarDescription": "Briefing langsung Jesus Film Project tentang perlengkapan penjangkauan Piala Dunia 2026, strategi digital, dan cara mengaktifkan wilayah Anda.",
+    "calendarTitle": "Activate the Global Soccer Moment, June 2026 Outreach Opportunities",
+    "calendarDescription": "Bergabunglah dalam percakapan global di Zoom melalui gerakan orang percaya yang siap membuka rumah, mengaktifkan gereja, dan menyatukan komunitas mereka lewat penjangkauan digital yang sederhana selama momen budaya global. Dengan sumber daya ini, sebuah momen bersama dapat menjadi koneksi yang bermakna.\n\nJesus Film Project menyediakan sumber daya global gratis ini agar Anda dapat melangkah ke ajang olahraga paling banyak ditonton di dunia dengan niat, keramahan, dan iman.\n\nPelajari lebih lanjut di https://football2026.nextstep.is/",
     "googleCalendar": "Google Calendar",
     "calendarRegisterLabel": "Pendaftaran",
-    "calendarMeetingIdLabel": "ID rapat"
+    "calendarMeetingIdLabel": "ID rapat",
+    "shareCopyText": "Anda diundang: Activate the Global Soccer Moment — Peluang penjangkauan Juni 2026.\n\nKapan: Senin, 1 Juni 2026 · 9:00 ET (60 menit)\nDi mana: Zoom\n\nDaftar: {registrationUrl}\nID rapat: {meetingId}\n\nJesus Film Project menawarkan sumber daya global gratis untuk membantu Anda menjangkau ajang olahraga paling banyak ditonton di dunia dengan niat, keramahan, dan iman.\nPelajari lebih lanjut: https://football2026.nextstep.is/",
+    "shareCopiedFeedback": "Tersalin ke papan klip"
   },
   "Resources": {
     "eyebrow": "Perlengkapan",

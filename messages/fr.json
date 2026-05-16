@@ -231,13 +231,13 @@
     "addToCalendar": "Calendrier Apple",
     "toolkitLink": "Boîte à outils et ressources",
     "shareLink": "Partager le lien",
-    "shareSubject": "Rejoignez la rencontre de lancement Coupe du Monde 2026",
-    "shareBody": "Inscrivez-vous à la rencontre de lancement de l'Activation Coupe du Monde 2026, lundi 1 juin à 9 h 00 ET :",
-    "calendarTitle": "Activation Coupe du Monde 2026 — Rencontre de lancement",
-    "calendarDescription": "Briefing de Jesus Film Project sur la boîte à outils Coupe du Monde 2026, la stratégie numérique et la manière d'activer votre région.",
+    "calendarTitle": "Activate the Global Soccer Moment, June 2026 Outreach Opportunities",
+    "calendarDescription": "Rejoignez la conversation mondiale sur Zoom à travers un mouvement croissant de croyants outillés pour ouvrir leurs maisons, activer leurs églises et rassembler leurs communautés grâce à un témoignage numérique simple, au cœur d'un moment culturel mondial. Avec ces ressources, vous pouvez transformer un instant partagé en une vraie connexion.\n\nJesus Film Project propose ces ressources gratuites, accessibles partout, pour vous aider à vivre l'événement sportif le plus regardé au monde avec intention, hospitalité et foi.\n\nPlus d'informations sur https://football2026.nextstep.is/",
     "googleCalendar": "Google Agenda",
     "calendarRegisterLabel": "Inscription",
-    "calendarMeetingIdLabel": "ID de réunion"
+    "calendarMeetingIdLabel": "ID de réunion",
+    "shareCopyText": "Vous êtes invité·e : Activate the Global Soccer Moment — Occasions de témoignage, juin 2026.\n\nQuand : lundi 1 juin 2026 · 9 h 00 ET (60 minutes)\nOù : Zoom\n\nInscription : {registrationUrl}\nID de réunion : {meetingId}\n\nJesus Film Project propose des ressources mondiales gratuites pour vivre l'événement sportif le plus regardé du monde avec intention, hospitalité et foi.\nPlus d'infos : https://football2026.nextstep.is/",
+    "shareCopiedFeedback": "Copié dans le presse-papiers"
   },
   "Resources": {
     "eyebrow": "La boîte à outils",

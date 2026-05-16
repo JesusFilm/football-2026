@@ -231,13 +231,13 @@
     "addToCalendar": "Apple कैलेंडर",
     "toolkitLink": "टूलकिट और संसाधन",
     "shareLink": "लिंक शेयर करें",
-    "shareSubject": "विश्व कप 2026 लॉन्च कॉल में जुड़ें",
-    "shareBody": "विश्व कप 2026 सक्रियण लॉन्च कॉल के लिए सोमवार, 1 जून, सुबह 9:00 ET पर रजिस्टर करें:",
-    "calendarTitle": "विश्व कप 2026 सक्रियण — लॉन्च कॉल",
-    "calendarDescription": "Jesus Film Project की लाइव ब्रीफिंग विश्व कप 2026 आउटरीच टूलकिट, डिजिटल रणनीति और अपने क्षेत्र को सक्रिय करने पर।",
+    "calendarTitle": "Activate the Global Soccer Moment, June 2026 Outreach Opportunities",
+    "calendarDescription": "Zoom पर वैश्विक संवाद में शामिल हों — विश्वासियों के एक बढ़ते आंदोलन के माध्यम से जो अपने घर खोलने, अपनी कलीसियाओं को सक्रिय करने और सरल डिजिटल पहुँच के ज़रिए अपने समुदायों को एक वैश्विक सांस्कृतिक पल में जोड़ने के लिए तैयार हैं। इन संसाधनों से, एक साझा पल को आप एक सार्थक संबंध में बदल सकते हैं।\n\nJesus Film Project ये निःशुल्क वैश्विक संसाधन प्रदान करता है ताकि आप इस सबसे अधिक देखे जाने वाले खेल आयोजन में इरादा, आतिथ्य और विश्वास के साथ क़दम रख सकें।\n\nअधिक जानें: https://football2026.nextstep.is/",
     "googleCalendar": "Google कैलेंडर",
     "calendarRegisterLabel": "रजिस्टर",
-    "calendarMeetingIdLabel": "मीटिंग ID"
+    "calendarMeetingIdLabel": "मीटिंग ID",
+    "shareCopyText": "आप आमंत्रित हैं: Activate the Global Soccer Moment — जून 2026 की आउटरीच अवसर।\n\nकब: सोमवार, 1 जून 2026 · सुबह 9:00 ET (60 मिनट)\nकहाँ: Zoom\n\nरजिस्टर करें: {registrationUrl}\nमीटिंग ID: {meetingId}\n\nJesus Film Project निःशुल्क वैश्विक संसाधन देता है, ताकि आप दुनिया के सबसे अधिक देखे जाने वाले खेल आयोजन में इरादा, आतिथ्य और विश्वास के साथ क़दम रख सकें।\nऔर जानें: https://football2026.nextstep.is/",
+    "shareCopiedFeedback": "क्लिपबोर्ड पर कॉपी हुआ"
   },
   "Resources": {
     "eyebrow": "टूलकिट",

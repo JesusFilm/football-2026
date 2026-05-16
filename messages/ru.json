@@ -231,13 +231,13 @@
     "addToCalendar": "Календарь Apple",
     "toolkitLink": "Набор и ресурсы",
     "shareLink": "Поделиться ссылкой",
-    "shareSubject": "Присоединяйтесь к встрече запуска ЧМ-2026",
-    "shareBody": "Регистрируйтесь на встречу запуска Активации ЧМ-2026 в понедельник 1 июня в 9:00 ET:",
-    "calendarTitle": "Активация ЧМ-2026 — Встреча запуска",
-    "calendarDescription": "Прямой брифинг Jesus Film Project о наборе для ЧМ-2026, цифровой стратегии и активации вашего региона.",
+    "calendarTitle": "Activate the Global Soccer Moment, June 2026 Outreach Opportunities",
+    "calendarDescription": "Присоединяйтесь к глобальному разговору в Zoom — растущему движению верующих, готовых открыть свои дома, активировать свои церкви и собрать сообщества вместе через простое цифровое благовестие в момент, который видит весь мир. С этими ресурсами общий момент превращается в подлинное соединение.\n\nJesus Film Project предлагает эти бесплатные глобальные ресурсы, чтобы вы могли участвовать в самом просматриваемом спортивном событии мира с намерением, гостеприимством и верой.\n\nПодробнее: https://football2026.nextstep.is/",
     "googleCalendar": "Google Календарь",
     "calendarRegisterLabel": "Регистрация",
-    "calendarMeetingIdLabel": "ID встречи"
+    "calendarMeetingIdLabel": "ID встречи",
+    "shareCopyText": "Вы приглашены: Activate the Global Soccer Moment — возможности благовестия, июнь 2026.\n\nКогда: понедельник, 1 июня 2026 · 9:00 ET (60 минут)\nГде: Zoom\n\nРегистрация: {registrationUrl}\nID встречи: {meetingId}\n\nJesus Film Project предлагает бесплатные глобальные ресурсы, чтобы вы вошли в самое просматриваемое спортивное событие мира с намерением, гостеприимством и верой.\nПодробнее: https://football2026.nextstep.is/",
+    "shareCopiedFeedback": "Скопировано в буфер обмена"
   },
   "Resources": {
     "eyebrow": "Набор",

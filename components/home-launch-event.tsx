@@ -1,5 +1,6 @@
 import { useTranslations } from "next-intl";
 
+import { ShareButton } from "@/components/share-button";
 import { Link } from "@/i18n/navigation";
 import { LAUNCH_EVENT } from "@/lib/launch-event";
 
@@ -244,7 +245,10 @@ export function HomeLaunchEvent() {
     durationMinutes: LAUNCH_EVENT.durationMinutes,
   });
 
-  const shareHref = `mailto:?subject=${encodeURIComponent(t("shareSubject"))}&body=${encodeURIComponent(`${t("shareBody")} ${LAUNCH_EVENT.registrationUrl}`)}`;
+  const shareCopyText = t("shareCopyText", {
+    registrationUrl: LAUNCH_EVENT.registrationUrl,
+    meetingId: LAUNCH_EVENT.meetingId,
+  });
 
   const stats: Array<{
     icon: React.ReactElement;
@@ -342,13 +346,12 @@ export function HomeLaunchEvent() {
             <span className="text-fg-mute">{EXT_ICON}</span>
             {t("toolkitLink")}
           </Link>
-          <a
-            href={shareHref}
-            className="inline-flex items-center gap-1.5 text-fg-dim no-underline transition-colors hover:text-fg"
-          >
-            <span className="text-fg-mute">{SHARE_ICON}</span>
-            {t("shareLink")}
-          </a>
+          <ShareButton
+            text={shareCopyText}
+            shareLabel={t("shareLink")}
+            copiedLabel={t("shareCopiedFeedback")}
+            icon={SHARE_ICON}
+          />
         </div>
       </article>
     </section>

@@ -231,13 +231,13 @@
     "addToCalendar": "Apple 日历",
     "toolkitLink": "工具包与资源",
     "shareLink": "分享链接",
-    "shareSubject": "一起加入 2026 世界杯启动呼召",
-    "shareBody": "报名参加 2026 世界杯激活启动呼召,周一 6 月 1 日 美东时间上午 9:00:",
-    "calendarTitle": "2026 世界杯激活 — 启动呼召",
-    "calendarDescription": "Jesus Film Project 关于 2026 世界杯外展工具包、数字策略以及如何激活你所在地区的现场简报。",
+    "calendarTitle": "Activate the Global Soccer Moment, June 2026 Outreach Opportunities",
+    "calendarDescription": "通过 Zoom 加入全球对话——一个日益壮大的信徒群体,装备好打开家门、激活自己的教会,并借着简单的数字外展在一个共享的文化时刻里把社区连接起来。借助这些资源,你可以把一个共同的瞬间变成有意义的连接。\n\nJesus Film Project 提供这些全球免费资源,帮助你以信念、款待与信心进入全世界最受瞩目的体育盛事。\n\n了解更多:https://football2026.nextstep.is/",
     "googleCalendar": "Google 日历",
     "calendarRegisterLabel": "报名",
-    "calendarMeetingIdLabel": "会议 ID"
+    "calendarMeetingIdLabel": "会议 ID",
+    "shareCopyText": "你受邀参加 Activate the Global Soccer Moment ——2026 年 6 月外展机会简报。\n\n时间:2026 年 6 月 1 日(周一)· 美东时间上午 9:00(60 分钟)\n地点:Zoom\n\n注册:{registrationUrl}\n会议 ID:{meetingId}\n\nJesus Film Project 提供全球免费资源,帮助你以信念、款待与信心走进世界上最受瞩目的体育盛事。\n了解更多:https://football2026.nextstep.is/",
+    "shareCopiedFeedback": "已复制到剪贴板"
   },
   "Resources": {
     "eyebrow": "工具包",
