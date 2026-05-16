@@ -3,6 +3,8 @@ import { getTranslations, setRequestLocale } from "next-intl/server";
 
 import { HomeCountryViewsSection } from "@/components/home-country-views-section";
 import { HomeHero } from "@/components/home-hero";
+import { HomeLaunchEvent } from "@/components/home-launch-event";
+import { HomeLaunchVideo } from "@/components/home-launch-video";
 import { HomeRegionGrid } from "@/components/home-region-grid";
 import { HomeRegionHeading } from "@/components/home-region-heading";
 import { SectionChevron } from "@/components/section-chevron";
@@ -52,6 +54,8 @@ export default async function Home({ params }: Props) {
         <HomeHero />
         <HomeRegionHeading />
         <HomeRegionGrid regions={regions} />
+        <HomeLaunchEvent />
+        <HomeLaunchVideo />
 
         <Suspense>
           <HomeCountryViewsStream regions={regions} />

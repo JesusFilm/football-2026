@@ -6,7 +6,11 @@ import { REGIONS } from "@/lib/regions";
 import { getLocalePath, getLocalizedAlternates } from "@/lib/url-utils";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const paths = ["/", ...REGIONS.map((region) => `/${region.id}`)];
+  const paths = [
+    "/",
+    "/resources",
+    ...REGIONS.map((region) => `/${region.id}`),
+  ];
 
   return [
     ...paths.flatMap((path) =>

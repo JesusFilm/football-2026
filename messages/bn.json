@@ -11,7 +11,10 @@
     "homeSchemaName": "বিশ্বকাপ ২০২৬ · আপনার অঞ্চল সক্রিয় করুন",
     "breadcrumbAllRegions": "সব অঞ্চল",
     "regionTitle": "{regionName} সক্রিয় করুন",
-    "fallbackRegionTitle": "অঞ্চল"
+    "fallbackRegionTitle": "অঞ্চল",
+    "resourcesTitle": "Resources — World Cup 2026 Activation",
+    "resourcesDescription": "The complete outreach toolkit for the World Cup 2026 — ready-to-use journeys, customizable videos, and physical kits.",
+    "resourcesSchemaName": "World Cup 2026 · Resources"
   },
   "Home": {
     "eyebrow": "বিশ্বকাপ ২০২৬ · আউটরিচ",
@@ -193,12 +196,151 @@
   },
   "Header": {
     "homeAria": "Jesus Film Project — হোম",
-    "logoAlt": "Jesus Film Project"
+    "logoAlt": "Jesus Film Project",
+    "home": "হোম",
+    "resources": "রিসোর্স",
+    "menuLabel": "মেনু",
+    "menuOpenLabel": "মেনু খুলুন",
+    "menuCloseLabel": "মেনু বন্ধ করুন"
   },
   "LanguagePicker": {
     "label": "ভাষা",
     "ariaLabel": "ভাষা পরিবর্তন করুন",
     "currentLanguage": "বর্তমান ভাষা: {language}",
     "menuLabel": "ভাষা বেছে নিন"
+  },
+  "HomeLaunchVideo": {
+    "eyebrow": "দেখুন",
+    "heading": "এই সক্রিয়তার হৃদয় দেখুন।",
+    "iframeTitle": "বিশ্বকাপ 2026 লঞ্চ ভিডিও"
+  },
+  "HomeLaunchEvent": {
+    "pill": "লাইভ ব্রিফিং",
+    "heading": "একসাথে টুলকিট ঘুরে দেখি।",
+    "body": "এক ঘণ্টা। পূর্ণ দৃষ্টি। শুনুন কীভাবে Jesus Film Project, পার্টনাররা এবং সারা পৃথিবীর পরিচর্যা-নেতারা এই মুহূর্তকে সক্রিয় করছেন — এবং নিজের অঞ্চলের জন্য লঞ্চ পরিকল্পনা নিয়ে ফিরে যান।",
+    "cta": "Zoom-এ রেজিস্টার করুন",
+    "freeCaption": "ফ্রি। রেজিস্টার করলে Zoom কনফার্মেশন ও জয়েন লিঙ্ক পাঠাবে।",
+    "dateLabel": "তারিখ",
+    "dateValue": "সোম, ১ জুন ২০২৬",
+    "timeLabel": "সময়",
+    "timeValue": "সকাল ৯:০০ ET",
+    "durationLabel": "সময়কাল",
+    "durationValue": "৬০ মিনিট",
+    "whereLabel": "কোথায়",
+    "whereValue": "Zoom",
+    "addToCalendar": "Apple ক্যালেন্ডার",
+    "toolkitLink": "টুলকিট ও রিসোর্স",
+    "shareLink": "লিঙ্ক শেয়ার",
+    "calendarTitle": "Activate the Global Soccer Moment, June 2026 Outreach Opportunities",
+    "calendarDescription": "Zoom-এ বিশ্বব্যাপী আলোচনায় যোগ দিন — এমন বিশ্বাসীদের ক্রমবর্ধমান আন্দোলনের মাধ্যমে যারা সরল, ডিজিটাল আউটরিচের মাধ্যমে এক বৈশ্বিক সাংস্কৃতিক মুহূর্তে নিজের বাড়ি খুলতে, নিজের চার্চ সক্রিয় করতে এবং নিজের কমিউনিটিকে এক করতে প্রস্তুত। এই রিসোর্সগুলো ব্যবহার করে, আপনি একটি শেয়ার করা মুহূর্তকে অর্থবহ সংযোগে পরিণত করতে পারেন।\n\nJesus Film Project এই বৈশ্বিক বিনামূল্যের রিসোর্সগুলো অফার করে, যাতে আপনি পৃথিবীর সবচেয়ে বেশি দেখা ক্রীড়া অনুষ্ঠানে উদ্দেশ্য, আতিথেয়তা ও বিশ্বাস নিয়ে পা রাখতে পারেন।\n\nআরও জানুন: https://football2026.nextstep.is/",
+    "googleCalendar": "Google ক্যালেন্ডার",
+    "calendarRegisterLabel": "রেজিস্ট্রেশন",
+    "calendarMeetingIdLabel": "মিটিং ID",
+    "shareCopyText": "আপনি আমন্ত্রিত: Activate the Global Soccer Moment — জুন ২০২৬-এর আউটরিচ সুযোগ।\n\nকখন: সোমবার, ১ জুন ২০২৬ · সকাল ৯:০০ ET (৬০ মিনিট)\nকোথায়: Zoom\n\nরেজিস্টার করুন: {registrationUrl}\nমিটিং ID: {meetingId}\n\nJesus Film Project বিশ্বব্যাপী বিনামূল্যের রিসোর্স দিচ্ছে, যাতে আপনি পৃথিবীর সবচেয়ে বেশি দেখা ক্রীড়া অনুষ্ঠানে উদ্দেশ্য, আতিথেয়তা ও বিশ্বাস নিয়ে যুক্ত হতে পারেন।\nআরও জানুন: https://football2026.nextstep.is/",
+    "shareCopiedFeedback": "ক্লিপবোর্ডে কপি হয়েছে"
+  },
+  "Resources": {
+    "eyebrow": "টুলকিট",
+    "tagline": "প্রতিটি ম্যাচ, প্রতিটি জাতি, প্রতিটি প্রাণ।",
+    "title": "এই মুহূর্তের জন্য রিসোর্স।",
+    "description": "সবকিছু ফ্রি এবং বিশ্বকাপের ৩৯ দিনের জন্য তৈরি। যা আপনার টিমের জন্য মানানসই তা নিয়ে শুরু করুন।",
+    "categories": {
+      "readyToUse": {
+        "heading": "ব্যবহারের জন্য প্রস্তুত",
+        "body": "কপি, শেয়ার, শেষ। কোনো এডিট নয় — আজই অনুসন্ধানী ও নতুন বিশ্বাসীদের পাঠান।"
+      },
+      "customizable": {
+        "heading": "কাস্টমাইজযোগ্য",
+        "body": "টেমপ্লেট, ডাবিং কিট ও সোর্স ফাইল — নিজের ভাষা, দর্শক ও সময়ের সাথে মানিয়ে নিন।"
+      },
+      "physicalKits": {
+        "heading": "শারীরিক কিট",
+        "body": "ওয়াচ পার্টি, স্পোর্টস ইভেঞ্জেলিজম এবং মাঠে কাজ করা দলগুলোর জন্য বাস্তব উপকরণ।"
+      }
+    },
+    "languageCountLabel": "ভাষা",
+    "openCta": "রিসোর্স খুলুন",
+    "items": {
+      "prayforawin": {
+        "title": "PrayForAWin.com",
+        "blurb": "A simple link to share a Gospel presentation with a live-chat mentor option built in."
+      },
+      "when-everything": {
+        "title": "When Everything is On the Line",
+        "blurb": "A soccer-themed digital journey for people exploring their instinct to pray in moments of fear or uncertainty."
+      },
+      "where-you-belong": {
+        "title": "Where You Belong",
+        "blurb": "Mobile-friendly follow-up with a one-minute video on personal value to Jesus — available in 76 languages."
+      },
+      "i-belong-jesus": {
+        "title": "I Belong to Jesus",
+        "blurb": "A six-day YouVersion devotional by Kaká on finding identity in Christ."
+      },
+      "kingdom-playmaker": {
+        "title": "Kingdom Playmaker: Living With Intention",
+        "blurb": "A five-day YouVersion plan by Eyong Enoh on discovering your God-given identity."
+      },
+      "fully-his": {
+        "title": "Fully His: The Power of Daily Surrender",
+        "blurb": "A six-day YouVersion plan by Jonathan Mensah on surrendering every area of life to God."
+      },
+      "tools-transformation": {
+        "title": "Tools for Transformation",
+        "blurb": "A five-day YouVersion plan by Lucas Moura on spiritual habits and character."
+      },
+      "nextsteps-templates": {
+        "title": "NextSteps Journey Templates",
+        "blurb": "Build sports-themed digital journeys with images, videos, quizzes, Bible verses, and prayer prompts."
+      },
+      "hope-ball-not-enough": {
+        "title": "When You Feel Like You're Not Enough",
+        "blurb": "A dubbing kit on the emotional journey of pursuing a goal — and the impact of failure."
+      },
+      "hope-ball-joy-gone": {
+        "title": "When the Joy is Gone",
+        "blurb": "A dubbing kit that contrasts the fleeting joy of winning with the lasting victory Jesus won on the cross."
+      },
+      "praying-hands-prayer": {
+        "title": "Praying Hands",
+        "blurb": "A one-minute dubbing kit on how we all instinctively pray in moments of fear or uncertainty."
+      },
+      "praying-hands-talk-jesus": {
+        "title": "You Can Talk to Jesus",
+        "blurb": "A sports-themed dubbing kit with a voiceover Gospel presentation."
+      },
+      "ultimate-coach": {
+        "title": "The Ultimate Coach",
+        "blurb": "A one-minute Gospel presentation using sports, coaching, and game plans as the entry point."
+      },
+      "most-asked-questions": {
+        "title": "The Most Asked Questions Online",
+        "blurb": "A sports-themed dubbing kit on our deepest curiosity — leading to questions about Jesus."
+      },
+      "after-the-win": {
+        "title": "After the Win",
+        "blurb": "A reflective dubbing kit to set up conversations after the game — perfect for follow-up."
+      },
+      "print-collection": {
+        "title": "Print & other resources",
+        "blurb": "Printable materials, invitations, and miscellaneous assets to help you share videos and the Gospel."
+      },
+      "all-videos": {
+        "title": "All videos — Global Football collection",
+        "blurb": "The full collection of sports-themed films you can use to spark Gospel conversations."
+      },
+      "watch-party-kit": {
+        "title": "Watch Party Kit",
+        "blurb": "Host guides, bracket, recipes, and a soccer ball — everything you need for a home or church gathering."
+      },
+      "movement-maker-kit": {
+        "title": "Movement Maker Kit",
+        "blurb": "Two soccer balls, 100 wristbands, Bibles, and a kit manual — built for global ministry teams."
+      },
+      "jesus-loves-you-ball": {
+        "title": "Jesus Loves You Ball",
+        "blurb": "A sports evangelism tool with four symbols designed for cultural sensitivity in any context."
+      }
+    }
   }
 }

@@ -11,7 +11,10 @@
     "homeSchemaName": "Copa do Mundo 2026 · Ative sua região",
     "breadcrumbAllRegions": "Todas as regiões",
     "regionTitle": "Ative {regionName}",
-    "fallbackRegionTitle": "Região"
+    "fallbackRegionTitle": "Região",
+    "resourcesTitle": "Resources — World Cup 2026 Activation",
+    "resourcesDescription": "The complete outreach toolkit for the World Cup 2026 — ready-to-use journeys, customizable videos, and physical kits.",
+    "resourcesSchemaName": "World Cup 2026 · Resources"
   },
   "Home": {
     "eyebrow": "Copa do Mundo 2026 · Alcance",
@@ -193,12 +196,151 @@
   },
   "Header": {
     "homeAria": "Jesus Film Project — início",
-    "logoAlt": "Jesus Film Project"
+    "logoAlt": "Jesus Film Project",
+    "home": "Início",
+    "resources": "Recursos",
+    "menuLabel": "Menu",
+    "menuOpenLabel": "Abrir menu",
+    "menuCloseLabel": "Fechar menu"
   },
   "LanguagePicker": {
     "label": "Idioma",
     "ariaLabel": "Alterar idioma",
     "currentLanguage": "Idioma atual: {language}",
     "menuLabel": "Escolha um idioma"
+  },
+  "HomeLaunchVideo": {
+    "eyebrow": "Assistir",
+    "heading": "Conheça o coração desta ativação.",
+    "iframeTitle": "Vídeo de lançamento Copa do Mundo 2026"
+  },
+  "HomeLaunchEvent": {
+    "pill": "Briefing ao vivo",
+    "heading": "Vamos passar pelo kit juntos.",
+    "body": "Uma hora. A visão inteira. Ouça como o Jesus Film Project, parceiros e líderes ministeriais do mundo todo estão ativando este momento — e saia com o plano de lançamento para a sua região.",
+    "cta": "Inscreva-se no Zoom",
+    "freeCaption": "Gratuito. Confirmação e link de acesso enviados pelo Zoom após a inscrição.",
+    "dateLabel": "Data",
+    "dateValue": "Seg, 1 de jun de 2026",
+    "timeLabel": "Horário",
+    "timeValue": "9h ET",
+    "durationLabel": "Duração",
+    "durationValue": "60 minutos",
+    "whereLabel": "Onde",
+    "whereValue": "Zoom",
+    "addToCalendar": "Calendário Apple",
+    "toolkitLink": "Kit e recursos",
+    "shareLink": "Compartilhar link",
+    "calendarTitle": "Activate the Global Soccer Moment, June 2026 Outreach Opportunities",
+    "calendarDescription": "Participe da conversa global no Zoom por meio de um movimento crescente de crentes preparados para abrir suas casas, ativar suas igrejas e reunir suas comunidades por meio de evangelismo digital simples durante um momento cultural global. Com esses recursos, você transforma um momento compartilhado em uma conexão significativa.\n\nO Jesus Film Project oferece estes recursos globais gratuitos para ajudar você a entrar no evento esportivo mais assistido do mundo com intencionalidade, hospitalidade e fé.\n\nSaiba mais em https://football2026.nextstep.is/",
+    "googleCalendar": "Google Agenda",
+    "calendarRegisterLabel": "Inscrição",
+    "calendarMeetingIdLabel": "ID da reunião",
+    "shareCopyText": "Você está convidado(a): Activate the Global Soccer Moment — Oportunidades de evangelismo, junho de 2026.\n\nQuando: segunda-feira, 1 de junho de 2026 · 9h ET (60 minutos)\nOnde: Zoom\n\nInscrição: {registrationUrl}\nID da reunião: {meetingId}\n\nO Jesus Film Project oferece recursos globais gratuitos para você viver o evento esportivo mais assistido do mundo com intencionalidade, hospitalidade e fé.\nSaiba mais: https://football2026.nextstep.is/",
+    "shareCopiedFeedback": "Copiado para a área de transferência"
+  },
+  "Resources": {
+    "eyebrow": "O kit",
+    "tagline": "Cada jogo, cada nação, cada alma.",
+    "title": "Recursos para este momento.",
+    "description": "Tudo é gratuito e feito para os 39 dias da Copa. Use o que servir para a sua equipe.",
+    "categories": {
+      "readyToUse": {
+        "heading": "Prontos para usar",
+        "body": "Copie, compartilhe, pronto. Sem edição — envie hoje para buscadores e novos crentes."
+      },
+      "customizable": {
+        "heading": "Personalizáveis",
+        "body": "Modelos, kits de dublagem e arquivos-fonte — adapte ao seu idioma, público e momento."
+      },
+      "physicalKits": {
+        "heading": "Kits físicos",
+        "body": "Ferramentas concretas para watch parties, evangelismo esportivo e equipes missionárias em campo."
+      }
+    },
+    "languageCountLabel": "idiomas",
+    "openCta": "Abrir recurso",
+    "items": {
+      "prayforawin": {
+        "title": "PrayForAWin.com",
+        "blurb": "A simple link to share a Gospel presentation with a live-chat mentor option built in."
+      },
+      "when-everything": {
+        "title": "When Everything is On the Line",
+        "blurb": "A soccer-themed digital journey for people exploring their instinct to pray in moments of fear or uncertainty."
+      },
+      "where-you-belong": {
+        "title": "Where You Belong",
+        "blurb": "Mobile-friendly follow-up with a one-minute video on personal value to Jesus — available in 76 languages."
+      },
+      "i-belong-jesus": {
+        "title": "I Belong to Jesus",
+        "blurb": "A six-day YouVersion devotional by Kaká on finding identity in Christ."
+      },
+      "kingdom-playmaker": {
+        "title": "Kingdom Playmaker: Living With Intention",
+        "blurb": "A five-day YouVersion plan by Eyong Enoh on discovering your God-given identity."
+      },
+      "fully-his": {
+        "title": "Fully His: The Power of Daily Surrender",
+        "blurb": "A six-day YouVersion plan by Jonathan Mensah on surrendering every area of life to God."
+      },
+      "tools-transformation": {
+        "title": "Tools for Transformation",
+        "blurb": "A five-day YouVersion plan by Lucas Moura on spiritual habits and character."
+      },
+      "nextsteps-templates": {
+        "title": "NextSteps Journey Templates",
+        "blurb": "Build sports-themed digital journeys with images, videos, quizzes, Bible verses, and prayer prompts."
+      },
+      "hope-ball-not-enough": {
+        "title": "When You Feel Like You're Not Enough",
+        "blurb": "A dubbing kit on the emotional journey of pursuing a goal — and the impact of failure."
+      },
+      "hope-ball-joy-gone": {
+        "title": "When the Joy is Gone",
+        "blurb": "A dubbing kit that contrasts the fleeting joy of winning with the lasting victory Jesus won on the cross."
+      },
+      "praying-hands-prayer": {
+        "title": "Praying Hands",
+        "blurb": "A one-minute dubbing kit on how we all instinctively pray in moments of fear or uncertainty."
+      },
+      "praying-hands-talk-jesus": {
+        "title": "You Can Talk to Jesus",
+        "blurb": "A sports-themed dubbing kit with a voiceover Gospel presentation."
+      },
+      "ultimate-coach": {
+        "title": "The Ultimate Coach",
+        "blurb": "A one-minute Gospel presentation using sports, coaching, and game plans as the entry point."
+      },
+      "most-asked-questions": {
+        "title": "The Most Asked Questions Online",
+        "blurb": "A sports-themed dubbing kit on our deepest curiosity — leading to questions about Jesus."
+      },
+      "after-the-win": {
+        "title": "After the Win",
+        "blurb": "A reflective dubbing kit to set up conversations after the game — perfect for follow-up."
+      },
+      "print-collection": {
+        "title": "Print & other resources",
+        "blurb": "Printable materials, invitations, and miscellaneous assets to help you share videos and the Gospel."
+      },
+      "all-videos": {
+        "title": "All videos — Global Football collection",
+        "blurb": "The full collection of sports-themed films you can use to spark Gospel conversations."
+      },
+      "watch-party-kit": {
+        "title": "Watch Party Kit",
+        "blurb": "Host guides, bracket, recipes, and a soccer ball — everything you need for a home or church gathering."
+      },
+      "movement-maker-kit": {
+        "title": "Movement Maker Kit",
+        "blurb": "Two soccer balls, 100 wristbands, Bibles, and a kit manual — built for global ministry teams."
+      },
+      "jesus-loves-you-ball": {
+        "title": "Jesus Loves You Ball",
+        "blurb": "A sports evangelism tool with four symbols designed for cultural sensitivity in any context."
+      }
+    }
   }
 }
