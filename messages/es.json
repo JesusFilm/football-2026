@@ -430,5 +430,32 @@
         "blurb": "Las Cuatro Leyes Espirituales, contadas para los aficionados al deporte."
       }
     }
+  },
+  "HomeYouVersionCollection": {
+    "eyebrow": "Colección · {count, plural, one {# plan de lectura} other {# planes de lectura}}",
+    "heading": "Planes de lectura YouVersion de AIA",
+    "seeAllCta": "Abrir la biblioteca completa",
+    "showMoreCta": "Abrir los {total} planes",
+    "openInYouVersion": "Abrir en YouVersion",
+    "openOnYouVersion": "Abrir «{title}» en YouVersion",
+    "itemEyebrow": "{author} · {days, plural, one {# día} other {# días}}",
+    "items": {
+      "i-belong-to-jesus": {
+        "title": "I Belong to Jesus",
+        "blurb": "Kaká explora lo que significa de verdad pertenecer a Jesús en este devocional de seis días."
+      },
+      "kingdom-playmaker": {
+        "title": "Kingdom Playmaker: Living With Intention",
+        "blurb": "Eyong Enoh guía a los lectores por la Escritura hacia una identidad con propósito que refleje a Cristo."
+      },
+      "fully-his": {
+        "title": "Fully His: The Power of Daily Surrender",
+        "blurb": "Jonathan Mensah une el fútbol de élite con la verdad bíblica: orgullo, control, comodidad, ambición, resultados y perdón."
+      },
+      "tools-for-transformation": {
+        "title": "Tools for Transformation",
+        "blurb": "Lucas Moura comparte los hábitos espirituales que transformaron su corazón - el verdadero éxito es parecerse más a Jesús."
+      }
+    }
   }
 }

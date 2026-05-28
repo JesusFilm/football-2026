@@ -430,5 +430,32 @@
         "blurb": "Empat Hukum Rohani, ditulis untuk penggemar olahraga."
       }
     }
+  },
+  "HomeYouVersionCollection": {
+    "eyebrow": "Koleksi · {count, plural, one {# rencana baca} other {# rencana baca}}",
+    "heading": "Rencana baca YouVersion dari AIA",
+    "seeAllCta": "Buka perpustakaan lengkap",
+    "showMoreCta": "Buka semua {total} rencana",
+    "openInYouVersion": "Buka di YouVersion",
+    "openOnYouVersion": "Buka \"{title}\" di YouVersion",
+    "itemEyebrow": "{author} · {days} hari",
+    "items": {
+      "i-belong-to-jesus": {
+        "title": "I Belong to Jesus",
+        "blurb": "Kaká menelusuri arti sesungguhnya dari menjadi milik Yesus dalam devosi enam hari ini."
+      },
+      "kingdom-playmaker": {
+        "title": "Kingdom Playmaker: Living With Intention",
+        "blurb": "Eyong Enoh memandu pembaca melalui Kitab Suci menuju identitas pemberian Tuhan yang dijalani dengan sengaja."
+      },
+      "fully-his": {
+        "title": "Fully His: The Power of Daily Surrender",
+        "blurb": "Jonathan Mensah memadukan sepak bola elite dengan kebenaran Alkitab: kesombongan, kendali, kenyamanan, ambisi, hasil, dan pengampunan."
+      },
+      "tools-for-transformation": {
+        "title": "Tools for Transformation",
+        "blurb": "Lucas Moura membagikan kebiasaan rohani yang mengubah hatinya - kesuksesan sejati adalah semakin menyerupai Yesus."
+      }
+    }
   }
 }

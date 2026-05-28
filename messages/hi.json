@@ -430,5 +430,32 @@
         "blurb": "खेल-प्रेमियों के लिए लिखे गए चार आध्यात्मिक नियम।"
       }
     }
+  },
+  "HomeYouVersionCollection": {
+    "eyebrow": "संग्रह · {count, plural, one {# रीडिंग प्लान} other {# रीडिंग प्लान}}",
+    "heading": "AIA YouVersion रीडिंग प्लान",
+    "seeAllCta": "पूरी लाइब्रेरी खोलें",
+    "showMoreCta": "सभी {total} प्लान खोलें",
+    "openInYouVersion": "YouVersion पर खोलें",
+    "openOnYouVersion": "{title} को YouVersion पर खोलें",
+    "itemEyebrow": "{author} · {days} दिन",
+    "items": {
+      "i-belong-to-jesus": {
+        "title": "I Belong to Jesus",
+        "blurb": "काका छह दिनों में टटोलते हैं कि यीशु का होने का सही मतलब क्या है।"
+      },
+      "kingdom-playmaker": {
+        "title": "Kingdom Playmaker: Living With Intention",
+        "blurb": "एयोंग एनोह पाठकों को पवित्र-शास्त्र के जरिए परमेश्वर-दत्त पहचान और इरादे से जीने तक ले जाते हैं।"
+      },
+      "fully-his": {
+        "title": "Fully His: The Power of Daily Surrender",
+        "blurb": "जोनाथन मेन्सा अव्वल फुटबॉल और बाइबल की सच्चाई जोड़ते हैं - अहंकार, नियंत्रण, सुख, महत्वाकांक्षा, परिणाम और क्षमा।"
+      },
+      "tools-for-transformation": {
+        "title": "Tools for Transformation",
+        "blurb": "लुकास मौरा वे आध्यात्मिक आदतें साझा करते हैं जिन्होंने उनके दिल को बदला - असली सफलता है यीशु जैसा बनना।"
+      }
+    }
   }
 }

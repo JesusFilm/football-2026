@@ -3,6 +3,7 @@ import { getTranslations, setRequestLocale } from "next-intl/server";
 
 import { HomeJourneyCollection } from "@/components/home-journey-collection";
 import { HomeVideoCollection } from "@/components/home-video-collection";
+import { HomeYouVersionCollection } from "@/components/home-youversion-collection";
 import { ResourceCategorySection } from "@/components/resource-category";
 import { ResourcesHero } from "@/components/resources-hero";
 import { SiteFooter } from "@/components/site-footer";
@@ -77,6 +78,7 @@ export default async function ResourcesPage({ params }: Props) {
 
         <HomeVideoCollection />
         <HomeJourneyCollection />
+        <HomeYouVersionCollection />
 
         {RESOURCE_CATEGORIES_IN_ORDER.map((category) => (
           <ResourceCategorySection key={category} category={category} />

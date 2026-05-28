@@ -430,5 +430,32 @@
         "blurb": "ক্রীড়াপ্রেমীদের জন্য লেখা চারটি আধ্যাত্মিক বিধি।"
       }
     }
+  },
+  "HomeYouVersionCollection": {
+    "eyebrow": "সংগ্রহ · {count, plural, one {# পঠনপরিকল্পনা} other {# পঠনপরিকল্পনা}}",
+    "heading": "AIA YouVersion পঠনপরিকল্পনা",
+    "seeAllCta": "সম্পূর্ণ লাইব্রেরি খুলুন",
+    "showMoreCta": "সব {total} পঠনপরিকল্পনা খুলুন",
+    "openInYouVersion": "YouVersion-এ খুলুন",
+    "openOnYouVersion": "{title} YouVersion-এ খুলুন",
+    "itemEyebrow": "{author} · {days} দিন",
+    "items": {
+      "i-belong-to-jesus": {
+        "title": "I Belong to Jesus",
+        "blurb": "কাকা ছয় দিনে অন্বেষণ করেন - যীশুর হওয়া আসলে কী বোঝায়।"
+      },
+      "kingdom-playmaker": {
+        "title": "Kingdom Playmaker: Living With Intention",
+        "blurb": "আয়োং ইনো পাঠকদের শাস্ত্রের মধ্য দিয়ে ঈশ্বরপ্রদত্ত পরিচয় ও উদ্দেশ্যময় জীবনের দিকে নিয়ে যান।"
+      },
+      "fully-his": {
+        "title": "Fully His: The Power of Daily Surrender",
+        "blurb": "জোনাথন মেনসা শীর্ষ ফুটবল ও বাইবলের সত্য মেলান: অহং, নিয়ন্ত্রণ, আরাম, উচ্চাকাঙ্ক্ষা, ফলাফল ও ক্ষমা।"
+      },
+      "tools-for-transformation": {
+        "title": "Tools for Transformation",
+        "blurb": "লুকাস মৌরা সেই আত্মিক অভ্যাসগুলো শেয়ার করেন যা তাँর হৃদয় বদলে দিয়েছে - সত্যিকারের সাফল্য হলো যীশুর মতো হওয়া।"
+      }
+    }
   }
 }
