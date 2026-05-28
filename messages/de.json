@@ -342,5 +342,93 @@
         "blurb": "A sports evangelism tool with four symbols designed for cultural sensitivity in any context."
       }
     }
+  },
+  "HomeVideoCollection": {
+    "eyebrow": "Sammlung · {count, plural, one {# Element} other {# Elemente}}",
+    "heading": "Global Football (Soccer) Event",
+    "seeAllCta": "Gesamte Sammlung ansehen",
+    "items": {
+      "wc-praying-hands-cta": {
+        "title": "Praying Hands",
+        "blurb": "Ein Sportreporter hält zum Gebet inne — und wir können das in Drucksituationen auch."
+      },
+      "where-you-belong": {
+        "title": "Where You Belong",
+        "blurb": "Eine kurze Erinnerung: Jesus sieht dich, kennt dich und liebt dich."
+      },
+      "wc-you-can-talk-jesus": {
+        "title": "You Can Talk to Jesus",
+        "blurb": "Beten ist einfacher, als du denkst. Hör, was es heißt, mit Jesus zu sprechen."
+      },
+      "wc-after-win": {
+        "title": "After the Win",
+        "blurb": "Wonach greifst du, wenn der Jubel vorbei ist? Ein Gespräch für die Zeit nach dem Spiel."
+      },
+      "wc-not-enough-cta": {
+        "title": "When You Feel Like You're Not Enough",
+        "blurb": "Druck, Leistung und die Frage, die jeder Athlet kennt — was, wenn du schon genug bist?"
+      },
+      "wc-when-joy-is-gone-cta": {
+        "title": "When the Joy Is Gone",
+        "blurb": "Der Pokal verblasst. Die Menge geht. Woher kommt eine Freude, die bleibt?"
+      },
+      "wc-ultimate-coach": {
+        "title": "The Ultimate Coach",
+        "blurb": "Ein einminütiges Evangelium in der Sprache von Trainern, Spielern und Spielplänen."
+      },
+      "wc-most-asked-questions-online": {
+        "title": "The Most Asked Questions Online",
+        "blurb": "Neugier hat dich hergeführt. Ein sportlicher Blick auf die Fragen, die Menschen wirklich googeln."
+      },
+      "falcao-s-story": {
+        "title": "Falcao's Story",
+        "blurb": "Der kolumbianische Stürmer Radamel Falcao über den Preis jenseits der Trophäe."
+      },
+      "relationship-vs-religion": {
+        "title": "Relationship vs. Religion",
+        "blurb": "Athleten erzählen, was es heißt, Jesus zu folgen statt nur Regeln zu folgen."
+      },
+      "relationship-trumps-fame": {
+        "title": "Relationship Trumps Fame",
+        "blurb": "Ruhm ist laut. Hör Athleten zu, die von etwas Leiserem und Bleibenderem erzählen."
+      },
+      "just-an-outside-shot": {
+        "title": "Just an Outside Shot",
+        "blurb": "Wenn alles gegen dich zu sein scheint — eine Hoffnungsgeschichte aus dem Außenseiter-Blickwinkel."
+      }
+    },
+    "playLabel": "{title} abspielen",
+    "openOnJesusFilm": "{title} auf jesusfilm.org öffnen",
+    "showMoreCta": "Alle {total} Videos zeigen"
+  },
+  "HomeJourneyCollection": {
+    "eyebrow": "Sammlung · {count, plural, one {# Journey} other {# Journeys}}",
+    "heading": "NextSteps-Journeys zur Fußball-WM",
+    "seeAllCta": "Komplette Bibliothek öffnen",
+    "showMoreCta": "Alle {total} Journeys öffnen",
+    "openTemplate": "Vorlage öffnen",
+    "openOnNextSteps": "„{title}“ auf NextSteps öffnen",
+    "items": {
+      "spiritual-conversation-starter": {
+        "eyebrow": "SPIRITUAL CONVERSATION STARTER",
+        "title": "Choose a famous player, and we'll give you a prediction.",
+        "blurb": "Ein lockerer, spielerischer Einstieg in ein spirituelles Gespräch - angelehnt an einen Lieblingsspieler."
+      },
+      "prayer-connect": {
+        "eyebrow": "PRAYER CONNECT",
+        "title": "Do you pray for a win?",
+        "blurb": "Ein einfacher Einstieg ins Gespräch übers Gebet - Fans dort abholen, wo sie schon sind."
+      },
+      "gospel-encounter": {
+        "eyebrow": "A COMPLETE GOSPEL ENCOUNTER",
+        "title": "Where You Belong",
+        "blurb": "Eine vollständige Reise durchs Evangelium, geprägt vom Thema Zugehörigkeit."
+      },
+      "four-spiritual-laws": {
+        "eyebrow": "THE FOUR SPIRITUAL LAWS",
+        "title": "The FOUR / Sports",
+        "blurb": "Die Vier Geistlichen Gesetze, geschrieben für Sportfans."
+      }
+    }
   }
 }

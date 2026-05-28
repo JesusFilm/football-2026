@@ -342,5 +342,93 @@
         "blurb": "A sports evangelism tool with four symbols designed for cultural sensitivity in any context."
       }
     }
+  },
+  "HomeVideoCollection": {
+    "eyebrow": "संग्रह · {count, plural, one {# वीडियो} other {# वीडियो}}",
+    "heading": "Global Football (Soccer) Event",
+    "seeAllCta": "पूरा संग्रह देखें",
+    "items": {
+      "wc-praying-hands-cta": {
+        "title": "Praying Hands",
+        "blurb": "एक खेल पत्रकार रुककर प्रार्थना करता है — दबाव के पलों में हम भी ऐसा कर सकते हैं।"
+      },
+      "where-you-belong": {
+        "title": "Where You Belong",
+        "blurb": "एक छोटा-सा रिमाइंडर: यीशु आपको देखता है, जानता है, और प्रेम करता है।"
+      },
+      "wc-you-can-talk-jesus": {
+        "title": "You Can Talk to Jesus",
+        "blurb": "प्रार्थना उतनी कठिन नहीं जितनी आप सोचते हैं। सुनिए, यीशु से बात करने का क्या मतलब है।"
+      },
+      "wc-after-win": {
+        "title": "After the Win",
+        "blurb": "जश्न ख़त्म होने पर आप किसकी तरफ़ बढ़ते हैं? मैच के बाद की एक बातचीत।"
+      },
+      "wc-not-enough-cta": {
+        "title": "When You Feel Like You're Not Enough",
+        "blurb": "दबाव, प्रदर्शन और हर एथलीट का सवाल — अगर आप पहले से ही पर्याप्त हों तो?"
+      },
+      "wc-when-joy-is-gone-cta": {
+        "title": "When the Joy Is Gone",
+        "blurb": "ट्रॉफ़ी की चमक उतर जाती है। भीड़ चली जाती है। टिकाऊ आनंद कहाँ से आता है?"
+      },
+      "wc-ultimate-coach": {
+        "title": "The Ultimate Coach",
+        "blurb": "कोचों, खिलाड़ियों और खेल-योजनाओं की भाषा में एक मिनट का सुसमाचार।"
+      },
+      "wc-most-asked-questions-online": {
+        "title": "The Most Asked Questions Online",
+        "blurb": "उत्सुकता आपको यहाँ ले आई। उन सवालों पर खेल-दृष्टि जो लोग सच में खोजते हैं।"
+      },
+      "falcao-s-story": {
+        "title": "Falcao's Story",
+        "blurb": "कोलंबियाई स्ट्राइकर राडामेल फालकाओ — ट्रॉफ़ी से परे के इनाम पर।"
+      },
+      "relationship-vs-religion": {
+        "title": "Relationship vs. Religion",
+        "blurb": "एथलीट साझा करते हैं: नियमों का नहीं, यीशु का अनुसरण।"
+      },
+      "relationship-trumps-fame": {
+        "title": "Relationship Trumps Fame",
+        "blurb": "शोहरत शोरगुल वाली है। एथलीटों से सुनिए कुछ शांत और देर तक टिकने वाली बात।"
+      },
+      "just-an-outside-shot": {
+        "title": "Just an Outside Shot",
+        "blurb": "जब सब कुछ आपके विरुद्ध हो — सीमांत से आती एक आशा की कहानी।"
+      }
+    },
+    "playLabel": "{title} चलाएँ",
+    "openOnJesusFilm": "{title} को jesusfilm.org पर खोलें",
+    "showMoreCta": "सभी {total} वीडियो देखें"
+  },
+  "HomeJourneyCollection": {
+    "eyebrow": "संग्रह · {count, plural, one {# यात्रा} other {# यात्राएँ}}",
+    "heading": "विश्व कप के लिए NextSteps यात्राएँ",
+    "seeAllCta": "पूरी लाइब्रेरी खोलें",
+    "showMoreCta": "सभी {total} यात्राएँ खोलें",
+    "openTemplate": "टेम्प्लेट खोलें",
+    "openOnNextSteps": "{title} को NextSteps पर खोलें",
+    "items": {
+      "spiritual-conversation-starter": {
+        "eyebrow": "SPIRITUAL CONVERSATION STARTER",
+        "title": "Choose a famous player, and we'll give you a prediction.",
+        "blurb": "किसी पसंदीदा खिलाड़ी से शुरू होने वाली, हल्की-फुल्की आध्यात्मिक बातचीत।"
+      },
+      "prayer-connect": {
+        "eyebrow": "PRAYER CONNECT",
+        "title": "Do you pray for a win?",
+        "blurb": "प्रार्थना पर बात शुरू करने का सरल बिंदु - फैन्स को वहीं मिलना जहाँ वे हैं।"
+      },
+      "gospel-encounter": {
+        "eyebrow": "A COMPLETE GOSPEL ENCOUNTER",
+        "title": "Where You Belong",
+        "blurb": "‘अपनापन’ के आसपास बना सुसमाचार का पूरा सफ़र।"
+      },
+      "four-spiritual-laws": {
+        "eyebrow": "THE FOUR SPIRITUAL LAWS",
+        "title": "The FOUR / Sports",
+        "blurb": "खेल-प्रेमियों के लिए लिखे गए चार आध्यात्मिक नियम।"
+      }
+    }
   }
 }

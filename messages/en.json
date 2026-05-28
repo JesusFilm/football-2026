@@ -342,5 +342,93 @@
         "blurb": "A sports evangelism tool with four symbols designed for cultural sensitivity in any context."
       }
     }
+  },
+  "HomeVideoCollection": {
+    "eyebrow": "Collection · {count, plural, one {# item} other {# items}}",
+    "heading": "Global Football (Soccer) Event",
+    "seeAllCta": "Watch full collection",
+    "items": {
+      "wc-praying-hands-cta": {
+        "title": "Praying Hands",
+        "blurb": "A sportscaster pauses to pray — and so might we, in moments of pressure."
+      },
+      "where-you-belong": {
+        "title": "Where You Belong",
+        "blurb": "A short reminder that you are seen, loved, and known by Jesus."
+      },
+      "wc-you-can-talk-jesus": {
+        "title": "You Can Talk to Jesus",
+        "blurb": "Prayer is simpler than you think. Hear what it really means to talk to Jesus."
+      },
+      "wc-after-win": {
+        "title": "After the Win",
+        "blurb": "What do you reach for when the celebration ends? A reflective conversation starter."
+      },
+      "wc-not-enough-cta": {
+        "title": "When You Feel Like You're Not Enough",
+        "blurb": "Pressure, performance, and the question every athlete carries — what if you're enough already?"
+      },
+      "wc-when-joy-is-gone-cta": {
+        "title": "When the Joy Is Gone",
+        "blurb": "The trophy fades. The crowds leave. Where does lasting joy come from?"
+      },
+      "wc-ultimate-coach": {
+        "title": "The Ultimate Coach",
+        "blurb": "A one-minute gospel in the language of coaches, players, and game plans."
+      },
+      "wc-most-asked-questions-online": {
+        "title": "The Most Asked Questions Online",
+        "blurb": "Curiosity led you here. A sports-themed look at the questions people actually search for."
+      },
+      "falcao-s-story": {
+        "title": "Falcao's Story",
+        "blurb": "Colombian striker Radamel Falcao on the prize beyond the trophy."
+      },
+      "relationship-vs-religion": {
+        "title": "Relationship vs. Religion",
+        "blurb": "Athletes share what it means to follow Jesus over follow the rules."
+      },
+      "relationship-trumps-fame": {
+        "title": "Relationship Trumps Fame",
+        "blurb": "Fame is loud. Hear from athletes about something quieter and longer-lasting."
+      },
+      "just-an-outside-shot": {
+        "title": "Just an Outside Shot",
+        "blurb": "When everything seems against you, a story about hope from the margins."
+      }
+    },
+    "playLabel": "Play {title}",
+    "openOnJesusFilm": "Open {title} on jesusfilm.org",
+    "showMoreCta": "Show all {total} videos"
+  },
+  "HomeJourneyCollection": {
+    "eyebrow": "Collection · {count, plural, one {# journey} other {# journeys}}",
+    "heading": "NextSteps journeys for the World Cup",
+    "seeAllCta": "Open full library",
+    "showMoreCta": "Open all {total} journeys",
+    "openTemplate": "Open Template",
+    "openOnNextSteps": "Open {title} on NextSteps",
+    "items": {
+      "spiritual-conversation-starter": {
+        "eyebrow": "SPIRITUAL CONVERSATION STARTER",
+        "title": "Choose a famous player, and we'll give you a prediction.",
+        "blurb": "A light, playful onramp into a spiritual conversation built around a favorite player."
+      },
+      "prayer-connect": {
+        "eyebrow": "PRAYER CONNECT",
+        "title": "Do you pray for a win?",
+        "blurb": "A simple opening for talking about prayer - meeting fans where they already are."
+      },
+      "gospel-encounter": {
+        "eyebrow": "A COMPLETE GOSPEL ENCOUNTER",
+        "title": "Where You Belong",
+        "blurb": "A full walk-through of the gospel framed around belonging."
+      },
+      "four-spiritual-laws": {
+        "eyebrow": "THE FOUR SPIRITUAL LAWS",
+        "title": "The FOUR / Sports",
+        "blurb": "The Four Spiritual Laws, written for sports fans."
+      }
+    }
   }
 }

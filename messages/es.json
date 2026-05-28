@@ -342,5 +342,93 @@
         "blurb": "A sports evangelism tool with four symbols designed for cultural sensitivity in any context."
       }
     }
+  },
+  "HomeVideoCollection": {
+    "eyebrow": "Colección · {count, plural, one {# elemento} other {# elementos}}",
+    "heading": "Global Football (Soccer) Event",
+    "seeAllCta": "Ver toda la colección",
+    "items": {
+      "wc-praying-hands-cta": {
+        "title": "Praying Hands",
+        "blurb": "Un comentarista deportivo se detiene a orar — y nosotros también podemos, en momentos de presión."
+      },
+      "where-you-belong": {
+        "title": "Where You Belong",
+        "blurb": "Un breve recordatorio: Jesús te ve, te conoce y te ama."
+      },
+      "wc-you-can-talk-jesus": {
+        "title": "You Can Talk to Jesus",
+        "blurb": "Orar es más sencillo de lo que crees. Escucha lo que significa hablar con Jesús."
+      },
+      "wc-after-win": {
+        "title": "After the Win",
+        "blurb": "¿Qué buscas cuando termina la celebración? Una conversación para después del partido."
+      },
+      "wc-not-enough-cta": {
+        "title": "When You Feel Like You're Not Enough",
+        "blurb": "Presión, rendimiento y la pregunta que todo atleta lleva consigo — ¿y si ya eres suficiente?"
+      },
+      "wc-when-joy-is-gone-cta": {
+        "title": "When the Joy Is Gone",
+        "blurb": "El trofeo se desvanece. La multitud se va. ¿De dónde viene una alegría que dura?"
+      },
+      "wc-ultimate-coach": {
+        "title": "The Ultimate Coach",
+        "blurb": "Un evangelio de un minuto en el lenguaje de entrenadores, jugadores y estrategias."
+      },
+      "wc-most-asked-questions-online": {
+        "title": "The Most Asked Questions Online",
+        "blurb": "La curiosidad te trajo aquí. Una mirada deportiva a las preguntas que la gente realmente busca."
+      },
+      "falcao-s-story": {
+        "title": "Falcao's Story",
+        "blurb": "El delantero colombiano Radamel Falcao habla del premio más allá del trofeo."
+      },
+      "relationship-vs-religion": {
+        "title": "Relationship vs. Religion",
+        "blurb": "Atletas comparten lo que significa seguir a Jesús, no solo seguir las reglas."
+      },
+      "relationship-trumps-fame": {
+        "title": "Relationship Trumps Fame",
+        "blurb": "La fama es ruidosa. Escucha a atletas hablar de algo más silencioso y duradero."
+      },
+      "just-an-outside-shot": {
+        "title": "Just an Outside Shot",
+        "blurb": "Cuando todo parece estar en contra, una historia sobre la esperanza desde los márgenes."
+      }
+    },
+    "playLabel": "Reproducir {title}",
+    "openOnJesusFilm": "Abrir {title} en jesusfilm.org",
+    "showMoreCta": "Ver los {total} videos"
+  },
+  "HomeJourneyCollection": {
+    "eyebrow": "Colección · {count, plural, one {# trayecto} other {# trayectos}}",
+    "heading": "Trayectos NextSteps para el Mundial",
+    "seeAllCta": "Abrir la biblioteca completa",
+    "showMoreCta": "Abrir los {total} trayectos",
+    "openTemplate": "Abrir plantilla",
+    "openOnNextSteps": "Abrir «{title}» en NextSteps",
+    "items": {
+      "spiritual-conversation-starter": {
+        "eyebrow": "SPIRITUAL CONVERSATION STARTER",
+        "title": "Choose a famous player, and we'll give you a prediction.",
+        "blurb": "Una entrada ligera y divertida a una conversación espiritual a partir de un jugador favorito."
+      },
+      "prayer-connect": {
+        "eyebrow": "PRAYER CONNECT",
+        "title": "Do you pray for a win?",
+        "blurb": "Un punto de partida sencillo para hablar de oración - encontrando a los fanáticos donde ya están."
+      },
+      "gospel-encounter": {
+        "eyebrow": "A COMPLETE GOSPEL ENCOUNTER",
+        "title": "Where You Belong",
+        "blurb": "Un recorrido completo del evangelio centrado en la pertenencia."
+      },
+      "four-spiritual-laws": {
+        "eyebrow": "THE FOUR SPIRITUAL LAWS",
+        "title": "The FOUR / Sports",
+        "blurb": "Las Cuatro Leyes Espirituales, contadas para los aficionados al deporte."
+      }
+    }
   }
 }

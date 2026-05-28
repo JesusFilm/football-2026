@@ -342,5 +342,93 @@
         "blurb": "A sports evangelism tool with four symbols designed for cultural sensitivity in any context."
       }
     }
+  },
+  "HomeVideoCollection": {
+    "eyebrow": "合集 · {count} 个视频",
+    "heading": "Global Football (Soccer) Event",
+    "seeAllCta": "观看完整合集",
+    "items": {
+      "wc-praying-hands-cta": {
+        "title": "Praying Hands",
+        "blurb": "体育解说员停下来祷告——在压力之中,我们也可以。"
+      },
+      "where-you-belong": {
+        "title": "Where You Belong",
+        "blurb": "简短的提醒:耶稣看见你、认识你、爱你。"
+      },
+      "wc-you-can-talk-jesus": {
+        "title": "You Can Talk to Jesus",
+        "blurb": "祷告比你想的更简单。听听跟耶稣说话到底是什么意思。"
+      },
+      "wc-after-win": {
+        "title": "After the Win",
+        "blurb": "庆祝结束后你伸手抓住什么?一场赛后的反思对话。"
+      },
+      "wc-not-enough-cta": {
+        "title": "When You Feel Like You're Not Enough",
+        "blurb": "压力、表现,以及每个运动员心里的那个问题——如果你本来就够好呢?"
+      },
+      "wc-when-joy-is-gone-cta": {
+        "title": "When the Joy Is Gone",
+        "blurb": "奖杯褪色。人群散去。持久的喜乐从何而来?"
+      },
+      "wc-ultimate-coach": {
+        "title": "The Ultimate Coach",
+        "blurb": "一分钟的福音,用教练、球员和战术的语言。"
+      },
+      "wc-most-asked-questions-online": {
+        "title": "The Most Asked Questions Online",
+        "blurb": "好奇心带你来到这里。从运动视角看人们真正在搜索的问题。"
+      },
+      "falcao-s-story": {
+        "title": "Falcao's Story",
+        "blurb": "哥伦比亚前锋拉达梅尔·法尔考谈奖杯之外的奖赏。"
+      },
+      "relationship-vs-religion": {
+        "title": "Relationship vs. Religion",
+        "blurb": "运动员分享:跟随耶稣,而不是只跟随规则。"
+      },
+      "relationship-trumps-fame": {
+        "title": "Relationship Trumps Fame",
+        "blurb": "名声很吵。听运动员谈一件更安静、更长久的事。"
+      },
+      "just-an-outside-shot": {
+        "title": "Just an Outside Shot",
+        "blurb": "当一切看似与你为敌——一个来自边缘的盼望故事。"
+      }
+    },
+    "playLabel": "播放《{title}》",
+    "openOnJesusFilm": "在 jesusfilm.org 打开《{title}》",
+    "showMoreCta": "查看全部 {total} 个视频"
+  },
+  "HomeJourneyCollection": {
+    "eyebrow": "合集 · {count} 个旅程",
+    "heading": "为世界杯准备的 NextSteps 旅程",
+    "seeAllCta": "打开完整资源库",
+    "showMoreCta": "打开全部 {total} 个旅程",
+    "openTemplate": "打开模板",
+    "openOnNextSteps": "在 NextSteps 中打开《{title}》",
+    "items": {
+      "spiritual-conversation-starter": {
+        "eyebrow": "SPIRITUAL CONVERSATION STARTER",
+        "title": "Choose a famous player, and we'll give you a prediction.",
+        "blurb": "围绕喜爱的球员展开属灵话题的轻松起点。"
+      },
+      "prayer-connect": {
+        "eyebrow": "PRAYER CONNECT",
+        "title": "Do you pray for a win?",
+        "blurb": "用最简单的方式打开关于祷告的对话——在球迷已经在的地方相遇。"
+      },
+      "gospel-encounter": {
+        "eyebrow": "A COMPLETE GOSPEL ENCOUNTER",
+        "title": "Where You Belong",
+        "blurb": "围绕“归属”主题展开的完整福音旅程。"
+      },
+      "four-spiritual-laws": {
+        "eyebrow": "THE FOUR SPIRITUAL LAWS",
+        "title": "The FOUR / Sports",
+        "blurb": "为体育迷讲述的“四个属灵原则”。"
+      }
+    }
   }
 }

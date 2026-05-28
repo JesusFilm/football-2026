@@ -5,8 +5,10 @@ import { HomeCountryViewsSection } from "@/components/home-country-views-section
 import { HomeHero } from "@/components/home-hero";
 import { HomeLaunchEvent } from "@/components/home-launch-event";
 import { HomeLaunchVideo } from "@/components/home-launch-video";
+import { HomeJourneyCollection } from "@/components/home-journey-collection";
 import { HomeRegionGrid } from "@/components/home-region-grid";
 import { HomeRegionHeading } from "@/components/home-region-heading";
+import { HomeVideoCollection } from "@/components/home-video-collection";
 import { SectionChevron } from "@/components/section-chevron";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
@@ -56,6 +58,8 @@ export default async function Home({ params }: Props) {
         <HomeRegionGrid regions={regions} />
         <HomeLaunchEvent />
         <HomeLaunchVideo />
+        <HomeVideoCollection />
+        <HomeJourneyCollection />
 
         <Suspense>
           <HomeCountryViewsStream regions={regions} />
