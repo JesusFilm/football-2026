@@ -1,0 +1,461 @@
+{
+  "Metadata": {
+    "siteName": "Jesus Film Project · Kích hoạt World Cup 2026",
+    "defaultTitle": "World Cup 2026 · Kích hoạt khu vực của bạn",
+    "titleTemplate": "{title} · World Cup 2026",
+    "defaultDescription": "Jesus Film Project Kích hoạt — chia sẻ video World Cup 2026 bằng ngôn ngữ phù hợp với khán giả của bạn.",
+    "socialAlt": "World Cup 2026 Kích hoạt bởi Jesus Film Project",
+    "ogBrand": "Jesus Film Project",
+    "ogHeadline": "Hoạt động truyền giáo World Cup 2026",
+    "ogTagline": "Mỗi trận đấu, mỗi quốc gia, mỗi linh hồn.",
+    "homeSchemaName": "World Cup 2026 · Kích hoạt khu vực của bạn",
+    "breadcrumbAllRegions": "Tất cả khu vực",
+    "regionTitle": "Kích hoạt {regionName}",
+    "fallbackRegionTitle": "Khu vực",
+    "resourcesTitle": "Tài nguyên — Kích hoạt World Cup 2026",
+    "resourcesDescription": "Bộ công cụ truyền giáo hoàn chỉnh cho World Cup 2026 — các hành trình sẵn sàng sử dụng, video có thể tùy chỉnh và các bộ dụng cụ vật lý.",
+    "resourcesSchemaName": "World Cup 2026 · Tài nguyên"
+  },
+  "Home": {
+    "eyebrow": "World Cup 2026 · Truyền giáo",
+    "tagline": "Mỗi trận đấu, mỗi quốc gia, mỗi linh hồn.",
+    "title": "Kích hoạt khu vực của bạn",
+    "description": "Jesus Film Project đã tạo ra một cách đơn giản để chia sẻ Tin Lành với bạn bè và gia đình của bạn trong World Cup.",
+    "regionHeading": "Chọn khu vực của bạn",
+    "regionSubheading": "Bảy khu vực. Chọn khu vực bạn đang kích hoạt."
+  },
+  "Regions": {
+    "africa": {
+      "name": "Châu Phi",
+      "blurb": "Khắp khu vực kích hoạt Châu Phi. Hàng trăm ngôn ngữ. Một trò chơi.",
+      "seoDescription": "Công cụ truyền giáo World Cup 2026 dành cho Châu Phi: chia sẻ video bằng ngôn ngữ địa phương và theo dõi lượt xem theo quốc gia.",
+      "flags": {
+        "ng": "Nigeria",
+        "za": "Nam Phi",
+        "ke": "Kenya",
+        "gh": "Ghana",
+        "et": "Ethiopia"
+      }
+    },
+    "east-asia": {
+      "name": "Đông Á",
+      "blurb": "Trung Quốc, Nhật Bản, Hàn Quốc, Mông Cổ — trái tim của vành đai Thái Bình Dương.",
+      "seoDescription": "Kích hoạt Đông Á cho World Cup 2026 với video khu vực của Jesus Film Project, mã QR, liên kết chia sẻ và theo dõi lượt xem.",
+      "flags": {
+        "cn": "Trung Quốc",
+        "jp": "Nhật Bản",
+        "kr": "Hàn Quốc",
+        "mn": "Mông Cổ",
+        "tw": "Đài Loan"
+      }
+    },
+    "europe": {
+      "name": "Châu Âu",
+      "blurb": "Lục địa nơi trò chơi hiện đại được viết ra.",
+      "seoDescription": "Kích hoạt Châu Âu trong World Cup 2026 với video của Jesus Film Project, mã QR, liên kết chia sẻ và dữ liệu lượt xem khu vực.",
+      "flags": {
+        "gb": "Vương quốc Anh",
+        "fr": "Pháp",
+        "de": "Đức",
+        "es": "Tây Ban Nha",
+        "it": "Ý"
+      }
+    },
+    "lac": {
+      "name": "Mỹ Latinh & Caribe",
+      "blurb": "Từ Tijuana đến Tierra del Fuego — một lục địa đoàn kết qua bóng đá.",
+      "seoDescription": "Công cụ truyền giáo World Cup 2026 dành cho Mỹ Latinh & Caribe: chia sẻ video khu vực, mã QR và các hành trình bằng ngôn ngữ địa phương.",
+      "flags": {
+        "br": "Brazil",
+        "ar": "Argentina",
+        "co": "Colombia",
+        "mx": "Mexico",
+        "cl": "Chile"
+      }
+    },
+    "namestan": {
+      "name": "Bắc Phi, Trung Đông & Trung Á",
+      "blurb": "Từ Morocco đến Kazakhstan — qua ba lục địa.",
+      "seoDescription": "Kích hoạt Bắc Phi, Trung Đông & Trung Á với video World Cup 2026, mã QR và công cụ chia sẻ bằng ngôn ngữ địa phương.",
+      "flags": {
+        "ma": "Morocco",
+        "eg": "Ai Cập",
+        "sa": "Ả Rập Xê-út",
+        "ir": "Iran",
+        "kz": "Kazakhstan"
+      }
+    },
+    "nao": {
+      "name": "Bắc Mỹ & Châu Đại Dương",
+      "blurb": "Hoa Kỳ, Canada, Úc, New Zealand & Thái Bình Dương.",
+      "seoDescription": "Công cụ truyền giáo World Cup 2026 dành cho Bắc Mỹ & Châu Đại Dương: chia sẻ video bằng ngôn ngữ địa phương, mã QR và dữ liệu lượt xem khu vực.",
+      "flags": {
+        "us": "Hoa Kỳ",
+        "ca": "Canada",
+        "au": "Úc",
+        "nz": "New Zealand",
+        "fj": "Fiji"
+      }
+    },
+    "sesa": {
+      "name": "Đông Nam Á & Nam Á",
+      "blurb": "Từ Mumbai đến Manila — quê hương của một phần tư dân số thế giới.",
+      "seoDescription": "Công cụ truyền giáo World Cup 2026 dành cho Đông Nam Á & Nam Á: chia sẻ video bằng ngôn ngữ địa phương trên toàn khu vực có tầm ảnh hưởng cao.",
+      "flags": {
+        "in": "Ấn Độ",
+        "id": "Indonesia",
+        "ph": "Philippines",
+        "vn": "Việt Nam",
+        "th": "Thái Lan"
+      }
+    }
+  },
+  "Region": {
+    "eyebrow": "World Cup 2026 · {regionCode}",
+    "tagline": "Mỗi trận đấu, mỗi quốc gia, mỗi linh hồn.",
+    "title": "Chia sẻ Tin Lành trong World Cup",
+    "description": "World Cup tập hợp hàng tỷ người lại với nhau — đây là khoảnh khắc hoàn hảo để chia sẻ điều quan trọng nhất. Sử dụng công cụ này để gửi thông điệp Tin Lành cá nhân hóa bằng ngôn ngữ trái tim của ai đó, chỉ trong vài bước.",
+    "countriesLabel": "{count, plural, one {quốc gia} other {quốc gia}}",
+    "languagesLabel": "{count, plural, one {ngôn ngữ} other {ngôn ngữ}}",
+    "allRegions": "Tất cả khu vực",
+    "otherRegionsHeading": "Khám phá các khu vực khác"
+  },
+  "Steps": {
+    "chooseNum": "01 / CHỌN",
+    "chooseTitle": "Chọn ngôn ngữ",
+    "chooseBody": "Tìm video bằng ngôn ngữ địa phương của khán giả — hơn 30 lựa chọn.",
+    "shareNum": "02 / CHIA SẺ",
+    "shareTitle": "Gửi đi",
+    "shareBody": "Chia sẻ mã QR hoặc liên kết ở bất cứ đâu — SMS, mạng xã hội, in ấn, trực tiếp.",
+    "trackNum": "03 / THEO DÕI",
+    "trackTitle": "Xem tác động",
+    "trackBody": "Theo dõi lượt xem và lượt chia sẻ khi câu chuyện lan rộng khắp khu vực của bạn."
+  },
+  "CountryViews": {
+    "homeEyebrow": "Lượt xem toàn cầu",
+    "regionEyebrow": "World Cup 2026",
+    "heading": "Nơi câu chuyện đang lan rộng",
+    "topCountriesHeading": "Các quốc gia hàng đầu theo lượt xem",
+    "globalRankingLabel": "Xếp hạng lượt xem quốc gia toàn cầu",
+    "regionHeading": "Lượt xem quốc gia {regionName}",
+    "regionRankingLabel": "Xếp hạng lượt xem quốc gia {regionName}",
+    "regionCodeViews": "Lượt xem {regionCode}",
+    "topCountry": "Quốc gia hàng đầu",
+    "totalViews": "Tổng lượt xem",
+    "countries": "Quốc gia",
+    "rankingLabel": "Xếp hạng quốc gia",
+    "allRegions": "Tất cả",
+    "viewsSuffix": "lượt xem",
+    "tooltip": "{countryName}: {views} lượt xem",
+    "viewsUnavailableLabel": "Lượt xem không khả dụng",
+    "viewsUnavailableBody": "Không thể tải dữ liệu lượt xem quốc gia ngay bây giờ.",
+    "noViewsLabel": "Chưa có lượt xem quốc gia",
+    "noViewsBody": "Chưa có lượt xem theo cấp quốc gia cho {regionName}.",
+    "sourceOriginal": "Tất cả",
+    "sourceLive": "Football2026"
+  },
+  "SharePanel": {
+    "chooseLanguage": "Chọn ngôn ngữ",
+    "selectLanguage": "Chọn một ngôn ngữ",
+    "noJourneys": "Chưa có hành trình nào cho khu vực này.",
+    "shareLink": "Liên kết chia sẻ",
+    "howItWorks": "Đây là cách thức hoạt động:",
+    "stepOne": "Chọn ngôn ngữ mà bạn bè, thành viên gia đình hoặc hàng xóm của bạn hiểu.",
+    "stepTwo": "Xem những gì họ sẽ trải nghiệm {direction} trước khi bạn gửi.",
+    "directionBelow": "bên dưới",
+    "directionRight": "bên phải",
+    "directionLeft": "bên trái",
+    "stepThree": "Chia sẻ liên kết này bên dưới với họ.",
+    "stepFour": "Tải xuống mã QR nếu bạn muốn để in hoặc chia sẻ trực tiếp.",
+    "mapPrompt": "Bạn muốn xem mọi người trên thế giới đang phản hồi với đức tin như thế nào trong mùa này? Khám phá bản đồ bên dưới.",
+    "copyLink": "Sao chép liên kết",
+    "qrCode": "Mã QR",
+    "downloadQrCode": "Tải xuống mã QR",
+    "downloaded": "Đã tải xuống",
+    "downloadPng": "Tải xuống PNG",
+    "shared": "Đã chia sẻ",
+    "copied": "Đã sao chép",
+    "tryAgain": "Thử lại",
+    "share": "Chia sẻ",
+    "qrPlaceholder": "QR",
+    "madeWith": "Được tạo bởi",
+    "madeWithAria": "Được tạo bởi NextSteps",
+    "loadingPreview": "Đang tải bản xem trước",
+    "preview": "Bản xem trước tương tác",
+    "previewTitle": "Bản xem trước tương tác {regionCode}",
+    "shareTitle": "Video World Cup 2026 bằng tiếng {language}",
+    "shareText": "Xem và chia sẻ câu chuyện World Cup 2026 này bằng tiếng {language}.",
+    "journeyBody": "Đây là một hành trình Tin Lành tương tác kết nối giữa bóng đá và đức tin vào Chúa Giê-su. Chúng tôi đã cung cấp video và văn bản được dịch sang ngôn ngữ trái tim của bạn, với cơ hội theo dõi.",
+    "mapBody": "Hãy ghé thăm bản đồ bên dưới để xem mọi người đang tương tác với đức tin như thế nào trong mùa World Cup này."
+  },
+  "Footer": {
+    "copyright": "© 2026 Jesus Film Project",
+    "rights": "Bảo lưu mọi quyền",
+    "terms": "Điều khoản sử dụng",
+    "privacy": "Quyền riêng tư của bạn"
+  },
+  "Header": {
+    "homeAria": "Jesus Film Project — trang chủ",
+    "logoAlt": "Jesus Film Project",
+    "home": "Trang chủ",
+    "resources": "Tài nguyên",
+    "menuLabel": "Menu",
+    "menuOpenLabel": "Mở menu",
+    "menuCloseLabel": "Đóng menu"
+  },
+  "LanguagePicker": {
+    "label": "Ngôn ngữ",
+    "ariaLabel": "Thay đổi ngôn ngữ",
+    "currentLanguage": "Ngôn ngữ hiện tại: {language}",
+    "menuLabel": "Chọn ngôn ngữ"
+  },
+  "HomeLaunchVideo": {
+    "eyebrow": "Xem",
+    "heading": "Xem trái tim của hoạt động kích hoạt.",
+    "iframeTitle": "Video ra mắt World Cup 2026"
+  },
+  "HomeLaunchEvent": {
+    "pill": "Buổi họp trực tiếp",
+    "heading": "Cùng khám phá bộ công cụ.",
+    "body": "Một giờ. Toàn bộ tầm nhìn. Nghe cách Jesus Film Project, các đối tác và các nhà lãnh đạo mục vụ trên toàn thế giới đang kích hoạt khoảnh khắc này — và rời đi với kế hoạch ra mắt cho khu vực của bạn.",
+    "cta": "Đăng ký trên Zoom",
+    "freeCaption": "Miễn phí. Xác nhận và liên kết tham gia được gửi qua Zoom sau khi bạn đăng ký.",
+    "dateLabel": "Ngày",
+    "dateValue": "Thứ Hai, ngày 1 tháng 6 năm 2026",
+    "timeLabel": "Giờ",
+    "timeValue": "9:00 SA ET",
+    "durationLabel": "Thời lượng",
+    "durationValue": "60 phút",
+    "whereLabel": "Nơi",
+    "whereValue": "Zoom",
+    "addToCalendar": "Apple Calendar",
+    "toolkitLink": "Bộ công cụ và tài nguyên",
+    "shareLink": "Liên kết chia sẻ",
+    "calendarTitle": "Kích hoạt Khoảnh khắc Bóng đá Toàn cầu, Cơ hội Truyền giáo tháng 6 năm 2026",
+    "calendarDescription": "Tham gia cuộc trò chuyện toàn cầu trên Zoom thông qua phong trào ngày càng lớn mạnh của những người tin đồ được trang bị để mở nhà của họ, kích hoạt các hội thánh và tập hợp cộng đồng của họ thông qua hoạt động truyền giáo kỹ thuật số đơn giản trong một khoảnh khắc văn hóa toàn cầu. Sử dụng những tài nguyên này, bạn có thể biến một khoảnh khắc chung thành một kết nối ý nghĩa.\n\nJesus Film Project cung cấp những tài nguyên toàn cầu miễn phí này để giúp bạn bước vào sự kiện thể thao được xem nhiều nhất thế giới với sự cố ý, lòng hiếu khách và đức tin.\n\nTìm hiểu thêm tại https://football2026.nextstep.is/",
+    "googleCalendar": "Google Calendar",
+    "calendarRegisterLabel": "Đăng ký",
+    "calendarMeetingIdLabel": "ID cuộc họp",
+    "shareCopyText": "Bạn được mời: Kích hoạt Khoảnh khắc Bóng đá Toàn cầu — Cơ hội Truyền giáo tháng 6 năm 2026.\n\nKhi nào: Thứ Hai, ngày 1 tháng 6 năm 2026 · 9:00 SA ET (60 phút)\nNơi: Zoom\n\nĐăng ký: {registrationUrl}\nID cuộc họp: {meetingId}\n\nJesus Film Project đang cung cấp tài nguyên toàn cầu miễn phí để giúp bạn bước vào sự kiện thể thao được xem nhiều nhất thế giới với sự cố ý, lòng hiếu khách và đức tin.\nTìm hiểu thêm: https://football2026.nextstep.is/",
+    "shareCopiedFeedback": "Đã sao chép vào clipboard"
+  },
+  "Resources": {
+    "eyebrow": "Bộ công cụ",
+    "tagline": "Mỗi trận đấu, mỗi quốc gia, mỗi linh hồn.",
+    "title": "Tài nguyên cho khoảnh khắc này.",
+    "description": "Tất cả đều miễn phí và được xây dựng cho 39 ngày của World Cup. Lấy những gì phù hợp với nhóm của bạn và thực hiện.",
+    "categories": {
+      "readyToUse": {
+        "heading": "Sẵn sàng sử dụng",
+        "body": "Sao chép, chia sẻ, xong. Không cần chỉnh sửa — nhắn tin cho những người tìm kiếm và tín hữu mới ngay hôm nay."
+      },
+      "customizable": {
+        "heading": "Có thể tùy chỉnh",
+        "body": "Mẫu, bộ lồng tiếng và tệp nguồn. Điều chỉnh chúng theo ngôn ngữ, khán giả và khoảnh khắc của bạn."
+      },
+      "physicalKits": {
+        "heading": "Bộ vật lý",
+        "body": "Công cụ hữu hình cho các buổi xem chung, truyền giáo thể thao và các nhóm mục vụ tại thực địa."
+      }
+    },
+    "languageCountLabel": "{count} ngôn ngữ",
+    "openCta": "Mở tài nguyên",
+    "items": {
+      "prayforawin": {
+        "title": "PrayForAWin.com",
+        "blurb": "Một liên kết đơn giản để chia sẻ bài trình bày Tin Lành với tùy chọn tư vấn trực tiếp được tích hợp sẵn."
+      },
+      "when-everything": {
+        "title": "Khi Tất cả Đều Bị Đặt Cược",
+        "blurb": "Một hành trình kỹ thuật số theo chủ đề bóng đá dành cho những người khám phá bản năng cầu nguyện trong những khoảnh khắc sợ hãi hay bất an."
+      },
+      "where-you-belong": {
+        "title": "Nơi Bạn Thuộc Về",
+        "blurb": "Tiếp theo thân thiện với thiết bị di động với video một phút về giá trị cá nhân đối với Chúa Giê-su — có sẵn bằng 76 ngôn ngữ."
+      },
+      "i-belong-jesus": {
+        "title": "Tôi Thuộc Về Chúa Giê-su",
+        "blurb": "Một chương trình tĩnh nguyện sáu ngày trên YouVersion của Kaká về việc tìm kiếm danh tính trong Đấng Christ."
+      },
+      "kingdom-playmaker": {
+        "title": "Nhà Kiến Tạo Vương Quốc: Sống Với Mục Đích",
+        "blurb": "Chương trình YouVersion năm ngày của Eyong Enoh về việc khám phá danh tính được Đức Chúa Trời ban cho."
+      },
+      "fully-his": {
+        "title": "Hoàn Toàn Của Ngài: Sức Mạnh của Sự Buông Bỏ Hàng Ngày",
+        "blurb": "Chương trình YouVersion sáu ngày của Jonathan Mensah về việc dâng mọi lĩnh vực cuộc sống cho Đức Chúa Trời."
+      },
+      "tools-transformation": {
+        "title": "Công Cụ Biến Đổi",
+        "blurb": "Chương trình YouVersion năm ngày của Lucas Moura về thói quen tâm linh và đức tính."
+      },
+      "nextsteps-templates": {
+        "title": "Mẫu Hành Trình NextSteps",
+        "blurb": "Xây dựng các hành trình kỹ thuật số theo chủ đề thể thao với hình ảnh, video, câu hỏi, câu Kinh Thánh và lời nhắc cầu nguyện."
+      },
+      "hope-ball-not-enough": {
+        "title": "Khi Bạn Cảm Thấy Mình Chưa Đủ",
+        "blurb": "Bộ lồng tiếng về hành trình cảm xúc của việc theo đuổi một mục tiêu — và tác động của thất bại."
+      },
+      "hope-ball-joy-gone": {
+        "title": "Khi Niềm Vui Biến Mất",
+        "blurb": "Bộ lồng tiếng đối chiếu niềm vui thoáng qua của chiến thắng với chiến thắng bền vững mà Chúa Giê-su giành được trên thập tự giá."
+      },
+      "praying-hands-prayer": {
+        "title": "Bàn Tay Cầu Nguyện",
+        "blurb": "Bộ lồng tiếng một phút về cách chúng ta đều bản năng cầu nguyện trong những khoảnh khắc sợ hãi hay bất an."
+      },
+      "praying-hands-talk-jesus": {
+        "title": "Bạn Có Thể Nói Chuyện Với Chúa Giê-su",
+        "blurb": "Bộ lồng tiếng theo chủ đề thể thao với bài trình bày Tin Lành bằng giọng nói."
+      },
+      "ultimate-coach": {
+        "title": "Huấn Luyện Viên Tối Thượng",
+        "blurb": "Bài trình bày Tin Lành một phút sử dụng thể thao, huấn luyện và kế hoạch trận đấu làm điểm khởi đầu."
+      },
+      "most-asked-questions": {
+        "title": "Những Câu Hỏi Được Hỏi Nhiều Nhất Trực Tuyến",
+        "blurb": "Bộ lồng tiếng theo chủ đề thể thao về sự tò mò sâu sắc nhất của chúng ta — dẫn đến những câu hỏi về Chúa Giê-su."
+      },
+      "after-the-win": {
+        "title": "Sau Chiến Thắng",
+        "blurb": "Bộ lồng tiếng suy ngẫm để khởi đầu cuộc trò chuyện sau trận đấu — hoàn hảo cho việc theo dõi."
+      },
+      "print-collection": {
+        "title": "Tài liệu in & tài nguyên khác",
+        "blurb": "Tài liệu có thể in, lời mời và các tài sản khác để giúp bạn chia sẻ video và Tin Lành."
+      },
+      "all-videos": {
+        "title": "Tất cả video — Bộ sưu tập Bóng đá Toàn cầu",
+        "blurb": "Bộ sưu tập đầy đủ các bộ phim theo chủ đề thể thao mà bạn có thể sử dụng để khơi dậy các cuộc trò chuyện về Tin Lành."
+      },
+      "watch-party-kit": {
+        "title": "Bộ Xem Chung",
+        "blurb": "Hướng dẫn tổ chức, bảng xếp hạng, công thức nấu ăn và bóng đá — mọi thứ bạn cần cho buổi tụ họp tại nhà hoặc nhà thờ."
+      },
+      "movement-maker-kit": {
+        "title": "Bộ Người Tạo Phong Trào",
+        "blurb": "Hai quả bóng đá, 100 vòng đeo tay, Kinh Thánh và hướng dẫn bộ — được xây dựng cho các nhóm mục vụ toàn cầu."
+      },
+      "jesus-loves-you-ball": {
+        "title": "Bóng Đá Chúa Giê-su Yêu Bạn",
+        "blurb": "Công cụ truyền giáo thể thao với bốn biểu tượng được thiết kế để nhạy cảm văn hóa trong bất kỳ bối cảnh nào."
+      }
+    }
+  },
+  "HomeVideoCollection": {
+    "eyebrow": "Bộ sưu tập · {count, plural, one {# mục} other {# mục}}",
+    "heading": "Sự kiện Bóng đá (Soccer) Toàn cầu",
+    "seeAllCta": "Xem toàn bộ bộ sưu tập",
+    "items": {
+      "wc-praying-hands-cta": {
+        "title": "Bàn Tay Cầu Nguyện",
+        "blurb": "Một người bình luận thể thao dừng lại cầu nguyện — và có lẽ chúng ta cũng vậy, trong những khoảnh khắc áp lực."
+      },
+      "where-you-belong": {
+        "title": "Nơi Bạn Thuộc Về",
+        "blurb": "Lời nhắc nhở ngắn gọn rằng bạn được nhìn thấy, được yêu thương và được Chúa Giê-su biết đến."
+      },
+      "wc-you-can-talk-jesus": {
+        "title": "Bạn Có Thể Nói Chuyện Với Chúa Giê-su",
+        "blurb": "Cầu nguyện đơn giản hơn bạn nghĩ. Nghe những gì thực sự có nghĩa là nói chuyện với Chúa Giê-su."
+      },
+      "wc-after-win": {
+        "title": "Sau Chiến Thắng",
+        "blurb": "Bạn tìm đến điều gì khi lễ kỷ niệm kết thúc? Khởi đầu cuộc trò chuyện suy ngẫm."
+      },
+      "wc-not-enough-cta": {
+        "title": "Khi Bạn Cảm Thấy Mình Chưa Đủ",
+        "blurb": "Áp lực, hiệu suất và câu hỏi mà mọi vận động viên đặt ra — nếu bạn đã đủ rồi thì sao?"
+      },
+      "wc-when-joy-is-gone-cta": {
+        "title": "Khi Niềm Vui Biến Mất",
+        "blurb": "Chiếc cúp phai mờ. Đám đông rời đi. Niềm vui lâu dài đến từ đâu?"
+      },
+      "wc-ultimate-coach": {
+        "title": "Huấn Luyện Viên Tối Thượng",
+        "blurb": "Một Tin Lành một phút bằng ngôn ngữ của huấn luyện viên, cầu thủ và kế hoạch trận đấu."
+      },
+      "wc-most-asked-questions-online": {
+        "title": "Những Câu Hỏi Được Hỏi Nhiều Nhất Trực Tuyến",
+        "blurb": "Sự tò mò đã dẫn bạn đến đây. Cái nhìn theo chủ đề thể thao về những câu hỏi mà mọi người thực sự tìm kiếm."
+      },
+      "falcao-s-story": {
+        "title": "Câu Chuyện của Falcao",
+        "blurb": "Tiền đạo Colombia Radamel Falcao về giải thưởng vượt trên chiếc cúp."
+      },
+      "relationship-vs-religion": {
+        "title": "Mối Quan Hệ vs. Tôn Giáo",
+        "blurb": "Các vận động viên chia sẻ ý nghĩa của việc theo Chúa Giê-su thay vì tuân theo các quy tắc."
+      },
+      "relationship-trumps-fame": {
+        "title": "Mối Quan Hệ Vượt Trên Danh Tiếng",
+        "blurb": "Danh tiếng ồn ào. Nghe từ các vận động viên về điều gì đó yên tĩnh hơn và lâu dài hơn."
+      },
+      "just-an-outside-shot": {
+        "title": "Chỉ Là Một Cơ Hội Bên Ngoài",
+        "blurb": "Khi mọi thứ dường như chống lại bạn, một câu chuyện về hy vọng từ những người bên lề."
+      }
+    },
+    "playLabel": "Phát {title}",
+    "openOnJesusFilm": "Mở {title} trên jesusfilm.org",
+    "showMoreCta": "Hiển thị tất cả {total} video"
+  },
+  "HomeJourneyCollection": {
+    "eyebrow": "Bộ sưu tập · {count, plural, one {# hành trình} other {# hành trình}}",
+    "heading": "Các hành trình NextSteps bạn có thể tùy chỉnh và sử dụng",
+    "seeAllCta": "Mở thư viện đầy đủ",
+    "showMoreCta": "Mở tất cả {total} hành trình",
+    "openTemplate": "Mở Mẫu",
+    "openOnNextSteps": "Mở {title} trên NextSteps",
+    "items": {
+      "spiritual-conversation-starter": {
+        "eyebrow": "KHỞI ĐẦU CUỘC TRÒ CHUYỆN TÂM LINH",
+        "title": "Chọn một cầu thủ nổi tiếng và chúng tôi sẽ cho bạn dự đoán.",
+        "blurb": "Cách tiếp cận nhẹ nhàng, vui vẻ vào cuộc trò chuyện tâm linh xây dựng xung quanh một cầu thủ yêu thích."
+      },
+      "prayer-connect": {
+        "eyebrow": "KẾT NỐI CẦU NGUYỆN",
+        "title": "Bạn có cầu nguyện cho chiến thắng không?",
+        "blurb": "Cách mở đơn giản để nói về cầu nguyện - gặp gỡ những người hâm mộ nơi họ đã ở."
+      },
+      "gospel-encounter": {
+        "eyebrow": "MỘT CUỘC GẶP GỠ TIN LÀNH HOÀN CHỈNH",
+        "title": "Nơi Bạn Thuộc Về",
+        "blurb": "Hành trình toàn diện qua Tin Lành được đóng khung xung quanh sự thuộc về."
+      },
+      "four-spiritual-laws": {
+        "eyebrow": "BỐN LUẬT TÂM LINH",
+        "title": "FOUR / Thể thao",
+        "blurb": "Bốn Luật Tâm Linh, được viết cho những người hâm mộ thể thao."
+      }
+    }
+  },
+  "HomeYouVersionCollection": {
+    "eyebrow": "Bộ sưu tập · {count, plural, one {# kế hoạch đọc} other {# kế hoạch đọc}}",
+    "heading": "Kế hoạch đọc YouVersion của AIA",
+    "seeAllCta": "Mở thư viện đầy đủ",
+    "showMoreCta": "Mở tất cả {total} kế hoạch đọc",
+    "openInYouVersion": "Mở trong YouVersion",
+    "openOnYouVersion": "Mở {title} trên YouVersion",
+    "itemEyebrow": "{author} · {days, plural, one {# ngày} other {# ngày}}",
+    "items": {
+      "i-belong-to-jesus": {
+        "title": "Tôi Thuộc Về Chúa Giê-su",
+        "blurb": "Kaka khám phá ý nghĩa thực sự của việc thuộc về Chúa Giê-su trong chương trình tĩnh nguyện sáu ngày này."
+      },
+      "kingdom-playmaker": {
+        "title": "Nhà Kiến Tạo Vương Quốc: Sống Với Mục Đích",
+        "blurb": "Eyong Enoh hướng dẫn độc giả qua Kinh Thánh và lời chứng về danh tính được Đức Chúa Trời ban cho sống với mục đích."
+      },
+      "fully-his": {
+        "title": "Hoàn Toàn Của Ngài: Sức Mạnh của Sự Buông Bỏ Hàng Ngày",
+        "blurb": "Jonathan Mensah kết hợp bóng đá đỉnh cao và chân lý Kinh Thánh về kiêu ngạo, kiểm soát, sự thoải mái, tham vọng, kết quả và sự tha thứ."
+      },
+      "tools-for-transformation": {
+        "title": "Công Cụ Biến Đổi",
+        "blurb": "Lucas Moura chia sẻ những thói quen tâm linh và chân lý Kinh Thánh đã biến đổi trái tim anh ấy - thành công thực sự là trở nên giống Chúa Giê-su hơn."
+      }
+    }
+  }
+}
