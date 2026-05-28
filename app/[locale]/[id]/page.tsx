@@ -3,6 +3,7 @@ import { getTranslations, setRequestLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
 
 import { CountryViewsSection } from "@/components/country-views-section";
+import { HomeJourneyCollection } from "@/components/home-journey-collection";
 import { OtherRegionsNav } from "@/components/other-regions-nav";
 import { RegionSharePanel } from "@/components/region-share-panel";
 import { RegionHero } from "@/components/region-hero";
@@ -151,6 +152,8 @@ export default async function RegionPage({ params }: Props) {
           regionCode={region.displayCode}
           journeys={journeys}
         />
+
+        <HomeJourneyCollection />
 
         <CountryViewsSection
           regionName={region.name}

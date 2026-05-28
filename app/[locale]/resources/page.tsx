@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 
+import { HomeJourneyCollection } from "@/components/home-journey-collection";
+import { HomeVideoCollection } from "@/components/home-video-collection";
 import { ResourceCategorySection } from "@/components/resource-category";
 import { ResourcesHero } from "@/components/resources-hero";
 import { SiteFooter } from "@/components/site-footer";
@@ -72,6 +74,9 @@ export default async function ResourcesPage({ params }: Props) {
 
       <main className="mx-auto max-w-[1200px] px-5 sm:px-10">
         <ResourcesHero />
+
+        <HomeVideoCollection />
+        <HomeJourneyCollection />
 
         {RESOURCE_CATEGORIES_IN_ORDER.map((category) => (
           <ResourceCategorySection key={category} category={category} />

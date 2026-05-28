@@ -342,5 +342,93 @@
         "blurb": "A sports evangelism tool with four symbols designed for cultural sensitivity in any context."
       }
     }
+  },
+  "HomeVideoCollection": {
+    "eyebrow": "Koleksi · {count, plural, one {# item} other {# item}}",
+    "heading": "Global Football (Soccer) Event",
+    "seeAllCta": "Tonton koleksi lengkap",
+    "items": {
+      "wc-praying-hands-cta": {
+        "title": "Praying Hands",
+        "blurb": "Komentator olahraga berhenti untuk berdoa — kita pun bisa, di tengah tekanan."
+      },
+      "where-you-belong": {
+        "title": "Where You Belong",
+        "blurb": "Pengingat singkat: Yesus melihatmu, mengenalmu, dan mengasihimu."
+      },
+      "wc-you-can-talk-jesus": {
+        "title": "You Can Talk to Jesus",
+        "blurb": "Berdoa lebih sederhana dari yang kamu kira. Dengar apa artinya bicara dengan Yesus."
+      },
+      "wc-after-win": {
+        "title": "After the Win",
+        "blurb": "Kamu meraih apa saat perayaan usai? Percakapan setelah pertandingan."
+      },
+      "wc-not-enough-cta": {
+        "title": "When You Feel Like You're Not Enough",
+        "blurb": "Tekanan, performa, dan pertanyaan yang dipikul setiap atlet — bagaimana jika kamu sudah cukup?"
+      },
+      "wc-when-joy-is-gone-cta": {
+        "title": "When the Joy Is Gone",
+        "blurb": "Piala memudar. Penonton pergi. Dari mana sukacita yang bertahan datang?"
+      },
+      "wc-ultimate-coach": {
+        "title": "The Ultimate Coach",
+        "blurb": "Injil satu menit dalam bahasa pelatih, pemain, dan rencana permainan."
+      },
+      "wc-most-asked-questions-online": {
+        "title": "The Most Asked Questions Online",
+        "blurb": "Rasa ingin tahu membawamu ke sini. Sudut pandang olahraga atas pertanyaan yang benar-benar dicari orang."
+      },
+      "falcao-s-story": {
+        "title": "Falcao's Story",
+        "blurb": "Penyerang Kolombia Radamel Falcao tentang hadiah di balik trofi."
+      },
+      "relationship-vs-religion": {
+        "title": "Relationship vs. Religion",
+        "blurb": "Para atlet berbagi soal mengikuti Yesus, bukan sekadar mengikuti aturan."
+      },
+      "relationship-trumps-fame": {
+        "title": "Relationship Trumps Fame",
+        "blurb": "Ketenaran itu bising. Dengar para atlet bicara soal sesuatu yang lebih sunyi dan lebih lama."
+      },
+      "just-an-outside-shot": {
+        "title": "Just an Outside Shot",
+        "blurb": "Saat segalanya seolah melawanmu — sebuah kisah harapan dari pinggiran."
+      }
+    },
+    "playLabel": "Putar {title}",
+    "openOnJesusFilm": "Buka {title} di jesusfilm.org",
+    "showMoreCta": "Lihat semua {total} video"
+  },
+  "HomeJourneyCollection": {
+    "eyebrow": "Koleksi · {count, plural, one {# perjalanan} other {# perjalanan}}",
+    "heading": "Perjalanan NextSteps untuk Piala Dunia",
+    "seeAllCta": "Buka perpustakaan lengkap",
+    "showMoreCta": "Buka semua {total} perjalanan",
+    "openTemplate": "Buka templat",
+    "openOnNextSteps": "Buka \"{title}\" di NextSteps",
+    "items": {
+      "spiritual-conversation-starter": {
+        "eyebrow": "SPIRITUAL CONVERSATION STARTER",
+        "title": "Choose a famous player, and we'll give you a prediction.",
+        "blurb": "Pintu masuk yang ringan dan menyenangkan ke percakapan rohani lewat pemain favorit."
+      },
+      "prayer-connect": {
+        "eyebrow": "PRAYER CONNECT",
+        "title": "Do you pray for a win?",
+        "blurb": "Titik mula yang sederhana untuk bicara tentang doa - menjumpai penggemar di tempat mereka berada."
+      },
+      "gospel-encounter": {
+        "eyebrow": "A COMPLETE GOSPEL ENCOUNTER",
+        "title": "Where You Belong",
+        "blurb": "Perjalanan Injil yang lengkap, dibingkai lewat tema 'di mana kamu berada'."
+      },
+      "four-spiritual-laws": {
+        "eyebrow": "THE FOUR SPIRITUAL LAWS",
+        "title": "The FOUR / Sports",
+        "blurb": "Empat Hukum Rohani, ditulis untuk penggemar olahraga."
+      }
+    }
   }
 }

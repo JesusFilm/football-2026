@@ -342,5 +342,93 @@
         "blurb": "A sports evangelism tool with four symbols designed for cultural sensitivity in any context."
       }
     }
+  },
+  "HomeVideoCollection": {
+    "eyebrow": "Коллекция · {count, plural, one {# элемент} few {# элемента} other {# элементов}}",
+    "heading": "Global Football (Soccer) Event",
+    "seeAllCta": "Смотреть всю коллекцию",
+    "items": {
+      "wc-praying-hands-cta": {
+        "title": "Praying Hands",
+        "blurb": "Спортивный комментатор останавливается на молитве — и мы можем, в минуты давления."
+      },
+      "where-you-belong": {
+        "title": "Where You Belong",
+        "blurb": "Короткое напоминание: Иисус видит тебя, знает тебя и любит."
+      },
+      "wc-you-can-talk-jesus": {
+        "title": "You Can Talk to Jesus",
+        "blurb": "Молиться проще, чем кажется. Послушай, что значит говорить с Иисусом."
+      },
+      "wc-after-win": {
+        "title": "After the Win",
+        "blurb": "К чему ты тянешься, когда праздник заканчивается? Разговор после игры."
+      },
+      "wc-not-enough-cta": {
+        "title": "When You Feel Like You're Not Enough",
+        "blurb": "Давление, результат и вопрос, который несёт каждый атлет — а вдруг тебя уже достаточно?"
+      },
+      "wc-when-joy-is-gone-cta": {
+        "title": "When the Joy Is Gone",
+        "blurb": "Кубок меркнет. Толпа уходит. Откуда приходит радость, которая остаётся?"
+      },
+      "wc-ultimate-coach": {
+        "title": "The Ultimate Coach",
+        "blurb": "Минутное Евангелие на языке тренеров, игроков и стратегий."
+      },
+      "wc-most-asked-questions-online": {
+        "title": "The Most Asked Questions Online",
+        "blurb": "Любопытство привело тебя сюда. Спортивный взгляд на вопросы, которые действительно ищут люди."
+      },
+      "falcao-s-story": {
+        "title": "Falcao's Story",
+        "blurb": "Колумбийский нападающий Радамель Фалькао — о награде за пределами трофея."
+      },
+      "relationship-vs-religion": {
+        "title": "Relationship vs. Religion",
+        "blurb": "Атлеты рассказывают, что значит следовать за Иисусом, а не просто за правилами."
+      },
+      "relationship-trumps-fame": {
+        "title": "Relationship Trumps Fame",
+        "blurb": "Слава — это шум. Послушай атлетов о том, что тише и долговечнее."
+      },
+      "just-an-outside-shot": {
+        "title": "Just an Outside Shot",
+        "blurb": "Когда всё, кажется, против тебя — история надежды с окраины."
+      }
+    },
+    "playLabel": "Смотреть «{title}»",
+    "openOnJesusFilm": "Открыть «{title}» на jesusfilm.org",
+    "showMoreCta": "Показать все {total} видео"
+  },
+  "HomeJourneyCollection": {
+    "eyebrow": "Коллекция · {count, plural, one {# трек} few {# трека} other {# треков}}",
+    "heading": "Треки NextSteps к Чемпионату мира",
+    "seeAllCta": "Открыть всю библиотеку",
+    "showMoreCta": "Открыть все {total} треков",
+    "openTemplate": "Открыть шаблон",
+    "openOnNextSteps": "Открыть «{title}» в NextSteps",
+    "items": {
+      "spiritual-conversation-starter": {
+        "eyebrow": "SPIRITUAL CONVERSATION STARTER",
+        "title": "Choose a famous player, and we'll give you a prediction.",
+        "blurb": "Лёгкий, игровой вход в духовный разговор через любимого футболиста."
+      },
+      "prayer-connect": {
+        "eyebrow": "PRAYER CONNECT",
+        "title": "Do you pray for a win?",
+        "blurb": "Простой повод поговорить о молитве - встреча с болельщиками там, где они есть."
+      },
+      "gospel-encounter": {
+        "eyebrow": "A COMPLETE GOSPEL ENCOUNTER",
+        "title": "Where You Belong",
+        "blurb": "Полный путь по Евангелию через тему принадлежности."
+      },
+      "four-spiritual-laws": {
+        "eyebrow": "THE FOUR SPIRITUAL LAWS",
+        "title": "The FOUR / Sports",
+        "blurb": "Четыре духовных закона - на языке спортивных фанатов."
+      }
+    }
   }
 }
