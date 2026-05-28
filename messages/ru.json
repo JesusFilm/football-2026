@@ -430,5 +430,32 @@
         "blurb": "Четыре духовных закона - на языке спортивных фанатов."
       }
     }
+  },
+  "HomeYouVersionCollection": {
+    "eyebrow": "Коллекция · {count, plural, one {# план чтения} few {# плана чтения} other {# планов чтения}}",
+    "heading": "YouVersion-планы от AIA",
+    "seeAllCta": "Открыть всю библиотеку",
+    "showMoreCta": "Открыть все {total} плана",
+    "openInYouVersion": "Открыть в YouVersion",
+    "openOnYouVersion": "Открыть «{title}» в YouVersion",
+    "itemEyebrow": "{author} · {days, plural, one {# день} few {# дня} other {# дней}}",
+    "items": {
+      "i-belong-to-jesus": {
+        "title": "I Belong to Jesus",
+        "blurb": "Кака исследует, что значит по-настоящему принадлежать Иисусу — шестидневный план."
+      },
+      "kingdom-playmaker": {
+        "title": "Kingdom Playmaker: Living With Intention",
+        "blurb": "Эйонг Энох ведёт читателей через Писание к данной Богом идентичности и жизни с намерением."
+      },
+      "fully-his": {
+        "title": "Fully His: The Power of Daily Surrender",
+        "blurb": "Джонатан Менса соединяет элитный футбол и библейскую истину: гордость, контроль, комфорт, амбиции, итоги, прощение."
+      },
+      "tools-for-transformation": {
+        "title": "Tools for Transformation",
+        "blurb": "Лукас Моура делится духовными привычками, изменившими его сердце - настоящий успех в том, чтобы становиться похожим на Иисуса."
+      }
+    }
   }
 }

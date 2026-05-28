@@ -430,5 +430,32 @@
         "blurb": "为体育迷讲述的“四个属灵原则”。"
       }
     }
+  },
+  "HomeYouVersionCollection": {
+    "eyebrow": "合集 · {count} 个读经计划",
+    "heading": "AIA YouVersion 读经计划",
+    "seeAllCta": "打开完整资源库",
+    "showMoreCta": "打开全部 {total} 个读经计划",
+    "openInYouVersion": "在 YouVersion 中打开",
+    "openOnYouVersion": "在 YouVersion 中打开《{title}》",
+    "itemEyebrow": "{author} · {days} 天",
+    "items": {
+      "i-belong-to-jesus": {
+        "title": "I Belong to Jesus",
+        "blurb": "卡卡用六天时间，带你思考“属于耶稣”究竟意味着什么。"
+      },
+      "kingdom-playmaker": {
+        "title": "Kingdom Playmaker: Living With Intention",
+        "blurb": "埃永·埃诺通过经文与见证，引导你走向上帝所赐、带着目标的身份。"
+      },
+      "fully-his": {
+        "title": "Fully His: The Power of Daily Surrender",
+        "blurb": "乔纳森·门萨把顶级足球与圣经真理结合：骄傲、掌控、舒适、野心、成败与饶恕。"
+      },
+      "tools-for-transformation": {
+        "title": "Tools for Transformation",
+        "blurb": "卢卡斯·莫拉分享那些改变他内心的属灵习惯——真正的成功是变得越来越像耶稣。"
+      }
+    }
   }
 }

@@ -430,5 +430,32 @@
         "blurb": "The Four Spiritual Laws, written for sports fans."
       }
     }
+  },
+  "HomeYouVersionCollection": {
+    "eyebrow": "Collection · {count, plural, one {# reading plan} other {# reading plans}}",
+    "heading": "AIA YouVersion reading plans",
+    "seeAllCta": "Open the full library",
+    "showMoreCta": "Open all {total} reading plans",
+    "openInYouVersion": "Open in YouVersion",
+    "openOnYouVersion": "Open {title} on YouVersion",
+    "itemEyebrow": "{author} · {days, plural, one {# day} other {# days}}",
+    "items": {
+      "i-belong-to-jesus": {
+        "title": "I Belong to Jesus",
+        "blurb": "Kaka explores what it truly means to belong to Jesus in this six-day devotional."
+      },
+      "kingdom-playmaker": {
+        "title": "Kingdom Playmaker: Living With Intention",
+        "blurb": "Eyong Enoh guides readers through Scripture and testimony toward a God-given identity that lives with intention."
+      },
+      "fully-his": {
+        "title": "Fully His: The Power of Daily Surrender",
+        "blurb": "Jonathan Mensah blends elite football and biblical truth on pride, control, comfort, ambition, outcomes and forgiveness."
+      },
+      "tools-for-transformation": {
+        "title": "Tools for Transformation",
+        "blurb": "Lucas Moura shares the spiritual habits and biblical truths that transformed his heart - real success is becoming more like Jesus."
+      }
+    }
   }
 }

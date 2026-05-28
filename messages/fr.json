@@ -430,5 +430,32 @@
         "blurb": "Les Quatre Lois Spirituelles, racontées pour les fans de sport."
       }
     }
+  },
+  "HomeYouVersionCollection": {
+    "eyebrow": "Collection · {count, plural, one {# plan de lecture} other {# plans de lecture}}",
+    "heading": "Plans de lecture YouVersion par AIA",
+    "seeAllCta": "Ouvrir la bibliothèque complète",
+    "showMoreCta": "Ouvrir les {total} plans",
+    "openInYouVersion": "Ouvrir dans YouVersion",
+    "openOnYouVersion": "Ouvrir « {title} » dans YouVersion",
+    "itemEyebrow": "{author} · {days, plural, one {# jour} other {# jours}}",
+    "items": {
+      "i-belong-to-jesus": {
+        "title": "I Belong to Jesus",
+        "blurb": "Kaká explore ce que veut vraiment dire appartenir à Jésus, à travers ce parcours de six jours."
+      },
+      "kingdom-playmaker": {
+        "title": "Kingdom Playmaker: Living With Intention",
+        "blurb": "Eyong Enoh guide les lecteurs à travers la Bible vers une identité reçue de Dieu et une vie avec intention."
+      },
+      "fully-his": {
+        "title": "Fully His: The Power of Daily Surrender",
+        "blurb": "Jonathan Mensah relie le football de haut niveau à la vérité biblique : orgueil, contrôle, confort, ambition, résultats, pardon."
+      },
+      "tools-for-transformation": {
+        "title": "Tools for Transformation",
+        "blurb": "Lucas Moura partage les habitudes spirituelles qui ont transformé son cœur - la vraie réussite, c'est devenir plus semblable à Jésus."
+      }
+    }
   }
 }

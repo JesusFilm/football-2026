@@ -430,5 +430,32 @@
         "blurb": "القوانين الروحية الأربعة، بلغة محبي الرياضة."
       }
     }
+  },
+  "HomeYouVersionCollection": {
+    "eyebrow": "مجموعة · {count, plural, zero {# خطة قراءة} one {# خطة قراءة} two {# خطتا قراءة} few {# خطط قراءة} many {# خطة قراءة} other {# خطة قراءة}}",
+    "heading": "خطط قراءة YouVersion من AIA",
+    "seeAllCta": "افتح المكتبة كاملة",
+    "showMoreCta": "افتح كل خطط القراءة الـ{total}",
+    "openInYouVersion": "افتح في YouVersion",
+    "openOnYouVersion": "افتح «{title}» في YouVersion",
+    "itemEyebrow": "{author} · {days, plural, zero {# يوم} one {# يوم} two {# يومان} few {# أيام} many {# يومًا} other {# يوم}}",
+    "items": {
+      "i-belong-to-jesus": {
+        "title": "I Belong to Jesus",
+        "blurb": "كاكا يستكشف على مدى ستة أيام ما يعنيه حقًا أن تنتمي ليسوع."
+      },
+      "kingdom-playmaker": {
+        "title": "Kingdom Playmaker: Living With Intention",
+        "blurb": "إيونغ إينو يقود القرّاء عبر الكتاب المقدس نحو هوية أعطاها الله، تُعاش بقصد."
+      },
+      "fully-his": {
+        "title": "Fully His: The Power of Daily Surrender",
+        "blurb": "جوناثان منسا يجمع كرة القدم النخبوية بالحق الكتابي: الكبرياء، التحكّم، الراحة، الطموح، النتائج، والمغفرة."
+      },
+      "tools-for-transformation": {
+        "title": "Tools for Transformation",
+        "blurb": "لوكاس مورا يشارك العادات الروحية التي غيّرت قلبه - النجاح الحقيقي أن تشبه يسوع أكثر فأكثر."
+      }
+    }
   }
 }

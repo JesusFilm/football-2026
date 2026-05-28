@@ -430,5 +430,32 @@
         "blurb": "کھیلوں کے مداحوں کے لیے لکھے گئے چار روحانی اصول۔"
       }
     }
+  },
+  "HomeYouVersionCollection": {
+    "eyebrow": "مجموعہ · {count, plural, one {# مطالعہ منصوبہ} other {# مطالعہ منصوبے}}",
+    "heading": "AIA YouVersion مطالعہ منصوبے",
+    "seeAllCta": "مکمل لائبریری کھولیں",
+    "showMoreCta": "تمام {total} منصوبے کھولیں",
+    "openInYouVersion": "YouVersion میں کھولیں",
+    "openOnYouVersion": "{title} کو YouVersion میں کھولیں",
+    "itemEyebrow": "{author} · {days} دن",
+    "items": {
+      "i-belong-to-jesus": {
+        "title": "I Belong to Jesus",
+        "blurb": "کاکا چھ دن میں دیکھتے ہیں کہ یسوع کا ہونا حقیقت میں کیا معنی رکھتا ہے۔"
+      },
+      "kingdom-playmaker": {
+        "title": "Kingdom Playmaker: Living With Intention",
+        "blurb": "ایونگ اینوہ قارئین کو کتابِ مقدس کے ذریعے خدا کی دی ہوئی شناخت اور بامقصد زندگی کی طرف لے جاتے ہیں۔"
+      },
+      "fully-his": {
+        "title": "Fully His: The Power of Daily Surrender",
+        "blurb": "جوناتھن مینسا اعلٰ سطح کے فٹبال کو بائبل کی سچائی سے جوڑتے ہیں: غرور، کنٹرول، آرام، خواہش، نتائج اور معافی۔"
+      },
+      "tools-for-transformation": {
+        "title": "Tools for Transformation",
+        "blurb": "لوکاس مورا وہ روحانی عادات شیئر کرتے ہیں جنہوں نے ان کا دل بدل دیا - اصل کامیابی یسوع جیسا بننا ہے۔"
+      }
+    }
   }
 }
