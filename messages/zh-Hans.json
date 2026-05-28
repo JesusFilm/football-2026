@@ -403,7 +403,7 @@
   },
   "HomeJourneyCollection": {
     "eyebrow": "合集 · {count} 个旅程",
-    "heading": "为世界杯准备的 NextSteps 旅程",
+    "heading": "可自定义并使用的 NextSteps 旅程",
     "seeAllCta": "打开完整资源库",
     "showMoreCta": "打开全部 {total} 个旅程",
     "openTemplate": "打开模板",

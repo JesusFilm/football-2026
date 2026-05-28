@@ -403,7 +403,7 @@
   },
   "HomeJourneyCollection": {
     "eyebrow": "Koleksi · {count, plural, one {# perjalanan} other {# perjalanan}}",
-    "heading": "Perjalanan NextSteps untuk Piala Dunia",
+    "heading": "Perjalanan NextSteps yang bisa Anda sesuaikan dan gunakan",
     "seeAllCta": "Buka perpustakaan lengkap",
     "showMoreCta": "Buka semua {total} perjalanan",
     "openTemplate": "Buka templat",

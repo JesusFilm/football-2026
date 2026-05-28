@@ -403,7 +403,7 @@
   },
   "HomeJourneyCollection": {
     "eyebrow": "مجموعہ · {count, plural, one {# سفر} other {# سفر}}",
-    "heading": "ورلڈ کپ کے لیے NextSteps سفر",
+    "heading": "NextSteps سفر جنہیں آپ اپنی مرضی کے مطابق ڈھال کر استعمال کر سکتے ہیں",
     "seeAllCta": "مکمل لائبریری کھولیں",
     "showMoreCta": "تمام {total} سفر کھولیں",
     "openTemplate": "ٹیمپلیٹ کھولیں",

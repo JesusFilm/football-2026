@@ -403,7 +403,7 @@
   },
   "HomeJourneyCollection": {
     "eyebrow": "Collection · {count, plural, one {# journey} other {# journeys}}",
-    "heading": "NextSteps journeys for the World Cup",
+    "heading": "NextSteps journeys you can customize and use",
     "seeAllCta": "Open full library",
     "showMoreCta": "Open all {total} journeys",
     "openTemplate": "Open Template",

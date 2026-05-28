@@ -403,7 +403,7 @@
   },
   "HomeJourneyCollection": {
     "eyebrow": "Коллекция · {count, plural, one {# трек} few {# трека} other {# треков}}",
-    "heading": "Треки NextSteps к Чемпионату мира",
+    "heading": "Треки NextSteps, которые можно адаптировать и использовать",
     "seeAllCta": "Открыть всю библиотеку",
     "showMoreCta": "Открыть все {total} треков",
     "openTemplate": "Открыть шаблон",

@@ -403,7 +403,7 @@
   },
   "HomeJourneyCollection": {
     "eyebrow": "مجموعة · {count, plural, zero {# رحلة} one {# رحلة} two {# رحلتان} few {# رحلات} many {# رحلة} other {# رحلة}}",
-    "heading": "رحلات NextSteps لكأس العالم",
+    "heading": "رحلات NextSteps يمكنك تخصيصها واستخدامها",
     "seeAllCta": "افتح المكتبة كاملة",
     "showMoreCta": "افتح كل الرحلات الـ{total}",
     "openTemplate": "افتح القالب",

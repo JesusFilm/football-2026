@@ -403,7 +403,7 @@
   },
   "HomeJourneyCollection": {
     "eyebrow": "Coleção · {count, plural, one {# jornada} other {# jornadas}}",
-    "heading": "Jornadas NextSteps para a Copa do Mundo",
+    "heading": "Jornadas NextSteps para personalizar e usar",
     "seeAllCta": "Abrir a biblioteca completa",
     "showMoreCta": "Abrir as {total} jornadas",
     "openTemplate": "Abrir modelo",

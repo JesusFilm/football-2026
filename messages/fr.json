@@ -403,7 +403,7 @@
   },
   "HomeJourneyCollection": {
     "eyebrow": "Collection · {count, plural, one {# parcours} other {# parcours}}",
-    "heading": "Parcours NextSteps pour la Coupe du Monde",
+    "heading": "Parcours NextSteps à personnaliser et utiliser",
     "seeAllCta": "Ouvrir la bibliothèque complète",
     "showMoreCta": "Ouvrir les {total} parcours",
     "openTemplate": "Ouvrir le modèle",
