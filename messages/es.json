@@ -403,7 +403,7 @@
   },
   "HomeJourneyCollection": {
     "eyebrow": "Colección · {count, plural, one {# trayecto} other {# trayectos}}",
-    "heading": "Trayectos NextSteps para el Mundial",
+    "heading": "Trayectos NextSteps que puedes personalizar y usar",
     "seeAllCta": "Abrir la biblioteca completa",
     "showMoreCta": "Abrir los {total} trayectos",
     "openTemplate": "Abrir plantilla",

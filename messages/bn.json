@@ -403,7 +403,7 @@
   },
   "HomeJourneyCollection": {
     "eyebrow": "সংগ্রহ · {count, plural, one {# যাত্রা} other {# যাত্রা}}",
-    "heading": "বিশ্বকাপের জন্য NextSteps যাত্রা",
+    "heading": "NextSteps যাত্রা যা আপনি কাস্টমাইজ করে ব্যবহার করতে পারেন",
     "seeAllCta": "সম্পূর্ণ লাইব্রেরি খুলুন",
     "showMoreCta": "সব {total} যাত্রা খুলুন",
     "openTemplate": "টেমপ্লেট খুলুন",
