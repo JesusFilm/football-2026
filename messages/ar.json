@@ -345,7 +345,7 @@
   },
   "HomeVideoCollection": {
     "eyebrow": "مجموعة · {count, plural, zero {# عنصر} one {# عنصر} two {# عنصران} few {# عناصر} many {# عنصرًا} other {# عنصر}}",
-    "heading": "Global Football (Soccer) Event",
+    "heading": "Global Football (Soccer) Media Collection",
     "seeAllCta": "شاهد المجموعة كاملة",
     "items": {
       "wc-praying-hands-cta": {

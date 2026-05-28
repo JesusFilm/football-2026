@@ -345,7 +345,7 @@
   },
   "HomeVideoCollection": {
     "eyebrow": "সংগ্রহ · {count, plural, one {# ভিডিও} other {# ভিডিও}}",
-    "heading": "Global Football (Soccer) Event",
+    "heading": "Global Football (Soccer) Media Collection",
     "seeAllCta": "পুরো সংগ্রহ দেখুন",
     "items": {
       "wc-praying-hands-cta": {
