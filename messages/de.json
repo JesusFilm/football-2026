@@ -345,7 +345,7 @@
   },
   "HomeVideoCollection": {
     "eyebrow": "Sammlung · {count, plural, one {# Element} other {# Elemente}}",
-    "heading": "Global Football (Soccer) Event",
+    "heading": "Global Football (Soccer) Media Collection",
     "seeAllCta": "Gesamte Sammlung ansehen",
     "items": {
       "wc-praying-hands-cta": {
