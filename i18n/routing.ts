@@ -15,6 +15,7 @@ export const locales = [
   "ur",
   "id",
   "de",
+  "vi",
 ] as const;
 
 export type Locale = (typeof locales)[number];
@@ -125,6 +126,14 @@ export const localeOptions: LocaleOption[] = [
     nativeLabel: "Deutsch",
     dir: "ltr",
     openGraphLocale: "de_DE",
+  },
+  {
+    code: "vi",
+    label: "Vietnamese",
+    shortLabel: "VI",
+    nativeLabel: "Tiếng Việt",
+    dir: "ltr",
+    openGraphLocale: "vi_VN",
   },
 ];
 
