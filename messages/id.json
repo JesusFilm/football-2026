@@ -457,5 +457,39 @@
         "blurb": "Lucas Moura membagikan kebiasaan rohani yang mengubah hatinya - kesuksesan sejati adalah semakin menyerupai Yesus."
       }
     }
+  },
+  "HomeWatchParty": {
+    "eyebrow": "Watch Party",
+    "heading": "Pesan Kit Digital Tuan Rumah gratis",
+    "ctaLabel": "Unduh Kit gratis",
+    "menuLabel": "Pilih bahasa",
+    "stepLabel": "Langkah {index}",
+    "steps": {
+      "get-kit": {
+        "window": "Feb – March",
+        "title": "Ambil Kit Tuan Rumah",
+        "body": "Isi formulir untuk menerima kit tuan rumah gratis. Kit digital langsung dikirim ke email; kit fisik dikirim pada Mei."
+      },
+      "explore": {
+        "window": "March – May",
+        "title": "Telusuri kit Anda",
+        "body": "Setelah menerima kit, gunakan panduan di dalamnya untuk mengenal isi dan cara memakainya."
+      },
+      "plan": {
+        "window": "April – May",
+        "title": "Rencanakan acara",
+        "body": "Mulai rencanakan watch party Anda: kapan, siapa yang diundang, resep apa, dll. Doakan agar Tuhan menggerakkan hati komunitas Anda."
+      },
+      "host": {
+        "window": "June – July",
+        "title": "Selenggarakan acara",
+        "body": "Harinya tiba! Gunakan materi kit untuk tetap hadir, berbincang bermakna, mempererat hubungan, dan tentu saja bersenang-senang."
+      },
+      "keep-connecting": {
+        "window": "July + Beyond",
+        "title": "Tetap terhubung",
+        "body": "Setelah Piala Dunia usai, terus bangun komunitas. Sumber daya kit membantu Anda terus terhubung dengan cara seru dan bermakna."
+      }
+    }
   }
 }

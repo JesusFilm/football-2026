@@ -457,5 +457,39 @@
         "blurb": "卢卡斯·莫拉分享那些改变他内心的属灵习惯——真正的成功是变得越来越像耶稣。"
       }
     }
+  },
+  "HomeWatchParty": {
+    "eyebrow": "Watch Party",
+    "heading": "免费订购数字版主办者套件",
+    "ctaLabel": "免费下载主办者套件",
+    "menuLabel": "选择语言",
+    "stepLabel": "第 {index} 步",
+    "steps": {
+      "get-kit": {
+        "window": "Feb – March",
+        "title": "领取主办者套件",
+        "body": "填写表单即可获得免费的主办者套件。数字版套件立即发送至你的邮箱;实体套件将于五月寄出。"
+      },
+      "explore": {
+        "window": "March – May",
+        "title": "了解你的套件",
+        "body": "收到套件后,使用随附的指南熟悉其中的资源,并了解如何使用每一项。"
+      },
+      "plan": {
+        "window": "April – May",
+        "title": "策划你的活动",
+        "body": "开始策划 watch party:时间、邀请名单、菜谱等。为神感动你社群的心而祷告。"
+      },
+      "host": {
+        "window": "June – July",
+        "title": "举办活动",
+        "body": "大日子到了!使用套件中的材料,让自己专注当下,开启有意义的对话,加深关系,最重要的是——尽情享受。"
+      },
+      "keep-connecting": {
+        "window": "July + Beyond",
+        "title": "保持连接",
+        "body": "世界杯结束后,继续建立社群。套件中的资源能帮你以有趣而有意义的方式延续连接。"
+      }
+    }
   }
 }

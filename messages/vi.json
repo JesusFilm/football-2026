@@ -457,5 +457,39 @@
         "blurb": "Lucas Moura chia sẻ những thói quen tâm linh và chân lý Kinh Thánh đã biến đổi trái tim anh ấy - thành công thực sự là trở nên giống Chúa Giê-su hơn."
       }
     }
+  },
+  "HomeWatchParty": {
+    "eyebrow": "Watch Party",
+    "heading": "Đặt Bộ Kit Chủ Nhà Kỹ Thuật Số miễn phí của bạn",
+    "ctaLabel": "Tải Kit miễn phí",
+    "menuLabel": "Chọn ngôn ngữ",
+    "stepLabel": "Bước {index}",
+    "steps": {
+      "get-kit": {
+        "window": "Feb – March",
+        "title": "Nhận Kit Chủ Nhà",
+        "body": "Điền vào biểu mẫu để nhận kit miễn phí. Kit kỹ thuật số được gửi ngay vào email; kit vật lý sẽ được giao vào tháng 5."
+      },
+      "explore": {
+        "window": "March – May",
+        "title": "Khám phá kit của bạn",
+        "body": "Sau khi nhận kit, hãy dùng cuốn hướng dẫn đi kèm để làm quen với từng tài nguyên và cách sử dụng."
+      },
+      "plan": {
+        "window": "April – May",
+        "title": "Lên kế hoạch sự kiện",
+        "body": "Bắt đầu lên kế hoạch watch party: khi nào, mời ai, công thức nào, v.v. Cầu nguyện để Đức Chúa Trời chạm vào tấm lòng cộng đồng của bạn."
+      },
+      "host": {
+        "window": "June – July",
+        "title": "Tổ chức sự kiện",
+        "body": "Ngày lớn đã đến! Dùng tài liệu trong kit để hiện diện, có những cuộc trò chuyện ý nghĩa, gắn kết sâu hơn và quan trọng nhất—tận hưởng niềm vui."
+      },
+      "keep-connecting": {
+        "window": "July + Beyond",
+        "title": "Tiếp tục kết nối",
+        "body": "Sau World Cup, hãy tiếp tục xây dựng cộng đồng. Tài nguyên kit giúp bạn duy trì kết nối theo cách vui và ý nghĩa."
+      }
+    }
   }
 }

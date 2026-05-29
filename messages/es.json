@@ -457,5 +457,39 @@
         "blurb": "Lucas Moura comparte los hábitos espirituales que transformaron su corazón - el verdadero éxito es parecerse más a Jesús."
       }
     }
+  },
+  "HomeWatchParty": {
+    "eyebrow": "Watch Party",
+    "heading": "Pide tu Kit Digital de Anfitrión gratis",
+    "ctaLabel": "Descargar Kit gratis",
+    "menuLabel": "Elige tu idioma",
+    "stepLabel": "Paso {index}",
+    "steps": {
+      "get-kit": {
+        "window": "Feb – March",
+        "title": "Consigue un Kit de Anfitrión",
+        "body": "Completa un formulario para recibir tu kit gratis. Los kits digitales llegan al instante a tu correo. Los kits físicos se envían en mayo."
+      },
+      "explore": {
+        "window": "March – May",
+        "title": "Explora tu kit",
+        "body": "Cuando recibas tu kit, usa la guía incluida para familiarizarte con los recursos y aprender a usar cada uno."
+      },
+      "plan": {
+        "window": "April – May",
+        "title": "Planea tu evento",
+        "body": "Empieza a planear tu watch party: cuándo, a quién invitar, qué recetas preparar, etc. Pide a Dios que mueva los corazones de tu comunidad antes del evento."
+      },
+      "host": {
+        "window": "June – July",
+        "title": "Organiza tu(s) evento(s)",
+        "body": "¡Llegó el gran día! Usa los materiales del kit para mantenerte presente, tener conversaciones significativas, profundizar conexiones y, sobre todo, divertirte."
+      },
+      "keep-connecting": {
+        "window": "July + Beyond",
+        "title": "Sigue conectando",
+        "body": "Aun después del Mundial, sigue construyendo comunidad. Usa los recursos del kit para seguir conectando de formas divertidas y significativas."
+      }
+    }
   }
 }
