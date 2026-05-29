@@ -466,30 +466,35 @@
     "stepLabel": "Étape {index}",
     "steps": {
       "get-kit": {
-        "window": "Feb – March",
         "title": "Obtenez un kit d'hôte",
         "body": "Remplissez un formulaire pour recevoir votre kit gratuit. Les kits numériques arrivent immédiatement par e-mail. Les kits physiques sont expédiés en mai."
       },
       "explore": {
-        "window": "March – May",
         "title": "Explorez votre kit",
         "body": "À la réception du kit, utilisez le guide inclus pour vous familiariser avec les ressources et apprendre à les utiliser."
       },
       "plan": {
-        "window": "April – May",
         "title": "Planifiez votre événement",
         "body": "Commencez à planifier votre watch party : quand, qui inviter, quelles recettes préparer, etc. Priez Dieu de toucher les cœurs de votre communauté."
       },
       "host": {
-        "window": "June – July",
         "title": "Accueillez vos événements",
         "body": "Le grand jour est arrivé ! Utilisez les ressources du kit pour rester présent, avoir des conversations qui comptent, créer des liens et surtout vous amuser."
       },
       "keep-connecting": {
-        "window": "July + Beyond",
         "title": "Continuez à connecter",
         "body": "Même après la Coupe du Monde, continuez à bâtir la communauté. Les ressources du kit vous aident à rester connecté de façon ludique et significative."
       }
+    }
+  },
+  "ResourcesSectionNav": {
+    "ctaLabel": "Aller à une section",
+    "menuLabel": "Sections de ressources",
+    "items": {
+      "mediaCollection": "Collection média",
+      "nextStepsJourneys": "Parcours NextSteps",
+      "youVersionPlans": "Plans YouVersion",
+      "watchPartyKit": "Watch Party Kit"
     }
   }
 }
