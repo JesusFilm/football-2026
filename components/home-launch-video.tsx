@@ -1,7 +1,7 @@
 import { useTranslations } from "next-intl";
 
-const VIDEO_ID_DESKTOP = "k7F3RpqXhW8";
-const VIDEO_ID_MOBILE = "evGkJ_ZbJQQ";
+const VIDEO_ID_DESKTOP = "MSd_E--kJKU";
+const VIDEO_ID_MOBILE = "EQpsg0oLhFQ";
 
 export function HomeLaunchVideo() {
   const t = useTranslations("HomeLaunchVideo");
