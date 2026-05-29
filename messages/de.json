@@ -466,30 +466,35 @@
     "stepLabel": "Schritt {index}",
     "steps": {
       "get-kit": {
-        "window": "Feb – March",
         "title": "Host-Kit bestellen",
         "body": "Fülle das Formular aus und erhalte dein kostenloses Host-Kit. Digitale Kits kommen sofort per E-Mail. Physische Kits werden im Mai versendet."
       },
       "explore": {
-        "window": "March – May",
         "title": "Lerne dein Kit kennen",
         "body": "Sobald du dein Kit erhalten hast, nutze den enthaltenen Guide, um die Inhalte und deren Einsatz kennenzulernen."
       },
       "plan": {
-        "window": "April – May",
         "title": "Plane dein Event",
         "body": "Plane deine Watch Party: wann, wen du einlädst, welche Rezepte du machst usw. Bete, dass Gott die Herzen deiner Community vor dem Event bewegt."
       },
       "host": {
-        "window": "June – July",
         "title": "Veranstalte dein Event",
         "body": "Der große Tag ist da! Nutze die Materialien des Kits, um präsent zu sein, tiefe Gespräche zu führen, Beziehungen zu stärken und vor allem Spaß zu haben."
       },
       "keep-connecting": {
-        "window": "July + Beyond",
         "title": "Bleibt verbunden",
         "body": "Auch nach der WM: Baue weiter Gemeinschaft. Mit den Kit-Ressourcen kannst du auf spielerische und sinnstiftende Weise in Verbindung bleiben."
       }
+    }
+  },
+  "ResourcesSectionNav": {
+    "ctaLabel": "Zur Sektion springen",
+    "menuLabel": "Ressourcen-Bereiche",
+    "items": {
+      "mediaCollection": "Media-Sammlung",
+      "nextStepsJourneys": "NextSteps-Journeys",
+      "youVersionPlans": "YouVersion-Pläne",
+      "watchPartyKit": "Watch Party Kit"
     }
   }
 }

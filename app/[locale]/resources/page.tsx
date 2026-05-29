@@ -7,6 +7,7 @@ import { HomeWatchPartySection } from "@/components/home-watchparty-section";
 import { HomeYouVersionCollection } from "@/components/home-youversion-collection";
 import { ResourceCategorySection } from "@/components/resource-category";
 import { ResourcesHero } from "@/components/resources-hero";
+import { ResourcesSectionNav } from "@/components/resources-section-nav";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 import { StadiumBg } from "@/components/stadium-bg";
@@ -76,6 +77,7 @@ export default async function ResourcesPage({ params }: Props) {
 
       <main className="mx-auto max-w-[1200px] px-5 sm:px-10">
         <ResourcesHero />
+        <ResourcesSectionNav />
 
         <HomeVideoCollection />
         <HomeJourneyCollection />

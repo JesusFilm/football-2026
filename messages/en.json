@@ -466,30 +466,35 @@
     "stepLabel": "Step {index}",
     "steps": {
       "get-kit": {
-        "window": "Feb – March",
         "title": "Get a Host Kit",
         "body": "Fill out a form to get your free host kit. Digital Kits will be sent immediately to your email. Physical kits are shipped in May."
       },
       "explore": {
-        "window": "March – May",
         "title": "Explore Your Kit",
         "body": "Once you receive your kit, use the included guide to familiarize yourself with the resources and how to use each."
       },
       "plan": {
-        "window": "April – May",
         "title": "Plan Your Event",
         "body": "Start planning your watch party including when, who to invite, recipes to make, etc. Pray for God to stir your community's hearts leading up to it."
       },
       "host": {
-        "window": "June – July",
         "title": "Host Your Event(s)",
         "body": "The big day is here! Use kit materials to help you stay present, have meaningful conversations, deepen connections, and most importantly, have fun."
       },
       "keep-connecting": {
-        "window": "July + Beyond",
         "title": "Keep Connecting",
         "body": "Even after the World Cup is over, keep building community. You can use the kit resources to continue connecting in fun and meaningful ways."
       }
+    }
+  },
+  "ResourcesSectionNav": {
+    "ctaLabel": "Jump to section",
+    "menuLabel": "Resource sections",
+    "items": {
+      "mediaCollection": "Media Collection",
+      "nextStepsJourneys": "NextSteps journeys",
+      "youVersionPlans": "YouVersion plans",
+      "watchPartyKit": "Watch Party Kit"
     }
   }
 }

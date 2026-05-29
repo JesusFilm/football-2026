@@ -22,7 +22,7 @@ export function HomeYouVersionCollection() {
           </span>
           <h2
             id="youversion-collection-heading"
-            className="mt-2 font-display text-[clamp(26px,3.4vw,40px)] leading-[1.05] font-extrabold tracking-[-0.015em] text-fg"
+            className="mt-2 scroll-mt-24 font-display text-[clamp(26px,3.4vw,40px)] leading-[1.05] font-extrabold tracking-[-0.015em] text-fg"
           >
             {t("heading")}
           </h2>

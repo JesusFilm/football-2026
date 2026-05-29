@@ -29,7 +29,7 @@ export function HomeWatchPartySection() {
         </span>
         <h2
           id="watchparty-heading"
-          className="max-w-[720px] font-display text-[clamp(26px,3.6vw,42px)] leading-[1.05] font-extrabold tracking-[-0.015em] text-fg"
+          className="max-w-[720px] scroll-mt-24 font-display text-[clamp(26px,3.6vw,42px)] leading-[1.05] font-extrabold tracking-[-0.015em] text-fg"
         >
           {t("heading")}
         </h2>
@@ -98,14 +98,9 @@ export function HomeWatchPartySection() {
             key={step.id}
             className="flex h-full flex-col gap-3 rounded-[var(--radius-lg)] border border-line bg-[rgb(20_16_12_/_0.6)] p-6 backdrop-blur-md sm:p-7"
           >
-            <div className="flex items-start justify-between gap-3">
-              <span className="font-mono text-[11px] font-semibold tracking-[0.18em] text-accent uppercase">
-                {t("stepLabel", { index: step.index })}
-              </span>
-              <span className="font-mono text-[10px] font-semibold tracking-[0.14em] text-fg/55 uppercase">
-                {t(`steps.${step.id}.window` as const)}
-              </span>
-            </div>
+            <span className="font-mono text-[11px] font-semibold tracking-[0.18em] text-accent uppercase">
+              {t("stepLabel", { index: step.index })}
+            </span>
             <h3 className="font-display text-[20px] leading-[1.15] font-bold tracking-[-0.005em] text-fg sm:text-[22px]">
               {t(`steps.${step.id}.title` as const)}
             </h3>
