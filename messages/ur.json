@@ -429,7 +429,8 @@
         "title": "The FOUR / Sports",
         "blurb": "کھیلوں کے مداحوں کے لیے لکھے گئے چار روحانی اصول۔"
       }
-    }
+    },
+    "discoverMoreCta": "مزید ٹیمپلیٹس دیکھیں"
   },
   "HomeYouVersionCollection": {
     "eyebrow": "مجموعہ · {count, plural, one {# مطالعہ منصوبہ} other {# مطالعہ منصوبے}}",

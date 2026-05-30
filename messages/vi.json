@@ -429,7 +429,8 @@
         "title": "FOUR / Thể thao",
         "blurb": "Bốn Luật Tâm Linh, được viết cho những người hâm mộ thể thao."
       }
-    }
+    },
+    "discoverMoreCta": "Khám phá thêm mẫu"
   },
   "HomeYouVersionCollection": {
     "eyebrow": "Bộ sưu tập · {count, plural, one {# kế hoạch đọc} other {# kế hoạch đọc}}",

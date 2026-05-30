@@ -429,7 +429,8 @@
         "title": "The FOUR / Sports",
         "blurb": "القوانين الروحية الأربعة، بلغة محبي الرياضة."
       }
-    }
+    },
+    "discoverMoreCta": "اكتشف المزيد من القوالب"
   },
   "HomeYouVersionCollection": {
     "eyebrow": "مجموعة · {count, plural, zero {# خطة قراءة} one {# خطة قراءة} two {# خطتا قراءة} few {# خطط قراءة} many {# خطة قراءة} other {# خطة قراءة}}",

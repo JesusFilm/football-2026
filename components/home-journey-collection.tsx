@@ -102,6 +102,32 @@ export function HomeJourneyCollection() {
           ))}
         </ul>
       </div>
+
+      {/* Primary CTA shown on both breakpoints, below the section content. */}
+      <div className="mt-8 flex justify-center sm:mt-10">
+        <a
+          href={JOURNEY_COLLECTION_URL}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="group inline-flex items-center justify-center gap-2 rounded-full bg-accent px-7 py-3.5 text-[14px] font-semibold text-white no-underline shadow-lg shadow-[rgb(230_57_70_/_0.25)] transition-colors hover:bg-accent-hot focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-[rgb(11_8_6)] focus-visible:outline-none"
+        >
+          {t("discoverMoreCta")}
+          <svg
+            width="14"
+            height="14"
+            viewBox="0 0 14 14"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            className="rtl-mirror transition-transform duration-300 ease-out group-hover:translate-x-0.5"
+            aria-hidden="true"
+          >
+            <path d="M3 7h8M8 3l4 4-4 4" />
+          </svg>
+        </a>
+      </div>
     </section>
   );
 }

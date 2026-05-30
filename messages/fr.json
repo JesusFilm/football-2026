@@ -429,7 +429,8 @@
         "title": "The FOUR / Sports",
         "blurb": "Les Quatre Lois Spirituelles, racontées pour les fans de sport."
       }
-    }
+    },
+    "discoverMoreCta": "Découvrir plus de modèles"
   },
   "HomeYouVersionCollection": {
     "eyebrow": "Collection · {count, plural, one {# plan de lecture} other {# plans de lecture}}",

@@ -429,7 +429,8 @@
         "title": "The FOUR / Sports",
         "blurb": "Четыре духовных закона - на языке спортивных фанатов."
       }
-    }
+    },
+    "discoverMoreCta": "Больше шаблонов"
   },
   "HomeYouVersionCollection": {
     "eyebrow": "Коллекция · {count, plural, one {# план чтения} few {# плана чтения} other {# планов чтения}}",

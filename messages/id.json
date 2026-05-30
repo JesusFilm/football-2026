@@ -429,7 +429,8 @@
         "title": "The FOUR / Sports",
         "blurb": "Empat Hukum Rohani, ditulis untuk penggemar olahraga."
       }
-    }
+    },
+    "discoverMoreCta": "Temukan template lainnya"
   },
   "HomeYouVersionCollection": {
     "eyebrow": "Koleksi · {count, plural, one {# rencana baca} other {# rencana baca}}",

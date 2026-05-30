@@ -429,7 +429,8 @@
         "title": "The FOUR / Sports",
         "blurb": "The Four Spiritual Laws, written for sports fans."
       }
-    }
+    },
+    "discoverMoreCta": "Discover more templates"
   },
   "HomeYouVersionCollection": {
     "eyebrow": "Collection · {count, plural, one {# reading plan} other {# reading plans}}",

@@ -429,7 +429,8 @@
         "title": "The FOUR / Sports",
         "blurb": "Die Vier Geistlichen Gesetze, geschrieben für Sportfans."
       }
-    }
+    },
+    "discoverMoreCta": "Mehr Vorlagen entdecken"
   },
   "HomeYouVersionCollection": {
     "eyebrow": "Sammlung · {count, plural, one {# Bibelleseplan} other {# Bibelleseplänen}}",
