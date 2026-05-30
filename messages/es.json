@@ -429,7 +429,8 @@
         "title": "The FOUR / Sports",
         "blurb": "Las Cuatro Leyes Espirituales, contadas para los aficionados al deporte."
       }
-    }
+    },
+    "discoverMoreCta": "Descubre más plantillas"
   },
   "HomeYouVersionCollection": {
     "eyebrow": "Colección · {count, plural, one {# plan de lectura} other {# planes de lectura}}",

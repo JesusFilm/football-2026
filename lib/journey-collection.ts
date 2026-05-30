@@ -17,7 +17,8 @@
 // blurbs are localized via messages/<locale>.json under
 // HomeJourneyCollection.items.<id>.
 
-export const JOURNEY_COLLECTION_URL = "https://nextstep.is/football2026/";
+export const JOURNEY_COLLECTION_URL =
+  "https://admin.nextstep.is/templates?tagIds=c3f9a4b9-87fa-4d2c-8d1d-2e5b7f6241a7";
 
 export type JourneyTemplate = {
   /** Stable slug — matches the i18n key under

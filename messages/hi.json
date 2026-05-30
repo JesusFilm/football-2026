@@ -429,7 +429,8 @@
         "title": "The FOUR / Sports",
         "blurb": "खेल-प्रेमियों के लिए लिखे गए चार आध्यात्मिक नियम।"
       }
-    }
+    },
+    "discoverMoreCta": "और टेम्पलेट देखें"
   },
   "HomeYouVersionCollection": {
     "eyebrow": "संग्रह · {count, plural, one {# रीडिंग प्लान} other {# रीडिंग प्लान}}",

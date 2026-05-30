@@ -429,7 +429,8 @@
         "title": "The FOUR / Sports",
         "blurb": "ক্রীড়াপ্রেমীদের জন্য লেখা চারটি আধ্যাত্মিক বিধি।"
       }
-    }
+    },
+    "discoverMoreCta": "আরও টেমপ্লেট দেখুন"
   },
   "HomeYouVersionCollection": {
     "eyebrow": "সংগ্রহ · {count, plural, one {# পঠনপরিকল্পনা} other {# পঠনপরিকল্পনা}}",

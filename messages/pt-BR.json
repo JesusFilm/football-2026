@@ -429,7 +429,8 @@
         "title": "The FOUR / Sports",
         "blurb": "As Quatro Leis Espirituais, escritas para fãs de esporte."
       }
-    }
+    },
+    "discoverMoreCta": "Descubra mais modelos"
   },
   "HomeYouVersionCollection": {
     "eyebrow": "Coleção · {count, plural, one {# plano de leitura} other {# planos de leitura}}",
