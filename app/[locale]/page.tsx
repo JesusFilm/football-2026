@@ -5,6 +5,7 @@ import { HomeCountryViewsSection } from "@/components/home-country-views-section
 import { HomeHero } from "@/components/home-hero";
 import { HomeLaunchVideo } from "@/components/home-launch-video";
 import { HomeJourneyCollection } from "@/components/home-journey-collection";
+import { HomeTeamTidyUpSection } from "@/components/home-teamtidyup-section";
 import { HomeRegionGrid } from "@/components/home-region-grid";
 import { HomeRegionHeading } from "@/components/home-region-heading";
 import { HomeVideoCollection } from "@/components/home-video-collection";
@@ -56,6 +57,7 @@ export default async function Home({ params }: Props) {
         <HomeRegionHeading />
         <HomeRegionGrid regions={regions} />
         <HomeLaunchVideo />
+        <HomeTeamTidyUpSection />
         <HomeVideoCollection />
         <HomeJourneyCollection />
 
