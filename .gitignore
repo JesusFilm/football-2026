@@ -32,3 +32,15 @@ pnpm-debug.log*
 # OS/editor
 .DS_Store
 *.swp
+
+# Local source-material drops (decks, screen recordings, raw media kits)
+# that live next to the repo for convenience but should never be committed.
+Team Tidy Up/
+*.mp4
+*.pptx
+*.docx
+*.pdf
+Football 2026 Header.png
+Football2026.nextstep.is with QR code.png
+football2026_zoom_header_1280x400.png
+design football2026 (Remix).zip

@@ -470,7 +470,15 @@
       "mediaCollection": "Koleksi media",
       "nextStepsJourneys": "Perjalanan NextSteps",
       "youVersionPlans": "Rencana YouVersion",
-      "watchPartyKit": "Watch Party Kit"
+      "watchPartyKit": "Watch Party Kit",
+      "teamTidyUp": "Team Tidy Up"
     }
+  },
+  "HomeTeamTidyUp": {
+    "eyebrow": "Team Tidy Up",
+    "heading": "Bersihkan stadion. Mulai percakapannya.",
+    "body": "Team Tidy Up punya BANYAK sampah dan SEDIKIT waktu! Stadion berantakan dan harus bersih sebelum laga Piala Dunia berikutnya. Ajak temanmu, bersihkan stadion, dan kumpulkan SKOR BESAR. Inspirasi orang lain dan bersihkan SEPENUHNYA! Lihat misi sampingan rahasianya. Gabung Team Tidy Up!",
+    "subLine": "Solo atau bersama teman · HP atau VR · Meta Horizon Worlds",
+    "ctaLabel": "Main di Meta Horizon"
   }
 }

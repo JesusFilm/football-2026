@@ -470,7 +470,15 @@
       "mediaCollection": "Bộ sưu tập phương tiện",
       "nextStepsJourneys": "Hành trình NextSteps",
       "youVersionPlans": "Kế hoạch YouVersion",
-      "watchPartyKit": "Watch Party Kit"
+      "watchPartyKit": "Watch Party Kit",
+      "teamTidyUp": "Team Tidy Up"
     }
+  },
+  "HomeTeamTidyUp": {
+    "eyebrow": "Team Tidy Up",
+    "heading": "Dọn sân vận động. Bắt đầu cuộc trò chuyện.",
+    "body": "Team Tidy Up có RẤT nhiều rác và RẤT ít thời gian! Sân vận động đang lộn xộn và phải được dọn sạch trước trận World Cup kế tiếp. Rủ bạn bè, dọn sân vận động và ghi điểm cực lớn. Truyền cảm hứng cho người khác và dọn sạch mọi thứ THỰC SỰ! Khám phá nhiệm vụ phụ bí mật. Tham gia Team Tidy Up!",
+    "subLine": "Solo hay nhóm · Điện thoại hoặc VR · Meta Horizon Worlds",
+    "ctaLabel": "Chơi trên Meta Horizon"
   }
 }

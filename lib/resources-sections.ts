@@ -8,6 +8,7 @@ export type ResourceSection = {
   /** Stable slug — matches the i18n key under
    *  ResourcesSectionNav.items.<id>. */
   id:
+    | "teamTidyUp"
     | "mediaCollection"
     | "nextStepsJourneys"
     | "youVersionPlans"
@@ -17,6 +18,7 @@ export type ResourceSection = {
 };
 
 export const RESOURCE_SECTIONS: readonly ResourceSection[] = [
+  { id: "teamTidyUp", anchor: "teamtidyup-heading" },
   { id: "mediaCollection", anchor: "video-collection-heading" },
   { id: "nextStepsJourneys", anchor: "journey-collection-heading" },
   { id: "youVersionPlans", anchor: "youversion-collection-heading" },

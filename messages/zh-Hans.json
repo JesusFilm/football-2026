@@ -470,7 +470,15 @@
       "mediaCollection": "媒体合集",
       "nextStepsJourneys": "NextSteps 旅程",
       "youVersionPlans": "YouVersion 计划",
-      "watchPartyKit": "Watch Party Kit"
+      "watchPartyKit": "Watch Party Kit",
+      "teamTidyUp": "Team Tidy Up"
     }
+  },
+  "HomeTeamTidyUp": {
+    "eyebrow": "Team Tidy Up",
+    "heading": "清理球场,开启对话。",
+    "body": "Team Tidy Up 有超多垃圾,时间却超少!世界杯下一场比赛前,球场一团糟,必须打扫干净。叫上朋友,一起清理球场,拿下超高分数。激励他人,把这里彻底打扫干净!别忘了去看那个秘密的支线任务。加入 Team Tidy Up!",
+    "subLine": "单人或组队 · 手机或 VR · Meta Horizon Worlds",
+    "ctaLabel": "在 Meta Horizon 上玩"
   }
 }

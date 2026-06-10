@@ -470,7 +470,15 @@
       "mediaCollection": "Media-Sammlung",
       "nextStepsJourneys": "NextSteps-Journeys",
       "youVersionPlans": "YouVersion-Pläne",
-      "watchPartyKit": "Watch Party Kit"
+      "watchPartyKit": "Watch Party Kit",
+      "teamTidyUp": "Team Tidy Up"
     }
+  },
+  "HomeTeamTidyUp": {
+    "eyebrow": "Team Tidy Up",
+    "heading": "Räume das Stadion auf. Starte das Gespräch.",
+    "body": "Team Tidy Up hat SO viel Müll und SO wenig Zeit! Das Stadion ist ein Chaos und muss vor dem nächsten WM-Spiel sauber sein. Schnapp dir deine Freunde, räumt das Stadion auf und holt euch DICKE Punkte. Inspiriert andere und macht RICHTIG sauber! Entdeckt die geheime Side Quest. Werde Teil von Team Tidy Up!",
+    "subLine": "Solo oder im Team · Mobil oder VR · Meta Horizon Worlds",
+    "ctaLabel": "Auf Meta Horizon spielen"
   }
 }

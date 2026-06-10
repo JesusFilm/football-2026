@@ -470,7 +470,15 @@
       "mediaCollection": "মিডিয়া সংগ্রহ",
       "nextStepsJourneys": "NextSteps যাত্রা",
       "youVersionPlans": "YouVersion পরিকল্পনা",
-      "watchPartyKit": "Watch Party Kit"
+      "watchPartyKit": "Watch Party Kit",
+      "teamTidyUp": "Team Tidy Up"
     }
+  },
+  "HomeTeamTidyUp": {
+    "eyebrow": "Team Tidy Up",
+    "heading": "স্টেডিয়াম পরিষ্কার করুন। কথোপকথন শুরু করুন।",
+    "body": "Team Tidy Up-এ অনেক ময়লা আর খুব কম সময়! পরের বিশ্বকাপ ম্যাচের আগে স্টেডিয়াম পরিষ্কার করতেই হবে। বন্ধুদের ডাকো, স্টেডিয়াম পরিষ্কার করো এবং বিশাল পয়েন্ট সংগ্রহ করো। অন্যদের অনুপ্রাণিত করো আর সব কিছু চমৎকারভাবে পরিষ্কার করো! গোপন সাইড কোয়েস্টটিও দেখো। Team Tidy Up-এ যোগ দাও!",
+    "subLine": "একা বা দলে · মোবাইল বা VR · Meta Horizon Worlds",
+    "ctaLabel": "Meta Horizon-এ খেলুন"
   }
 }
