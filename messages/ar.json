@@ -470,7 +470,15 @@
       "mediaCollection": "مجموعة الوسائط",
       "nextStepsJourneys": "رحلات NextSteps",
       "youVersionPlans": "خطط YouVersion",
-      "watchPartyKit": "Watch Party Kit"
+      "watchPartyKit": "Watch Party Kit",
+      "teamTidyUp": "Team Tidy Up"
     }
+  },
+  "HomeTeamTidyUp": {
+    "eyebrow": "Team Tidy Up",
+    "heading": "نظِّف الملعب. وابدأ الحديث.",
+    "body": "في Team Tidy Up هناك الكثير من القمامة والقليل من الوقت! الملعب فوضى ويجب تنظيفه قبل مباراة كأس العالم القادمة. اجمع أصدقاءك، نظِّفوا الملعب، واحصلوا على نقاط ضخمة. ألهموا الآخرين ونظِّفوا كل شيء بجدٍّ! جرِّبوا المهمة الجانبية السرية. انضم إلى Team Tidy Up!",
+    "subLine": "فردي أو جماعي · جوال أو VR · Meta Horizon Worlds",
+    "ctaLabel": "العب على Meta Horizon"
   }
 }

@@ -470,7 +470,15 @@
       "mediaCollection": "Медиа-коллекция",
       "nextStepsJourneys": "Треки NextSteps",
       "youVersionPlans": "Планы YouVersion",
-      "watchPartyKit": "Watch Party Kit"
+      "watchPartyKit": "Watch Party Kit",
+      "teamTidyUp": "Team Tidy Up"
     }
+  },
+  "HomeTeamTidyUp": {
+    "eyebrow": "Team Tidy Up",
+    "heading": "Убери стадион. Начни разговор.",
+    "body": "В Team Tidy Up СТОЛЬКО мусора и ТАК мало времени! Стадион — настоящий бардак, его надо привести в порядок до следующего матча Чемпионата мира. Зови друзей, убирай стадион и зарабатывай КУЧУ очков. Вдохновляй других и реально наведи порядок! Не пропусти секретный side-квест. Присоединяйся к Team Tidy Up!",
+    "subLine": "Соло или в группе · Mobile или VR · Meta Horizon Worlds",
+    "ctaLabel": "Играть в Meta Horizon"
   }
 }

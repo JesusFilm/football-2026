@@ -470,7 +470,15 @@
       "mediaCollection": "میڈیا کلیکشن",
       "nextStepsJourneys": "NextSteps سفر",
       "youVersionPlans": "YouVersion پلانز",
-      "watchPartyKit": "Watch Party Kit"
+      "watchPartyKit": "Watch Party Kit",
+      "teamTidyUp": "Team Tidy Up"
     }
+  },
+  "HomeTeamTidyUp": {
+    "eyebrow": "Team Tidy Up",
+    "heading": "اسٹیڈیم صاف کریں۔ گفتگو شروع کریں۔",
+    "body": "Team Tidy Up میں ڈھیر ساری گندگی ہے اور وقت بہت کم! اگلے ورلڈ کپ میچ سے پہلے اسٹیڈیم کو صاف کرنا ہے۔ دوستوں کو بلاؤ، اسٹیڈیم صاف کرو اور بڑے پوائنٹس کماؤ۔ دوسروں کو متاثر کرو اور سب کچھ مکمل طور پر صاف کر دو! خفیہ سائیڈ کوئسٹ بھی آزماؤ۔ Team Tidy Up میں شامل ہو جاؤ!",
+    "subLine": "اکیلے یا گروپ میں · موبائل یا VR · Meta Horizon Worlds",
+    "ctaLabel": "Meta Horizon پر کھیلیں"
   }
 }

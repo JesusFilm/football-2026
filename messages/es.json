@@ -470,7 +470,15 @@
       "mediaCollection": "Colección multimedia",
       "nextStepsJourneys": "Trayectos NextSteps",
       "youVersionPlans": "Planes YouVersion",
-      "watchPartyKit": "Watch Party Kit"
+      "watchPartyKit": "Watch Party Kit",
+      "teamTidyUp": "Team Tidy Up"
     }
+  },
+  "HomeTeamTidyUp": {
+    "eyebrow": "Team Tidy Up",
+    "heading": "Limpia el estadio. Empieza la conversación.",
+    "body": "¡Team Tidy Up tiene MUCHA basura y MUY poco tiempo! El estadio es un caos y hay que limpiarlo antes del próximo partido del Mundial. Junta a tus amigos, limpia el estadio y consigue MUCHOS puntos. ¡Inspira a otros y ponlo TODO en orden! No te pierdas la misión secreta. ¡Únete a Team Tidy Up!",
+    "subLine": "Solo o en grupo · Móvil o VR · Meta Horizon Worlds",
+    "ctaLabel": "Jugar en Meta Horizon"
   }
 }

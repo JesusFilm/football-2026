@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 
 import { HomeJourneyCollection } from "@/components/home-journey-collection";
+import { HomeTeamTidyUpSection } from "@/components/home-teamtidyup-section";
 import { HomeVideoCollection } from "@/components/home-video-collection";
 import { HomeWatchPartySection } from "@/components/home-watchparty-section";
 import { HomeYouVersionCollection } from "@/components/home-youversion-collection";
@@ -76,6 +77,7 @@ export default async function ResourcesPage({ params }: Props) {
 
       <main className="mx-auto max-w-[1200px] px-5 sm:px-10">
         <ResourcesHero />
+        <HomeTeamTidyUpSection />
 
         <HomeVideoCollection />
         <HomeJourneyCollection />

@@ -470,7 +470,15 @@
       "mediaCollection": "Collection média",
       "nextStepsJourneys": "Parcours NextSteps",
       "youVersionPlans": "Plans YouVersion",
-      "watchPartyKit": "Watch Party Kit"
+      "watchPartyKit": "Watch Party Kit",
+      "teamTidyUp": "Team Tidy Up"
     }
+  },
+  "HomeTeamTidyUp": {
+    "eyebrow": "Team Tidy Up",
+    "heading": "Nettoyez le stade. Lancez la conversation.",
+    "body": "Team Tidy Up, c'est TELLEMENT de déchets et TELLEMENT peu de temps ! Le stade est un désastre, il faut le nettoyer avant le prochain match de la Coupe du monde. Réunis tes amis, nettoie le stade et gagne ÉNORMÉMENT de points. Inspire les autres et fais le grand ménage ! Découvre la quête secrète. Rejoins Team Tidy Up !",
+    "subLine": "Solo ou en équipe · Mobile ou VR · Meta Horizon Worlds",
+    "ctaLabel": "Jouer sur Meta Horizon"
   }
 }

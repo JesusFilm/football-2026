@@ -470,7 +470,15 @@
       "mediaCollection": "Media Collection",
       "nextStepsJourneys": "NextSteps journeys",
       "youVersionPlans": "YouVersion plans",
-      "watchPartyKit": "Watch Party Kit"
+      "watchPartyKit": "Watch Party Kit",
+      "teamTidyUp": "Team Tidy Up"
     }
+  },
+  "HomeTeamTidyUp": {
+    "eyebrow": "Team Tidy Up",
+    "heading": "Clean up the stadium. Spark the conversation.",
+    "body": "Team Tidy Up has SO much trash and SO little time! The stadium is a mess and needs to be cleaned before the next World Cup match. Grab your friends, clean up the stadium and get BIG points. Inspire others and REALLY clean things up! Check out the secret side quest. Join Team Tidy Up!",
+    "subLine": "Solo or group · Mobile or VR · Meta Horizon Worlds",
+    "ctaLabel": "Play on Meta Horizon"
   }
 }
