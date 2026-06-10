@@ -30,7 +30,7 @@ export function HomeTeamTidyUpSection() {
               src={TEAMTIDYUP_HERO_IMAGE}
               alt=""
               loading="lazy"
-              className="absolute inset-0 h-full w-full object-cover"
+              className="absolute inset-0 h-full w-full object-cover lg:object-contain"
             />
           </div>
 
