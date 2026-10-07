@@ -40,7 +40,7 @@
     "@types/react-dom": "latest",
     "@vitejs/plugin-react": "latest",
     "@vitest/coverage-v8": "4.1.11",
-    "eslint": "9.39.4",
+    "eslint": "9.39.5",
     "eslint-config-next": "16.3.8",
     "eslint-config-prettier": "latest",
     "husky": "9.1.7",
