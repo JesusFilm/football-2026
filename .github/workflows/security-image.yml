@@ -1,0 +1,29 @@
+name: Production image verification
+on:
+  pull_request:
+  push:
+    branches: [main]
+permissions:
+  contents: read
+jobs:
+  image:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v6
+      - name: Build the production image without production credentials
+        run: docker build --tag football-ci .
+      - name: Verify Node, OpenSSL and installed package-manager trust
+        run: docker run --rm football-ci node scripts/verify-security-image.mjs
+      - name: Run the existing tests inside the image
+        run: docker run --rm --env NODE_ENV=test football-ci pnpm test:run
+      - name: Start the actual standalone server
+        run: docker run --detach --name football-web-ci football-ci
+      - name: Verify serving, languages and static assets
+        run: docker exec football-web-ci node scripts/verify-security-serving.mjs
+      - name: Show public fixture server logs on failure
+        if: failure()
+        run: docker logs football-web-ci 2>/dev/null || true
+      - name: Remove disposable server
+        if: always()
+        run: docker rm --force football-web-ci 2>/dev/null || true
