@@ -1,0 +1,32 @@
+# Only reproducible application/configuration inputs enter the build context.
+**
+!app/
+!app/**
+!components/
+!components/**
+!i18n/
+!i18n/**
+!lib/
+!lib/**
+!messages/
+!messages/**
+!public/
+!public/**
+!scripts/
+!scripts/**
+!test/
+!test/**
+!package.json
+!pnpm-lock.yaml
+!pnpm-workspace.yaml
+!proxy.ts
+!next.config.ts
+!postcss.config.mjs
+!tsconfig.json
+!vitest.config.mts
+!Dockerfile
+# Retain the exclusion even if a private file appears below an allowed directory.
+**/.env*
+**/*.pem
+**/*.key
+**/node_modules/
